@@ -1,5 +1,5 @@
 {
-  "name": "Next Level Learning",
+  "name": "nextlevellearning",
   "version": "0.1.0",
   "private": true,
   "homepage": "nextlevellearning.azurewebsites.net",
@@ -33,7 +33,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
