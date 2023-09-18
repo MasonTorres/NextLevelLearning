@@ -1,0 +1,484 @@
+[
+ { "file": "MDELinuxCentosSetup", "path": "./json/MDELinuxCentosSetup.json", "data": {
+  "title": "Centos Setup",
+  "path": "mde/linux-setup-centos",
+  "section": "MDE",
+  "subSection": "Linux",
+  "data": [
+    {
+      "section": 1,
+      "title": "Checking Existing Install",
+      "description": "What do we have already?",
+      "tasks": [
+        {
+          "step": 1,
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Get Distro Version"
+            },
+            {
+              "Type": "Description",
+              "Value": "This exercie assumes you have a Linux VM setup and running Centos."
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /etc/os-release"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Code",
+              "Value": "NAME=\"CentOS Linux\"\n  VERSION=\"8\"\n  ID=\"centos\"\n  ID_LIKE=\"rhel fedora\"\n  VERSION_ID=\"8\"\n  PLATFORM_ID=\"platform:el8\"\n  PRETTY_NAME=\"CentOS Linux 8\"\n  ANSI_COLOR=\"0;31\"\n  CPE_NAME=\"cpe:/o:centos:centos:8\"\n  HOME_URL=\"https://centos.org/\"\n  BUG_REPORT_URL=\"https://bugs.centos.org/\"\n  CENTOS_MANTISBT_PROJECT=\"CentOS-8\"\n  CENTOS_MANTISBT_PROJECT_VERSION=\"8\""
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Has MDATP already been installed?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check if MDATP is installed"
+            },
+            {
+              "Type": "Code",
+              "Value": "which mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "/bin/mdatp"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "title": "What's the status of the daemon?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check daemon status"
+            },
+            {
+              "Type": "Code",
+              "Value": "service mdatp status"
+            },
+            {
+              "Type": "Description",
+              "Value": "The above command will only work if the daemon is installed and running."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "● mdatp.service - Microsoft Defender\n              Loaded: loaded (/usr/lib/systemd/system/mdatp.service; enabled; vendor preset: disabled)\n              Active: active (running) since Wed 2023-09-13 19:57:32 UTC; 1h 16min ago\n            Main PID: 4802 (wdavdaemon)\n               Tasks: 159 (limit: 12024)\n              Memory: 322.6M\n              CGroup: /system.slice/mdatp.service\n                      ├─4802 /opt/microsoft/mdatp/sbin/wdavdaemon\n                      ├─4836 /opt/microsoft/mdatp/sbin/wdavdaemon edr 12 11 --log_level info\n                      ├─4923 /opt/microsoft/mdatp/sbin/telemetryd_v2 33\"\n                      └─5504 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 265 270 287 289 259 --log_level info"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Envrionment Setup",
+      "description": "Getting the environment ready for MDE for Linux on Centos",
+      "tasks": [
+        {
+          "step": 1,
+          "title": "Update packages and repos",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Update system packages"
+            },
+            {
+              "Type": "Description",
+              "Value": "Update packages using the yum package manager"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum update"
+            },
+            {
+              "Type": "Note",
+              "Value": "Each Linux distrobution has a different package manager. For example, Ubuntu uses apt-get, while Centos uses yum."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/CentosYumUpdate.png"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Update packages and repos",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Add the Microsoft repo to isntall MDE"
+            },
+            {
+              "Type": "Code",
+              "Value": "rpm -Uvh https://packages.microsoft.com/config/rhel/8/prod.repo"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample yum update output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The RPM package repository will be added to the system. This will allow you to install MDE using yum."
+            },
+            {
+              "Type": "Description",
+              "Value": "The output below shows the RPM package being added to the system."
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo dnf repolist | grep microsoft"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum repolist | grep microsoft"
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Update packages and repos",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "We can check the respoiory list to see if the Microsoft repo has been added"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo dnf repolist | grep microsoft"
+            },
+            {
+              "Type": "Description",
+              "Value": "OR"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum repolist | grep microsoft"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample yum update output"
+            },
+            {
+              "Type": "Code",
+              "Value": "microsoftpackages         packages-microsoft-com-prod-insiders-fast"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Install MDE for Linux",
+      "description": "Steps to install the MDE for Linux agent on Centos",
+      "tasks": [
+        {
+          "step": 1,
+          "title": "Install the MDE package.",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Install MDE"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo yum install mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "We can view the logs for this installation in /var/log/microsoft/mdatp/install.log"
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /var/log/microsoft/mdatp/install.log"
+            },
+            {
+              "Type": "Note",
+              "Value": "The 'cat' command will print the file to the screen. You can also use 'less' to view the file."
+            },
+            {
+              "Type": "Code",
+              "Value": "preinstall\n  Arguments passed to the preinstall script: 1\n  preinstall begin [2023-08-28 16:25:28OURCE +0000] 59060\n  correlation id=574704c0-1a70-4b4c-9ca7-7c4df70e3bf8\n  Generation installation id\n  is_new_install=1, bundle_version=101.23072.0021, branch=release/linux/2307-2\n  File /opt/microsoft/mdatp/conf/BuildInfo not found\n  NAME=\"CentOS Linux\"\n  VERSION=\"8\"\n  ID=\"centos\"\n  ID_LIKE=\"rhel fedora\"\n  VERSION_ID=\"8\"\n  PLATFORM_ID=\"platform:el8\"\n  PRETTY_NAME=\"CentOS Linux 8\"\n  ANSI_COLOR=\"0;31\"\n  CPE_NAME=\"cpe:/o:centos:centos:8\"\n  HOME_URL=\"https://centos.org/\"\n  BUG_REPORT_URL=\"https://bugs.centos.org/\"\n  CENTOS_MANTISBT_PROJECT=\"CentOS-8\"\n  CENTOS_MANTISBT_PROJECT_VERSION=\"8\"\n  DISTRO: centos\n  DISTRO_VERSION: 8.5\n  DISTRO_FAMILY: redhat\n  Installed kernel version: 4.18.0-348.7.1.el8_5.x86_64\n  Not a Redhat-7 distribution\n  Scenario= Install\n  Machine Guid: 488afa59-53f8-3b4c-a537-c9a97144172d\n  Creating daemon user\n  Daemon user (mdatp) created successfully\n  Logging pending telemetry\n  [LogTelemetry] Submitting {\n          \"client\": {\n              \"appVersion\": \"101.23072.0021\",\n              \"hostname\": \"centos-01\",\n              \"platform\": \"Linux\",\n              \"machineGuid\": \"488afa59-53f8-3b4c-a537-c9a97144172d\",\n              \"orgId\": \"\",\n              \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\n          },\n          \"reports\":[\n              {\n                  \"$type\":\"installationReport\",\n                  \"correlation_id\": \"574704c0-1a70-4b4c-9ca7-7c4df70e3bf8\",\n                  \"version\": \"101.23072.0021\",\n                  \"severity\": \"W\",\n                  \"code\":\"FileNotExist\",\n                  \"text\":\"File /opt/microsoft/mdatp/conf/BuildInfo not found\"\n              }\n          ]\n      }\n  Telemetry Submitted\n  [LogTelemetry] result=0\n  [LogTelemetry] Submitting {\n          \"client\": {\n              \"appVersion\": \"101.23072.0021\",\n              \"hostname\": \"centos-01\",\n              \"platform\": \"Linux\",\n              \"machineGuid\": \"488afa59-53f8-3b4c-a537-c9a97144172d\",\n              \"orgId\": \"\",\n              \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\n          },\n          \"reports\":[\n              {\n                  \"$type\":\"installationReport\",\n                  \"correlation_id\": \"574704c0-1a70-4b4c-9ca7-7c4df70e3bf8\",\n                  \"version\": \"101.23072.0021\",\n                  \"severity\": \"I\",\n                  \"code\":\"InstallStarted\",\n                  \"text\":\"is_new_install='1', bundle_version='101.23072.0021', branch='release/linux/2307-2', package=''\"\n              }\n          ]\n      }\n  Telemetry Submitted\n  [LogTelemetry] result=0\n  preinstall end [2023-08-28 16:25:29OURCE +0000] 59060\n  postinstall\n  "
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 4,
+      "title": "Explore the MDATP application",
+      "description": "Let's check the configuration of the MDE for Linux agent",
+      "tasks": [
+        {
+          "step": 1,
+          "title": "Health cehck",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Health cehck"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health"
+            },
+            {
+              "Type": "Note",
+              "Value": "The 'mdatp health' command will show the health of the MDE for Linux agent. This will show if the agent is healthy, if there are any health issues, if the agent is licensed, and configurations values."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "healthy                                     : true\n  health_issues                               : []\n  licensed                                    : true\n  engine_version                              : \"1.1.23080.2007\"\n  app_version                                 : \"101.23082.0006\"\n  org_id                                      : \"e1fb4f0a-1fbe-4181-b3e3-180f6e6ac31f\"\n  log_level                                   : \"info\"\n  machine_guid                                : \"488afa59-53f8-3b4c-a537-c9a97144172d\"\n  release_ring                                : \"InsiderFast\"\n  product_expiration                          : May 29, 2024 at 04:26:26 AM\n  cloud_enabled                               : true\n  cloud_automatic_sample_submission_consent   : \"safe\"\n  cloud_diagnostic_enabled                    : false\n  passive_mode_enabled                        : false\n  behavior_monitoring                         : \"disabled\"\n  real_time_protection_enabled                : true\n  real_time_protection_available              : true\n  real_time_protection_subsystem              : \"fanotify\"\n  supplementary_events_subsystem              : \"ebpf\"\n  tamper_protection                           : \"disabled\"\n  automatic_definition_update_enabled         : true\n  definitions_updated                         : Sep 13, 2023 at 07:57:47 PM\n  definitions_updated_minutes_ago             : 114\n  definitions_version                         : \"1.397.911.0\"\n  definitions_status                          : \"up_to_date\"\n  edr_early_preview_enabled                   : \"disabled\"\n  edr_device_tags                             : []\n  edr_group_ids                               : \"\"\n  edr_configuration_version                   : \"30.199999.main.2023.09.12.17-C66E94972A44477D660E4B10FE61A2673B9201934B5797BEF69B78B21746A58B\"\n  edr_machine_id                              : \"138fb85fae1f265d23f2ba51597d3dad830ff411\"\n  conflicting_applications                    : []\n  network_protection_status                   : \"stopped\"\n  network_protection_enforcement_level        : \"disabled\"\n  troubleshooting_mode                        : false"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}},
+ { "file": "MDELinuxORacleKernelUpdate", "path": "./json/MDELinuxORacleKernelUpdate.json", "data": {
+  "title": "Oracle Kernel Update",
+  "path": "mde/linux-oracle-kernel-update",
+  "section": "MDE",
+  "subSection": "Linux",
+  "data": [
+    {
+      "section": 1,
+      "title": "View recommendations",
+      "description": "View recommendations from the Microsoft 365 Defender portal",
+      "tasks": [
+        {
+          "step": 1,
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Review recommendations"
+            },
+            {
+              "Type": "Description",
+              "Value": "Navigate to https://security.microsoft.com/security-recommendations and review the recommendations for your environment."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "What is the security portal doing?"
+            },
+            {
+              "Type": "Description",
+              "Value": "The Microsoft 365 Defender portal is analyzing your environment and providing recommendations based on the security posture of your environment."
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Select a recommendation to review",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Select a recommendation to review"
+            },
+            {
+              "Type": "Description",
+              "Value": "In this scenario we are reviewing teh Update Oracle Kernel-uek for Linux"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleKernel.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "What's does the portal show us?"
+            },
+            {
+              "Type": "Description",
+              "Value": "The portal advises us to update the kerel, it shows the list of exposed/installed devices, and any associated CVEs related to this vulnerability."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-1.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can also see the list of CVEs associated with this vulnerability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Update the kernel",
+      "description": "Update the kernel on the Oracle Linux server",
+      "tasks": [
+        {
+          "step": 1,
+          "title": "What's the current kernel version?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the current kernel version"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo uname -r"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "5.4.16-2136.322.6.2.el8uek.x86_64"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "title": "How do we fix this?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Update the Oracle Kernel"
+            },
+            {
+              "Type": "Description",
+              "Value": "One method is to update the kernel using uptrack. This allows us to update the kernel without rebooting the server."
+            },
+            {
+              "Type": "Code",
+              "Value": "uptrack-upgrade -y"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-2.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the kernel being updated. It displays CVE that are being addressed, and the kernel version being installed."
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Confirm the kernel version",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the new kernel version"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo uname -r"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "5.4.17-2136.322.6.2.el8uek.x86_64"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Check the Security Portal",
+      "description": "Check the Microsoft 365 Defender portal for updates",
+      "tasks": [
+        {
+          "step": 1,
+          "title": "Check the Security Portal",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the Security Portal"
+            },
+            {
+              "Type": "Description",
+              "Value": "Navigate back to the Microsoft 365 Defender portal and review the recommendations."
+            },
+            {
+              "Type": "Note",
+              "Value": "The portal will take some time to update depending on how often the agent reports back to the MDE service."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-3.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "What's does the portal show us?"
+            },
+
+            {
+              "Type": "Description",
+              "Value": "The portal shows that the Oracle Kernel has been updated, and the CVEs have been addressed."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}}
+]

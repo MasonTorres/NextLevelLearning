@@ -1,0 +1,206 @@
+{
+  "title": "Oracle Kernel Update",
+  "path": "mde/linux-oracle-kernel-update",
+  "section": "MDE",
+  "subSection": "Linux",
+  "data": [
+    {
+      "section": 1,
+      "title": "View recommendations",
+      "description": "View recommendations from the Microsoft 365 Defender portal",
+      "tasks": [
+        {
+          "step": 1,
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Review recommendations"
+            },
+            {
+              "Type": "Description",
+              "Value": "Navigate to https://security.microsoft.com/security-recommendations and review the recommendations for your environment."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "What is the security portal doing?"
+            },
+            {
+              "Type": "Description",
+              "Value": "The Microsoft 365 Defender portal is analyzing your environment and providing recommendations based on the security posture of your environment."
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Select a recommendation to review",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Select a recommendation to review"
+            },
+            {
+              "Type": "Description",
+              "Value": "In this scenario we are reviewing teh Update Oracle Kernel-uek for Linux"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleKernel.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "What's does the portal show us?"
+            },
+            {
+              "Type": "Description",
+              "Value": "The portal advises us to update the kerel, it shows the list of exposed/installed devices, and any associated CVEs related to this vulnerability."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-1.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can also see the list of CVEs associated with this vulnerability."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Update the kernel",
+      "description": "Update the kernel on the Oracle Linux server",
+      "tasks": [
+        {
+          "step": 1,
+          "title": "What's the current kernel version?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the current kernel version"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo uname -r"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "5.4.16-2136.322.6.2.el8uek.x86_64"
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "title": "How do we fix this?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Update the Oracle Kernel"
+            },
+            {
+              "Type": "Description",
+              "Value": "One method is to update the kernel using uptrack. This allows us to update the kernel without rebooting the server."
+            },
+            {
+              "Type": "Code",
+              "Value": "uptrack-upgrade -y"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-2.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the kernel being updated. It displays CVE that are being addressed, and the kernel version being installed."
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Confirm the kernel version",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the new kernel version"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo uname -r"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "5.4.17-2136.322.6.2.el8uek.x86_64"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Check the Security Portal",
+      "description": "Check the Microsoft 365 Defender portal for updates",
+      "tasks": [
+        {
+          "step": 1,
+          "title": "Check the Security Portal",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the Security Portal"
+            },
+            {
+              "Type": "Description",
+              "Value": "Navigate back to the Microsoft 365 Defender portal and review the recommendations."
+            },
+            {
+              "Type": "Note",
+              "Value": "The portal will take some time to update depending on how often the agent reports back to the MDE service."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-3.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "What's does the portal show us?"
+            },
+
+            {
+              "Type": "Description",
+              "Value": "The portal shows that the Oracle Kernel has been updated, and the CVEs have been addressed."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
