@@ -1,6 +1,6 @@
 #!/bin/bash
 # Directory to scan
-dir="./json"
+dir="src/pages/MDE/Linux/NextLevelLearning/json"
 # Output file
 output="nllDataFiles.json"
 
