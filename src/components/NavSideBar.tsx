@@ -174,7 +174,6 @@ export default function NavSideBar({ link }: any) {
     setOpen(false);
   };
 
-  const classes = useStyles();
   const [openMenu, setOpenMenu] = React.useState(false);
 
   const handleClick = () => {
