@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { Component, ReactComponentElement, useContext } from "react";
 import { PageInfoContext } from "../appContext";
 import Router from "../pages/router";
 import {
@@ -15,6 +15,8 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ListItemButton from "@mui/material/ListItemButton";
+import { Icon } from "@iconify/react";
+
 import { Collapse, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -23,12 +25,13 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
+
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { makeStyles } from "@fluentui/react-components";
 import NavItem from "./NavItem";
 
-import nllDataFiles from "../pages/MDE/Linux/NextLevelLearning/nllDataFiles.json";
+import nllDataFiles from "../content/nllDataFiles.json";
 const drawerWidth = 240;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -111,7 +114,11 @@ const useStyles = makeStyles((theme: any) => ({
   },
 }));
 
-let linuxmde: { to: string; title: string }[] = [];
+let linuxmde: {
+  icon: ReactComponentElement<typeof Icon>;
+  to: string;
+  title: string;
+}[] = [];
 
 nllDataFiles.forEach(
   (file: {
@@ -122,38 +129,34 @@ nllDataFiles.forEach(
     };
   }) => {
     linuxmde.push({
+      icon: <Icon icon="material-symbols:line-end" fontSize={20} />,
       to: `#${file.data.path}`,
       title: `${file.data.title}`,
     });
   }
 );
-console.log("linuxmde", linuxmde);
 
 const links = [
   {
     icon: <InboxIcon />,
     title: "Home",
     items: [],
+    to: "#home",
   },
   {
-    icon: <MailIcon />,
+    icon: <SecurityOutlinedIcon />,
     title: "MDE",
     items: [
       {
         title: "Linux",
+        icon: <Icon icon="cib:linux" fontSize={20} />,
         items: [
           {
             title: "Cheat sheet",
+            icon: <Icon icon="material-symbols:line-end" fontSize={20} />,
             to: "#mde/linux-cheatsheet",
           },
-          //   {
-          //     title: "MDE Linux Setup Centos",
-          //     to: "#mde/linux-setup-centos",
-          //   },
-          //   {
-          //     title: "Oracle Kernel Update",
-          //     to: "#mde/linux-oracle-kernel-update",
-          //   },
+
           ...linuxmde,
         ],
       },
@@ -215,7 +218,7 @@ export default function NavSideBar({ link }: any) {
           {links.map((link) =>
             link.items.length === 0 ? (
               <div key={link.title}>
-                <ListItemButton>
+                <ListItemButton href={link.to ? link.to : ""}>
                   <ListItemIcon>{link.icon}</ListItemIcon>
                   <ListItemText primary={link.title} />
                 </ListItemButton>

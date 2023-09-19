@@ -3,13 +3,10 @@ import About from "./About";
 import Home from "./Home";
 import NextLevelLearning from "./NextLevelLearning";
 import MDELinuxCheatSeet from "./MDE/Linux/CheatSheet";
-import {
-  MDELinuxCentosSetup,
-  MDELinuxOracleKernelUpdate,
-} from "./MDE/Linux/NextLevelLearning/data";
 import MDEMacCheatSeet from "./MDE/MAC/CheatSheet";
-import nllDataFiles from "./MDE/Linux/NextLevelLearning/nllDataFiles.json";
+import nllDataFiles from "../content/nllDataFiles.json";
 
+// Add static pages
 const pagesData: routerType[] = [
   {
     path: "",
@@ -36,18 +33,9 @@ const pagesData: routerType[] = [
     element: <MDEMacCheatSeet />,
     title: "MDE Mac Cheat Sheet",
   },
-  // {
-  //   path: `${MDELinuxCentosSetup.path}`,
-  //   element: <NextLevelLearning content={MDELinuxCentosSetup.data} />,
-  //   title: `${MDELinuxCentosSetup.title}`,
-  // },
-  // {
-  //   path: `${MDELinuxOracleKernelUpdate.path}`,
-  //   element: <NextLevelLearning content={MDELinuxOracleKernelUpdate.data} />,
-  //   title: `${MDELinuxOracleKernelUpdate.title}`,
-  // },
 ];
 
+// Add Next Level Learning pages
 nllDataFiles.forEach((file) => {
   pagesData.push({
     path: `${file.data.path}`,

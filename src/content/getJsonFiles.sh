@@ -1,6 +1,8 @@
 #!/bin/bash
+# Script used by GitHub Actions to generate the Next Level Learning pages based on the source json files
+
 # Directory to scan
-dir="src/pages/MDE/Linux/NextLevelLearning/json"
+dir="src/content/json"
 # Output file
 output="nllDataFiles.json"
 

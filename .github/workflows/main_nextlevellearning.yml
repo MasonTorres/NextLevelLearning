@@ -23,7 +23,7 @@ jobs:
 
       - name: Generate json pages
         run: |
-          bash src/pages/MDE/Linux/NextLevelLearning/getJsonFiles.sh
+          bash src/content/getJsonFiles.sh
 
       - name: npm install, build, and test
         run: |

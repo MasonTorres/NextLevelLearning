@@ -1,9 +1,11 @@
+import { Box } from "@mui/material";
+
 const Home = () => {
-    return (
-        <div>
-            <h1>Here is a blog about some identity and mde things.</h1>
-        </div>
-    );
+  return (
+    <Box mt={3}>
+      <h1>Next Level Learning</h1>
+    </Box>
+  );
 };
 
 export default Home;
