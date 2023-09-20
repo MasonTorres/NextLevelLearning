@@ -79,7 +79,7 @@ export default function UserActivity({ userActivity }: Props) {
                 } else if (activity.Type === "Code") {
                   return (
                     <div key={activity.Value}>
-                      <Box py={1}>
+                      <Box py={1} maxWidth={"1200px"}>
                         <BlogCodeBlock
                           code={activity.Value}
                           showLineNumbers={true}

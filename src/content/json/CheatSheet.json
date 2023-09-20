@@ -795,21 +795,219 @@
       "tasks": [
         {
           "step": 1,
-          "title": "What's the current kernel version?",
-          "userActivity": [],
-          "backgroundActivity": []
+          "title": "Check license",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check license"
+            },
+            {
+              "Type": "Description",
+              "Value": "Check license"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health --field org_id"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample - No license"
+            },
+            {
+              "Type": "Code",
+              "Value": "No license found"
+            },
+            {
+              "Type": "Title",
+              "Value": "Output sample - License"
+            },
+            {
+              "Type": "Code",
+              "Value": "org_id: 00000000-0000-0000-0000-000000000000"
+            }
+          ]
         },
         {
           "step": 2,
-          "title": "How do we fix this?",
-          "userActivity": [],
-          "backgroundActivity": []
+          "title": "Check health",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check health"
+            },
+            {
+              "Type": "Description",
+              "Value": "Check health"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health --field healthy"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health --field health_issues"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample - Healthy"
+            },
+            {
+              "Type": "Code",
+              "Value": "true"
+            },
+            {
+              "Type": "Title",
+              "Value": "Output sample - Unhealthy"
+            },
+            {
+              "Type": "Code",
+              "Value": "[\"Network Protection cannot start due to unsupported release ring\"]"
+            }
+          ]
         },
         {
           "step": 3,
-          "title": "Confirm the kernel version",
-          "userActivity": [],
-          "backgroundActivity": []
+          "title": "Check Service",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check Service"
+            },
+            {
+              "Type": "Description",
+              "Value": "Check Service status"
+            },
+            {
+              "Type": "Code",
+              "Value": "service auditd status"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample - Running"
+            },
+            {
+              "Type": "Code",
+              "Value": "\u25CF auditd.service - Security Auditing Service\r\n     Loaded: loaded (/lib/systemd/system/auditd.service; enabled; vendor preset: enabled)\r\n     Active: active (running) since Wed 2023-09-20 05:32:29 UTC; 12h ago\r\n       Docs: man:auditd(8)\r\n             https://github.com/linux-audit/audit-documentation\r\n   Main PID: 494 (auditd)\r\n      Tasks: 24 (limit: 9456)\r\n     Memory: 47.3M\r\n     CGroup: /system.slice/auditd.service\r\n             \u251C\u2500 494 /sbin/auditd\r\n             \u251C\u25001310 /sbin/audispd\r\n             \u2514\u25001311 /opt/microsoft/mdatp/sbin/mdatp_audisp_plugin"
+            }
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Real Time Protection",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Enable Real Time Protection"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp config real-time-protection --value enabled"
+            },
+            {
+              "Type": "Title",
+              "Value": "Disable Real Time Protection"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp config real-time-protection --value disabled"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample - Enable"
+            },
+            {
+              "Type": "Code",
+              "Value": "Configuration property updated."
+            },
+            {
+              "Type": "Title",
+              "Value": "Output sample - Disable"
+            },
+            {
+              "Type": "Code",
+              "Value": "Configuration property updated."
+            }
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Potentially Unwanted Applications PAU ",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Potentially Unwanted Applications - off"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp threat policy set --type potentially_unwanted_application --action off"
+            },
+            {
+              "Type": "Title",
+              "Value": "Disable Potentially Unwanted Applications - audit"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp threat policy set --type potentially_unwanted_application --action audit"
+            },
+            {
+              "Type": "Title",
+              "Value": "Disable Potentially Unwanted Applications - block"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp threat policy set --type potentially_unwanted_application --action block"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "Threat policy modified successfully"
+            }
+          ]
+        },
+        {
+          "step": 6,
+          "title": "eBPF sensor (Extended Berkley Packet Filter)",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Enable eBPF sensor (Extended Berkley Packet Filter)"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp config ebpf-supplementary-event-provider --value enabled"
+            },
+            {
+              "Type": "Title",
+              "Value": "Disable eBPF sensor (Extended Berkley Packet Filter)"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp config ebpf-supplementary-event-provider --value disabled"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "Configuration property updated."
+            }
+          ]
         }
       ]
     },
@@ -820,21 +1018,87 @@
       "tasks": [
         {
           "step": 1,
-          "title": "What's the current kernel version?",
-          "userActivity": [],
-          "backgroundActivity": []
+          "title": "Log location",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "MDE - Log location"
+            },
+            {
+              "Type": "Code",
+              "Value": "/var/log/microsoft/mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "MDE - Log location"
+            },
+            {
+              "Type": "Code",
+              "Value": "ls -l /var/log/microsoft/mdatp\r\ntotal 8056\r\n-rw-r----- 1 mdatp mdatp   15006 Sep 20 05:21 install.log\r\n-rw-r----- 1 mdatp mdatp   90361 Sep 20 18:02 microsoft_defender.log\r\n-rw-r----- 1 mdatp mdatp 2828306 Sep 20 18:02 microsoft_defender_core.log\r\n-rw-r----- 1 mdatp mdatp 3148549 Sep 20 18:01 microsoft_defender_core_err.log\r\n-rw-r----- 1 mdatp mdatp  584080 Sep 20 05:32 microsoft_defender_diagnostic.log\r\n-rw-r----- 1 mdatp mdatp     794 Sep 20 05:21 microsoft_defender_diagnostic_err.log\r\n-rw-r----- 1 mdatp mdatp    1312 Aug 21 23:00 microsoft_defender_diagnostic_event_provider_counters.json\r\n-rw-r----- 1 mdatp mdatp  552418 Sep 20 18:02 microsoft_defender_enterprise.log\r\n-rw-r----- 1 mdatp mdatp  388710 Sep 20 18:02 microsoft_defender_enterprise_err.log\r\n-rw-r----- 1 mdatp mdatp   32121 Sep 20 05:32 microsoft_defender_enterprise_imds.log\r\n-rw-r----- 1 mdatp mdatp  271125 Sep 20 18:02 microsoft_defender_enterprise_telemetryd.log\r\n-rw-r----- 1 mdatp mdatp    7345 Sep 20 16:22 microsoft_defender_enterprise_telemetryd_err.log\r\n-rw-r----- 1 mdatp mdatp   11737 Sep 20 13:32 microsoft_defender_err.log\r\n-rw-r----- 1 mdatp mdatp  251404 Sep 20 18:02 microsoft_defender_mplog.log\r\ndrwxrwxr-x 2 root  mdatp    4096 Sep 20 05:15 rotated\r\n-rw-r----- 1 mdatp mdatp    3137 Sep 20 05:21 uninstall.log"
+            }
+          ]
         },
         {
           "step": 2,
-          "title": "How do we fix this?",
-          "userActivity": [],
-          "backgroundActivity": []
-        },
-        {
-          "step": 3,
-          "title": "Confirm the kernel version",
-          "userActivity": [],
-          "backgroundActivity": []
+          "title": "Check Permissions",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check Permissions"
+            },
+            {
+              "Type": "Description",
+              "Value": "Using the stat command we can check the permissions of the directories and files."
+            },
+            {
+              "Type": "Code",
+              "Value": "stat /var"
+            },
+            {
+              "Type": "Code",
+              "Value": "stat /var/log"
+            },
+            {
+              "Type": "Code",
+              "Value": "stat /var/log/microsoft"
+            },
+            {
+              "Type": "Description",
+              "Value": "The 'Access' should show permissions matching: (0755/drwxr-xr-x) If they do not match, update them with the below commands"
+            },
+            {
+              "Type": "Code",
+              "Value": "chmod 755 /var\r\nchmod 755 /var/log\r\nchmod 755 /var/log/microsoft"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check Permissions - /var"
+            },
+            {
+              "Type": "Code",
+              "Value": "File: /var\r\n  Size: 4096            Blocks: 8          IO Block: 4096   directory\r\nDevice: 801h/2049d      Inode: 68806       Links: 13\r\nAccess: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)\r\nAccess: 2023-08-25 18:35:28.292450372 +0000\r\nModify: 2023-07-24 21:41:47.157883351 +0000\r\nChange: 2023-07-24 21:42:30.429271666 +0000\r\n Birth: -"
+            },
+            {
+              "Type": "Title",
+              "Value": "Check Permissions - /var/log"
+            },
+            {
+              "Type": "Code",
+              "Value": "File: /var/log\r\n  Size: 4096            Blocks: 8          IO Block: 4096   directory\r\nDevice: 801h/2049d      Inode: 81012       Links: 12\r\nAccess: (0775/drwxrwxr-x)  Uid: (    0/    root)   Gid: (  110/  syslog)\r\nAccess: 2023-09-20 05:37:41.752210675 +0000\r\nModify: 2023-09-20 05:32:38.521892324 +0000\r\nChange: 2023-09-20 05:32:38.521892324 +0000\r\n Birth: -"
+            },
+            {
+              "Type": "Title",
+              "Value": "Check Permissions - /var/log/microsoft"
+            },
+            {
+              "Type": "Code",
+              "Value": "File: /var/log/microsoft\r\n  Size: 4096            Blocks: 8          IO Block: 4096   directory\r\nDevice: 801h/2049d      Inode: 258442      Links: 3\r\nAccess: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)\r\nAccess: 2023-08-25 18:35:30.680535168 +0000\r\nModify: 2023-08-18 23:40:09.156314644 +0000\r\nChange: 2023-09-20 05:21:23.200663892 +0000\r\n Birth: -"
+            }
+          ]
         }
       ]
     }

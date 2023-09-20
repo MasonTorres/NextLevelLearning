@@ -150,15 +150,7 @@ const links = [
       {
         title: "Linux",
         icon: <Icon icon="cib:linux" fontSize={20} />,
-        items: [
-          {
-            title: "Cheat sheet",
-            icon: <Icon icon="material-symbols:line-end" fontSize={20} />,
-            to: "#mde/linux-cheatsheet",
-          },
-
-          ...linuxmde,
-        ],
+        items: [...linuxmde],
       },
     ],
   },
