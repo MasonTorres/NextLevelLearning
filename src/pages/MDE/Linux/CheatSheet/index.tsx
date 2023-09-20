@@ -94,6 +94,21 @@ tar czf [compressed_file.tar.gz]`,
     code: `tar czf [compressed_file.tar.gz]
 gzip [file_name]`,
   },
+  {
+    title: "Check disk space",
+    description: "",
+    code: "df -h",
+  },
+  {
+    title: "Check disk space for a specific folder",
+    description: "",
+    code: "du -sh /home/labmin",
+  },
+  {
+    title: "Shell",
+    description: "What shell are we using?",
+    code: "echo $SHELL",
+  },
 ];
 
 const cheatsInstall = [

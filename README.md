@@ -149,8 +149,8 @@ Example content json
         },
       ]
     }
-  }
-]
+}
+
 ```
 
 More coming soon...

@@ -2,7 +2,7 @@
 # Script used by GitHub Actions to generate the Next Level Learning pages based on the source json files
 
 # Directory to scan
-dir="src/content/json"
+dir="./json"
 # Output file
 output="nllDataFiles.json"
 
