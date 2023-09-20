@@ -133,8 +133,8 @@ export default function NextLevelLearning({
                 </Element>
               </Grid>
 
-              {step.tasks.map((task) => (
-                <Fragment key={`task${task.step}`}>
+              {step.tasks.map((task, index) => (
+                <Fragment key={`task${index + 1}`}>
                   {/* User Activity */}
                   <Grid
                     item
@@ -148,7 +148,7 @@ export default function NextLevelLearning({
                   >
                     <Box px={2}>
                       <Typography variant="subtitle1" mb={1}>
-                        User Activity {task.step}
+                        User Activity {index + 1}
                       </Typography>
 
                       {/* Load the User Activity component */}
@@ -172,7 +172,7 @@ export default function NextLevelLearning({
                   >
                     <Box px={1}>
                       <Typography variant="subtitle1" mb={1}>
-                        Background Activity {task.step}
+                        Background Activity {index + 1}
                       </Typography>
 
                       {/* Load the Background Activity component */}

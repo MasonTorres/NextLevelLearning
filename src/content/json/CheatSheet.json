@@ -10,7 +10,6 @@
       "description": "General commands",
       "tasks": [
         {
-          "step": 1,
           "title": "",
           "userActivity": [
             {
@@ -38,7 +37,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "",
           "userActivity": [
             {
@@ -78,7 +76,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "",
           "userActivity": [
             {
@@ -106,7 +103,6 @@
           ]
         },
         {
-          "step": 4,
           "title": "",
           "userActivity": [
             {
@@ -134,7 +130,6 @@
           ]
         },
         {
-          "step": 5,
           "title": "",
           "userActivity": [
             {
@@ -162,7 +157,6 @@
           ]
         },
         {
-          "step": 6,
           "title": "",
           "userActivity": [
             {
@@ -190,7 +184,6 @@
           ]
         },
         {
-          "step": 7,
           "title": "",
           "userActivity": [
             {
@@ -218,7 +211,6 @@
           ]
         },
         {
-          "step": 8,
           "title": "",
           "userActivity": [
             {
@@ -242,7 +234,6 @@
           ]
         },
         {
-          "step": 9,
           "title": "",
           "userActivity": [
             {
@@ -278,7 +269,6 @@
           ]
         },
         {
-          "step": 10,
           "title": "",
           "userActivity": [
             {
@@ -302,7 +292,6 @@
           ]
         },
         {
-          "step": 11,
           "title": "",
           "userActivity": [
             {
@@ -326,7 +315,6 @@
           ]
         },
         {
-          "step": 12,
           "title": "",
           "userActivity": [
             {
@@ -350,7 +338,6 @@
           ]
         },
         {
-          "step": 13,
           "title": "",
           "userActivity": [
             {
@@ -386,7 +373,6 @@
           ]
         },
         {
-          "step": 14,
           "title": "",
           "userActivity": [
             {
@@ -421,7 +407,6 @@
       "description": "",
       "tasks": [
         {
-          "step": 1,
           "title": "Get Distro version",
           "userActivity": [
             {
@@ -449,7 +434,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "",
           "userActivity": [
             {
@@ -473,7 +457,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "",
           "userActivity": [
             {
@@ -497,7 +480,6 @@
           ]
         },
         {
-          "step": 4,
           "title": "",
           "userActivity": [
             {
@@ -517,7 +499,6 @@
           ]
         },
         {
-          "step": 5,
           "title": "",
           "userActivity": [
             {
@@ -537,7 +518,6 @@
           ]
         },
         {
-          "step": 6,
           "title": "",
           "userActivity": [
             {
@@ -557,7 +537,6 @@
           ]
         },
         {
-          "step": 7,
           "title": "",
           "userActivity": [
             {
@@ -577,7 +556,6 @@
           ]
         },
         {
-          "step": 8,
           "title": "",
           "userActivity": [
             {
@@ -604,7 +582,6 @@
       "description": "",
       "tasks": [
         {
-          "step": 1,
           "title": "Get RSA from PEM",
           "userActivity": [
             {
@@ -632,7 +609,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Copy file from Windows to Linux with SCP",
           "userActivity": [
             {
@@ -667,7 +643,6 @@
       "description": "",
       "tasks": [
         {
-          "step": 1,
           "title": "Debian - Ubunutu",
           "userActivity": [
             {
@@ -703,7 +678,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "RPM - RedHat, Fedora, Oracle",
           "userActivity": [
             {
@@ -739,7 +713,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "SUSE, openSUSE",
           "userActivity": [
             {
@@ -763,7 +736,6 @@
           ]
         },
         {
-          "step": 4,
           "title": "Arch Linux, EndeavourOS and Manjaro Linux",
           "userActivity": [
             {
@@ -794,7 +766,6 @@
       "description": "",
       "tasks": [
         {
-          "step": 1,
           "title": "Check license",
           "userActivity": [
             {
@@ -830,7 +801,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Check health",
           "userActivity": [
             {
@@ -870,7 +840,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "Check Service",
           "userActivity": [
             {
@@ -898,7 +867,6 @@
           ]
         },
         {
-          "step": 4,
           "title": "Real Time Protection",
           "userActivity": [
             {
@@ -938,7 +906,6 @@
           ]
         },
         {
-          "step": 5,
           "title": "Potentially Unwanted Applications PAU ",
           "userActivity": [
             {
@@ -978,7 +945,6 @@
           ]
         },
         {
-          "step": 6,
           "title": "eBPF sensor (Extended Berkley Packet Filter)",
           "userActivity": [
             {
@@ -1017,7 +983,6 @@
       "description": "",
       "tasks": [
         {
-          "step": 1,
           "title": "Log location",
           "userActivity": [
             {
@@ -1041,7 +1006,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Check Permissions",
           "userActivity": [
             {

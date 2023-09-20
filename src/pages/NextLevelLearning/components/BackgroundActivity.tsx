@@ -5,6 +5,7 @@ import {
   CardPreview,
   Text,
   Image,
+  Button,
 } from "@fluentui/react-components";
 import {
   Typography,
@@ -18,6 +19,7 @@ import Linkify from "react-linkify";
 import { IBackgroundActivity } from "../../../types/types";
 import BlogCodeBlock from "../../../components/code-block";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import AspectRatioIcon from "@mui/icons-material/AspectRatio";
 import { SetStateAction, useState } from "react";
 import React from "react";
 
@@ -28,12 +30,24 @@ type Props = {
 export default function BackgroundActivity({ backgroundActivity }: Props) {
   const [open, setOpen] = useState(false);
   const [image, setImage] = useState("");
+
+  const [codeBlockOpen, setCodeBlockOpen] = useState(false);
+  const [codeBlock, setCodeBlock] = useState("");
+
   const [maxWidth, setMaxWidth] = React.useState<DialogProps["maxWidth"]>("lg");
   const handleOpen = (imageUrl: SetStateAction<string>) => {
     setOpen(true);
     setImage(imageUrl);
   };
   const handleClose = () => setOpen(false);
+
+  const handleCodeBlockOpen = (codeBlock: SetStateAction<any>) => {
+    console.log("codeBlock", codeBlock);
+    setCodeBlock(codeBlock);
+    setCodeBlockOpen(true);
+  };
+
+  const handleCodeBlockClose = () => setCodeBlockOpen(false);
 
   return (
     <Card>
@@ -72,6 +86,24 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                   return (
                     <div key={activity.Value}>
                       <Box py={1} maxWidth={"1200px"}>
+                        <div style={{ display: "flex" }}>
+                          <Button
+                            style={{ marginLeft: "auto", marginBottom: "5px" }}
+                            size="small"
+                            icon={<AspectRatioIcon fontSize="small" />}
+                            onClick={() =>
+                              handleCodeBlockOpen(
+                                <BlogCodeBlock
+                                  code={activity.Value}
+                                  showLineNumbers={true}
+                                  language={"shell"}
+                                  startingLineNumber={1}
+                                />
+                              )
+                            }
+                            title="Expand Code Block"
+                          />
+                        </div>
                         <BlogCodeBlock
                           code={activity.Value}
                           showLineNumbers={true}
@@ -84,6 +116,17 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                 } else if (activity.Type === "Image") {
                   return (
                     <div key={activity.Value}>
+                      <div style={{ display: "flex" }}>
+                        <Button
+                          style={{ marginLeft: "auto", marginBottom: "5px" }}
+                          size="small"
+                          icon={<AspectRatioIcon fontSize="small" />}
+                          onClick={() =>
+                            handleOpen(process.env.PUBLIC_URL + activity.Value)
+                          }
+                          title="Expand Image"
+                        />
+                      </div>
                       <Box py={1}>
                         <Image
                           alt=""
@@ -120,6 +163,7 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                 }
               })}
             </Box>
+            {/* Image dialog */}
             <Dialog
               open={open}
               maxWidth={maxWidth}
@@ -136,6 +180,24 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                   bordered={false}
                   block={true}
                 />
+              </Paper>
+            </Dialog>
+            {/* Code Block dialog */}
+            <Dialog
+              open={codeBlockOpen}
+              maxWidth={maxWidth}
+              onClose={handleCodeBlockClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+            >
+              <Paper
+                elevation={3}
+                sx={{
+                  p: 1,
+                  minWidth: { lg: "600px", xs: "100vw" },
+                }}
+              >
+                {codeBlock}
               </Paper>
             </Dialog>
           </Linkify>

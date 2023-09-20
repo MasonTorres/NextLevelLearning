@@ -41,7 +41,6 @@ export type IContent = {
 }
 
 export type ITask = {
-    step: number,
     title: string,
     userActivity: IUserActivity[],
     backgroundActivity: IBackgroundActivity[],

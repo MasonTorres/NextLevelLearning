@@ -11,7 +11,6 @@
       "description": "General commands",
       "tasks": [
         {
-          "step": 1,
           "title": "",
           "userActivity": [
             {
@@ -39,7 +38,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "",
           "userActivity": [
             {
@@ -79,7 +77,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "",
           "userActivity": [
             {
@@ -107,7 +104,6 @@
           ]
         },
         {
-          "step": 4,
           "title": "",
           "userActivity": [
             {
@@ -135,7 +131,6 @@
           ]
         },
         {
-          "step": 5,
           "title": "",
           "userActivity": [
             {
@@ -163,7 +158,6 @@
           ]
         },
         {
-          "step": 6,
           "title": "",
           "userActivity": [
             {
@@ -191,7 +185,6 @@
           ]
         },
         {
-          "step": 7,
           "title": "",
           "userActivity": [
             {
@@ -219,7 +212,6 @@
           ]
         },
         {
-          "step": 8,
           "title": "",
           "userActivity": [
             {
@@ -243,7 +235,6 @@
           ]
         },
         {
-          "step": 9,
           "title": "",
           "userActivity": [
             {
@@ -279,7 +270,6 @@
           ]
         },
         {
-          "step": 10,
           "title": "",
           "userActivity": [
             {
@@ -303,7 +293,6 @@
           ]
         },
         {
-          "step": 11,
           "title": "",
           "userActivity": [
             {
@@ -327,7 +316,6 @@
           ]
         },
         {
-          "step": 12,
           "title": "",
           "userActivity": [
             {
@@ -351,7 +339,6 @@
           ]
         },
         {
-          "step": 13,
           "title": "",
           "userActivity": [
             {
@@ -387,7 +374,6 @@
           ]
         },
         {
-          "step": 14,
           "title": "",
           "userActivity": [
             {
@@ -422,7 +408,6 @@
       "description": "",
       "tasks": [
         {
-          "step": 1,
           "title": "Get Distro version",
           "userActivity": [
             {
@@ -450,7 +435,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "",
           "userActivity": [
             {
@@ -474,7 +458,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "",
           "userActivity": [
             {
@@ -498,7 +481,6 @@
           ]
         },
         {
-          "step": 4,
           "title": "",
           "userActivity": [
             {
@@ -518,7 +500,6 @@
           ]
         },
         {
-          "step": 5,
           "title": "",
           "userActivity": [
             {
@@ -538,7 +519,6 @@
           ]
         },
         {
-          "step": 6,
           "title": "",
           "userActivity": [
             {
@@ -558,7 +538,6 @@
           ]
         },
         {
-          "step": 7,
           "title": "",
           "userActivity": [
             {
@@ -578,7 +557,6 @@
           ]
         },
         {
-          "step": 8,
           "title": "",
           "userActivity": [
             {
@@ -605,7 +583,6 @@
       "description": "",
       "tasks": [
         {
-          "step": 1,
           "title": "Get RSA from PEM",
           "userActivity": [
             {
@@ -633,7 +610,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Copy file from Windows to Linux with SCP",
           "userActivity": [
             {
@@ -668,7 +644,6 @@
       "description": "",
       "tasks": [
         {
-          "step": 1,
           "title": "Debian - Ubunutu",
           "userActivity": [
             {
@@ -704,7 +679,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "RPM - RedHat, Fedora, Oracle",
           "userActivity": [
             {
@@ -740,7 +714,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "SUSE, openSUSE",
           "userActivity": [
             {
@@ -764,7 +737,6 @@
           ]
         },
         {
-          "step": 4,
           "title": "Arch Linux, EndeavourOS and Manjaro Linux",
           "userActivity": [
             {
@@ -795,7 +767,6 @@
       "description": "",
       "tasks": [
         {
-          "step": 1,
           "title": "Check license",
           "userActivity": [
             {
@@ -831,7 +802,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Check health",
           "userActivity": [
             {
@@ -862,7 +832,7 @@
             },
             {
               "Type": "Title",
-              "Value": "Output sample - Unhealthy"
+              "Value": "Output sample - Health Issues"
             },
             {
               "Type": "Code",
@@ -871,7 +841,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "Check Service",
           "userActivity": [
             {
@@ -899,7 +868,6 @@
           ]
         },
         {
-          "step": 4,
           "title": "Real Time Protection",
           "userActivity": [
             {
@@ -939,7 +907,6 @@
           ]
         },
         {
-          "step": 5,
           "title": "Potentially Unwanted Applications PAU ",
           "userActivity": [
             {
@@ -979,7 +946,6 @@
           ]
         },
         {
-          "step": 6,
           "title": "eBPF sensor (Extended Berkley Packet Filter)",
           "userActivity": [
             {
@@ -1018,7 +984,6 @@
       "description": "",
       "tasks": [
         {
-          "step": 1,
           "title": "Log location",
           "userActivity": [
             {
@@ -1042,7 +1007,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Check Permissions",
           "userActivity": [
             {
@@ -1117,7 +1081,6 @@
       "description": "What do we have already?",
       "tasks": [
         {
-          "step": 1,
           "title": "",
           "userActivity": [
             {
@@ -1145,7 +1108,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Has MDATP already been installed?",
           "userActivity": [
             {
@@ -1169,7 +1131,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "What's the status of the daemon?",
           "userActivity": [
             {
@@ -1204,7 +1165,6 @@
       "description": "Getting the environment ready for MDE for Linux on Centos",
       "tasks": [
         {
-          "step": 1,
           "title": "Update packages and repos",
           "userActivity": [
             {
@@ -1236,7 +1196,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Update packages and repos",
           "userActivity": [
             {
@@ -1272,7 +1231,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "Update packages and repos",
           "userActivity": [
             {
@@ -1311,7 +1269,6 @@
       "description": "Steps to install the MDE for Linux agent on Centos",
       "tasks": [
         {
-          "step": 1,
           "title": "Install the MDE package.",
           "userActivity": [
             {
@@ -1350,7 +1307,6 @@
       "description": "Let's check the configuration of the MDE for Linux agent",
       "tasks": [
         {
-          "step": 1,
           "title": "Health cehck",
           "userActivity": [
             {
@@ -1381,7 +1337,7 @@
     }
   ]
 }},
- { "file": "MDELinuxORacleKernelUpdate", "path": "./json/MDELinuxORacleKernelUpdate.json", "data": {
+ { "file": "MDELinuxOracleKernelUpdate", "path": "./json/MDELinuxOracleKernelUpdate.json", "data": {
   "title": "Oracle Kernel Update",
   "path": "mde/linux-oracle-kernel-update",
   "section": "MDE",
@@ -1393,7 +1349,6 @@
       "description": "View recommendations from the Microsoft 365 Defender portal",
       "tasks": [
         {
-          "step": 1,
           "title": "",
           "userActivity": [
             {
@@ -1421,7 +1376,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Select a recommendation to review",
           "userActivity": [
             {
@@ -1464,7 +1418,6 @@
       "description": "Update the kernel on the Oracle Linux server",
       "tasks": [
         {
-          "step": 1,
           "title": "What's the current kernel version?",
           "userActivity": [
             {
@@ -1488,7 +1441,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "How do we fix this?",
           "userActivity": [
             {
@@ -1520,7 +1472,45 @@
           ]
         },
         {
-          "step": 3,
+          "title": "How do we fix this?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Update the Oracle Kernel"
+            },
+            {
+              "Type": "Description",
+              "Value": "Another method is to use dnf upgrade."
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo dnf upgrade"
+            },
+            {
+              "Type": "Description",
+              "Value": "Reboot the server to complete the kernel update."
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo reboot"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Last metadata expiration check: 4:03:15 ago on Wed 20 Sep 2023 02:53:25 PM UTC.\r\nDependencies resolved.\r\n============================================================================================================================================================================================\r\n Package                                 Architecture                     Version                                               Repository                                             Size\r\n============================================================================================================================================================================================\r\nUpgrading:\r\n dmidecode                               x86_64                           1:3.3-4.el8_8.1                                       ol8_baseos_latest                                      92 k\r\n libgcc                                  x86_64                           8.5.0-18.0.5.el8                                      ol8_baseos_latest                                      91 k\r\n libgomp                                 x86_64                           8.5.0-18.0.5.el8                                      ol8_baseos_latest                                     217 k\r\n libstdc++                               x86_64                           8.5.0-18.0.5.el8                                      ol8_baseos_latest                                     463 k\r\n mdatp                                   x86_64                           101.23072.0021-1                                      packages-microsoft-com-prod                           127 M\r\n microcode_ctl                           x86_64                           4:20230808-2.0.1.el8                                  ol8_baseos_latest                                     8.1 M\r\nInstalling group/module packages:\r\n kernel-uek                              x86_64                           5.4.17-2136.323.8.1.el8uek                            ol8_UEKR6                                             114 M\r\n\r\nTransaction Summary\r\n============================================================================================================================================================================================\r\nInstall  1 Package\r\nUpgrade  6 Packages\r\n\r\nTotal download size: 250 M"
+            },
+            {
+              "Type": "Code",
+              "Value": "Is this ok [y/N]: y\r\nDownloading Packages:\r\n(1/7): dmidecode-3.3-4.el8_8.1.x86_64.rpm                                                                                                                   809 kB/s |  92 kB     00:00\r\n(2/7): libgcc-8.5.0-18.0.5.el8.x86_64.rpm                                                                                                                   719 kB/s |  91 kB     00:00\r\n(3/7): libgomp-8.5.0-18.0.5.el8.x86_64.rpm                                                                                                                  7.8 MB/s | 217 kB     00:00\r\n(4/7): libstdc++-8.5.0-18.0.5.el8.x86_64.rpm                                                                                                                 13 MB/s | 463 kB     00:00\r\n(5/7): microcode_ctl-20230808-2.0.1.el8.x86_64.rpm                                                                                                           43 MB/s | 8.1 MB     00:00\r\n(6/7): kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64.rpm                                                                                                      21 MB/s | 114 MB     00:05\r\n(7/7): mdatp_101.23072.0021.x86_64.rpm                                                                                                                       20 MB/s | 127 MB     00:06\r\n--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nTotal                                                                                                                                                        38 MB/s | 250 MB     00:06\r\nRunning transaction check\r\nTransaction check succeeded.\r\nRunning transaction test\r\nTransaction test succeeded.\r\nRunning transaction\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                      1/1\r\n  Preparing        :                                                                                                                                                                    1/1\r\n  Running scriptlet: libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                     1/1\r\n  Upgrading        : libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                    1/13\r\n  Running scriptlet: libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                    1/13\r\n  Upgrading        : libstdc++-8.5.0-18.0.5.el8.x86_64                                                                                                                                 2/13\r\n  Running scriptlet: libstdc++-8.5.0-18.0.5.el8.x86_64                                                                                                                                 2/13\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                     3/13\r\n  Upgrading        : mdatp-101.23072.0021-1.x86_64                                                                                                                                     3/13\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                     3/13\r\n\r\n  Upgrading        : microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                         4/13\r\n  Running scriptlet: microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                         4/13\r\n  Upgrading        : libgomp-8.5.0-18.0.5.el8.x86_64                                                                                                                                   5/13\r\n  Running scriptlet: libgomp-8.5.0-18.0.5.el8.x86_64                                                                                                                                   5/13\r\n  Upgrading        : dmidecode-1:3.3-4.el8_8.1.x86_64                                                                                                                                  6/13\r\n  Running scriptlet: kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      7/13\r\n  Installing       : kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      7/13\r\n  Running scriptlet: kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      7/13\r\n  Cleanup          : libstdc++-8.5.0-18.0.2.el8.x86_64                                                                                                                                 8/13\r\n  Running scriptlet: libstdc++-8.5.0-18.0.2.el8.x86_64                                                                                                                                 8/13\r\n  Running scriptlet: microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                         9/13\r\n  Cleanup          : microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                         9/13\r\n  Running scriptlet: microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                         9/13\r\n  Cleanup          : libgcc-8.5.0-18.0.2.el8.x86_64                                                                                                                                   10/13\r\n  Running scriptlet: libgcc-8.5.0-18.0.2.el8.x86_64                                                                                                                                   10/13\r\n  Running scriptlet: mdatp-101.23062.0010-1.x86_64                                                                                                                                    11/13\r\n  Cleanup          : mdatp-101.23062.0010-1.x86_64                                                                                                                                    11/13\r\n  Running scriptlet: mdatp-101.23062.0010-1.x86_64                                                                                                                                    11/13\r\n  Running scriptlet: libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                  12/13\r\n  Cleanup          : libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                  12/13\r\n  Running scriptlet: libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                  12/13\r\n  Cleanup          : dmidecode-1:3.3-4.el8.x86_64                                                                                                                                     13/13\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                    13/13\r\n  Running scriptlet: microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                        13/13\r\n  Running scriptlet: kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                     13/13\r\n  Running scriptlet: dmidecode-1:3.3-4.el8.x86_64                                                                                                                                     13/13\r\n  Verifying        : kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      1/13\r\n  Verifying        : dmidecode-1:3.3-4.el8_8.1.x86_64                                                                                                                                  2/13\r\n  Verifying        : dmidecode-1:3.3-4.el8.x86_64                                                                                                                                      3/13\r\n  Verifying        : libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                    4/13\r\n  Verifying        : libgcc-8.5.0-18.0.2.el8.x86_64                                                                                                                                    5/13\r\n  Verifying        : libgomp-8.5.0-18.0.5.el8.x86_64                                                                                                                                   6/13\r\n  Verifying        : libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                   7/13\r\n  Verifying        : libstdc++-8.5.0-18.0.5.el8.x86_64                                                                                                                                 8/13\r\n  Verifying        : libstdc++-8.5.0-18.0.2.el8.x86_64                                                                                                                                 9/13\r\n  Verifying        : microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                        10/13\r\n  Verifying        : microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                        11/13\r\n  Verifying        : mdatp-101.23072.0021-1.x86_64                                                                                                                                    12/13\r\n  Verifying        : mdatp-101.23062.0010-1.x86_64                                                                                                                                    13/13\r\n\r\nUpgraded:\r\n  dmidecode-1:3.3-4.el8_8.1.x86_64             libgcc-8.5.0-18.0.5.el8.x86_64    libgomp-8.5.0-18.0.5.el8.x86_64    libstdc++-8.5.0-18.0.5.el8.x86_64    mdatp-101.23072.0021-1.x86_64\r\n  microcode_ctl-4:20230808-2.0.1.el8.x86_64\r\nInstalled:\r\n  kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64\r\n\r\nComplete!"
+            }
+          ]
+        },
+        {
           "title": "Confirm the kernel version",
           "userActivity": [
             {
@@ -1551,7 +1541,6 @@
       "description": "Check the Microsoft 365 Defender portal for updates",
       "tasks": [
         {
-          "step": 1,
           "title": "Check the Security Portal",
           "userActivity": [
             {

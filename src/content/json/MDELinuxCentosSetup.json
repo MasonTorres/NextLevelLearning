@@ -10,7 +10,6 @@
       "description": "What do we have already?",
       "tasks": [
         {
-          "step": 1,
           "title": "",
           "userActivity": [
             {
@@ -38,7 +37,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Has MDATP already been installed?",
           "userActivity": [
             {
@@ -62,7 +60,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "What's the status of the daemon?",
           "userActivity": [
             {
@@ -97,7 +94,6 @@
       "description": "Getting the environment ready for MDE for Linux on Centos",
       "tasks": [
         {
-          "step": 1,
           "title": "Update packages and repos",
           "userActivity": [
             {
@@ -129,7 +125,6 @@
           ]
         },
         {
-          "step": 2,
           "title": "Update packages and repos",
           "userActivity": [
             {
@@ -165,7 +160,6 @@
           ]
         },
         {
-          "step": 3,
           "title": "Update packages and repos",
           "userActivity": [
             {
@@ -204,7 +198,6 @@
       "description": "Steps to install the MDE for Linux agent on Centos",
       "tasks": [
         {
-          "step": 1,
           "title": "Install the MDE package.",
           "userActivity": [
             {
@@ -243,7 +236,6 @@
       "description": "Let's check the configuration of the MDE for Linux agent",
       "tasks": [
         {
-          "step": 1,
           "title": "Health cehck",
           "userActivity": [
             {
