@@ -4,8 +4,9 @@ import Home from "./Home";
 import NextLevelLearning from "./NextLevelLearning";
 import MDEMacCheatSeet from "./MDE/MAC/CheatSheet";
 import nllDataFiles from "../content/nllDataFiles.json";
+import { Typography } from "@mui/material";
+import { Icon } from "@iconify/react";
 
-// Add static pages
 const pagesData: routerType[] = [
   {
     path: "",
@@ -26,6 +27,16 @@ const pagesData: routerType[] = [
     path: "mde/mac-cheatsheet",
     element: <MDEMacCheatSeet />,
     title: "MDE Mac Cheat Sheet",
+  },
+  {
+    path: "mde/mac",
+    element: (
+      <Typography pt={2}>
+        {" "}
+        Coming soon... <Icon icon="noto:shushing-face" fontSize={35} />{" "}
+      </Typography>
+    ),
+    title: "MDE Mac",
   },
 ];
 

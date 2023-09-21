@@ -21,6 +21,7 @@ import { Collapse, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import AppleIcon from "@mui/icons-material/Apple";
 
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -152,14 +153,25 @@ const links = [
         icon: <Icon icon="cib:linux" fontSize={20} />,
         items: [...linuxmde],
       },
+      {
+        title: "Apple",
+        icon: <AppleIcon />,
+        items: [
+          {
+            icon: <Icon icon="material-symbols:line-end" fontSize={20} />,
+            to: "#mde/mac",
+            title: "MDE Mac",
+          },
+        ],
+      },
     ],
   },
 ];
 
 export default function NavSideBar({ link }: any) {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-  const { pageInfo } = useContext(PageInfoContext);
+  const [open, setOpen] = React.useState(true);
+  const { pageInfo, setPageInfo } = useContext(PageInfoContext);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -210,7 +222,15 @@ export default function NavSideBar({ link }: any) {
           {links.map((link) =>
             link.items.length === 0 ? (
               <div key={link.title}>
-                <ListItemButton href={link.to ? link.to : ""}>
+                <ListItemButton
+                  href={link.to ? link.to : ""}
+                  onClick={() =>
+                    setPageInfo({
+                      ...pageInfo,
+                      home: link.to ? link.title : "",
+                    })
+                  }
+                >
                   <ListItemIcon>{link.icon}</ListItemIcon>
                   <ListItemText primary={link.title} />
                 </ListItemButton>

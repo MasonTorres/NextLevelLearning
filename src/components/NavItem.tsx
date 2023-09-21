@@ -15,8 +15,10 @@ export default function NavItem({ link }: any) {
 
   const [openMenu, setOpenMenu] = React.useState(false);
 
-  const handleClick = () => {
+  const handleClick = (newTitle: string) => {
     setOpenMenu(!openMenu);
+    console.log("newTitle", newTitle);
+    setPageInfo({ ...pageInfo, home: newTitle });
   };
 
   const handleClickButton = (newTitle: string) => {
@@ -26,7 +28,7 @@ export default function NavItem({ link }: any) {
   return (
     <>
       <div key={link.title}>
-        <ListItem button onClick={handleClick}>
+        <ListItem button onClick={() => handleClick(link.title)}>
           <ListItemIcon>{link.icon}</ListItemIcon>
           <ListItemText primary={link.title} />
           {openMenu ? <ExpandLess /> : <ExpandMore />}
