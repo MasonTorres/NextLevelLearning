@@ -93,7 +93,11 @@ export default function NextLevelLearning({
               reserveSelectedTabSpace={false}
             >
               {content.map((step) => (
-                <Tab value={step.section} key={`step${step.section}`}>
+                <Tab
+                  value={step.section}
+                  key={`step${step.section}`}
+                  style={{ textAlign: "start" }}
+                >
                   {step.section}. {step.title}
                   <Link
                     activeClass="active"
