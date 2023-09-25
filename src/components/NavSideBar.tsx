@@ -23,6 +23,9 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AppleIcon from "@mui/icons-material/Apple";
 
+// Fluent UI Icons
+import { Icon as IconFluent } from "@fluentui/react/lib/Icon";
+
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import HomeIcon from "@mui/icons-material/Home";
@@ -235,6 +238,17 @@ export default function NavSideBar({ link }: any) {
               </div>
             )
           )}
+        </List>
+        <List style={{ position: "absolute", bottom: "0", width: "100%" }}>
+          <ListItemButton
+            target="_blank"
+            href="https://forms.microsoft.com/r/fbCnRuRQwq"
+          >
+            <ListItemIcon>
+              <IconFluent iconName="feedback"></IconFluent>
+            </ListItemIcon>
+            <ListItemText primary={"Feedback"} />
+          </ListItemButton>
         </List>
       </Drawer>
 
