@@ -49,17 +49,32 @@ export default function NextLevelLearning({
   const handleSelectedTab = (e: any, value: SetStateAction<any>) => {
     const stepToChangeTo = Number(e.toString().replace("step", ""));
 
+    let numTasks: number = 0;
+    content.forEach((section) => {
+      numTasks += section.tasks.length;
+    });
+
     if (value === "scroll" && isChangingTab.current === false) {
       setSelectedTab(stepToChangeTo);
+    } else if (value === "pageLoad") {
+      isChangingTab.current = true;
+      setSelectedTab(1);
+      scroller.scrollTo(`step1`, {
+        duration: 1000,
+        // delay: 50,
+        smooth: numTasks < 15 ? true : false,
+        // containerId: "ContainerElementID",
+        offset: -135, // Scrolls to element + 50 pixels down the page
+      });
     } else if (value !== "scroll") {
       isChangingTab.current = true;
       setSelectedTab(value);
       scroller.scrollTo(`step${value.toString()}`, {
         duration: 1000,
         // delay: 50,
-        smooth: true,
+        smooth: numTasks < 15 ? true : false,
         // containerId: "ContainerElementID",
-        offset: -135, // Scrolls to element + 50 pixels down the page
+        offset: -70, // Scrolls to element + 50 pixels down the page
       });
       const timer = setTimeout(() => {
         isChangingTab.current = false;
@@ -70,7 +85,7 @@ export default function NextLevelLearning({
   useEffect(() => {
     // Scroll to the top of the page when the component loads
     setSelectedTab(1);
-    handleSelectedTab("", 1);
+    handleSelectedTab("", "pageLoad");
   }, [content]);
 
   return (
