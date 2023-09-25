@@ -25,19 +25,11 @@ export type IBackgroundActivity = {
     Value: string,
 };
 
-// Options
-// title: string
-// code: string
-// description: string
-// note: string
-// image: url to public image
-
 export type IContent = {
     section: number,
     title: string,
     description: string,
     tasks: ITask[],
-    
 }
 
 export type ITask = {

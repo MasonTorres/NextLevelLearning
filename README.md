@@ -1,8 +1,8 @@
 # Getting Started with Next Level Learning
 
-This GitHub repo is used to build the Next Level Learning site.
+This GitHub repo is used to build the Next Level Learning site https://aka.ms/NextLevelLearning.
 
-Add content to the site by uploading json files to /src/content/json
+Add content to the site by merging you json files to /src/content/json
 
 Create your conent using the following components.
 
@@ -49,7 +49,6 @@ Example content json
           "description": "What do we have already?",
           "tasks": [
             {
-              "step": 1,
               "title": "",
               "userActivity": [
                 {
@@ -77,7 +76,6 @@ Example content json
               ]
             },
             {
-              "step": 2,
               "title": "Has MDATP already been installed?",
               "userActivity": [
                 {
@@ -101,7 +99,6 @@ Example content json
               ]
             },
             {
-              "step": 3,
               "title": "What's the status of the daemon?",
               "userActivity": [
                 {
@@ -131,7 +128,6 @@ Example content json
           ]
         },
         {
-          "section": 2,
           "title": "Envrionment Setup",
           "description": "Getting the environment ready for MDE for Linux on Centos",
           "tasks": [

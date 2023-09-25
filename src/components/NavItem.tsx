@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+
 import { PageInfoContext } from "../appContext";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import {
@@ -15,10 +17,8 @@ export default function NavItem({ link }: any) {
 
   const [openMenu, setOpenMenu] = React.useState(false);
 
-  const handleClick = (newTitle: string) => {
+  const handleClick = () => {
     setOpenMenu(!openMenu);
-    console.log("newTitle", newTitle);
-    setPageInfo({ ...pageInfo, home: newTitle });
   };
 
   const handleClickButton = (newTitle: string) => {
@@ -28,18 +28,20 @@ export default function NavItem({ link }: any) {
   return (
     <>
       <div key={link.title}>
-        <ListItem button onClick={() => handleClick(link.title)}>
+        <ListItem button onClick={() => handleClick()}>
           <ListItemIcon>{link.icon}</ListItemIcon>
           <ListItemText primary={link.title} />
           {openMenu ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
-        <Collapse in={openMenu} timeout="auto" unmountOnExit>
+        <Collapse in={openMenu} timeout="auto">
           <List component="div" disablePadding>
             {link.items.map((nestedLink: any) => (
               <div key={nestedLink.title}>
                 <ListItemButton
+                  selected={pageInfo.home === nestedLink.title}
+                  component={Link}
                   onClick={() => handleClickButton(nestedLink.title)}
-                  href={nestedLink.to}
+                  to={nestedLink.to}
                 >
                   <ListItemIcon>{nestedLink.icon}</ListItemIcon>
                   <ListItemText disableTypography primary={nestedLink.title} />

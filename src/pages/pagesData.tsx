@@ -24,7 +24,7 @@ const pagesData: routerType[] = [
     title: "about",
   },
   {
-    path: "mde/mac-cheatsheet",
+    path: "/mde/mac-cheatsheet",
     element: <MDEMacCheatSeet />,
     title: "MDE Mac Cheat Sheet",
   },
@@ -44,7 +44,12 @@ const pagesData: routerType[] = [
 nllDataFiles.forEach((file) => {
   pagesData.push({
     path: `${file.data.path}`,
-    element: <NextLevelLearning content={file.data.data} />,
+    element: (
+      <NextLevelLearning
+        content={file.data.data}
+        description={file.data.description}
+      />
+    ),
     title: `${file.data.path}`,
   });
 });

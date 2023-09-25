@@ -4,6 +4,8 @@ import {
   TabList,
   makeStyles,
   shorthands,
+  Text,
+  Body1,
 } from "@fluentui/react-components";
 import { Typography, Grid, Box } from "@mui/material";
 import { Fragment, SetStateAction, useEffect, useRef, useState } from "react";
@@ -14,18 +16,12 @@ import { IContent } from "../../types/types";
 
 var Link = Scroll.Link;
 var Element = Scroll.Element;
-var Events = Scroll.Events;
-var scroll = Scroll.animateScroll;
-var scrollSpy = Scroll.scrollSpy;
 var scroller = Scroll.scroller;
 
 const useStyles = makeStyles({
   root: {
     position: "sticky",
-    top: "30px",
-
-    // textAlign: "start",
-    // justifyItems: "left",
+    top: "65px",
     display: "flex",
     flexDirection: "column",
     flexWrap: "wrap",
@@ -40,8 +36,10 @@ const useStyles = makeStyles({
 
 export default function NextLevelLearning({
   content,
+  description,
 }: {
   content: IContent[];
+  description: string;
 }) {
   const styles = useStyles();
   const [selectedTab, setSelectedTab] = useState(1);
@@ -61,7 +59,7 @@ export default function NextLevelLearning({
         // delay: 50,
         smooth: true,
         // containerId: "ContainerElementID",
-        offset: -65, // Scrolls to element + 50 pixels down the page
+        offset: -135, // Scrolls to element + 50 pixels down the page
       });
       const timer = setTimeout(() => {
         isChangingTab.current = false;
@@ -121,6 +119,9 @@ export default function NextLevelLearning({
 
         {/* User and Background Activity */}
         <Grid item xs={10} md={10} mt={4}>
+          <Grid item xs={12} md={12}>
+            <Body1>{description}</Body1>
+          </Grid>
           {content.map((step) => (
             <Grid container item spacing={2} key={step.section} xs={12}>
               <Grid item xs={12} md={12}>

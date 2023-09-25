@@ -3,6 +3,7 @@
   "path": "mde/linux-oracle-kernel-update",
   "section": "MDE",
   "subSection": "Linux",
+  "description": "",
   "data": [
     {
       "section": 1,

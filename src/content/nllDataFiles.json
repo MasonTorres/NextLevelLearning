@@ -1,1943 +1,1963 @@
 [
- { "file": "CheatSheet", "path": "./json/CheatSheet.json", "data": {
-  "title": "Cheat Sheet",
-  "path": "linux/cheet-sheet",
-  "section": "MDE",
-  "subSection": "Linux",
-  "data": [
-    {
-      "section": 1,
-      "title": "General",
-      "description": "General commands",
-      "tasks": [
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Kernel version"
-            },
-            {
-              "Type": "Description",
-              "Value": "Check kernal version / system information"
-            },
-            {
-              "Type": "Code",
-              "Value": "uname -a"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "Linux ROCKY-01 5.14.0-162.12.1.el9_1.0.2.x86_64 #1 SMP PREEMPT_DYNAMIC Mon Jan 30 22:14:42 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Process ID"
-            },
-            {
-              "Type": "Description",
-              "Value": "Check process id"
-            },
-            {
-              "Type": "Code",
-              "Value": "ps aux | grep mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample Output"
-            },
-            {
-              "Type": "Description",
-              "Value": "No MDATP process is found"
-            },
-            {
-              "Type": "Code",
-              "Value": "labmin      4500  0.0  0.0   3876  2084 pts/0    S+   04:06   0:00 grep --color=auto mdatp"
-            },
-            {
-              "Type": "Description",
-              "Value": "MDATP process is found"
-            },
-            {
-              "Type": "Code",
-              "Value": "root         714  0.2  7.4 1177124 143848 ?      Ssl  03:18   0:07 /opt/microsoft/mdatp/sbin/wdavdaemon\r\n              root         927  0.1  3.5 862736 67892 ?        Sl   03:18   0:05 /opt/microsoft/mdatp/sbin/wdavdaemon edr 12 11 --log_level info\r\n              root        1097  0.0  0.8 296188 16804 ?        Sl   03:18   0:00 /opt/microsoft/mdatp/sbin/telemetryd_v2 32\"\r\n              root        1298  0.3  6.6 3035812 128692 ?      Sl   03:18   0:11 /opt/microsoft/mdatp/sbin/wdavdaemon_network_protection network_protection 46 45\r\n              root        1729  0.0  0.5 795992  9920 ?        S<l  03:18   0:00 /opt/microsoft/mdatp/sbin/mdatp_audisp_plugin\r\n              mdatp       1838  0.9 10.2 917836 199152 ?       Sl   03:18   0:27 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 61 264 266 268 57 --log_level info\r\n              labmin      2816  0.0  0.0  12144  1108 pts/0    R+   04:07   0:00 grep --color=auto mdatp"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Kill Process"
-            },
-            {
-              "Type": "Description",
-              "Value": "Kill Process"
-            },
-            {
-              "Type": "Code",
-              "Value": "kill -9 9112"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "[1]+  Stopped                 less ~/.bash_history"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Display Linux processes"
-            },
-            {
-              "Type": "Description",
-              "Value": "Display Linux processes"
-            },
-            {
-              "Type": "Code",
-              "Value": "top"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "top - 04:21:58 up  1:03,  1 user,  load average: 0.00, 0.04, 0.07\r\nTasks: 117 total,   2 running, 115 sleeping,   0 stopped,   0 zombie\r\n%Cpu(s):  0.3 us,  0.0 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st\r\nMiB Mem :   1893.9 total,    593.8 free,    619.5 used,    680.6 buff/cache\r\nMiB Swap:      0.0 total,      0.0 free,      0.0 used.   1056.9 avail Mem\r\n\r\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\r\n   1397 root      20   0  438824  29240  11544 S   0.3   1.5   0:08.41 python3\r\n   1838 mdatp     20   0  926032 200348  58188 S   0.3  10.3   0:33.88 wdavdaemon\r\n      1 root      20   0  175328  13700   8976 S   0.0   0.7   0:02.33 systemd\r\n      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd\r\n      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp\r\n      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par_gp\r\n      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_flushwq\r\n      7 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0H-events_highpri\r\n      9 root      20   0       0      0      0 I   0.0   0.0   0:00.08 kworker/u2:0-events_unbound\r\n     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_percpu_wq\r\n     11 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_rude_\r\n     12 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_trace\r\n     13 root      20   0       0      0      0 S   0.0   0.0   0:00.09 ksoftirqd/0\r\n     14 root      20   0       0      0      0 I   0.0   0.0   0:00.15 rcu_sched"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "List of open files"
-            },
-            {
-              "Type": "Description",
-              "Value": "List of open files"
-            },
-            {
-              "Type": "Code",
-              "Value": "lsof | grep mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "[labmin@CENTSOS-02 ~]$ sudo lsof | grep mdatp | grep /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714                          root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714                          root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  842 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  842 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  843 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  843 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  844 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  844 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  845 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  845 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Display CPU information"
-            },
-            {
-              "Type": "Description",
-              "Value": "Display CPU information"
-            },
-            {
-              "Type": "Code",
-              "Value": "cat /proc/cpuinfo"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "processor       : 0\r\nvendor_id       : GenuineIntel\r\ncpu family      : 6\r\nmodel           : 79\r\nmodel name      : Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz\r\nstepping        : 1\r\nmicrocode       : 0xffffffff\r\ncpu MHz         : 2294.686\r\ncache size      : 51200 KB\r\nphysical id     : 0\r\nsiblings        : 1\r\ncore id         : 0\r\ncpu cores       : 1\r\napicid          : 0\r\ninitial apicid  : 0\r\nfpu             : yes\r\nfpu_exception   : yes\r\ncpuid level     : 20\r\nwp              : yes\r\nflags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave\r\navx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt md_clear\r\nbugs            : cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit mmio_stale_data\r\nbogomips        : 4589.37\r\nclflush size    : 64\r\ncache_alignment : 64\r\naddress sizes   : 46 bits physical, 48 bits virtual\r\npower management:"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "CPU free memory"
-            },
-            {
-              "Type": "Description",
-              "Value": "Display amount of free and used memory in the system"
-            },
-            {
-              "Type": "Code",
-              "Value": "free -h"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "total        used        free      shared  buff/cache   available\r\nMem:          1.8Gi       651Mi       488Mi       8.0Mi       753Mi       989Mi\r\nSwap:            0B          0B          0B"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Find file by name"
-            },
-            {
-              "Type": "Code",
-              "Value": "find /home/labmin -name M*"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "/home/labmin/Master.txt"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Find files by size"
-            },
-            {
-              "Type": "Code",
-              "Value": "find /home/labmin -size +8k"
-            },
-            {
-              "Type": "Code",
-              "Value": "find /home/labmin -size +100M"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "/home/labmin/libxcrypt-4.4.18-3.el9.i686.rpm\r\n/home/labmin/.puppetlabs/opt/puppet/cache/state/last_run_report.yaml\r\n/home/labmin/installation.log"
-            },
-            {
-              "Type": "Code",
-              "Value": ""
-            },
-            {
-              "Type": "Note",
-              "Value": "Empty output becuase no files of +100M are found"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Compare two files"
-            },
-            {
-              "Type": "Code",
-              "Value": "diff MicrosoftDefenderATPOnboardingLinuxServer.py  MicrosoftDefenderATPOnboardingLinuxServerOld.py"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "[labmin@CENTSOS-02 ~]$ diff Master.txt Boss.txt\r\n1d0\r\n< Apple"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Compress a file"
-            },
-            {
-              "Type": "Code",
-              "Value": "gzip Master.txt"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "ls -l Ma*\r\n-rw-rw-r--. 1 labmin labmin 48 Sep 20 05:12 Master.txt.gz"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Uncompress files"
-            },
-            {
-              "Type": "Code",
-              "Value": "gunzip Master.txt.gz"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "ls -l Ma*\r\n-rw-rw-r--. 1 labmin labmin 17 Sep 20 05:12 Master.txt"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check disk space"
-            },
-            {
-              "Type": "Code",
-              "Value": "df -h"
-            },
-            {
-              "Type": "Title",
-              "Value": "Check disk space for a specific folder"
-            },
-            {
-              "Type": "Code",
-              "Value": "du -sh /home/labmin"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "Filesystem      Size  Used Avail Use% Mounted on\r\ndevtmpfs        930M     0  930M   0% /dev\r\ntmpfs           947M  4.0K  947M   1% /dev/shm\r\ntmpfs           947M  8.6M  939M   1% /run\r\ntmpfs           947M     0  947M   0% /sys/fs/cgroup\r\n/dev/sda2       8.0G  3.1G  5.0G  39% /\r\n/dev/sda1      1014M  262M  753M  26% /boot\r\n/dev/sdb1       3.9G   24K  3.7G   1% /mnt\r\ntmpfs           190M     0  190M   0% /run/user/1000"
-            },
-            {
-              "Type": "Code",
-              "Value": "252K    /home/labmin"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Shell"
-            },
-            {
-              "Type": "Description",
-              "Value": "What shell are you using?"
-            },
-            {
-              "Type": "Code",
-              "Value": "echo $SHELL"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "/bin/bash"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 2,
-      "title": "Install the MDE agent",
+  {
+    "file": "CheatSheet",
+    "path": "./json/CheatSheet.json",
+    "data": {
+      "title": "Cheat Sheet",
+      "path": "/linux/cheet-sheet",
+      "section": "MDE",
+      "subSection": "Linux",
       "description": "",
-      "tasks": [
+      "data": [
         {
-          "title": "Get Distro version",
-          "userActivity": [
+          "section": 1,
+          "title": "General",
+          "description": "General commands",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Get Distro version"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Kernel version"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Check kernal version / system information"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "uname -a"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Linux ROCKY-01 5.14.0-162.12.1.el9_1.0.2.x86_64 #1 SMP PREEMPT_DYNAMIC Mon Jan 30 22:14:42 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux"
+                }
+              ]
             },
             {
-              "Type": "Description",
-              "Value": "Get Distro version"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Process ID"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Check process id"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "ps aux | grep mdatp"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample Output"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "No MDATP process is found"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "labmin      4500  0.0  0.0   3876  2084 pts/0    S+   04:06   0:00 grep --color=auto mdatp"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "MDATP process is found"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "root         714  0.2  7.4 1177124 143848 ?      Ssl  03:18   0:07 /opt/microsoft/mdatp/sbin/wdavdaemon\r\n              root         927  0.1  3.5 862736 67892 ?        Sl   03:18   0:05 /opt/microsoft/mdatp/sbin/wdavdaemon edr 12 11 --log_level info\r\n              root        1097  0.0  0.8 296188 16804 ?        Sl   03:18   0:00 /opt/microsoft/mdatp/sbin/telemetryd_v2 32\"\r\n              root        1298  0.3  6.6 3035812 128692 ?      Sl   03:18   0:11 /opt/microsoft/mdatp/sbin/wdavdaemon_network_protection network_protection 46 45\r\n              root        1729  0.0  0.5 795992  9920 ?        S<l  03:18   0:00 /opt/microsoft/mdatp/sbin/mdatp_audisp_plugin\r\n              mdatp       1838  0.9 10.2 917836 199152 ?       Sl   03:18   0:27 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 61 264 266 268 57 --log_level info\r\n              labmin      2816  0.0  0.0  12144  1108 pts/0    R+   04:07   0:00 grep --color=auto mdatp"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "cat /etc/os-release"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Kill Process"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Kill Process"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "kill -9 9112"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "[1]+  Stopped                 less ~/.bash_history"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "NAME=\"CentOS Stream\"\r\nVERSION=\"8\"\r\nID=\"centos\"\r\nID_LIKE=\"rhel fedora\"\r\nVERSION_ID=\"8\"\r\nPLATFORM_ID=\"platform:el8\"\r\nPRETTY_NAME=\"CentOS Stream 8\"\r\nANSI_COLOR=\"0;31\"\r\nCPE_NAME=\"cpe:/o:centos:centos:8\"\r\nHOME_URL=\"https://centos.org/\"\r\nBUG_REPORT_URL=\"https://bugzilla.redhat.com/\"\r\nREDHAT_SUPPORT_PRODUCT=\"Red Hat Enterprise Linux 8\"\r\nREDHAT_SUPPORT_PRODUCT_VERSION=\"CentOS Stream\"\r\n[labmin@CENTSOS-02 ~]$"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Display Linux processes"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Display Linux processes"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "top"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "top - 04:21:58 up  1:03,  1 user,  load average: 0.00, 0.04, 0.07\r\nTasks: 117 total,   2 running, 115 sleeping,   0 stopped,   0 zombie\r\n%Cpu(s):  0.3 us,  0.0 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st\r\nMiB Mem :   1893.9 total,    593.8 free,    619.5 used,    680.6 buff/cache\r\nMiB Swap:      0.0 total,      0.0 free,      0.0 used.   1056.9 avail Mem\r\n\r\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\r\n   1397 root      20   0  438824  29240  11544 S   0.3   1.5   0:08.41 python3\r\n   1838 mdatp     20   0  926032 200348  58188 S   0.3  10.3   0:33.88 wdavdaemon\r\n      1 root      20   0  175328  13700   8976 S   0.0   0.7   0:02.33 systemd\r\n      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd\r\n      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp\r\n      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par_gp\r\n      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_flushwq\r\n      7 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0H-events_highpri\r\n      9 root      20   0       0      0      0 I   0.0   0.0   0:00.08 kworker/u2:0-events_unbound\r\n     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_percpu_wq\r\n     11 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_rude_\r\n     12 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_trace\r\n     13 root      20   0       0      0      0 S   0.0   0.0   0:00.09 ksoftirqd/0\r\n     14 root      20   0       0      0      0 I   0.0   0.0   0:00.15 rcu_sched"
+                }
+              ]
+            },
+            {
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "List of open files"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "List of open files"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "lsof | grep mdatp"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "[labmin@CENTSOS-02 ~]$ sudo lsof | grep mdatp | grep /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714                          root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714                          root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  842 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  842 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  843 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  843 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  844 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  844 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  845 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  845 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon"
+                }
+              ]
+            },
+            {
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Display CPU information"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Display CPU information"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "cat /proc/cpuinfo"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "processor       : 0\r\nvendor_id       : GenuineIntel\r\ncpu family      : 6\r\nmodel           : 79\r\nmodel name      : Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz\r\nstepping        : 1\r\nmicrocode       : 0xffffffff\r\ncpu MHz         : 2294.686\r\ncache size      : 51200 KB\r\nphysical id     : 0\r\nsiblings        : 1\r\ncore id         : 0\r\ncpu cores       : 1\r\napicid          : 0\r\ninitial apicid  : 0\r\nfpu             : yes\r\nfpu_exception   : yes\r\ncpuid level     : 20\r\nwp              : yes\r\nflags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave\r\navx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt md_clear\r\nbugs            : cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit mmio_stale_data\r\nbogomips        : 4589.37\r\nclflush size    : 64\r\ncache_alignment : 64\r\naddress sizes   : 46 bits physical, 48 bits virtual\r\npower management:"
+                }
+              ]
+            },
+            {
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "CPU free memory"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Display amount of free and used memory in the system"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "free -h"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "total        used        free      shared  buff/cache   available\r\nMem:          1.8Gi       651Mi       488Mi       8.0Mi       753Mi       989Mi\r\nSwap:            0B          0B          0B"
+                }
+              ]
+            },
+            {
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Find file by name"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "find /home/labmin -name M*"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "/home/labmin/Master.txt"
+                }
+              ]
+            },
+            {
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Find files by size"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "find /home/labmin -size +8k"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "find /home/labmin -size +100M"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "/home/labmin/libxcrypt-4.4.18-3.el9.i686.rpm\r\n/home/labmin/.puppetlabs/opt/puppet/cache/state/last_run_report.yaml\r\n/home/labmin/installation.log"
+                },
+                {
+                  "Type": "Code",
+                  "Value": ""
+                },
+                {
+                  "Type": "Note",
+                  "Value": "Empty output becuase no files of +100M are found"
+                }
+              ]
+            },
+            {
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Compare two files"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "diff MicrosoftDefenderATPOnboardingLinuxServer.py  MicrosoftDefenderATPOnboardingLinuxServerOld.py"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "[labmin@CENTSOS-02 ~]$ diff Master.txt Boss.txt\r\n1d0\r\n< Apple"
+                }
+              ]
+            },
+            {
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Compress a file"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "gzip Master.txt"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "ls -l Ma*\r\n-rw-rw-r--. 1 labmin labmin 48 Sep 20 05:12 Master.txt.gz"
+                }
+              ]
+            },
+            {
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Uncompress files"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "gunzip Master.txt.gz"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "ls -l Ma*\r\n-rw-rw-r--. 1 labmin labmin 17 Sep 20 05:12 Master.txt"
+                }
+              ]
+            },
+            {
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check disk space"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "df -h"
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Check disk space for a specific folder"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "du -sh /home/labmin"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Filesystem      Size  Used Avail Use% Mounted on\r\ndevtmpfs        930M     0  930M   0% /dev\r\ntmpfs           947M  4.0K  947M   1% /dev/shm\r\ntmpfs           947M  8.6M  939M   1% /run\r\ntmpfs           947M     0  947M   0% /sys/fs/cgroup\r\n/dev/sda2       8.0G  3.1G  5.0G  39% /\r\n/dev/sda1      1014M  262M  753M  26% /boot\r\n/dev/sdb1       3.9G   24K  3.7G   1% /mnt\r\ntmpfs           190M     0  190M   0% /run/user/1000"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "252K    /home/labmin"
+                }
+              ]
+            },
+            {
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Shell"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "What shell are you using?"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "echo $SHELL"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "/bin/bash"
+                }
+              ]
             }
           ]
         },
         {
-          "title": "",
-          "userActivity": [
+          "section": 2,
+          "title": "Install the MDE agent",
+          "description": "",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Check if MDATP is installed"
+              "title": "Get Distro version",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Get Distro version"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Get Distro version"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "cat /etc/os-release"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "NAME=\"CentOS Stream\"\r\nVERSION=\"8\"\r\nID=\"centos\"\r\nID_LIKE=\"rhel fedora\"\r\nVERSION_ID=\"8\"\r\nPLATFORM_ID=\"platform:el8\"\r\nPRETTY_NAME=\"CentOS Stream 8\"\r\nANSI_COLOR=\"0;31\"\r\nCPE_NAME=\"cpe:/o:centos:centos:8\"\r\nHOME_URL=\"https://centos.org/\"\r\nBUG_REPORT_URL=\"https://bugzilla.redhat.com/\"\r\nREDHAT_SUPPORT_PRODUCT=\"Red Hat Enterprise Linux 8\"\r\nREDHAT_SUPPORT_PRODUCT_VERSION=\"CentOS Stream\"\r\n[labmin@CENTSOS-02 ~]$"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "which mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check if MDATP is installed"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "which mdatp"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "/usr/bin/mdatp"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "/usr/bin/mdatp"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check daemon status"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check daemon status"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "systemctl status mdatp"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "\u25CF mdatp.service - Microsoft Defender\r\n   Loaded: loaded (/usr/lib/systemd/system/mdatp.service; enabled; vendor preset: disabled)\r\n   Active: active (running) since Wed 2023-09-20 03:18:14 UTC; 3h 19min ago\r\n Main PID: 714 (wdavdaemon)\r\n    Tasks: 260 (limit: 11894)\r\n   Memory: 1.0G\r\n   CGroup: /system.slice/mdatp.service\r\n           \u251C\u2500 714 /opt/microsoft/mdatp/sbin/wdavdaemon\r\n           \u251C\u2500 927 /opt/microsoft/mdatp/sbin/wdavdaemon edr 12 11 --log_level info\r\n           \u251C\u25001097 /opt/microsoft/mdatp/sbin/telemetryd_v2 32\"\r\n           \u251C\u25001298 /opt/microsoft/mdatp/sbin/wdavdaemon_network_protection network_protection 46 45\r\n           \u2514\u25001838 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 61 264 266 268 57 --log_level info"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "systemctl status mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Fedora Install"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "yum update\r\nyum install yum-utils\r\nyum-config-manager --add-repo=https://packages.microsoft.com/config/fedora/38/prod.repo\r\nrpm --import http://packages.microsoft.com/keys/microsoft.asc\r\nyum install mdatp\r\nyum install pcre"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "\u25CF mdatp.service - Microsoft Defender\r\n   Loaded: loaded (/usr/lib/systemd/system/mdatp.service; enabled; vendor preset: disabled)\r\n   Active: active (running) since Wed 2023-09-20 03:18:14 UTC; 3h 19min ago\r\n Main PID: 714 (wdavdaemon)\r\n    Tasks: 260 (limit: 11894)\r\n   Memory: 1.0G\r\n   CGroup: /system.slice/mdatp.service\r\n           \u251C\u2500 714 /opt/microsoft/mdatp/sbin/wdavdaemon\r\n           \u251C\u2500 927 /opt/microsoft/mdatp/sbin/wdavdaemon edr 12 11 --log_level info\r\n           \u251C\u25001097 /opt/microsoft/mdatp/sbin/telemetryd_v2 32\"\r\n           \u251C\u25001298 /opt/microsoft/mdatp/sbin/wdavdaemon_network_protection network_protection 46 45\r\n           \u2514\u25001838 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 61 264 266 268 57 --log_level info"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Fedora Install"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Oracle Install"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "yum update\r\nyum install yum-utils\r\nyum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/8/prod.repo\r\nrpm --import http://packages.microsoft.com/keys/microsoft.asc\r\nyum install mdatp"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "yum update\r\nyum install yum-utils\r\nyum-config-manager --add-repo=https://packages.microsoft.com/config/fedora/38/prod.repo\r\nrpm --import http://packages.microsoft.com/keys/microsoft.asc\r\nyum install mdatp\r\nyum install pcre"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Oracle Install"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "RHEL via Puppet Install"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "yum update\r\nyum install puppet-agent\r\nyum install yum-utils\r\nrpm -U http://yum.puppet.com/puppet6-release-el-9.noarch.rpm\r\nyum install puppet-agent\r\npuppet agent -t\r\n\r\n#On Puppet server\r\n/opt/puppetlabs/bin/puppetserver ca sign --all"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "yum update\r\nyum install yum-utils\r\nyum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/8/prod.repo\r\nrpm --import http://packages.microsoft.com/keys/microsoft.asc\r\nyum install mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "RHEL via Puppet Install"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "SUSE Install"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "zypper update\r\nrpm --import http://packages.microsoft.com/keys/microsoft.asc\r\nzypper install mdatp"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "yum update\r\nyum install puppet-agent\r\nyum install yum-utils\r\nrpm -U http://yum.puppet.com/puppet6-release-el-9.noarch.rpm\r\nyum install puppet-agent\r\npuppet agent -t\r\n\r\n#On Puppet server\r\n/opt/puppetlabs/bin/puppetserver ca sign --all"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "SUSE Install"
-            },
-            {
-              "Type": "Code",
-              "Value": "zypper update\r\nrpm --import http://packages.microsoft.com/keys/microsoft.asc\r\nzypper install mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            }
-          ]
-        },
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Ubuntu Install"
-            },
-            {
-              "Type": "Code",
-              "Value": "apt-get install update\r\napt-get install libplist-utils\r\napt-get install curl\r\ncurl -o microsoft.list https://packages.microsoft.com/config/ubuntu/20.04/prod.list\r\nmv ./microsoft.list /etc/apt/sources.list.d/microsoft-prod.list\r\napt-get install gpg\r\ncurl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null\r\napt-get install apt-transport-https\r\napt-get update\r\napt-get install mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 3,
-      "title": "SSH",
-      "description": "",
-      "tasks": [
-        {
-          "title": "Get RSA from PEM",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Get RSA from PEM"
-            },
-            {
-              "Type": "Description",
-              "Value": "Get RSA from PEM"
-            },
-            {
-              "Type": "Code",
-              "Value": "openssl rsa -in linkp.pem -out key.key"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "writing RSA key\r\nkey.key"
-            }
-          ]
-        },
-        {
-          "title": "Copy file from Windows to Linux with SCP",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Copy file from Windows to Linux with SCP"
-            },
-            {
-              "Type": "Description",
-              "Value": "Copy file from Windows to Linux with SCP"
-            },
-            {
-              "Type": "Code",
-              "Value": "scp -i C:\\Users\\masontorres\\.ssh\\id_rsa\\linkp.key 'C:\\Users\\masontorres\\Downloads\\WindowsDefenderATPOnboardingPackage.zip' labmin@10.5.1.4:~"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Note",
-              "Value": "No output sample"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 4,
-      "title": "Repositories",
-      "description": "",
-      "tasks": [
-        {
-          "title": "Debian - Ubunutu",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Debian - Ubunutu"
-            },
-            {
-              "Type": "Code",
-              "Value": "apt-cache policy | grep microsoft"
-            },
-            {
-              "Type": "Description",
-              "Value": "OR"
-            },
-            {
-              "Type": "Code",
-              "Value": "sudo grep -Erh ^deb /etc/apt/sources.list* | grep microsoft"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main all Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=all\r\n     origin packages.microsoft.com\r\n 500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main arm64 Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=arm64\r\n     origin packages.microsoft.com\r\n 500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main armhf Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=armhf\r\n     origin packages.microsoft.com\r\n 500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main amd64 Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=amd64\r\n     origin packages.microsoft.com"
-            },
-            {
-              "Type": "Code",
-              "Value": "deb [arch=amd64,armhf,arm64] https://packages.microsoft.com/ubuntu/20.04/prod focal main"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Ubuntu Install"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "apt-get install update\r\napt-get install libplist-utils\r\napt-get install curl\r\ncurl -o microsoft.list https://packages.microsoft.com/config/ubuntu/20.04/prod.list\r\nmv ./microsoft.list /etc/apt/sources.list.d/microsoft-prod.list\r\napt-get install gpg\r\ncurl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null\r\napt-get install apt-transport-https\r\napt-get update\r\napt-get install mdatp"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                }
+              ]
             }
           ]
         },
         {
-          "title": "RPM - RedHat, Fedora, Oracle",
-          "userActivity": [
+          "section": 3,
+          "title": "SSH",
+          "description": "",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "RPM - RedHat, Fedora, Oracle"
+              "title": "Get RSA from PEM",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Get RSA from PEM"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Get RSA from PEM"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "openssl rsa -in linkp.pem -out key.key"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "writing RSA key\r\nkey.key"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "sudo dnf repolist | grep microsoft"
-            },
-            {
-              "Type": "Description",
-              "Value": "OR"
-            },
-            {
-              "Type": "Code",
-              "Value": "yum repolist | grep microsoft"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "microsoftpackages                                 packages-microsoft-com-prod-insiders-fast\r\nrhui-microsoft-azure-rhel9-eus                    Microsoft Azure RPMs for Red Hat Enterprise Linux 9 (rhel9-eus)"
-            },
-            {
-              "Type": "Code",
-              "Value": "microsoftpackages                                 packages-microsoft-com-prod-insiders-fast\r\nrhui-microsoft-azure-rhel9-eus                    Microsoft Azure RPMs for Red Hat Enterprise Linux 9 (rhel9-eus)"
-            }
-          ]
-        },
-        {
-          "title": "SUSE, openSUSE",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "SUSE, openSUSE"
-            },
-            {
-              "Type": "Code",
-              "Value": "zypper lr | grep microsoft"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "46 | packages-microsoft-com-prod                                                                | microsoft-prod                                          | Yes     | (r ) Yes  | Yes"
-            }
-          ]
-        },
-        {
-          "title": "Arch Linux, EndeavourOS and Manjaro Linux",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Arch Linux, EndeavourOS and Manjaro Linux"
-            },
-            {
-              "Type": "Code",
-              "Value": "zypper lr | grep microsoft"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Note",
-              "Value": "Coming soon"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 5,
-      "title": "MDATP",
-      "description": "",
-      "tasks": [
-        {
-          "title": "Check license",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check license"
-            },
-            {
-              "Type": "Description",
-              "Value": "Check license"
-            },
-            {
-              "Type": "Code",
-              "Value": "mdatp health --field org_id"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample - No license"
-            },
-            {
-              "Type": "Code",
-              "Value": "No license found"
-            },
-            {
-              "Type": "Title",
-              "Value": "Output sample - License"
-            },
-            {
-              "Type": "Code",
-              "Value": "org_id: 00000000-0000-0000-0000-000000000000"
+              "title": "Copy file from Windows to Linux with SCP",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Copy file from Windows to Linux with SCP"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Copy file from Windows to Linux with SCP"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "scp -i C:\\Users\\masontorres\\.ssh\\id_rsa\\linkp.key 'C:\\Users\\masontorres\\Downloads\\WindowsDefenderATPOnboardingPackage.zip' labmin@10.5.1.4:~"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "No output sample"
+                }
+              ]
             }
           ]
         },
         {
-          "title": "Check health",
-          "userActivity": [
+          "section": 4,
+          "title": "Repositories",
+          "description": "",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Check health"
+              "title": "Debian - Ubunutu",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Debian - Ubunutu"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "apt-cache policy | grep microsoft"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "OR"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo grep -Erh ^deb /etc/apt/sources.list* | grep microsoft"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main all Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=all\r\n     origin packages.microsoft.com\r\n 500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main arm64 Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=arm64\r\n     origin packages.microsoft.com\r\n 500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main armhf Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=armhf\r\n     origin packages.microsoft.com\r\n 500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main amd64 Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=amd64\r\n     origin packages.microsoft.com"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "deb [arch=amd64,armhf,arm64] https://packages.microsoft.com/ubuntu/20.04/prod focal main"
+                }
+              ]
             },
             {
-              "Type": "Description",
-              "Value": "Check health"
+              "title": "RPM - RedHat, Fedora, Oracle",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "RPM - RedHat, Fedora, Oracle"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo dnf repolist | grep microsoft"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "OR"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "yum repolist | grep microsoft"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "microsoftpackages                                 packages-microsoft-com-prod-insiders-fast\r\nrhui-microsoft-azure-rhel9-eus                    Microsoft Azure RPMs for Red Hat Enterprise Linux 9 (rhel9-eus)"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "microsoftpackages                                 packages-microsoft-com-prod-insiders-fast\r\nrhui-microsoft-azure-rhel9-eus                    Microsoft Azure RPMs for Red Hat Enterprise Linux 9 (rhel9-eus)"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "mdatp health --field healthy"
+              "title": "SUSE, openSUSE",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "SUSE, openSUSE"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "zypper lr | grep microsoft"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "46 | packages-microsoft-com-prod                                                                | microsoft-prod                                          | Yes     | (r ) Yes  | Yes"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "mdatp health --field health_issues"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample - Healthy"
-            },
-            {
-              "Type": "Code",
-              "Value": "true"
-            },
-            {
-              "Type": "Title",
-              "Value": "Output sample - Health Issues"
-            },
-            {
-              "Type": "Code",
-              "Value": "[\"Network Protection cannot start due to unsupported release ring\"]"
-            }
-          ]
-        },
-        {
-          "title": "Check Service",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check Service"
-            },
-            {
-              "Type": "Description",
-              "Value": "Check Service status"
-            },
-            {
-              "Type": "Code",
-              "Value": "service auditd status"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample - Running"
-            },
-            {
-              "Type": "Code",
-              "Value": "\u25CF auditd.service - Security Auditing Service\r\n     Loaded: loaded (/lib/systemd/system/auditd.service; enabled; vendor preset: enabled)\r\n     Active: active (running) since Wed 2023-09-20 05:32:29 UTC; 12h ago\r\n       Docs: man:auditd(8)\r\n             https://github.com/linux-audit/audit-documentation\r\n   Main PID: 494 (auditd)\r\n      Tasks: 24 (limit: 9456)\r\n     Memory: 47.3M\r\n     CGroup: /system.slice/auditd.service\r\n             \u251C\u2500 494 /sbin/auditd\r\n             \u251C\u25001310 /sbin/audispd\r\n             \u2514\u25001311 /opt/microsoft/mdatp/sbin/mdatp_audisp_plugin"
-            }
-          ]
-        },
-        {
-          "title": "Real Time Protection",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Enable Real Time Protection"
-            },
-            {
-              "Type": "Code",
-              "Value": "mdatp config real-time-protection --value enabled"
-            },
-            {
-              "Type": "Title",
-              "Value": "Disable Real Time Protection"
-            },
-            {
-              "Type": "Code",
-              "Value": "mdatp config real-time-protection --value disabled"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample - Enable"
-            },
-            {
-              "Type": "Code",
-              "Value": "Configuration property updated."
-            },
-            {
-              "Type": "Title",
-              "Value": "Output sample - Disable"
-            },
-            {
-              "Type": "Code",
-              "Value": "Configuration property updated."
-            }
-          ]
-        },
-        {
-          "title": "Potentially Unwanted Applications PAU ",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Potentially Unwanted Applications - off"
-            },
-            {
-              "Type": "Code",
-              "Value": "mdatp threat policy set --type potentially_unwanted_application --action off"
-            },
-            {
-              "Type": "Title",
-              "Value": "Disable Potentially Unwanted Applications - audit"
-            },
-            {
-              "Type": "Code",
-              "Value": "mdatp threat policy set --type potentially_unwanted_application --action audit"
-            },
-            {
-              "Type": "Title",
-              "Value": "Disable Potentially Unwanted Applications - block"
-            },
-            {
-              "Type": "Code",
-              "Value": "mdatp threat policy set --type potentially_unwanted_application --action block"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Code",
-              "Value": "Threat policy modified successfully"
+              "title": "Arch Linux, EndeavourOS and Manjaro Linux",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Arch Linux, EndeavourOS and Manjaro Linux"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "zypper lr | grep microsoft"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "Coming soon"
+                }
+              ]
             }
           ]
         },
         {
-          "title": "eBPF sensor (Extended Berkley Packet Filter)",
-          "userActivity": [
+          "section": 5,
+          "title": "MDATP",
+          "description": "",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Enable eBPF sensor (Extended Berkley Packet Filter)"
+              "title": "Check license",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check license"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Check license"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp health --field org_id"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample - No license"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "No license found"
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Output sample - License"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "org_id: 00000000-0000-0000-0000-000000000000"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "mdatp config ebpf-supplementary-event-provider --value enabled"
+              "title": "Check health",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check health"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Check health"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp health --field healthy"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp health --field health_issues"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample - Healthy"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "true"
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Output sample - Health Issues"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "[\"Network Protection cannot start due to unsupported release ring\"]"
+                }
+              ]
             },
             {
-              "Type": "Title",
-              "Value": "Disable eBPF sensor (Extended Berkley Packet Filter)"
+              "title": "Check Service",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check Service"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Check Service status"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "service auditd status"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample - Running"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "\u25CF auditd.service - Security Auditing Service\r\n     Loaded: loaded (/lib/systemd/system/auditd.service; enabled; vendor preset: enabled)\r\n     Active: active (running) since Wed 2023-09-20 05:32:29 UTC; 12h ago\r\n       Docs: man:auditd(8)\r\n             https://github.com/linux-audit/audit-documentation\r\n   Main PID: 494 (auditd)\r\n      Tasks: 24 (limit: 9456)\r\n     Memory: 47.3M\r\n     CGroup: /system.slice/auditd.service\r\n             \u251C\u2500 494 /sbin/auditd\r\n             \u251C\u25001310 /sbin/audispd\r\n             \u2514\u25001311 /opt/microsoft/mdatp/sbin/mdatp_audisp_plugin"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "mdatp config ebpf-supplementary-event-provider --value disabled"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
+              "title": "Real Time Protection",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Enable Real Time Protection"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp config real-time-protection --value enabled"
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Disable Real Time Protection"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp config real-time-protection --value disabled"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample - Enable"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Configuration property updated."
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Output sample - Disable"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Configuration property updated."
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "Configuration property updated."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 6,
-      "title": "Logs",
-      "description": "",
-      "tasks": [
-        {
-          "title": "Log location",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "MDE - Log location"
+              "title": "Potentially Unwanted Applications PAU ",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Potentially Unwanted Applications - off"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp threat policy set --type potentially_unwanted_application --action off"
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Disable Potentially Unwanted Applications - audit"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp threat policy set --type potentially_unwanted_application --action audit"
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Disable Potentially Unwanted Applications - block"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp threat policy set --type potentially_unwanted_application --action block"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Threat policy modified successfully"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "/var/log/microsoft/mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "MDE - Log location"
-            },
-            {
-              "Type": "Code",
-              "Value": "ls -l /var/log/microsoft/mdatp\r\ntotal 8056\r\n-rw-r----- 1 mdatp mdatp   15006 Sep 20 05:21 install.log\r\n-rw-r----- 1 mdatp mdatp   90361 Sep 20 18:02 microsoft_defender.log\r\n-rw-r----- 1 mdatp mdatp 2828306 Sep 20 18:02 microsoft_defender_core.log\r\n-rw-r----- 1 mdatp mdatp 3148549 Sep 20 18:01 microsoft_defender_core_err.log\r\n-rw-r----- 1 mdatp mdatp  584080 Sep 20 05:32 microsoft_defender_diagnostic.log\r\n-rw-r----- 1 mdatp mdatp     794 Sep 20 05:21 microsoft_defender_diagnostic_err.log\r\n-rw-r----- 1 mdatp mdatp    1312 Aug 21 23:00 microsoft_defender_diagnostic_event_provider_counters.json\r\n-rw-r----- 1 mdatp mdatp  552418 Sep 20 18:02 microsoft_defender_enterprise.log\r\n-rw-r----- 1 mdatp mdatp  388710 Sep 20 18:02 microsoft_defender_enterprise_err.log\r\n-rw-r----- 1 mdatp mdatp   32121 Sep 20 05:32 microsoft_defender_enterprise_imds.log\r\n-rw-r----- 1 mdatp mdatp  271125 Sep 20 18:02 microsoft_defender_enterprise_telemetryd.log\r\n-rw-r----- 1 mdatp mdatp    7345 Sep 20 16:22 microsoft_defender_enterprise_telemetryd_err.log\r\n-rw-r----- 1 mdatp mdatp   11737 Sep 20 13:32 microsoft_defender_err.log\r\n-rw-r----- 1 mdatp mdatp  251404 Sep 20 18:02 microsoft_defender_mplog.log\r\ndrwxrwxr-x 2 root  mdatp    4096 Sep 20 05:15 rotated\r\n-rw-r----- 1 mdatp mdatp    3137 Sep 20 05:21 uninstall.log"
+              "title": "eBPF sensor (Extended Berkley Packet Filter)",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Enable eBPF sensor (Extended Berkley Packet Filter)"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp config ebpf-supplementary-event-provider --value enabled"
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Disable eBPF sensor (Extended Berkley Packet Filter)"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp config ebpf-supplementary-event-provider --value disabled"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Output sample"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Configuration property updated."
+                }
+              ]
             }
           ]
         },
         {
-          "title": "Check Permissions",
-          "userActivity": [
+          "section": 6,
+          "title": "Logs",
+          "description": "",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Check Permissions"
+              "title": "Log location",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "MDE - Log location"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "/var/log/microsoft/mdatp"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "MDE - Log location"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "ls -l /var/log/microsoft/mdatp\r\ntotal 8056\r\n-rw-r----- 1 mdatp mdatp   15006 Sep 20 05:21 install.log\r\n-rw-r----- 1 mdatp mdatp   90361 Sep 20 18:02 microsoft_defender.log\r\n-rw-r----- 1 mdatp mdatp 2828306 Sep 20 18:02 microsoft_defender_core.log\r\n-rw-r----- 1 mdatp mdatp 3148549 Sep 20 18:01 microsoft_defender_core_err.log\r\n-rw-r----- 1 mdatp mdatp  584080 Sep 20 05:32 microsoft_defender_diagnostic.log\r\n-rw-r----- 1 mdatp mdatp     794 Sep 20 05:21 microsoft_defender_diagnostic_err.log\r\n-rw-r----- 1 mdatp mdatp    1312 Aug 21 23:00 microsoft_defender_diagnostic_event_provider_counters.json\r\n-rw-r----- 1 mdatp mdatp  552418 Sep 20 18:02 microsoft_defender_enterprise.log\r\n-rw-r----- 1 mdatp mdatp  388710 Sep 20 18:02 microsoft_defender_enterprise_err.log\r\n-rw-r----- 1 mdatp mdatp   32121 Sep 20 05:32 microsoft_defender_enterprise_imds.log\r\n-rw-r----- 1 mdatp mdatp  271125 Sep 20 18:02 microsoft_defender_enterprise_telemetryd.log\r\n-rw-r----- 1 mdatp mdatp    7345 Sep 20 16:22 microsoft_defender_enterprise_telemetryd_err.log\r\n-rw-r----- 1 mdatp mdatp   11737 Sep 20 13:32 microsoft_defender_err.log\r\n-rw-r----- 1 mdatp mdatp  251404 Sep 20 18:02 microsoft_defender_mplog.log\r\ndrwxrwxr-x 2 root  mdatp    4096 Sep 20 05:15 rotated\r\n-rw-r----- 1 mdatp mdatp    3137 Sep 20 05:21 uninstall.log"
+                }
+              ]
             },
             {
-              "Type": "Description",
-              "Value": "Using the stat command we can check the permissions of the directories and files."
-            },
-            {
-              "Type": "Code",
-              "Value": "stat /var"
-            },
-            {
-              "Type": "Code",
-              "Value": "stat /var/log"
-            },
-            {
-              "Type": "Code",
-              "Value": "stat /var/log/microsoft"
-            },
-            {
-              "Type": "Description",
-              "Value": "The 'Access' should show permissions matching: (0755/drwxr-xr-x) If they do not match, update them with the below commands"
-            },
-            {
-              "Type": "Code",
-              "Value": "chmod 755 /var\r\nchmod 755 /var/log\r\nchmod 755 /var/log/microsoft"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check Permissions - /var"
-            },
-            {
-              "Type": "Code",
-              "Value": "File: /var\r\n  Size: 4096            Blocks: 8          IO Block: 4096   directory\r\nDevice: 801h/2049d      Inode: 68806       Links: 13\r\nAccess: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)\r\nAccess: 2023-08-25 18:35:28.292450372 +0000\r\nModify: 2023-07-24 21:41:47.157883351 +0000\r\nChange: 2023-07-24 21:42:30.429271666 +0000\r\n Birth: -"
-            },
-            {
-              "Type": "Title",
-              "Value": "Check Permissions - /var/log"
-            },
-            {
-              "Type": "Code",
-              "Value": "File: /var/log\r\n  Size: 4096            Blocks: 8          IO Block: 4096   directory\r\nDevice: 801h/2049d      Inode: 81012       Links: 12\r\nAccess: (0775/drwxrwxr-x)  Uid: (    0/    root)   Gid: (  110/  syslog)\r\nAccess: 2023-09-20 05:37:41.752210675 +0000\r\nModify: 2023-09-20 05:32:38.521892324 +0000\r\nChange: 2023-09-20 05:32:38.521892324 +0000\r\n Birth: -"
-            },
-            {
-              "Type": "Title",
-              "Value": "Check Permissions - /var/log/microsoft"
-            },
-            {
-              "Type": "Code",
-              "Value": "File: /var/log/microsoft\r\n  Size: 4096            Blocks: 8          IO Block: 4096   directory\r\nDevice: 801h/2049d      Inode: 258442      Links: 3\r\nAccess: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)\r\nAccess: 2023-08-25 18:35:30.680535168 +0000\r\nModify: 2023-08-18 23:40:09.156314644 +0000\r\nChange: 2023-09-20 05:21:23.200663892 +0000\r\n Birth: -"
+              "title": "Check Permissions",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check Permissions"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Using the stat command we can check the permissions of the directories and files."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "stat /var"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "stat /var/log"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "stat /var/log/microsoft"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "The 'Access' should show permissions matching: (0755/drwxr-xr-x) If they do not match, update them with the below commands"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "chmod 755 /var\r\nchmod 755 /var/log\r\nchmod 755 /var/log/microsoft"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check Permissions - /var"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "File: /var\r\n  Size: 4096            Blocks: 8          IO Block: 4096   directory\r\nDevice: 801h/2049d      Inode: 68806       Links: 13\r\nAccess: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)\r\nAccess: 2023-08-25 18:35:28.292450372 +0000\r\nModify: 2023-07-24 21:41:47.157883351 +0000\r\nChange: 2023-07-24 21:42:30.429271666 +0000\r\n Birth: -"
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Check Permissions - /var/log"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "File: /var/log\r\n  Size: 4096            Blocks: 8          IO Block: 4096   directory\r\nDevice: 801h/2049d      Inode: 81012       Links: 12\r\nAccess: (0775/drwxrwxr-x)  Uid: (    0/    root)   Gid: (  110/  syslog)\r\nAccess: 2023-09-20 05:37:41.752210675 +0000\r\nModify: 2023-09-20 05:32:38.521892324 +0000\r\nChange: 2023-09-20 05:32:38.521892324 +0000\r\n Birth: -"
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Check Permissions - /var/log/microsoft"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "File: /var/log/microsoft\r\n  Size: 4096            Blocks: 8          IO Block: 4096   directory\r\nDevice: 801h/2049d      Inode: 258442      Links: 3\r\nAccess: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)\r\nAccess: 2023-08-25 18:35:30.680535168 +0000\r\nModify: 2023-08-18 23:40:09.156314644 +0000\r\nChange: 2023-09-20 05:21:23.200663892 +0000\r\n Birth: -"
+                }
+              ]
             }
           ]
         }
       ]
     }
-  ]
-}},
- { "file": "MDELinuxCentosSetup", "path": "./json/MDELinuxCentosSetup.json", "data": {
-  "title": "Centos Setup",
-  "path": "mde/linux-setup-centos",
-  "section": "MDE",
-  "subSection": "Linux",
-  "data": [
-    {
-      "section": 1,
-      "title": "Checking Existing Install",
-      "description": "What do we have already?",
-      "tasks": [
+  },
+  {
+    "file": "MDELinuxCentosSetup",
+    "path": "./json/MDELinuxCentosSetup.json",
+    "data": {
+      "title": "Centos Setup",
+      "path": "/mde/linux-setup-centos",
+      "section": "MDE",
+      "subSection": "Linux",
+      "description": "",
+      "data": [
         {
-          "title": "",
-          "userActivity": [
+          "section": 1,
+          "title": "Checking Existing Install",
+          "description": "What do we have already?",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Get Distro Version"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Get Distro Version"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "This exercie assumes you have a Linux VM setup and running Centos."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "cat /etc/os-release"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Example output"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "NAME=\"CentOS Linux\"\n  VERSION=\"8\"\n  ID=\"centos\"\n  ID_LIKE=\"rhel fedora\"\n  VERSION_ID=\"8\"\n  PLATFORM_ID=\"platform:el8\"\n  PRETTY_NAME=\"CentOS Linux 8\"\n  ANSI_COLOR=\"0;31\"\n  CPE_NAME=\"cpe:/o:centos:centos:8\"\n  HOME_URL=\"https://centos.org/\"\n  BUG_REPORT_URL=\"https://bugs.centos.org/\"\n  CENTOS_MANTISBT_PROJECT=\"CentOS-8\"\n  CENTOS_MANTISBT_PROJECT_VERSION=\"8\""
+                }
+              ]
             },
             {
-              "Type": "Description",
-              "Value": "This exercie assumes you have a Linux VM setup and running Centos."
+              "title": "Has MDATP already been installed?",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check if MDATP is installed"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "which mdatp"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample output"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "/bin/mdatp"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "cat /etc/os-release"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Example output"
-            },
-            {
-              "Type": "Code",
-              "Value": "NAME=\"CentOS Linux\"\n  VERSION=\"8\"\n  ID=\"centos\"\n  ID_LIKE=\"rhel fedora\"\n  VERSION_ID=\"8\"\n  PLATFORM_ID=\"platform:el8\"\n  PRETTY_NAME=\"CentOS Linux 8\"\n  ANSI_COLOR=\"0;31\"\n  CPE_NAME=\"cpe:/o:centos:centos:8\"\n  HOME_URL=\"https://centos.org/\"\n  BUG_REPORT_URL=\"https://bugs.centos.org/\"\n  CENTOS_MANTISBT_PROJECT=\"CentOS-8\"\n  CENTOS_MANTISBT_PROJECT_VERSION=\"8\""
+              "title": "What's the status of the daemon?",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check daemon status"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "service mdatp status"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "The above command will only work if the daemon is installed and running."
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample output"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "● mdatp.service - Microsoft Defender\n              Loaded: loaded (/usr/lib/systemd/system/mdatp.service; enabled; vendor preset: disabled)\n              Active: active (running) since Wed 2023-09-13 19:57:32 UTC; 1h 16min ago\n            Main PID: 4802 (wdavdaemon)\n               Tasks: 159 (limit: 12024)\n              Memory: 322.6M\n              CGroup: /system.slice/mdatp.service\n                      ├─4802 /opt/microsoft/mdatp/sbin/wdavdaemon\n                      ├─4836 /opt/microsoft/mdatp/sbin/wdavdaemon edr 12 11 --log_level info\n                      ├─4923 /opt/microsoft/mdatp/sbin/telemetryd_v2 33\"\n                      └─5504 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 265 270 287 289 259 --log_level info"
+                }
+              ]
             }
           ]
         },
         {
-          "title": "Has MDATP already been installed?",
-          "userActivity": [
+          "section": 2,
+          "title": "Envrionment Setup",
+          "description": "Getting the environment ready for MDE for Linux on Centos",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Check if MDATP is installed"
+              "title": "Update packages and repos",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Update system packages"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Update packages using the yum package manager"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "yum update"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "Each Linux distrobution has a different package manager. For example, Ubuntu uses apt-get, while Centos uses yum."
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample output"
+                },
+                {
+                  "Type": "Image",
+                  "Value": "/images/nll/CentosYumUpdate.png"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "which mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample output"
+              "title": "Update packages and repos",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Add the Microsoft repo to isntall MDE"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "rpm -Uvh https://packages.microsoft.com/config/rhel/8/prod.repo"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample yum update output"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "The RPM package repository will be added to the system. This will allow you to install MDE using yum."
+                },
+                {
+                  "Type": "Description",
+                  "Value": "The output below shows the RPM package being added to the system."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo dnf repolist | grep microsoft"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "yum repolist | grep microsoft"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "/bin/mdatp"
-            }
-          ]
-        },
-        {
-          "title": "What's the status of the daemon?",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check daemon status"
-            },
-            {
-              "Type": "Code",
-              "Value": "service mdatp status"
-            },
-            {
-              "Type": "Description",
-              "Value": "The above command will only work if the daemon is installed and running."
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample output"
-            },
-            {
-              "Type": "Code",
-              "Value": "● mdatp.service - Microsoft Defender\n              Loaded: loaded (/usr/lib/systemd/system/mdatp.service; enabled; vendor preset: disabled)\n              Active: active (running) since Wed 2023-09-13 19:57:32 UTC; 1h 16min ago\n            Main PID: 4802 (wdavdaemon)\n               Tasks: 159 (limit: 12024)\n              Memory: 322.6M\n              CGroup: /system.slice/mdatp.service\n                      ├─4802 /opt/microsoft/mdatp/sbin/wdavdaemon\n                      ├─4836 /opt/microsoft/mdatp/sbin/wdavdaemon edr 12 11 --log_level info\n                      ├─4923 /opt/microsoft/mdatp/sbin/telemetryd_v2 33\"\n                      └─5504 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 265 270 287 289 259 --log_level info"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 2,
-      "title": "Envrionment Setup",
-      "description": "Getting the environment ready for MDE for Linux on Centos",
-      "tasks": [
-        {
-          "title": "Update packages and repos",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Update system packages"
-            },
-            {
-              "Type": "Description",
-              "Value": "Update packages using the yum package manager"
-            },
-            {
-              "Type": "Code",
-              "Value": "yum update"
-            },
-            {
-              "Type": "Note",
-              "Value": "Each Linux distrobution has a different package manager. For example, Ubuntu uses apt-get, while Centos uses yum."
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample output"
-            },
-            {
-              "Type": "Image",
-              "Value": "/images/nll/CentosYumUpdate.png"
-            }
-          ]
-        },
-        {
-          "title": "Update packages and repos",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Add the Microsoft repo to isntall MDE"
-            },
-            {
-              "Type": "Code",
-              "Value": "rpm -Uvh https://packages.microsoft.com/config/rhel/8/prod.repo"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample yum update output"
-            },
-            {
-              "Type": "Description",
-              "Value": "The RPM package repository will be added to the system. This will allow you to install MDE using yum."
-            },
-            {
-              "Type": "Description",
-              "Value": "The output below shows the RPM package being added to the system."
-            },
-            {
-              "Type": "Code",
-              "Value": "sudo dnf repolist | grep microsoft"
-            },
-            {
-              "Type": "Code",
-              "Value": "yum repolist | grep microsoft"
+              "title": "Update packages and repos",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "We can check the respoiory list to see if the Microsoft repo has been added"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo dnf repolist | grep microsoft"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "OR"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "yum repolist | grep microsoft"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample yum update output"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "microsoftpackages         packages-microsoft-com-prod-insiders-fast"
+                }
+              ]
             }
           ]
         },
         {
-          "title": "Update packages and repos",
-          "userActivity": [
+          "section": 3,
+          "title": "Install MDE for Linux",
+          "description": "Steps to install the MDE for Linux agent on Centos",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "We can check the respoiory list to see if the Microsoft repo has been added"
-            },
-            {
-              "Type": "Code",
-              "Value": "sudo dnf repolist | grep microsoft"
-            },
-            {
-              "Type": "Description",
-              "Value": "OR"
-            },
-            {
-              "Type": "Code",
-              "Value": "yum repolist | grep microsoft"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample yum update output"
-            },
-            {
-              "Type": "Code",
-              "Value": "microsoftpackages         packages-microsoft-com-prod-insiders-fast"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 3,
-      "title": "Install MDE for Linux",
-      "description": "Steps to install the MDE for Linux agent on Centos",
-      "tasks": [
-        {
-          "title": "Install the MDE package.",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Install MDE"
-            },
-            {
-              "Type": "Code",
-              "Value": "sudo yum install mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "We can view the logs for this installation in /var/log/microsoft/mdatp/install.log"
-            },
-            {
-              "Type": "Code",
-              "Value": "cat /var/log/microsoft/mdatp/install.log"
-            },
-            {
-              "Type": "Note",
-              "Value": "The 'cat' command will print the file to the screen. You can also use 'less' to view the file."
-            },
-            {
-              "Type": "Code",
-              "Value": "preinstall\n  Arguments passed to the preinstall script: 1\n  preinstall begin [2023-08-28 16:25:28OURCE +0000] 59060\n  correlation id=574704c0-1a70-4b4c-9ca7-7c4df70e3bf8\n  Generation installation id\n  is_new_install=1, bundle_version=101.23072.0021, branch=release/linux/2307-2\n  File /opt/microsoft/mdatp/conf/BuildInfo not found\n  NAME=\"CentOS Linux\"\n  VERSION=\"8\"\n  ID=\"centos\"\n  ID_LIKE=\"rhel fedora\"\n  VERSION_ID=\"8\"\n  PLATFORM_ID=\"platform:el8\"\n  PRETTY_NAME=\"CentOS Linux 8\"\n  ANSI_COLOR=\"0;31\"\n  CPE_NAME=\"cpe:/o:centos:centos:8\"\n  HOME_URL=\"https://centos.org/\"\n  BUG_REPORT_URL=\"https://bugs.centos.org/\"\n  CENTOS_MANTISBT_PROJECT=\"CentOS-8\"\n  CENTOS_MANTISBT_PROJECT_VERSION=\"8\"\n  DISTRO: centos\n  DISTRO_VERSION: 8.5\n  DISTRO_FAMILY: redhat\n  Installed kernel version: 4.18.0-348.7.1.el8_5.x86_64\n  Not a Redhat-7 distribution\n  Scenario= Install\n  Machine Guid: 488afa59-53f8-3b4c-a537-c9a97144172d\n  Creating daemon user\n  Daemon user (mdatp) created successfully\n  Logging pending telemetry\n  [LogTelemetry] Submitting {\n          \"client\": {\n              \"appVersion\": \"101.23072.0021\",\n              \"hostname\": \"centos-01\",\n              \"platform\": \"Linux\",\n              \"machineGuid\": \"488afa59-53f8-3b4c-a537-c9a97144172d\",\n              \"orgId\": \"\",\n              \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\n          },\n          \"reports\":[\n              {\n                  \"$type\":\"installationReport\",\n                  \"correlation_id\": \"574704c0-1a70-4b4c-9ca7-7c4df70e3bf8\",\n                  \"version\": \"101.23072.0021\",\n                  \"severity\": \"W\",\n                  \"code\":\"FileNotExist\",\n                  \"text\":\"File /opt/microsoft/mdatp/conf/BuildInfo not found\"\n              }\n          ]\n      }\n  Telemetry Submitted\n  [LogTelemetry] result=0\n  [LogTelemetry] Submitting {\n          \"client\": {\n              \"appVersion\": \"101.23072.0021\",\n              \"hostname\": \"centos-01\",\n              \"platform\": \"Linux\",\n              \"machineGuid\": \"488afa59-53f8-3b4c-a537-c9a97144172d\",\n              \"orgId\": \"\",\n              \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\n          },\n          \"reports\":[\n              {\n                  \"$type\":\"installationReport\",\n                  \"correlation_id\": \"574704c0-1a70-4b4c-9ca7-7c4df70e3bf8\",\n                  \"version\": \"101.23072.0021\",\n                  \"severity\": \"I\",\n                  \"code\":\"InstallStarted\",\n                  \"text\":\"is_new_install='1', bundle_version='101.23072.0021', branch='release/linux/2307-2', package=''\"\n              }\n          ]\n      }\n  Telemetry Submitted\n  [LogTelemetry] result=0\n  preinstall end [2023-08-28 16:25:29OURCE +0000] 59060\n  postinstall\n  "
+              "title": "Install the MDE package.",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Install MDE"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo yum install mdatp"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "We can view the logs for this installation in /var/log/microsoft/mdatp/install.log"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "cat /var/log/microsoft/mdatp/install.log"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "The 'cat' command will print the file to the screen. You can also use 'less' to view the file."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "preinstall\n  Arguments passed to the preinstall script: 1\n  preinstall begin [2023-08-28 16:25:28OURCE +0000] 59060\n  correlation id=574704c0-1a70-4b4c-9ca7-7c4df70e3bf8\n  Generation installation id\n  is_new_install=1, bundle_version=101.23072.0021, branch=release/linux/2307-2\n  File /opt/microsoft/mdatp/conf/BuildInfo not found\n  NAME=\"CentOS Linux\"\n  VERSION=\"8\"\n  ID=\"centos\"\n  ID_LIKE=\"rhel fedora\"\n  VERSION_ID=\"8\"\n  PLATFORM_ID=\"platform:el8\"\n  PRETTY_NAME=\"CentOS Linux 8\"\n  ANSI_COLOR=\"0;31\"\n  CPE_NAME=\"cpe:/o:centos:centos:8\"\n  HOME_URL=\"https://centos.org/\"\n  BUG_REPORT_URL=\"https://bugs.centos.org/\"\n  CENTOS_MANTISBT_PROJECT=\"CentOS-8\"\n  CENTOS_MANTISBT_PROJECT_VERSION=\"8\"\n  DISTRO: centos\n  DISTRO_VERSION: 8.5\n  DISTRO_FAMILY: redhat\n  Installed kernel version: 4.18.0-348.7.1.el8_5.x86_64\n  Not a Redhat-7 distribution\n  Scenario= Install\n  Machine Guid: 488afa59-53f8-3b4c-a537-c9a97144172d\n  Creating daemon user\n  Daemon user (mdatp) created successfully\n  Logging pending telemetry\n  [LogTelemetry] Submitting {\n          \"client\": {\n              \"appVersion\": \"101.23072.0021\",\n              \"hostname\": \"centos-01\",\n              \"platform\": \"Linux\",\n              \"machineGuid\": \"488afa59-53f8-3b4c-a537-c9a97144172d\",\n              \"orgId\": \"\",\n              \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\n          },\n          \"reports\":[\n              {\n                  \"$type\":\"installationReport\",\n                  \"correlation_id\": \"574704c0-1a70-4b4c-9ca7-7c4df70e3bf8\",\n                  \"version\": \"101.23072.0021\",\n                  \"severity\": \"W\",\n                  \"code\":\"FileNotExist\",\n                  \"text\":\"File /opt/microsoft/mdatp/conf/BuildInfo not found\"\n              }\n          ]\n      }\n  Telemetry Submitted\n  [LogTelemetry] result=0\n  [LogTelemetry] Submitting {\n          \"client\": {\n              \"appVersion\": \"101.23072.0021\",\n              \"hostname\": \"centos-01\",\n              \"platform\": \"Linux\",\n              \"machineGuid\": \"488afa59-53f8-3b4c-a537-c9a97144172d\",\n              \"orgId\": \"\",\n              \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\n          },\n          \"reports\":[\n              {\n                  \"$type\":\"installationReport\",\n                  \"correlation_id\": \"574704c0-1a70-4b4c-9ca7-7c4df70e3bf8\",\n                  \"version\": \"101.23072.0021\",\n                  \"severity\": \"I\",\n                  \"code\":\"InstallStarted\",\n                  \"text\":\"is_new_install='1', bundle_version='101.23072.0021', branch='release/linux/2307-2', package=''\"\n              }\n          ]\n      }\n  Telemetry Submitted\n  [LogTelemetry] result=0\n  preinstall end [2023-08-28 16:25:29OURCE +0000] 59060\n  postinstall\n  "
+                }
+              ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "section": 4,
-      "title": "Explore the MDATP application",
-      "description": "Let's check the configuration of the MDE for Linux agent",
-      "tasks": [
+        },
         {
-          "title": "Health cehck",
-          "userActivity": [
+          "section": 4,
+          "title": "Explore the MDATP application",
+          "description": "Let's check the configuration of the MDE for Linux agent",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Health cehck"
-            },
-            {
-              "Type": "Code",
-              "Value": "mdatp health"
-            },
-            {
-              "Type": "Note",
-              "Value": "The 'mdatp health' command will show the health of the MDE for Linux agent. This will show if the agent is healthy, if there are any health issues, if the agent is licensed, and configurations values."
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample output"
-            },
-            {
-              "Type": "Code",
-              "Value": "healthy                                     : true\n  health_issues                               : []\n  licensed                                    : true\n  engine_version                              : \"1.1.23080.2007\"\n  app_version                                 : \"101.23082.0006\"\n  org_id                                      : \"e1fb4f0a-1fbe-4181-b3e3-180f6e6ac31f\"\n  log_level                                   : \"info\"\n  machine_guid                                : \"488afa59-53f8-3b4c-a537-c9a97144172d\"\n  release_ring                                : \"InsiderFast\"\n  product_expiration                          : May 29, 2024 at 04:26:26 AM\n  cloud_enabled                               : true\n  cloud_automatic_sample_submission_consent   : \"safe\"\n  cloud_diagnostic_enabled                    : false\n  passive_mode_enabled                        : false\n  behavior_monitoring                         : \"disabled\"\n  real_time_protection_enabled                : true\n  real_time_protection_available              : true\n  real_time_protection_subsystem              : \"fanotify\"\n  supplementary_events_subsystem              : \"ebpf\"\n  tamper_protection                           : \"disabled\"\n  automatic_definition_update_enabled         : true\n  definitions_updated                         : Sep 13, 2023 at 07:57:47 PM\n  definitions_updated_minutes_ago             : 114\n  definitions_version                         : \"1.397.911.0\"\n  definitions_status                          : \"up_to_date\"\n  edr_early_preview_enabled                   : \"disabled\"\n  edr_device_tags                             : []\n  edr_group_ids                               : \"\"\n  edr_configuration_version                   : \"30.199999.main.2023.09.12.17-C66E94972A44477D660E4B10FE61A2673B9201934B5797BEF69B78B21746A58B\"\n  edr_machine_id                              : \"138fb85fae1f265d23f2ba51597d3dad830ff411\"\n  conflicting_applications                    : []\n  network_protection_status                   : \"stopped\"\n  network_protection_enforcement_level        : \"disabled\"\n  troubleshooting_mode                        : false"
+              "title": "Health cehck",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Health cehck"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp health"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "The 'mdatp health' command will show the health of the MDE for Linux agent. This will show if the agent is healthy, if there are any health issues, if the agent is licensed, and configurations values."
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample output"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "healthy                                     : true\n  health_issues                               : []\n  licensed                                    : true\n  engine_version                              : \"1.1.23080.2007\"\n  app_version                                 : \"101.23082.0006\"\n  org_id                                      : \"e1fb4f0a-1fbe-4181-b3e3-180f6e6ac31f\"\n  log_level                                   : \"info\"\n  machine_guid                                : \"488afa59-53f8-3b4c-a537-c9a97144172d\"\n  release_ring                                : \"InsiderFast\"\n  product_expiration                          : May 29, 2024 at 04:26:26 AM\n  cloud_enabled                               : true\n  cloud_automatic_sample_submission_consent   : \"safe\"\n  cloud_diagnostic_enabled                    : false\n  passive_mode_enabled                        : false\n  behavior_monitoring                         : \"disabled\"\n  real_time_protection_enabled                : true\n  real_time_protection_available              : true\n  real_time_protection_subsystem              : \"fanotify\"\n  supplementary_events_subsystem              : \"ebpf\"\n  tamper_protection                           : \"disabled\"\n  automatic_definition_update_enabled         : true\n  definitions_updated                         : Sep 13, 2023 at 07:57:47 PM\n  definitions_updated_minutes_ago             : 114\n  definitions_version                         : \"1.397.911.0\"\n  definitions_status                          : \"up_to_date\"\n  edr_early_preview_enabled                   : \"disabled\"\n  edr_device_tags                             : []\n  edr_group_ids                               : \"\"\n  edr_configuration_version                   : \"30.199999.main.2023.09.12.17-C66E94972A44477D660E4B10FE61A2673B9201934B5797BEF69B78B21746A58B\"\n  edr_machine_id                              : \"138fb85fae1f265d23f2ba51597d3dad830ff411\"\n  conflicting_applications                    : []\n  network_protection_status                   : \"stopped\"\n  network_protection_enforcement_level        : \"disabled\"\n  troubleshooting_mode                        : false"
+                }
+              ]
             }
           ]
         }
       ]
     }
-  ]
-}},
- { "file": "MDELinuxIPTables", "path": "./json/MDELinuxIPTables.json", "data": {
-  "title": "RHEL iptables",
-  "path": "mde/linux-rhel-iptables",
-  "section": "MDE",
-  "subSection": "Linux",
-  "data": [
-    {
-      "section": 1,
-      "title": "Check iptables rules",
-      "description": "Allow MDE to communicate with the Microsoft cloud service endpoints.",
-      "tasks": [
+  },
+  {
+    "file": "MDELinuxIPTables",
+    "path": "./json/MDELinuxIPTables.json",
+    "data": {
+      "title": "RHEL iptables",
+      "path": "/mde/linux-rhel-iptables",
+      "section": "MDE",
+      "subSection": "Linux",
+      "description": "Use the guide to troubleshoot issues with MDE connectivity to the Microsoft cloud service endpoints. We will use iptables to block and then allow outbound traffic to the MDE endpoints so we can see what errors and logs occur.",
+      "data": [
         {
-          "title": "",
-          "userActivity": [
+          "section": 1,
+          "title": "Check iptables rules",
+          "description": "Allow MDE to communicate with the Microsoft cloud service endpoints.",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "List iptables IPv4 rules"
-            },
-            {
-              "Type": "Code",
-              "Value": "sudo iptables -S"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Command output"
-            },
-            {
-              "Type": "Description",
-              "Value": "The output shows the current iptables rules. The -S option is used to list the rules in a format that can be used as input to iptables-restore."
-            },
-            {
-              "Type": "Code",
-              "Value": "-P INPUT ACCEPT\r\n-P FORWARD ACCEPT\r\n-P OUTPUT ACCEPT"
-            },
-            {
-              "Type": "Note",
-              "Value": "The above output shows that the default policy for the INPUT, FORWARD and OUTPUT chains is ACCEPT."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 2,
-      "title": "Optional: Block outbound traffic",
-      "description": "Block all outbound traffic.",
-      "tasks": [
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Test outbound connection with curl works successfully"
-            },
-            {
-              "Type": "Code",
-              "Value": "curl google.com"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Successful curl output"
-            },
-            {
-              "Type": "Code",
-              "Value": "<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\r\n<TITLE>301 Moved</TITLE></HEAD><BODY>\r\n<H1>301 Moved</H1>\r\nThe document has moved\r\n<A HREF=\"http://www.google.com/\">here</A>.\r\n</BODY></HTML>"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "List iptables IPv4 rules"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo iptables -S"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Command output"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "The output shows the current iptables rules. The -S option is used to list the rules in a format that can be used as input to iptables-restore."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "-P INPUT ACCEPT\r\n-P FORWARD ACCEPT\r\n-P OUTPUT ACCEPT"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "The above output shows that the default policy for the INPUT, FORWARD and OUTPUT chains is ACCEPT."
+                }
+              ]
             }
           ]
         },
         {
-          "title": "",
-          "userActivity": [
+          "section": 2,
+          "title": "Optional: Block outbound traffic",
+          "description": "Block all outbound traffic.",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Block all outbound traffic"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Test outbound connection with curl works successfully"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "curl google.com"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Successful curl output"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "<HTML><HEAD><meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\r\n<TITLE>301 Moved</TITLE></HEAD><BODY>\r\n<H1>301 Moved</H1>\r\nThe document has moved\r\n<A HREF=\"http://www.google.com/\">here</A>.\r\n</BODY></HTML>"
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "sudo iptables -A OUTPUT -p tcp -m multiport --dport 80,443 -j REJECT"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Description",
-              "Value": "Our iptables rule was applied, we can check by viewing the rules again."
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Block all outbound traffic"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo iptables -A OUTPUT -p tcp -m multiport --dport 80,443 -j REJECT"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Description",
+                  "Value": "Our iptables rule was applied, we can check by viewing the rules again."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo iptables -L"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Output of iptables rules"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Chain INPUT (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain FORWARD (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain OUTPUT (policy ACCEPT)\r\ntarget     prot opt source               destination\r\nREJECT     tcp  --  anywhere             anywhere             multiport dports http,https reject-with icmp-port-unreachable"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Any subsequent curl commands on port 80 and 443 will fail."
+                }
+              ]
             },
             {
-              "Type": "Code",
-              "Value": "sudo iptables -L"
-            },
-            {
-              "Type": "Description",
-              "Value": "Output of iptables rules"
-            },
-            {
-              "Type": "Code",
-              "Value": "Chain INPUT (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain FORWARD (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain OUTPUT (policy ACCEPT)\r\ntarget     prot opt source               destination\r\nREJECT     tcp  --  anywhere             anywhere             multiport dports http,https reject-with icmp-port-unreachable"
-            },
-            {
-              "Type": "Description",
-              "Value": "Any subsequent curl commands on port 80 and 443 will fail."
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Test outbound connection with curl is blocked successfully"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "curl google.com"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Blocked curl output"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "curl: (28) Failed to connect to google.com port 80: Connection timed out"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "The above output shows that the connection timed out, which means the outbound traffic was blocked."
+                }
+              ]
             }
           ]
         },
         {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Test outbound connection with curl is blocked successfully"
-            },
-            {
-              "Type": "Code",
-              "Value": "curl google.com"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Blocked curl output"
-            },
-            {
-              "Type": "Code",
-              "Value": "curl: (28) Failed to connect to google.com port 80: Connection timed out"
-            },
-            {
-              "Type": "Description",
-              "Value": "The above output shows that the connection timed out, which means the outbound traffic was blocked."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 3,
-      "title": "Connectivity Test",
-      "description": "Check MDATP connectivity to the Microsoft cloud service endpoints.",
-      "tasks": [
-        {
-          "title": "",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check MDATP connectivity to the Microsoft cloud service endpoints."
-            },
-            {
-              "Type": "Description",
-              "Value": "mdatp has a built-in connectivity test that can be used to check connectivity to the Microsoft cloud service endpoints."
-            },
-            {
-              "Type": "Code",
-              "Value": "mdatp connectivity test"
-            },
-            {
-              "Type": "Note",
-              "Value": "The connectivity test will take a few minutes to complete."
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "ERROR Connectivity Test failed"
-            },
-            {
-              "Type": "Code",
-              "Value": "Testing connection with https://nf.smartscreen.microsoft.com/api/network/mac ... [ERROR]\r\n        [\"(request #16)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://unitedstates.x.cp.wd.microsoft.com/api/report ... [ERROR]\r\n        [\"(request #19)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://ussus1eastprod.blob.core.windows.net/ ... [ERROR]\r\n        [\"(request #22)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://ussus1westprod.blob.core.windows.net/ ... [ERROR]\r\n        [\"(request #25)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://unitedstates.smartscreen.microsoft.com//api/network/mac ... [ERROR]\r\n        [\"(request #28)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://unitedstates.smartscreen-prod.microsoft.com//api/network/mac ... [ERROR]\r\n        [\"(request #32)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://go.microsoft.com/fwlink/?linkid=2144709 ... [ERROR]\r\n        [\"(request #35)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://winatp-gw-cus.microsoft.com/test ... [ERROR]\r\n        Timeout was reached\r\n        HTTP response: 0\r\nTesting connection with https://winatp-gw-eus.microsoft.com/test ... [ERROR]\r\n        Timeout was reached\r\n        HTTP response: 0\r\nTesting connection with https://us-v20.events.data.microsoft.com/ping ... [ERROR]\r\n        Timeout was reached\r\n        HTTP response: 0\r\nTesting connection with https://automatedirstrprdcus.blob.core.windows.net ... [ERROR]\r\n        Timeout was reached\r\n        HTTP response: 0\r\nTesting connection with https://automatedirstrprdeus.blob.core.windows.net ... [ERROR]\r\n        Timeout was reached\r\n        HTTP response: 0"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 4,
-      "description": "",
-      "title": "Allow MDE outbound traffic",
-      "tasks": [
-        {
-          "title": "Allow outbound traffic",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Allow outbound traffic to MDE endpoints"
-            },
-            {
-              "Type": "Description",
-              "Value": "From our test above we can see which endpoints are blocked."
-            },
-            {
-              "Type": "Description",
-              "Value": "You should always refer to the official documentation for the latest list of endpoints. https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#network-connections"
-            },
-            {
-              "Type": "Note",
-              "Value": "For the purpose of this lab we will allow only the endpoints identified in the previous step."
-            },
-            {
-              "Type": "Title",
-              "Value": "Allow outbound traffic to the Microsoft cloud service endpoints."
-            },
-            {
-              "Type": "Code",
-              "Value": "iptables -I OUTPUT -d nf.smartscreen.microsoft.com,unitedstates.x.cp.wd.microsoft.com,ussus1eastprod.blob.core.windows.net,ussus1westprod.blob.core.windows.net,unitedstates.smartscreen.microsoft.com,unitedstates.smartscreen-prod.microsoft.com,go.microsoft.com,winatp-gw-cus.microsoft.com,winatp-gw-eus.microsoft.com,us-v20.events.data.microsoft.com,automatedirstrprdcus.blob.core.windows.net,automatedirstrprdeus.blob.core.windows.net -p tcp --dport 443 -j ACCEPT"
-            },
-            {
-              "Type": "Note",
-              "Value": "This is for demonstration purposes only. Using domain/host name in iptables rules is not recommended. You should always use IP addresses."
-            },
-            {
-              "Type": "Note",
-              "Value": "When iptables applies to rule above  it evaluates the domain name and resolves it to an IP address. If the IP address changes, the rule will no longer work. You will need to update the rule with the new IP address."
-            },
-            {
-              "Type": "Note",
-              "Value": "If we perform multiple nslookups against nf.smartscreen.microsoft.com we can see that the IP address changes."
-            },
-            {
-              "Type": "Code",
-              "Value": "Non-authoritative answer:\r\nnf.smartscreen.microsoft.com    canonical name = wd-prod-ss.trafficmanager.net.\r\nwd-prod-ss.trafficmanager.net   canonical name = wd-prod-ss-us-east-2-fe.eastus.cloudapp.azure.com.\r\nName:   wd-prod-ss-us-east-2-fe.eastus.cloudapp.azure.com\r\nAddress: 20.246.247.192\r\n\r\nNon-authoritative answer:\r\nnf.smartscreen.microsoft.com    canonical name = wd-prod-ss.trafficmanager.net.\r\nwd-prod-ss.trafficmanager.net   canonical name = wd-prod-ss-us-east-2-fe.eastus.cloudapp.azure.com.\r\nName:   wd-prod-ss-us-east-2-fe.eastus.cloudapp.azure.com\r\nAddress: 20.246.247.192\r\n\r\nNon-authoritative answer:\r\nnf.smartscreen.microsoft.com    canonical name = wd-prod-ss.trafficmanager.net.\r\nwd-prod-ss.trafficmanager.net   canonical name = wd-prod-ss-us-northcentral-2-fe.northcentralus.cloudapp.azure.com.\r\nName:   wd-prod-ss-us-northcentral-2-fe.northcentralus.cloudapp.azure.com\r\nAddress: 52.159.118.63"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check iptables rules"
-            },
-            {
-              "Type": "Code",
-              "Value": "sudo iptables -L"
-            },
-            {
-              "Type": "Code",
-              "Value": "Chain INPUT (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain FORWARD (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain OUTPUT (policy ACCEPT)\r\ntarget     prot opt source               destination\r\nACCEPT     tcp  --  anywhere             20.60.88.36          tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.38.122.100        tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.189.173.15        tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.22.154.109        tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.37.135.94         tcp dpt:https\r\nACCEPT     tcp  --  anywhere             a104-117-234-151.deploy.static.akamaitechnologies.com  tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.98.40.52          tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.98.40.52          tcp dpt:https\r\nACCEPT     tcp  --  anywhere             52.239.160.170       tcp dpt:https\r\nACCEPT     tcp  --  anywhere             52.240.48.36         tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.49.104.18         tcp dpt:https\r\nACCEPT     tcp  --  anywhere             168.61.21.91         tcp dpt:https\r\nREJECT     tcp  --  anywhere             anywhere             multiport dports http,https reject-with icmp-port-unreachable"
-            },
-            {
-              "Type": "Description",
-              "Value": "Our iptables rules were applied, we can see the specific IP address for each endpoint at the time iptables resolved the domain name."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 5,
-      "description": "",
-      "title": "Connectivity Test",
-      "tasks": [
-        {
+          "section": 3,
           "title": "Connectivity Test",
-          "userActivity": [
+          "description": "Check MDATP connectivity to the Microsoft cloud service endpoints.",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Connectivity Test"
-            },
-            {
-              "Type": "Description",
-              "Value": "Now that we have allowed outbound traffic to the Microsoft cloud service endpoints, we can run the connectivity test again."
-            },
-            {
-              "Type": "Code",
-              "Value": "mdatp connectivity test"
-            },
-            {
-              "Type": "Note",
-              "Value": "The connectivity test may take a few minutes to complete."
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Connectivity...sometimes!"
-            },
-            {
-              "Type": "Code",
-              "Value": "Testing connection with https://nf.smartscreen.microsoft.com/api/network/mac ... [ERROR]\r\n        [\"(request #182)\",\"Failed to connect to any resolved endpoint\"]\r\n        Unknown error -1 (error code -1)\r\nTesting connection with https://unitedstates.x.cp.wd.microsoft.com/api/report ... [OK]\r\nTesting connection with https://ussus1eastprod.blob.core.windows.net/ ... [OK]\r\nTesting connection with https://ussus1westprod.blob.core.windows.net/ ... [OK]\r\nTesting connection with https://unitedstates.smartscreen.microsoft.com//api/network/mac ... [OK]\r\nTesting connection with https://unitedstates.smartscreen-prod.microsoft.com//api/network/mac ... [OK]\r\nTesting connection with https://go.microsoft.com/fwlink/?linkid=2144709 ... [ERROR]\r\n        [\"(request #191)\",\"Failed to connect to any resolved endpoint\"]\r\n        Unknown error -1 (error code -1)\r\nTesting connection with https://winatp-gw-cus.microsoft.com/test ... [ERROR]\r\n        Couldn't connect to server\r\n        HTTP response: 0\r\nTesting connection with https://winatp-gw-eus.microsoft.com/test ... [ERROR]\r\n        Couldn't connect to server\r\n        HTTP response: 0\r\nTesting connection with https://us-v20.events.data.microsoft.com/ping ... [ERROR]\r\n        Couldn't connect to server\r\n        HTTP response: 0\r\nTesting connection with https://automatedirstrprdcus.blob.core.windows.net ... [OK]\r\nTesting connection with https://automatedirstrprdeus.blob.core.windows.net ... [OK]"
-            },
-            {
-              "Type": "Description",
-              "Value": "Most of our endpoints succed while some do not. This is because the IP address for those endpoints have changed since we added them to our iptables rule."
-            },
-            {
-              "Type": "Note",
-              "Value": "For production environments it's best to use a proxy or firewall that can allow outbound traffic to the Microsoft cloud service URL endpoints."
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check MDATP connectivity to the Microsoft cloud service endpoints."
+                },
+                {
+                  "Type": "Description",
+                  "Value": "mdatp has a built-in connectivity test that can be used to check connectivity to the Microsoft cloud service endpoints."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp connectivity test"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "The connectivity test will take a few minutes to complete."
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "ERROR Connectivity Test failed"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Testing connection with https://nf.smartscreen.microsoft.com/api/network/mac ... [ERROR]\r\n        [\"(request #16)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://unitedstates.x.cp.wd.microsoft.com/api/report ... [ERROR]\r\n        [\"(request #19)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://ussus1eastprod.blob.core.windows.net/ ... [ERROR]\r\n        [\"(request #22)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://ussus1westprod.blob.core.windows.net/ ... [ERROR]\r\n        [\"(request #25)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://unitedstates.smartscreen.microsoft.com//api/network/mac ... [ERROR]\r\n        [\"(request #28)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://unitedstates.smartscreen-prod.microsoft.com//api/network/mac ... [ERROR]\r\n        [\"(request #32)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://go.microsoft.com/fwlink/?linkid=2144709 ... [ERROR]\r\n        [\"(request #35)\",\"Network is down\"]\r\n        Network is down (error code 100)\r\nTesting connection with https://winatp-gw-cus.microsoft.com/test ... [ERROR]\r\n        Timeout was reached\r\n        HTTP response: 0\r\nTesting connection with https://winatp-gw-eus.microsoft.com/test ... [ERROR]\r\n        Timeout was reached\r\n        HTTP response: 0\r\nTesting connection with https://us-v20.events.data.microsoft.com/ping ... [ERROR]\r\n        Timeout was reached\r\n        HTTP response: 0\r\nTesting connection with https://automatedirstrprdcus.blob.core.windows.net ... [ERROR]\r\n        Timeout was reached\r\n        HTTP response: 0\r\nTesting connection with https://automatedirstrprdeus.blob.core.windows.net ... [ERROR]\r\n        Timeout was reached\r\n        HTTP response: 0"
+                }
+              ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "section": 6,
-      "description": "",
-      "title": "Allow all outbound traffic",
-      "tasks": [
+        },
         {
+          "section": 4,
+          "description": "",
+          "title": "Allow MDE outbound traffic",
+          "tasks": [
+            {
+              "title": "Allow outbound traffic",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Allow outbound traffic to MDE endpoints"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "From our test above we can see which endpoints are blocked."
+                },
+                {
+                  "Type": "Description",
+                  "Value": "You should always refer to the official documentation for the latest list of endpoints. https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux?view=o365-worldwide#network-connections"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "For the purpose of this lab we will allow only the endpoints identified in the previous step."
+                },
+                {
+                  "Type": "Title",
+                  "Value": "Allow outbound traffic to the Microsoft cloud service endpoints."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "iptables -I OUTPUT -d nf.smartscreen.microsoft.com,unitedstates.x.cp.wd.microsoft.com,ussus1eastprod.blob.core.windows.net,ussus1westprod.blob.core.windows.net,unitedstates.smartscreen.microsoft.com,unitedstates.smartscreen-prod.microsoft.com,go.microsoft.com,winatp-gw-cus.microsoft.com,winatp-gw-eus.microsoft.com,us-v20.events.data.microsoft.com,automatedirstrprdcus.blob.core.windows.net,automatedirstrprdeus.blob.core.windows.net -p tcp --dport 443 -j ACCEPT"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "This is for demonstration purposes only. Using domain/host name in iptables rules is not recommended. You should always use IP addresses."
+                },
+                {
+                  "Type": "Note",
+                  "Value": "When iptables applies to rule above  it evaluates the domain name and resolves it to an IP address. If the IP address changes, the rule will no longer work. You will need to update the rule with the new IP address."
+                },
+                {
+                  "Type": "Note",
+                  "Value": "If we perform multiple nslookups against nf.smartscreen.microsoft.com we can see that the IP address changes."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Non-authoritative answer:\r\nnf.smartscreen.microsoft.com    canonical name = wd-prod-ss.trafficmanager.net.\r\nwd-prod-ss.trafficmanager.net   canonical name = wd-prod-ss-us-east-2-fe.eastus.cloudapp.azure.com.\r\nName:   wd-prod-ss-us-east-2-fe.eastus.cloudapp.azure.com\r\nAddress: 20.246.247.192\r\n\r\nNon-authoritative answer:\r\nnf.smartscreen.microsoft.com    canonical name = wd-prod-ss.trafficmanager.net.\r\nwd-prod-ss.trafficmanager.net   canonical name = wd-prod-ss-us-east-2-fe.eastus.cloudapp.azure.com.\r\nName:   wd-prod-ss-us-east-2-fe.eastus.cloudapp.azure.com\r\nAddress: 20.246.247.192\r\n\r\nNon-authoritative answer:\r\nnf.smartscreen.microsoft.com    canonical name = wd-prod-ss.trafficmanager.net.\r\nwd-prod-ss.trafficmanager.net   canonical name = wd-prod-ss-us-northcentral-2-fe.northcentralus.cloudapp.azure.com.\r\nName:   wd-prod-ss-us-northcentral-2-fe.northcentralus.cloudapp.azure.com\r\nAddress: 52.159.118.63"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check iptables rules"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo iptables -L"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Chain INPUT (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain FORWARD (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain OUTPUT (policy ACCEPT)\r\ntarget     prot opt source               destination\r\nACCEPT     tcp  --  anywhere             20.60.88.36          tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.38.122.100        tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.189.173.15        tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.22.154.109        tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.37.135.94         tcp dpt:https\r\nACCEPT     tcp  --  anywhere             a104-117-234-151.deploy.static.akamaitechnologies.com  tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.98.40.52          tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.98.40.52          tcp dpt:https\r\nACCEPT     tcp  --  anywhere             52.239.160.170       tcp dpt:https\r\nACCEPT     tcp  --  anywhere             52.240.48.36         tcp dpt:https\r\nACCEPT     tcp  --  anywhere             20.49.104.18         tcp dpt:https\r\nACCEPT     tcp  --  anywhere             168.61.21.91         tcp dpt:https\r\nREJECT     tcp  --  anywhere             anywhere             multiport dports http,https reject-with icmp-port-unreachable"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Our iptables rules were applied, we can see the specific IP address for each endpoint at the time iptables resolved the domain name."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "section": 5,
+          "description": "",
+          "title": "Connectivity Test",
+          "tasks": [
+            {
+              "title": "Connectivity Test",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Connectivity Test"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Now that we have allowed outbound traffic to the Microsoft cloud service endpoints, we can run the connectivity test again."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp connectivity test"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "The connectivity test may take a few minutes to complete."
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Connectivity...sometimes!"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Testing connection with https://nf.smartscreen.microsoft.com/api/network/mac ... [ERROR]\r\n        [\"(request #182)\",\"Failed to connect to any resolved endpoint\"]\r\n        Unknown error -1 (error code -1)\r\nTesting connection with https://unitedstates.x.cp.wd.microsoft.com/api/report ... [OK]\r\nTesting connection with https://ussus1eastprod.blob.core.windows.net/ ... [OK]\r\nTesting connection with https://ussus1westprod.blob.core.windows.net/ ... [OK]\r\nTesting connection with https://unitedstates.smartscreen.microsoft.com//api/network/mac ... [OK]\r\nTesting connection with https://unitedstates.smartscreen-prod.microsoft.com//api/network/mac ... [OK]\r\nTesting connection with https://go.microsoft.com/fwlink/?linkid=2144709 ... [ERROR]\r\n        [\"(request #191)\",\"Failed to connect to any resolved endpoint\"]\r\n        Unknown error -1 (error code -1)\r\nTesting connection with https://winatp-gw-cus.microsoft.com/test ... [ERROR]\r\n        Couldn't connect to server\r\n        HTTP response: 0\r\nTesting connection with https://winatp-gw-eus.microsoft.com/test ... [ERROR]\r\n        Couldn't connect to server\r\n        HTTP response: 0\r\nTesting connection with https://us-v20.events.data.microsoft.com/ping ... [ERROR]\r\n        Couldn't connect to server\r\n        HTTP response: 0\r\nTesting connection with https://automatedirstrprdcus.blob.core.windows.net ... [OK]\r\nTesting connection with https://automatedirstrprdeus.blob.core.windows.net ... [OK]"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Most of our endpoints succed while some do not. This is because the IP address for those endpoints have changed since we added them to our iptables rule."
+                },
+                {
+                  "Type": "Note",
+                  "Value": "For production environments it's best to use a proxy or firewall that can allow outbound traffic to the Microsoft cloud service URL endpoints."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "section": 6,
+          "description": "",
           "title": "Allow all outbound traffic",
-          "userActivity": [
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Allow all outbound traffic"
-            },
-            {
-              "Type": "Description",
-              "Value": "Let's remove the iptables rules and allow all outbound traffic."
-            },
-            {
-              "Type": "Code",
-              "Value": "iptables -F"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check our iptables rules"
-            },
-            {
-              "Type": "Code",
-              "Value": "iptables -L"
-            },
-            {
-              "Type": "Code",
-              "Value": "Chain INPUT (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain FORWARD (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain OUTPUT (policy ACCEPT)\r\ntarget     prot opt source               destination"
+              "title": "Allow all outbound traffic",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Allow all outbound traffic"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Let's remove the iptables rules and allow all outbound traffic."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "iptables -F"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check our iptables rules"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "iptables -L"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Chain INPUT (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain FORWARD (policy ACCEPT)\r\ntarget     prot opt source               destination\r\n\r\nChain OUTPUT (policy ACCEPT)\r\ntarget     prot opt source               destination"
+                }
+              ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "section": 7,
-      "description": "",
-      "title": "Connectivity Test",
-      "tasks": [
+        },
         {
+          "section": 7,
+          "description": "",
           "title": "Connectivity Test",
-          "userActivity": [
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Connectivity Test"
-            },
-            {
-              "Type": "Code",
-              "Value": "mdatp connectivity test"
-            },
-            {
-              "Type": "Note",
-              "Value": "The connectivity test may take a few minutes to complete."
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Success!"
-            },
-            {
-              "Type": "Code",
-              "Value": "Testing connection with https://nf.smartscreen.microsoft.com/api/network/mac ... [OK]\r\nTesting connection with https://unitedstates.x.cp.wd.microsoft.com/api/report ... [OK]\r\nTesting connection with https://ussus1eastprod.blob.core.windows.net/ ... [OK]\r\nTesting connection with https://ussus1westprod.blob.core.windows.net/ ... [OK]\r\nTesting connection with https://unitedstates.smartscreen.microsoft.com//api/network/mac ... [OK]\r\nTesting connection with https://unitedstates.smartscreen-prod.microsoft.com//api/network/mac ... [OK]\r\nTesting connection with https://go.microsoft.com/fwlink/?linkid=2144709 ... [OK]\r\nTesting connection with https://winatp-gw-cus.microsoft.com/test ... [OK]\r\nTesting connection with https://winatp-gw-eus.microsoft.com/test ... [OK]\r\nTesting connection with https://us-v20.events.data.microsoft.com/ping ... [OK]\r\nTesting connection with https://automatedirstrprdcus.blob.core.windows.net ... [OK]\r\nTesting connection with https://automatedirstrprdeus.blob.core.windows.net ... [OK]"
+              "title": "Connectivity Test",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Connectivity Test"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "mdatp connectivity test"
+                },
+                {
+                  "Type": "Note",
+                  "Value": "The connectivity test may take a few minutes to complete."
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Success!"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Testing connection with https://nf.smartscreen.microsoft.com/api/network/mac ... [OK]\r\nTesting connection with https://unitedstates.x.cp.wd.microsoft.com/api/report ... [OK]\r\nTesting connection with https://ussus1eastprod.blob.core.windows.net/ ... [OK]\r\nTesting connection with https://ussus1westprod.blob.core.windows.net/ ... [OK]\r\nTesting connection with https://unitedstates.smartscreen.microsoft.com//api/network/mac ... [OK]\r\nTesting connection with https://unitedstates.smartscreen-prod.microsoft.com//api/network/mac ... [OK]\r\nTesting connection with https://go.microsoft.com/fwlink/?linkid=2144709 ... [OK]\r\nTesting connection with https://winatp-gw-cus.microsoft.com/test ... [OK]\r\nTesting connection with https://winatp-gw-eus.microsoft.com/test ... [OK]\r\nTesting connection with https://us-v20.events.data.microsoft.com/ping ... [OK]\r\nTesting connection with https://automatedirstrprdcus.blob.core.windows.net ... [OK]\r\nTesting connection with https://automatedirstrprdeus.blob.core.windows.net ... [OK]"
+                }
+              ]
             }
           ]
         }
       ]
     }
-  ]
-}},
- { "file": "MDELinuxOracleKernelUpdate", "path": "./json/MDELinuxOracleKernelUpdate.json", "data": {
-  "title": "Oracle Kernel Update",
-  "path": "mde/linux-oracle-kernel-update",
-  "section": "MDE",
-  "subSection": "Linux",
-  "data": [
-    {
-      "section": 1,
-      "title": "View recommendations",
-      "description": "View recommendations from the Microsoft 365 Defender portal",
-      "tasks": [
+  },
+  {
+    "file": "MDELinuxOracleKernelUpdate",
+    "path": "./json/MDELinuxOracleKernelUpdate.json",
+    "data": {
+      "title": "Oracle Kernel Update",
+      "path": "/mde/linux-oracle-kernel-update",
+      "section": "MDE",
+      "subSection": "Linux",
+      "description": "",
+      "data": [
         {
-          "title": "",
-          "userActivity": [
+          "section": 1,
+          "title": "View recommendations",
+          "description": "View recommendations from the Microsoft 365 Defender portal",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Review recommendations"
+              "title": "",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Review recommendations"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Navigate to https://security.microsoft.com/security-recommendations and review the recommendations for your environment."
+                },
+                {
+                  "Type": "Image",
+                  "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations.png"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "What is the security portal doing?"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "The Microsoft 365 Defender portal is analyzing your environment and providing recommendations based on the security posture of your environment."
+                }
+              ]
             },
             {
-              "Type": "Description",
-              "Value": "Navigate to https://security.microsoft.com/security-recommendations and review the recommendations for your environment."
-            },
-            {
-              "Type": "Image",
-              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations.png"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "What is the security portal doing?"
-            },
-            {
-              "Type": "Description",
-              "Value": "The Microsoft 365 Defender portal is analyzing your environment and providing recommendations based on the security posture of your environment."
+              "title": "Select a recommendation to review",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Select a recommendation to review"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "In this scenario we are reviewing teh Update Oracle Kernel-uek for Linux"
+                },
+                {
+                  "Type": "Image",
+                  "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleKernel.png"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "What's does the portal show us?"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "The portal advises us to update the kerel, it shows the list of exposed/installed devices, and any associated CVEs related to this vulnerability."
+                },
+                {
+                  "Type": "Image",
+                  "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-1.png"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "We can also see the list of CVEs associated with this vulnerability."
+                }
+              ]
             }
           ]
         },
         {
-          "title": "Select a recommendation to review",
-          "userActivity": [
+          "section": 2,
+          "title": "Update the kernel",
+          "description": "Update the kernel on the Oracle Linux server",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Select a recommendation to review"
+              "title": "What's the current kernel version?",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check the current kernel version"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo uname -r"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample output"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "5.4.16-2136.322.6.2.el8uek.x86_64"
+                }
+              ]
             },
             {
-              "Type": "Description",
-              "Value": "In this scenario we are reviewing teh Update Oracle Kernel-uek for Linux"
+              "title": "How do we fix this?",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Update the Oracle Kernel"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "One method is to update the kernel using uptrack. This allows us to update the kernel without rebooting the server."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "uptrack-upgrade -y"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample output"
+                },
+                {
+                  "Type": "Image",
+                  "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-2.png"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "The output shows the kernel being updated. It displays CVE that are being addressed, and the kernel version being installed."
+                }
+              ]
             },
             {
-              "Type": "Image",
-              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleKernel.png"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "What's does the portal show us?"
+              "title": "How do we fix this?",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Update the Oracle Kernel"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Another method is to use dnf upgrade."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo dnf upgrade"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Reboot the server to complete the kernel update."
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo reboot"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample output"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Last metadata expiration check: 4:03:15 ago on Wed 20 Sep 2023 02:53:25 PM UTC.\r\nDependencies resolved.\r\n============================================================================================================================================================================================\r\n Package                                 Architecture                     Version                                               Repository                                             Size\r\n============================================================================================================================================================================================\r\nUpgrading:\r\n dmidecode                               x86_64                           1:3.3-4.el8_8.1                                       ol8_baseos_latest                                      92 k\r\n libgcc                                  x86_64                           8.5.0-18.0.5.el8                                      ol8_baseos_latest                                      91 k\r\n libgomp                                 x86_64                           8.5.0-18.0.5.el8                                      ol8_baseos_latest                                     217 k\r\n libstdc++                               x86_64                           8.5.0-18.0.5.el8                                      ol8_baseos_latest                                     463 k\r\n mdatp                                   x86_64                           101.23072.0021-1                                      packages-microsoft-com-prod                           127 M\r\n microcode_ctl                           x86_64                           4:20230808-2.0.1.el8                                  ol8_baseos_latest                                     8.1 M\r\nInstalling group/module packages:\r\n kernel-uek                              x86_64                           5.4.17-2136.323.8.1.el8uek                            ol8_UEKR6                                             114 M\r\n\r\nTransaction Summary\r\n============================================================================================================================================================================================\r\nInstall  1 Package\r\nUpgrade  6 Packages\r\n\r\nTotal download size: 250 M"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "Is this ok [y/N]: y\r\nDownloading Packages:\r\n(1/7): dmidecode-3.3-4.el8_8.1.x86_64.rpm                                                                                                                   809 kB/s |  92 kB     00:00\r\n(2/7): libgcc-8.5.0-18.0.5.el8.x86_64.rpm                                                                                                                   719 kB/s |  91 kB     00:00\r\n(3/7): libgomp-8.5.0-18.0.5.el8.x86_64.rpm                                                                                                                  7.8 MB/s | 217 kB     00:00\r\n(4/7): libstdc++-8.5.0-18.0.5.el8.x86_64.rpm                                                                                                                 13 MB/s | 463 kB     00:00\r\n(5/7): microcode_ctl-20230808-2.0.1.el8.x86_64.rpm                                                                                                           43 MB/s | 8.1 MB     00:00\r\n(6/7): kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64.rpm                                                                                                      21 MB/s | 114 MB     00:05\r\n(7/7): mdatp_101.23072.0021.x86_64.rpm                                                                                                                       20 MB/s | 127 MB     00:06\r\n--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nTotal                                                                                                                                                        38 MB/s | 250 MB     00:06\r\nRunning transaction check\r\nTransaction check succeeded.\r\nRunning transaction test\r\nTransaction test succeeded.\r\nRunning transaction\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                      1/1\r\n  Preparing        :                                                                                                                                                                    1/1\r\n  Running scriptlet: libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                     1/1\r\n  Upgrading        : libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                    1/13\r\n  Running scriptlet: libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                    1/13\r\n  Upgrading        : libstdc++-8.5.0-18.0.5.el8.x86_64                                                                                                                                 2/13\r\n  Running scriptlet: libstdc++-8.5.0-18.0.5.el8.x86_64                                                                                                                                 2/13\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                     3/13\r\n  Upgrading        : mdatp-101.23072.0021-1.x86_64                                                                                                                                     3/13\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                     3/13\r\n\r\n  Upgrading        : microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                         4/13\r\n  Running scriptlet: microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                         4/13\r\n  Upgrading        : libgomp-8.5.0-18.0.5.el8.x86_64                                                                                                                                   5/13\r\n  Running scriptlet: libgomp-8.5.0-18.0.5.el8.x86_64                                                                                                                                   5/13\r\n  Upgrading        : dmidecode-1:3.3-4.el8_8.1.x86_64                                                                                                                                  6/13\r\n  Running scriptlet: kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      7/13\r\n  Installing       : kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      7/13\r\n  Running scriptlet: kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      7/13\r\n  Cleanup          : libstdc++-8.5.0-18.0.2.el8.x86_64                                                                                                                                 8/13\r\n  Running scriptlet: libstdc++-8.5.0-18.0.2.el8.x86_64                                                                                                                                 8/13\r\n  Running scriptlet: microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                         9/13\r\n  Cleanup          : microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                         9/13\r\n  Running scriptlet: microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                         9/13\r\n  Cleanup          : libgcc-8.5.0-18.0.2.el8.x86_64                                                                                                                                   10/13\r\n  Running scriptlet: libgcc-8.5.0-18.0.2.el8.x86_64                                                                                                                                   10/13\r\n  Running scriptlet: mdatp-101.23062.0010-1.x86_64                                                                                                                                    11/13\r\n  Cleanup          : mdatp-101.23062.0010-1.x86_64                                                                                                                                    11/13\r\n  Running scriptlet: mdatp-101.23062.0010-1.x86_64                                                                                                                                    11/13\r\n  Running scriptlet: libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                  12/13\r\n  Cleanup          : libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                  12/13\r\n  Running scriptlet: libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                  12/13\r\n  Cleanup          : dmidecode-1:3.3-4.el8.x86_64                                                                                                                                     13/13\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                    13/13\r\n  Running scriptlet: microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                        13/13\r\n  Running scriptlet: kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                     13/13\r\n  Running scriptlet: dmidecode-1:3.3-4.el8.x86_64                                                                                                                                     13/13\r\n  Verifying        : kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      1/13\r\n  Verifying        : dmidecode-1:3.3-4.el8_8.1.x86_64                                                                                                                                  2/13\r\n  Verifying        : dmidecode-1:3.3-4.el8.x86_64                                                                                                                                      3/13\r\n  Verifying        : libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                    4/13\r\n  Verifying        : libgcc-8.5.0-18.0.2.el8.x86_64                                                                                                                                    5/13\r\n  Verifying        : libgomp-8.5.0-18.0.5.el8.x86_64                                                                                                                                   6/13\r\n  Verifying        : libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                   7/13\r\n  Verifying        : libstdc++-8.5.0-18.0.5.el8.x86_64                                                                                                                                 8/13\r\n  Verifying        : libstdc++-8.5.0-18.0.2.el8.x86_64                                                                                                                                 9/13\r\n  Verifying        : microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                        10/13\r\n  Verifying        : microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                        11/13\r\n  Verifying        : mdatp-101.23072.0021-1.x86_64                                                                                                                                    12/13\r\n  Verifying        : mdatp-101.23062.0010-1.x86_64                                                                                                                                    13/13\r\n\r\nUpgraded:\r\n  dmidecode-1:3.3-4.el8_8.1.x86_64             libgcc-8.5.0-18.0.5.el8.x86_64    libgomp-8.5.0-18.0.5.el8.x86_64    libstdc++-8.5.0-18.0.5.el8.x86_64    mdatp-101.23072.0021-1.x86_64\r\n  microcode_ctl-4:20230808-2.0.1.el8.x86_64\r\nInstalled:\r\n  kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64\r\n\r\nComplete!"
+                }
+              ]
             },
             {
-              "Type": "Description",
-              "Value": "The portal advises us to update the kerel, it shows the list of exposed/installed devices, and any associated CVEs related to this vulnerability."
-            },
-            {
-              "Type": "Image",
-              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-1.png"
-            },
-            {
-              "Type": "Description",
-              "Value": "We can also see the list of CVEs associated with this vulnerability."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 2,
-      "title": "Update the kernel",
-      "description": "Update the kernel on the Oracle Linux server",
-      "tasks": [
-        {
-          "title": "What's the current kernel version?",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check the current kernel version"
-            },
-            {
-              "Type": "Code",
-              "Value": "sudo uname -r"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample output"
-            },
-            {
-              "Type": "Code",
-              "Value": "5.4.16-2136.322.6.2.el8uek.x86_64"
-            }
-          ]
-        },
-        {
-          "title": "How do we fix this?",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Update the Oracle Kernel"
-            },
-            {
-              "Type": "Description",
-              "Value": "One method is to update the kernel using uptrack. This allows us to update the kernel without rebooting the server."
-            },
-            {
-              "Type": "Code",
-              "Value": "uptrack-upgrade -y"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample output"
-            },
-            {
-              "Type": "Image",
-              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-2.png"
-            },
-            {
-              "Type": "Description",
-              "Value": "The output shows the kernel being updated. It displays CVE that are being addressed, and the kernel version being installed."
-            }
-          ]
-        },
-        {
-          "title": "How do we fix this?",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Update the Oracle Kernel"
-            },
-            {
-              "Type": "Description",
-              "Value": "Another method is to use dnf upgrade."
-            },
-            {
-              "Type": "Code",
-              "Value": "sudo dnf upgrade"
-            },
-            {
-              "Type": "Description",
-              "Value": "Reboot the server to complete the kernel update."
-            },
-            {
-              "Type": "Code",
-              "Value": "sudo reboot"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample output"
-            },
-            {
-              "Type": "Code",
-              "Value": "Last metadata expiration check: 4:03:15 ago on Wed 20 Sep 2023 02:53:25 PM UTC.\r\nDependencies resolved.\r\n============================================================================================================================================================================================\r\n Package                                 Architecture                     Version                                               Repository                                             Size\r\n============================================================================================================================================================================================\r\nUpgrading:\r\n dmidecode                               x86_64                           1:3.3-4.el8_8.1                                       ol8_baseos_latest                                      92 k\r\n libgcc                                  x86_64                           8.5.0-18.0.5.el8                                      ol8_baseos_latest                                      91 k\r\n libgomp                                 x86_64                           8.5.0-18.0.5.el8                                      ol8_baseos_latest                                     217 k\r\n libstdc++                               x86_64                           8.5.0-18.0.5.el8                                      ol8_baseos_latest                                     463 k\r\n mdatp                                   x86_64                           101.23072.0021-1                                      packages-microsoft-com-prod                           127 M\r\n microcode_ctl                           x86_64                           4:20230808-2.0.1.el8                                  ol8_baseos_latest                                     8.1 M\r\nInstalling group/module packages:\r\n kernel-uek                              x86_64                           5.4.17-2136.323.8.1.el8uek                            ol8_UEKR6                                             114 M\r\n\r\nTransaction Summary\r\n============================================================================================================================================================================================\r\nInstall  1 Package\r\nUpgrade  6 Packages\r\n\r\nTotal download size: 250 M"
-            },
-            {
-              "Type": "Code",
-              "Value": "Is this ok [y/N]: y\r\nDownloading Packages:\r\n(1/7): dmidecode-3.3-4.el8_8.1.x86_64.rpm                                                                                                                   809 kB/s |  92 kB     00:00\r\n(2/7): libgcc-8.5.0-18.0.5.el8.x86_64.rpm                                                                                                                   719 kB/s |  91 kB     00:00\r\n(3/7): libgomp-8.5.0-18.0.5.el8.x86_64.rpm                                                                                                                  7.8 MB/s | 217 kB     00:00\r\n(4/7): libstdc++-8.5.0-18.0.5.el8.x86_64.rpm                                                                                                                 13 MB/s | 463 kB     00:00\r\n(5/7): microcode_ctl-20230808-2.0.1.el8.x86_64.rpm                                                                                                           43 MB/s | 8.1 MB     00:00\r\n(6/7): kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64.rpm                                                                                                      21 MB/s | 114 MB     00:05\r\n(7/7): mdatp_101.23072.0021.x86_64.rpm                                                                                                                       20 MB/s | 127 MB     00:06\r\n--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nTotal                                                                                                                                                        38 MB/s | 250 MB     00:06\r\nRunning transaction check\r\nTransaction check succeeded.\r\nRunning transaction test\r\nTransaction test succeeded.\r\nRunning transaction\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                      1/1\r\n  Preparing        :                                                                                                                                                                    1/1\r\n  Running scriptlet: libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                     1/1\r\n  Upgrading        : libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                    1/13\r\n  Running scriptlet: libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                    1/13\r\n  Upgrading        : libstdc++-8.5.0-18.0.5.el8.x86_64                                                                                                                                 2/13\r\n  Running scriptlet: libstdc++-8.5.0-18.0.5.el8.x86_64                                                                                                                                 2/13\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                     3/13\r\n  Upgrading        : mdatp-101.23072.0021-1.x86_64                                                                                                                                     3/13\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                     3/13\r\n\r\n  Upgrading        : microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                         4/13\r\n  Running scriptlet: microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                         4/13\r\n  Upgrading        : libgomp-8.5.0-18.0.5.el8.x86_64                                                                                                                                   5/13\r\n  Running scriptlet: libgomp-8.5.0-18.0.5.el8.x86_64                                                                                                                                   5/13\r\n  Upgrading        : dmidecode-1:3.3-4.el8_8.1.x86_64                                                                                                                                  6/13\r\n  Running scriptlet: kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      7/13\r\n  Installing       : kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      7/13\r\n  Running scriptlet: kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      7/13\r\n  Cleanup          : libstdc++-8.5.0-18.0.2.el8.x86_64                                                                                                                                 8/13\r\n  Running scriptlet: libstdc++-8.5.0-18.0.2.el8.x86_64                                                                                                                                 8/13\r\n  Running scriptlet: microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                         9/13\r\n  Cleanup          : microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                         9/13\r\n  Running scriptlet: microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                         9/13\r\n  Cleanup          : libgcc-8.5.0-18.0.2.el8.x86_64                                                                                                                                   10/13\r\n  Running scriptlet: libgcc-8.5.0-18.0.2.el8.x86_64                                                                                                                                   10/13\r\n  Running scriptlet: mdatp-101.23062.0010-1.x86_64                                                                                                                                    11/13\r\n  Cleanup          : mdatp-101.23062.0010-1.x86_64                                                                                                                                    11/13\r\n  Running scriptlet: mdatp-101.23062.0010-1.x86_64                                                                                                                                    11/13\r\n  Running scriptlet: libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                  12/13\r\n  Cleanup          : libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                  12/13\r\n  Running scriptlet: libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                  12/13\r\n  Cleanup          : dmidecode-1:3.3-4.el8.x86_64                                                                                                                                     13/13\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                    13/13\r\n  Running scriptlet: microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                        13/13\r\n  Running scriptlet: kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                     13/13\r\n  Running scriptlet: dmidecode-1:3.3-4.el8.x86_64                                                                                                                                     13/13\r\n  Verifying        : kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64                                                                                                                      1/13\r\n  Verifying        : dmidecode-1:3.3-4.el8_8.1.x86_64                                                                                                                                  2/13\r\n  Verifying        : dmidecode-1:3.3-4.el8.x86_64                                                                                                                                      3/13\r\n  Verifying        : libgcc-8.5.0-18.0.5.el8.x86_64                                                                                                                                    4/13\r\n  Verifying        : libgcc-8.5.0-18.0.2.el8.x86_64                                                                                                                                    5/13\r\n  Verifying        : libgomp-8.5.0-18.0.5.el8.x86_64                                                                                                                                   6/13\r\n  Verifying        : libgomp-8.5.0-18.0.2.el8.x86_64                                                                                                                                   7/13\r\n  Verifying        : libstdc++-8.5.0-18.0.5.el8.x86_64                                                                                                                                 8/13\r\n  Verifying        : libstdc++-8.5.0-18.0.2.el8.x86_64                                                                                                                                 9/13\r\n  Verifying        : microcode_ctl-4:20230808-2.0.1.el8.x86_64                                                                                                                        10/13\r\n  Verifying        : microcode_ctl-4:20230214-2.0.3.el8.x86_64                                                                                                                        11/13\r\n  Verifying        : mdatp-101.23072.0021-1.x86_64                                                                                                                                    12/13\r\n  Verifying        : mdatp-101.23062.0010-1.x86_64                                                                                                                                    13/13\r\n\r\nUpgraded:\r\n  dmidecode-1:3.3-4.el8_8.1.x86_64             libgcc-8.5.0-18.0.5.el8.x86_64    libgomp-8.5.0-18.0.5.el8.x86_64    libstdc++-8.5.0-18.0.5.el8.x86_64    mdatp-101.23072.0021-1.x86_64\r\n  microcode_ctl-4:20230808-2.0.1.el8.x86_64\r\nInstalled:\r\n  kernel-uek-5.4.17-2136.323.8.1.el8uek.x86_64\r\n\r\nComplete!"
+              "title": "Confirm the kernel version",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check the new kernel version"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "sudo uname -r"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Sample output"
+                },
+                {
+                  "Type": "Code",
+                  "Value": "5.4.17-2136.322.6.2.el8uek.x86_64"
+                }
+              ]
             }
           ]
         },
         {
-          "title": "Confirm the kernel version",
-          "userActivity": [
-            {
-              "Type": "Title",
-              "Value": "Check the new kernel version"
-            },
-            {
-              "Type": "Code",
-              "Value": "sudo uname -r"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Sample output"
-            },
-            {
-              "Type": "Code",
-              "Value": "5.4.17-2136.322.6.2.el8uek.x86_64"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "section": 3,
-      "title": "Check the Security Portal",
-      "description": "Check the Microsoft 365 Defender portal for updates",
-      "tasks": [
-        {
+          "section": 3,
           "title": "Check the Security Portal",
-          "userActivity": [
+          "description": "Check the Microsoft 365 Defender portal for updates",
+          "tasks": [
             {
-              "Type": "Title",
-              "Value": "Check the Security Portal"
-            },
-            {
-              "Type": "Description",
-              "Value": "Navigate back to the Microsoft 365 Defender portal and review the recommendations."
-            },
-            {
-              "Type": "Note",
-              "Value": "The portal will take some time to update depending on how often the agent reports back to the MDE service."
-            },
-            {
-              "Type": "Image",
-              "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-3.png"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "What's does the portal show us?"
-            },
+              "title": "Check the Security Portal",
+              "userActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "Check the Security Portal"
+                },
+                {
+                  "Type": "Description",
+                  "Value": "Navigate back to the Microsoft 365 Defender portal and review the recommendations."
+                },
+                {
+                  "Type": "Note",
+                  "Value": "The portal will take some time to update depending on how often the agent reports back to the MDE service."
+                },
+                {
+                  "Type": "Image",
+                  "Value": "/images/nll/oracle/VulnerabilityManagement-Recommendations-OracleCVE-3.png"
+                }
+              ],
+              "backgroundActivity": [
+                {
+                  "Type": "Title",
+                  "Value": "What's does the portal show us?"
+                },
 
-            {
-              "Type": "Description",
-              "Value": "The portal shows that the Oracle Kernel has been updated, and the CVEs have been addressed."
+                {
+                  "Type": "Description",
+                  "Value": "The portal shows that the Oracle Kernel has been updated, and the CVEs have been addressed."
+                }
+              ]
             }
           ]
         }
       ]
     }
-  ]
-}}
+  }
 ]

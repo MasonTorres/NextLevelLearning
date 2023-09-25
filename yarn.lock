@@ -1150,7 +1150,7 @@
   resolved "https://registry.npmjs.org/@babel/regjsgen/-/regjsgen-0.8.0.tgz"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.7", "@babel/runtime@^7.22.10", "@babel/runtime@^7.22.15", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.4", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.7", "@babel/runtime@^7.22.10", "@babel/runtime@^7.22.15", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2":
   version "7.22.15"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.22.15.tgz"
   integrity sha512-T0O+aa+4w0u06iNmapipJXMV4HoUir03hpx3/YqXXhu9xim3w+dVphjFWl1OH8NbZHw5Lbm9k45drDkgq2VNNA==
@@ -2564,6 +2564,125 @@
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
+"@microsoft/applicationinsights-analytics-js@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/@microsoft/applicationinsights-analytics-js/-/applicationinsights-analytics-js-3.0.3.tgz"
+  integrity sha512-ZVLGwcBJIwYel19++312CddNEneAGoHOuJVHxqkquwPfI3LgufI1T28QSefCYuuijuWkAsuuHOfUNr1Rl84ZZg==
+  dependencies:
+    "@microsoft/applicationinsights-common" "3.0.3"
+    "@microsoft/applicationinsights-core-js" "3.0.3"
+    "@microsoft/applicationinsights-shims" "3.0.1"
+    "@microsoft/dynamicproto-js" "^2.0.2"
+    "@nevware21/ts-utils" ">= 0.10.1 < 2.x"
+
+"@microsoft/applicationinsights-cfgsync-js@0.0.2":
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/@microsoft/applicationinsights-cfgsync-js/-/applicationinsights-cfgsync-js-0.0.2.tgz"
+  integrity sha512-E48vL6lC2+x/6DtwJWaIVWJkzi/ejfyq+4DRDZCc4af7MpIfTqg00XLROPw/L6cdQRbFT3jjVmzxAW9dHPB1sQ==
+  dependencies:
+    "@microsoft/applicationinsights-common" "3.0.3"
+    "@microsoft/applicationinsights-core-js" "3.0.3"
+    "@microsoft/applicationinsights-shims" "3.0.1"
+    "@microsoft/dynamicproto-js" "^2.0.2"
+    "@nevware21/ts-async" ">= 0.3.0 < 2.x"
+    "@nevware21/ts-utils" ">= 0.10.1 < 2.x"
+
+"@microsoft/applicationinsights-channel-js@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/@microsoft/applicationinsights-channel-js/-/applicationinsights-channel-js-3.0.3.tgz"
+  integrity sha512-CWcJQCMKU3CxWLFIE8iPa3G5KB3v2RFkAvPICfY8/fwWZq4tWY7zosgvRPDZ+dIkz8Z/+CMy0+KblYzIKDdG4A==
+  dependencies:
+    "@microsoft/applicationinsights-common" "3.0.3"
+    "@microsoft/applicationinsights-core-js" "3.0.3"
+    "@microsoft/applicationinsights-shims" "3.0.1"
+    "@microsoft/dynamicproto-js" "^2.0.2"
+    "@nevware21/ts-async" ">= 0.3.0 < 2.x"
+    "@nevware21/ts-utils" ">= 0.10.1 < 2.x"
+
+"@microsoft/applicationinsights-common@^3.0.2", "@microsoft/applicationinsights-common@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/@microsoft/applicationinsights-common/-/applicationinsights-common-3.0.3.tgz"
+  integrity sha512-GwnerHHPexry2CMTr6gP2Rjm0e3rgVXZzFCbrxcoOQk8MqrEFDWur6Xs66FwXpGFnY3KV3Zsujkfcl0oePs4Cg==
+  dependencies:
+    "@microsoft/applicationinsights-core-js" "3.0.3"
+    "@microsoft/applicationinsights-shims" "3.0.1"
+    "@microsoft/dynamicproto-js" "^2.0.2"
+    "@nevware21/ts-utils" ">= 0.10.1 < 2.x"
+
+"@microsoft/applicationinsights-core-js@^3.0.2", "@microsoft/applicationinsights-core-js@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/@microsoft/applicationinsights-core-js/-/applicationinsights-core-js-3.0.3.tgz"
+  integrity sha512-ymtdPHgUhCwIwQZx2ZN3Xw3cq+Z5KHzGmFV8QvURSdUzfaHbjYcHXIQkEZbgCCGOTMLtx9lZqP7J1gbBy0O8GQ==
+  dependencies:
+    "@microsoft/applicationinsights-shims" "3.0.1"
+    "@microsoft/dynamicproto-js" "^2.0.2"
+    "@nevware21/ts-async" ">= 0.3.0 < 2.x"
+    "@nevware21/ts-utils" ">= 0.10.1 < 2.x"
+
+"@microsoft/applicationinsights-dependencies-js@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/@microsoft/applicationinsights-dependencies-js/-/applicationinsights-dependencies-js-3.0.3.tgz"
+  integrity sha512-xIZFrZPYVXSTXAmzye/CIWrHQcynS2fjd2GQob6CvN29n29UjPJQwvcI/RSGe3z4wv9lutniXPEVNctDpxmh4w==
+  dependencies:
+    "@microsoft/applicationinsights-common" "3.0.3"
+    "@microsoft/applicationinsights-core-js" "3.0.3"
+    "@microsoft/applicationinsights-shims" "3.0.1"
+    "@microsoft/dynamicproto-js" "^2.0.2"
+    "@nevware21/ts-async" ">= 0.3.0 < 2.x"
+    "@nevware21/ts-utils" ">= 0.10.1 < 2.x"
+
+"@microsoft/applicationinsights-properties-js@3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/@microsoft/applicationinsights-properties-js/-/applicationinsights-properties-js-3.0.3.tgz"
+  integrity sha512-jR6N2o57BzY9QUAH//Ha0HzZvVKVRUjMKWdoM5dil2gBh5oFra+Ki9cKLE6f5wMvPPnwctpaMqv1XHJYU/cB5A==
+  dependencies:
+    "@microsoft/applicationinsights-common" "3.0.3"
+    "@microsoft/applicationinsights-core-js" "3.0.3"
+    "@microsoft/applicationinsights-shims" "3.0.1"
+    "@microsoft/dynamicproto-js" "^2.0.2"
+    "@nevware21/ts-utils" ">= 0.10.1 < 2.x"
+
+"@microsoft/applicationinsights-react-js@^17.0.0":
+  version "17.0.0"
+  resolved "https://registry.npmjs.org/@microsoft/applicationinsights-react-js/-/applicationinsights-react-js-17.0.0.tgz"
+  integrity sha512-uKsBEvZDx+588I92gMNFfEinnajrLxxIo4JQMef1QZfGQIurgJPeMO+nGBO8n15nMiJ23j8jfAo1E2mmC9qmBA==
+  dependencies:
+    "@microsoft/applicationinsights-common" "^3.0.2"
+    "@microsoft/applicationinsights-core-js" "^3.0.2"
+    "@microsoft/applicationinsights-shims" "^3.0.1"
+    "@microsoft/dynamicproto-js" "^2.0.2"
+
+"@microsoft/applicationinsights-shims@^3.0.1", "@microsoft/applicationinsights-shims@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@microsoft/applicationinsights-shims/-/applicationinsights-shims-3.0.1.tgz"
+  integrity sha512-DKwboF47H1nb33rSUfjqI6ryX29v+2QWcTrRvcQDA32AZr5Ilkr7whOOSsD1aBzwqX0RJEIP1Z81jfE3NBm/Lg==
+  dependencies:
+    "@nevware21/ts-utils" ">= 0.9.4 < 2.x"
+
+"@microsoft/applicationinsights-web@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/@microsoft/applicationinsights-web/-/applicationinsights-web-3.0.3.tgz"
+  integrity sha512-4r6QUMul1nhnLCTVuJHGV9P5MOo6ionzVIkiajSQhQaHarPjBJ/PTh23TstfbwsSI5e7c3sIuHAojUP4EbCKsQ==
+  dependencies:
+    "@microsoft/applicationinsights-analytics-js" "3.0.3"
+    "@microsoft/applicationinsights-cfgsync-js" "0.0.2"
+    "@microsoft/applicationinsights-channel-js" "3.0.3"
+    "@microsoft/applicationinsights-common" "3.0.3"
+    "@microsoft/applicationinsights-core-js" "3.0.3"
+    "@microsoft/applicationinsights-dependencies-js" "3.0.3"
+    "@microsoft/applicationinsights-properties-js" "3.0.3"
+    "@microsoft/applicationinsights-shims" "3.0.1"
+    "@microsoft/dynamicproto-js" "^2.0.2"
+    "@nevware21/ts-async" ">= 0.3.0 < 2.x"
+    "@nevware21/ts-utils" ">= 0.10.1 < 2.x"
+
+"@microsoft/dynamicproto-js@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/@microsoft/dynamicproto-js/-/dynamicproto-js-2.0.2.tgz"
+  integrity sha512-MB8trWaFREpmb037k/d0bB7T2BP7Ai24w1e1tbz3ASLB0/lwphsq3Nq8S9I5AsI5vs4zAQT+SB5nC5/dLYTiOg==
+  dependencies:
+    "@nevware21/ts-utils" ">= 0.9.4 < 2.x"
+
 "@mui/base@5.0.0-beta.14":
   version "5.0.0-beta.14"
   resolved "https://registry.npmjs.org/@mui/base/-/base-5.0.0-beta.14.tgz"
@@ -2657,6 +2776,18 @@
     "@types/react-is" "^18.2.1"
     prop-types "^15.8.1"
     react-is "^18.2.0"
+
+"@nevware21/ts-async@>= 0.3.0 < 2.x":
+  version "0.3.0"
+  resolved "https://registry.npmjs.org/@nevware21/ts-async/-/ts-async-0.3.0.tgz"
+  integrity sha512-ZUcgUH12LN/F6nzN0cYd0F/rJaMLmXr0EHVTyYfaYmK55bdwE4338uue4UiVoRqHVqNW4KDUrJc49iGogHKeWA==
+  dependencies:
+    "@nevware21/ts-utils" ">= 0.10.0 < 2.x"
+
+"@nevware21/ts-utils@>= 0.10.0 < 2.x", "@nevware21/ts-utils@>= 0.10.1 < 2.x", "@nevware21/ts-utils@>= 0.9.4 < 2.x":
+  version "0.10.1"
+  resolved "https://registry.npmjs.org/@nevware21/ts-utils/-/ts-utils-0.10.1.tgz"
+  integrity sha512-pMny25NnF2/MJwdqC3Iyjm2pGIXNxni4AROpcqDeWa+td9JMUY4bUS9uU9XW+BoBRqTLUL+WURF9SOd/6OQzRg==
 
 "@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents.3":
   version "2.1.8-no-fsevents.3"
@@ -6281,6 +6412,13 @@ highlight.js@^10.4.1, highlight.js@~10.7.0:
   resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-10.7.3.tgz"
   integrity sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==
 
+"history@>= 4.10.1":
+  version "5.3.0"
+  resolved "https://registry.npmjs.org/history/-/history-5.3.0.tgz"
+  integrity sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==
+  dependencies:
+    "@babel/runtime" "^7.7.6"
+
 hoist-non-react-statics@^3.3.1:
   version "3.3.2"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
@@ -9266,7 +9404,7 @@ react-use-scrollspy@^3.1.1:
   dependencies:
     lodash "4.17.21"
 
-"react@^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^17.0.0 || ^18.0.0", react@^18.0.0, react@^18.2.0, "react@>= 0.14.0", "react@>= 16", "react@>= 16.8.0", react@>=0.14.0, react@>=16, "react@>=16.14.0 <19.0.0", react@>=16.6.0, react@>=16.8, react@>=16.8.0, "react@>=16.8.0 <19.0.0", react@>=16.8.6:
+"react@^15.5.4 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^17.0.0 || ^18.0.0", react@^18.0.0, react@^18.2.0, "react@>= 0.14.0", "react@>= 16", "react@>= 16.8.0", "react@>= 17.0.1", react@>=0.14.0, react@>=16, "react@>=16.14.0 <19.0.0", react@>=16.6.0, react@>=16.8, react@>=16.8.0, "react@>=16.8.0 <19.0.0", react@>=16.8.6:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
@@ -10472,15 +10610,15 @@ tsconfig-paths@^3.14.2:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
+tslib@*, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.1, tslib@^2.4.0, tslib@^2.5.0, tslib@^2.6.0:
+  version "2.6.2"
+  resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.2.tgz"
+  integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
+
 tslib@^1.8.1:
   version "1.14.1"
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
-
-tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.1, tslib@^2.4.0, tslib@^2.5.0, tslib@^2.6.0:
-  version "2.6.2"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.2.tgz"
-  integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
 
 tsutils@^3.21.0:
   version "3.21.0"

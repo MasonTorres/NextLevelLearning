@@ -104,23 +104,13 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-const useStyles = makeStyles((theme: any) => ({
-  root: {
-    width: "100%",
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-  nested: {
-    paddingLeft: theme.spacing(4),
-  },
-}));
-
 let linuxmde: {
   icon: ReactComponentElement<typeof Icon>;
   to: string;
   title: string;
 }[] = [];
 
+// loop through the json file and create the links
 nllDataFiles.forEach(
   (file: {
     data: {
@@ -131,18 +121,19 @@ nllDataFiles.forEach(
   }) => {
     linuxmde.push({
       icon: <Icon icon="material-symbols:line-end" fontSize={20} />,
-      to: `#${file.data.path}`,
+      to: `${file.data.path}`,
       title: `${file.data.title}`,
     });
   }
 );
 
+// Nav links
 const links = [
   {
     icon: <HomeIcon />,
     title: "Home",
     items: [],
-    to: "#home",
+    to: "/home",
   },
   {
     icon: <SecurityOutlinedIcon />,
@@ -159,7 +150,7 @@ const links = [
         items: [
           {
             icon: <Icon icon="material-symbols:line-end" fontSize={20} />,
-            to: "#mde/mac",
+            to: "/mde/mac",
             title: "MDE Mac",
           },
         ],
@@ -222,15 +213,7 @@ export default function NavSideBar({ link }: any) {
           {links.map((link) =>
             link.items.length === 0 ? (
               <div key={link.title}>
-                <ListItemButton
-                  href={link.to ? link.to : ""}
-                  onClick={() =>
-                    setPageInfo({
-                      ...pageInfo,
-                      home: link.to ? link.title : "",
-                    })
-                  }
-                >
+                <ListItemButton href={link.to ? link.to : ""}>
                   <ListItemIcon>{link.icon}</ListItemIcon>
                   <ListItemText primary={link.title} />
                 </ListItemButton>
@@ -242,7 +225,7 @@ export default function NavSideBar({ link }: any) {
                   <ListItemText primary={link.title} />
                   {openMenu ? <ExpandLess /> : <ExpandMore />}
                 </ListItemButton>
-                <Collapse in={openMenu} timeout="auto" unmountOnExit>
+                <Collapse in={openMenu} timeout="auto">
                   <List component="div" disablePadding>
                     {link.items.map((nestedLink) => (
                       <NavItem key={nestedLink.title} link={nestedLink} />

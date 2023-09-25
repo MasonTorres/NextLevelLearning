@@ -1,8 +1,9 @@
 {
   "title": "Centos Setup",
-  "path": "mde/linux-setup-centos",
+  "path": "/mde/linux-setup-centos",
   "section": "MDE",
   "subSection": "Linux",
+  "description": "",
   "data": [
     {
       "section": 1,
