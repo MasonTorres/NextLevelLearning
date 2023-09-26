@@ -10,7 +10,7 @@ import {
   Body2,
   Title3,
 } from "@fluentui/react-components";
-import { Grid, Box } from "@mui/material";
+import { Grid, Box, useTheme, useMediaQuery, Container } from "@mui/material";
 import { Fragment, SetStateAction, useEffect, useRef, useState } from "react";
 import Scroll from "react-scroll";
 import UserActivity from "./components/UserActivity";
@@ -44,6 +44,9 @@ export default function NextLevelLearning({
   content: IContent[];
   description: string;
 }) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
   const styles = useStyles();
   const [selectedTab, setSelectedTab] = useState(1);
 
@@ -92,56 +95,68 @@ export default function NextLevelLearning({
   }, [content]);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      sx={matches ? { maxWidth: "calc(100vw - 120px)" } : null}
+    >
       <Grid container spacing={2}>
         {/* Section Selector */}
-        <Grid item xs={2} md={2}>
-          <div className={styles.root}>
-            <TabList
-              vertical
-              selectedValue={selectedTab}
-              onTabSelect={(event, value) =>
-                handleSelectedTab(event, value.value)
-              }
-              appearance="subtle"
-              as="div"
-              size="medium"
-              reserveSelectedTabSpace={false}
-            >
-              {content.map((step) => (
-                <Tab
-                  value={step.section}
-                  key={`step${step.section}`}
-                  style={{ textAlign: "start" }}
-                >
-                  {step.section}. {step.title}
-                  <Link
-                    activeClass="active"
-                    to={`step${step.section}`}
-                    spy={true}
-                    smooth={true}
-                    hashSpy={false}
-                    // duration={100}
-                    // delay={100}
-                    isDynamic={true}
-                    onSetActive={(e) => handleSelectedTab(e, "scroll")}
-                    // onSetInactive={(e) => handleNavUpdateOnScroll(e)}
-                    ignoreCancelEvents={false}
-                    // spyThrottle={100}
-                  />
-                </Tab>
-              ))}
-            </TabList>
-          </div>
-        </Grid>
+        {matches ? (
+          <Grid item xs={2} md={2}>
+            <div className={styles.root}>
+              <TabList
+                vertical
+                selectedValue={selectedTab}
+                onTabSelect={(event, value) =>
+                  handleSelectedTab(event, value.value)
+                }
+                appearance="subtle"
+                as="div"
+                size="medium"
+                reserveSelectedTabSpace={false}
+              >
+                {content.map((step) => (
+                  <Tab
+                    value={step.section}
+                    key={`step${step.section}`}
+                    style={{ textAlign: "start" }}
+                  >
+                    {step.section}. {step.title}
+                    <Link
+                      activeClass="active"
+                      to={`step${step.section}`}
+                      spy={true}
+                      smooth={true}
+                      hashSpy={false}
+                      // duration={100}
+                      // delay={100}
+                      isDynamic={true}
+                      onSetActive={(e) => handleSelectedTab(e, "scroll")}
+                      // onSetInactive={(e) => handleNavUpdateOnScroll(e)}
+                      ignoreCancelEvents={false}
+                      // spyThrottle={100}
+                    />
+                  </Tab>
+                ))}
+              </TabList>
+            </div>
+          </Grid>
+        ) : null}
 
         {/* User and Background Activity */}
-        <Grid item xs={10} md={10} mt={4}>
-          <Grid item xs={12} md={12}>
+        <Grid item xs={matches ? 10 : 12} md={matches ? 10 : 12} mt={4}>
+          <Grid item xs={12} md={12} p={matches ? 0 : 1}>
             <Body1>{description}</Body1>
           </Grid>
           {content.map((step) => (
-            <Grid container item spacing={2} key={step.section} xs={12}>
+            <Grid
+              container={matches ? true : false}
+              spacing={2}
+              key={step.section}
+              xs={12}
+              p={matches ? 0 : 1}
+            >
               <Grid item xs={12} md={12}>
                 <Element
                   id={`step${step.section.toString()}`}
@@ -167,12 +182,16 @@ export default function NextLevelLearning({
                     md={6}
                     style={{ backgroundColor: "#486e9f" }}
                     color={"white"}
-                    mb={2}
+                    mb={matches ? 2 : 0}
                     pb={3}
-                    sx={{ borderRadius: "15px 0px 0px 15px" }}
+                    sx={
+                      matches
+                        ? { borderRadius: "15px 0px 0px 15px" }
+                        : { borderRadius: "15px 15px 0px 0px" }
+                    }
                   >
-                    <Box px={2}>
-                      <Box pb={2}>
+                    <Box px={matches ? 2 : 0.5}>
+                      <Box p={matches ? 0 : 2} pb={matches ? 2 : 0}>
                         <Subtitle2>User Activity {index + 1}</Subtitle2>
                       </Box>
                       {/* Load the User Activity component */}
@@ -192,10 +211,14 @@ export default function NextLevelLearning({
                     color={"white"}
                     mb={2}
                     pb={3}
-                    sx={{ borderRadius: "0px 15px 15px 0px" }}
+                    sx={
+                      matches
+                        ? { borderRadius: "0px 15px 15px 0px" }
+                        : { borderRadius: "0px 0px 15px 15px" }
+                    }
                   >
-                    <Box px={1}>
-                      <Box pb={2}>
+                    <Box px={matches ? 2 : 0.5}>
+                      <Box p={matches ? 0 : 2} pb={matches ? 2 : 0}>
                         <Subtitle2>Background Activity {index + 1}</Subtitle2>
                       </Box>
 

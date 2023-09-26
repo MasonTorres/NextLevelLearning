@@ -21,7 +21,14 @@ import { Icon } from "@iconify/react";
 import linuxIcon from "@iconify/icons-cib/linux";
 import lineEndIcon from "@iconify/icons-material-symbols/line-end";
 
-import { Collapse, IconButton } from "@mui/material";
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  Collapse,
+  IconButton,
+  Paper,
+  useMediaQuery,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -172,6 +179,8 @@ const links = [
 
 export default function NavSideBar({ link }: any) {
   const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+
   const [open, setOpen] = React.useState(true);
   const { pageInfo, setPageInfo } = useContext(PageInfoContext);
 
@@ -188,83 +197,124 @@ export default function NavSideBar({ link }: any) {
   const handleClick = () => {
     setOpenMenu(!openMenu);
   };
+
+  const [value, setValue] = React.useState("recents");
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
   return (
     <div style={{ display: "flex", height: "100%" }}>
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: "none" }),
-            }}
+      {matches ? (
+        <>
+          <AppBar position="fixed" open={open}>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                sx={{
+                  marginRight: 5,
+                  ...(open && { display: "none" }),
+                }}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" noWrap component="div">
+                {pageInfo.home}
+              </Typography>
+            </Toolbar>
+          </AppBar>
+
+          <Drawer variant="permanent" anchor="left" open={open}>
+            <DrawerHeader>
+              <IconButton onClick={handleDrawerClose}>
+                {theme.direction === "rtl" ? (
+                  <ChevronRightIcon />
+                ) : (
+                  <ChevronLeftIcon />
+                )}
+              </IconButton>
+            </DrawerHeader>
+            <Divider />
+            <List>
+              {links.map((link) =>
+                link.items.length === 0 ? (
+                  <div key={link.title}>
+                    <ListItemButton href={link.to ? link.to : ""}>
+                      <ListItemIcon>{link.icon}</ListItemIcon>
+                      <ListItemText primary={link.title} />
+                    </ListItemButton>
+                  </div>
+                ) : (
+                  <div key={link.title}>
+                    <ListItemButton onClick={handleClick}>
+                      <ListItemIcon>{link.icon}</ListItemIcon>
+                      <ListItemText primary={link.title} />
+                      {openMenu ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
+                    <Collapse in={openMenu} timeout="auto">
+                      <List component="div" disablePadding>
+                        {link.items.map((nestedLink) => (
+                          <NavItem key={nestedLink.title} link={nestedLink} />
+                        ))}
+                      </List>
+                    </Collapse>
+                  </div>
+                )
+              )}
+            </List>
+            <List style={{ position: "absolute", bottom: "0", width: "100%" }}>
+              <ListItemButton
+                target="_blank"
+                href="https://forms.microsoft.com/r/fbCnRuRQwq"
+              >
+                <ListItemIcon>
+                  <PersonFeedback28Filled />
+                </ListItemIcon>
+                <ListItemText primary={"Feedback"} />
+              </ListItemButton>
+            </List>
+          </Drawer>
+        </>
+      ) : (
+        <Paper
+          sx={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 100 }}
+          elevation={3}
+        >
+          <BottomNavigation
+            sx={{ width: 500 }}
+            value={value}
+            onChange={handleChange}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            {pageInfo.home}
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" anchor="left" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {links.map((link) =>
-            link.items.length === 0 ? (
-              <div key={link.title}>
-                <ListItemButton href={link.to ? link.to : ""}>
-                  <ListItemIcon>{link.icon}</ListItemIcon>
-                  <ListItemText primary={link.title} />
+            <BottomNavigationAction
+              label="Home"
+              value="home"
+              icon={
+                <ListItemButton href="/home">
+                  <ListItemIcon>
+                    <Home28Filled />
+                  </ListItemIcon>
                 </ListItemButton>
-              </div>
-            ) : (
-              <div key={link.title}>
-                <ListItemButton onClick={handleClick}>
-                  <ListItemIcon>{link.icon}</ListItemIcon>
-                  <ListItemText primary={link.title} />
-                  {openMenu ? <ExpandLess /> : <ExpandMore />}
-                </ListItemButton>
-                <Collapse in={openMenu} timeout="auto">
-                  <List component="div" disablePadding>
-                    {link.items.map((nestedLink) => (
-                      <NavItem key={nestedLink.title} link={nestedLink} />
-                    ))}
-                  </List>
-                </Collapse>
-              </div>
-            )
-          )}
-        </List>
-        <List style={{ position: "absolute", bottom: "0", width: "100%" }}>
-          <ListItemButton
-            target="_blank"
-            href="https://forms.microsoft.com/r/fbCnRuRQwq"
-          >
-            <ListItemIcon>
-              <PersonFeedback28Filled />
-            </ListItemIcon>
-            <ListItemText primary={"Feedback"} />
-          </ListItemButton>
-        </List>
-      </Drawer>
+              }
+            />
+            <BottomNavigationAction
+              label="Feedback"
+              value="feedback"
+              icon={<PersonFeedback28Filled />}
+            />
+          </BottomNavigation>
+        </Paper>
+      )}
 
       <main
         style={{
-          padding: "15px",
+          padding: matches ? "15px" : "0",
           width: "100%",
           paddingTop: "64px",
+          // overflowX: "auto",
         }}
       >
         <StyledEngineProvider injectFirst>
