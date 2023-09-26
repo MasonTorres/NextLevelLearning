@@ -63,6 +63,8 @@
     ]
   },
   "devDependencies": {
+    "@iconify/icons-cib": "^1.2.4",
+    "@iconify/icons-material-symbols": "^1.2.56",
     "@iconify/react": "^4.1.1",
     "@types/react-linkify": "^1.0.1",
     "@types/react-scroll": "^1.8.7"

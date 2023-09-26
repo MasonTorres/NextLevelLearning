@@ -15,7 +15,11 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ListItemButton from "@mui/material/ListItemButton";
+
+// Iconify Icons
 import { Icon } from "@iconify/react";
+import linuxIcon from "@iconify/icons-cib/linux";
+import lineEndIcon from "@iconify/icons-material-symbols/line-end";
 
 import { Collapse, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -127,7 +131,7 @@ nllDataFiles.forEach(
     };
   }) => {
     linuxmde.push({
-      icon: <Icon icon="material-symbols:line-end" fontSize={20} />,
+      icon: <Icon icon={lineEndIcon} fontSize={20} />,
       to: `${file.data.path}`,
       title: `${file.data.title}`,
     });
@@ -148,7 +152,7 @@ const links = [
     items: [
       {
         title: "Linux",
-        icon: <Icon icon="cib:linux" fontSize={20} />,
+        icon: <Icon icon={linuxIcon} fontSize={20} />,
         items: [...linuxmde],
       },
       {
@@ -156,7 +160,7 @@ const links = [
         icon: <AppleIcon />,
         items: [
           {
-            icon: <Icon icon="material-symbols:line-end" fontSize={20} />,
+            icon: <Icon icon={lineEndIcon} fontSize={20} />,
             to: "/mde/mac",
             title: "MDE Mac",
           },
