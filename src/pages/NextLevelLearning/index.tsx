@@ -6,8 +6,11 @@ import {
   shorthands,
   Text,
   Body1,
+  Subtitle2,
+  Body2,
+  Title3,
 } from "@fluentui/react-components";
-import { Typography, Grid, Box } from "@mui/material";
+import { Grid, Box } from "@mui/material";
 import { Fragment, SetStateAction, useEffect, useRef, useState } from "react";
 import Scroll from "react-scroll";
 import UserActivity from "./components/UserActivity";
@@ -144,12 +147,14 @@ export default function NextLevelLearning({
                   id={`step${step.section.toString()}`}
                   name={`step${step.section.toString()}`}
                 >
-                  <Typography variant="h5">
-                    {step.section}. {step.title}
-                  </Typography>
-                  <Typography pl={1} variant="body2" mb={1}>
-                    {step.description}
-                  </Typography>
+                  <Box py={1}>
+                    <Title3>
+                      {step.section}. {step.title}
+                    </Title3>
+                  </Box>
+                  <Box py={1}>
+                    <Body1>{step.description}</Body1>
+                  </Box>
                 </Element>
               </Grid>
 
@@ -167,10 +172,9 @@ export default function NextLevelLearning({
                     sx={{ borderRadius: "15px 0px 0px 15px" }}
                   >
                     <Box px={2}>
-                      <Typography variant="subtitle1" mb={1}>
-                        User Activity {index + 1}
-                      </Typography>
-
+                      <Box pb={2}>
+                        <Subtitle2>User Activity {index + 1}</Subtitle2>
+                      </Box>
                       {/* Load the User Activity component */}
                       <Box px={2}>
                         <UserActivity userActivity={task.userActivity} />
@@ -191,9 +195,9 @@ export default function NextLevelLearning({
                     sx={{ borderRadius: "0px 15px 15px 0px" }}
                   >
                     <Box px={1}>
-                      <Typography variant="subtitle1" mb={1}>
-                        Background Activity {index + 1}
-                      </Typography>
+                      <Box pb={2}>
+                        <Subtitle2>Background Activity {index + 1}</Subtitle2>
+                      </Box>
 
                       {/* Load the Background Activity component */}
                       {/* <Box pr={2}>{task.backgroundActivity}</Box> */}

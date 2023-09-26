@@ -5,15 +5,11 @@ import {
   CardHeader,
   CardPreview,
   Image,
+  Subtitle1,
+  Body1,
+  Text,
 } from "@fluentui/react-components";
-import {
-  Typography,
-  Box,
-  Stack,
-  Dialog,
-  DialogProps,
-  Paper,
-} from "@mui/material";
+import { Box, Stack, Dialog, DialogProps, Paper } from "@mui/material";
 import Linkify from "react-linkify";
 
 import { IUserActivity } from "../../../types/types";
@@ -84,9 +80,7 @@ export default function UserActivity({ userActivity }: Props) {
                   return (
                     <div key={activity.Value}>
                       <Box py={1}>
-                        <Typography variant="body1">
-                          {activity.Value}
-                        </Typography>
+                        <Subtitle1>{activity.Value}</Subtitle1>
                       </Box>
                     </div>
                   );
@@ -150,19 +144,16 @@ export default function UserActivity({ userActivity }: Props) {
                 } else if (activity.Type === "Description") {
                   return (
                     <div key={activity.Value}>
-                      <Box py={1}>{activity.Value}</Box>
+                      <Box py={1}>
+                        <Body1>{activity.Value}</Body1>
+                      </Box>
                     </div>
                   );
                 } else if (activity.Type === "Note") {
                   return (
                     <div key={activity.Value}>
                       <Box py={1}>
-                        <Typography
-                          variant="caption"
-                          sx={{ fontStyle: "italic" }}
-                        >
-                          {activity.Value}
-                        </Typography>
+                        <Text italic>{activity.Value}</Text>
                       </Box>
                     </div>
                   );

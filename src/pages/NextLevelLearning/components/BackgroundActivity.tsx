@@ -3,9 +3,11 @@ import {
   CardFooter,
   CardHeader,
   CardPreview,
-  Text,
   Image,
   Button,
+  Subtitle1,
+  Body1,
+  Text,
 } from "@fluentui/react-components";
 import {
   Typography,
@@ -76,9 +78,7 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                   return (
                     <div key={activity.Value}>
                       <Box py={1}>
-                        <Typography variant="body1">
-                          {activity.Value}
-                        </Typography>
+                        <Subtitle1>{activity.Value}</Subtitle1>
                       </Box>
                     </div>
                   );
@@ -143,7 +143,7 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                   return (
                     <div key={activity.Value}>
                       <Box py={1}>
-                        <Text>{activity.Value}</Text>
+                        <Body1>{activity.Value}</Body1>
                       </Box>
                     </div>
                   );
@@ -151,17 +151,19 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                   return (
                     <div key={activity.Value}>
                       <Box py={1}>
-                        <Typography
-                          variant="caption"
-                          sx={{ fontStyle: "italic" }}
-                        >
-                          {activity.Value}
-                        </Typography>
+                        <Text italic>{activity.Value}</Text>
                       </Box>
                     </div>
                   );
                 }
               })}
+              {/* <Text>Do some things</Text>
+            <br></br>
+            <Image
+              alt="intuneSetupError1"
+              src={intuneSetupError1}
+              width={500}
+            /> */}
             </Box>
             {/* Image dialog */}
             <Dialog
