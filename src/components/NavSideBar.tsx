@@ -24,7 +24,11 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AppleIcon from "@mui/icons-material/Apple";
 
 // Fluent UI Icons
-import { Icon as IconFluent } from "@fluentui/react/lib/Icon";
+import {
+  Home28Filled,
+  Shield28Filled,
+  PersonFeedback28Filled,
+} from "@fluentui/react-icons";
 
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
@@ -133,13 +137,13 @@ nllDataFiles.forEach(
 // Nav links
 const links = [
   {
-    icon: <HomeIcon />,
+    icon: <Home28Filled />,
     title: "Home",
     items: [],
     to: "/home",
   },
   {
-    icon: <SecurityOutlinedIcon />,
+    icon: <Shield28Filled />,
     title: "MDE",
     items: [
       {
@@ -245,7 +249,7 @@ export default function NavSideBar({ link }: any) {
             href="https://forms.microsoft.com/r/fbCnRuRQwq"
           >
             <ListItemIcon>
-              <IconFluent iconName="feedback"></IconFluent>
+              <PersonFeedback28Filled />
             </ListItemIcon>
             <ListItemText primary={"Feedback"} />
           </ListItemButton>

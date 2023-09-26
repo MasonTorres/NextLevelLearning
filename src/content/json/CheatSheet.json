@@ -1,15 +1,70 @@
 {
   "title": "Cheat Sheet",
-  "path": "linux/cheet-sheet",
+  "path": "/linux/cheat-sheet",
   "section": "MDE",
   "subSection": "Linux",
-  "description": "",
+  "description": "Use this cheat sheet to brush up on your Linux commands and for all those Linux commands you can't quite remember!",
   "data": [
     {
       "section": 1,
       "title": "General",
       "description": "General commands",
       "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Directories"
+            },
+            {
+              "Type": "Description",
+              "Value": "/root - root user home directory"
+            },
+            {
+              "Type": "Description",
+              "Value": "/home - every user home directory"
+            },
+            {
+              "Type": "Description",
+              "Value": "/lib - \"c\" libraries used by programs and kernel"
+            },
+            {
+              "Type": "Description",
+              "Value": "/dev - device drivers/files"
+            },
+            {
+              "Type": "Description",
+              "Value": "/usr - user programs and utilities (binaries, docs, libraries, include files, etc.)"
+            },
+            {
+              "Type": "Description",
+              "Value": "/bin - OS essential binaries (ls, cp, mv, etc.)"
+            },
+            {
+              "Type": "Description",
+              "Value": "/etc - system configuration files, includes startup scripts"
+            },
+            {
+              "Type": "Description",
+              "Value": "/mnt - mount point for external file systems"
+            },
+            {
+              "Type": "Description",
+              "Value": "/var - variable data (mail and printer spools, log files, lock files, etc.)"
+            },
+            {
+              "Type": "Description",
+              "Value": "/tmp - temporary files"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "No output"
+            }
+          ]
+        },
         {
           "title": "",
           "userActivity": [
@@ -90,6 +145,14 @@
             {
               "Type": "Code",
               "Value": "kill -9 9112"
+            },
+            {
+              "Type": "Note",
+              "Value": "Signal numbers are not portable, while signal names are. Check signal command for more information by running \"kill -l\""
+            },
+            {
+              "Type": "Code",
+              "Value": "kill -l"
             }
           ],
           "backgroundActivity": [
@@ -100,6 +163,14 @@
             {
               "Type": "Code",
               "Value": "[1]+  Stopped                 less ~/.bash_history"
+            },
+            {
+              "Type": "Title",
+              "Value": "Output sample - kill -l"
+            },
+            {
+              "Type": "Code",
+              "Value": " 1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP\r\n 6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1\r\n11) SIGSEGV     12) SIGUSR2     13) SIGPIPE     14) SIGALRM     15) SIGTERM\r\n16) SIGSTKFLT   17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP\r\n21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU     25) SIGXFSZ\r\n26) SIGVTALRM   27) SIGPROF     28) SIGWINCH    29) SIGIO       30) SIGPWR\r\n31) SIGSYS      34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3\r\n38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8\r\n43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13\r\n48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12\r\n53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7\r\n58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2\r\n63) SIGRTMAX-1  64) SIGRTMAX"
             }
           ]
         },
