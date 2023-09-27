@@ -50,7 +50,6 @@ export default function UserActivity({ userActivity }: Props) {
   const handleClose = () => setOpen(false);
 
   const handleCodeBlockOpen = (codeBlock: SetStateAction<any>) => {
-    console.log("codeBlock", codeBlock);
     setCodeBlock(codeBlock);
     setCodeBlockOpen(true);
   };

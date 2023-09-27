@@ -16,6 +16,7 @@ import {
 import nllDataFiles from "../../content/nllDataFiles.json";
 import { useContext } from "react";
 import { PageInfoContext } from "../../appContext";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles({
   container: {
@@ -51,8 +52,8 @@ const Home = () => {
         {nllDataFiles.map((file) => (
           <ListItem disablePadding key={file.data.path}>
             <ListItemButton
-              component="a"
-              href={file.data.path}
+              component={Link}
+              to={file.data.path}
               onClick={() =>
                 setPageInfo({
                   ...pageInfo,

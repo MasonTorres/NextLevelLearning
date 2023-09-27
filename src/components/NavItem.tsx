@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { PageInfoContext } from "../appContext";
@@ -24,6 +24,14 @@ export default function NavItem({ link }: any) {
   const handleClickButton = (newTitle: string) => {
     setPageInfo({ ...pageInfo, home: newTitle });
   };
+
+  useEffect(() => {
+    link.items.forEach((nestedLink: any) => {
+      if (pageInfo.home === nestedLink.title) {
+        setOpenMenu(true);
+      }
+    });
+  }, [pageInfo.home]);
 
   return (
     <>

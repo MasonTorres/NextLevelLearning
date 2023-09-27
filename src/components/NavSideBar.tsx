@@ -1,4 +1,9 @@
-import React, { Component, ReactComponentElement, useContext } from "react";
+import React, {
+  Component,
+  ReactComponentElement,
+  useContext,
+  useEffect,
+} from "react";
 import { PageInfoContext } from "../appContext";
 import Router from "../pages/router";
 import {
@@ -25,6 +30,7 @@ import {
   BottomNavigation,
   BottomNavigationAction,
   Collapse,
+  Container,
   IconButton,
   Paper,
   useMediaQuery,
@@ -177,22 +183,34 @@ const links = [
   },
 ];
 
+interface Link {
+  u: string;
+  s: Link[];
+}
+
+interface Link {
+  u: string;
+  s: Link[];
+}
+
 export default function NavSideBar({ link }: any) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   const [open, setOpen] = React.useState(true);
   const { pageInfo, setPageInfo } = useContext(PageInfoContext);
 
   const handleDrawerOpen = () => {
     setOpen(true);
+    setPageInfo({ ...pageInfo, drawer: true });
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
+    setPageInfo({ ...pageInfo, drawer: false });
   };
 
-  const [openMenu, setOpenMenu] = React.useState(false);
+  const [openMenu, setOpenMenu] = React.useState(true);
 
   const handleClick = () => {
     setOpenMenu(!openMenu);
@@ -285,7 +303,7 @@ export default function NavSideBar({ link }: any) {
           elevation={3}
         >
           <BottomNavigation
-            sx={{ width: 500 }}
+            sx={{ width: "100%" }}
             value={value}
             onChange={handleChange}
           >
@@ -317,9 +335,9 @@ export default function NavSideBar({ link }: any) {
           // overflowX: "auto",
         }}
       >
-        <StyledEngineProvider injectFirst>
-          <Router />
-        </StyledEngineProvider>
+        {/* <StyledEngineProvider injectFirst> */}
+        <Router />
+        {/* </StyledEngineProvider> */}
       </main>
     </div>
   );

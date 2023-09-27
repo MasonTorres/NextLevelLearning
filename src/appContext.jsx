@@ -6,6 +6,7 @@ const reducer = (state, pair) => ({ ...state, ...pair });
 
 const initialState = {
   home: "Home",
+  drawer: true,
 };
 
 export function PageInfoProvider(props) {

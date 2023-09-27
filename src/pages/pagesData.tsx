@@ -19,6 +19,11 @@ const pagesData: routerType[] = [
     title: "home",
   },
   {
+    path: "/home",
+    element: <Home />,
+    title: "home",
+  },
+  {
     path: "about",
     element: <About />,
     title: "about",
@@ -50,7 +55,7 @@ nllDataFiles.forEach((file) => {
         description={file.data.description}
       />
     ),
-    title: `${file.data.path}`,
+    title: `${file.data.title}`,
   });
 });
 
