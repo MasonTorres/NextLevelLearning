@@ -1,6 +1,6 @@
 {
   "title": "Oracle Kernel Update",
-  "path": "mde/linux-oracle-kernel-update",
+  "path": "/mde/linux-oracle-kernel-update",
   "section": "MDE",
   "subSection": "Linux",
   "description": "",

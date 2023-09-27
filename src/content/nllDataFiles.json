@@ -1412,7 +1412,7 @@
 }},
  { "file": "MDELinuxIPTables", "path": "./json/MDELinuxIPTables.json", "data": {
   "title": "RHEL iptables",
-  "path": "mde/linux-rhel-iptables",
+  "path": "/mde/linux-rhel-iptables",
   "section": "MDE",
   "subSection": "Linux",
   "description": "Use the guide to troubleshoot issues with MDE connectivity to the Microsoft cloud service endpoints. We will use iptables to block and then allow outbound traffic to the MDE endpoints so we can see what errors and logs occur.",
@@ -1777,7 +1777,7 @@
 }},
  { "file": "MDELinuxOracleKernelUpdate", "path": "./json/MDELinuxOracleKernelUpdate.json", "data": {
   "title": "Oracle Kernel Update",
-  "path": "mde/linux-oracle-kernel-update",
+  "path": "/mde/linux-oracle-kernel-update",
   "section": "MDE",
   "subSection": "Linux",
   "description": "",
