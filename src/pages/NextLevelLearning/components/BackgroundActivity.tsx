@@ -59,7 +59,7 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
       //     Install MDE for Linux on Centos manually
       //   </Typography>
       // }
-      // description={<Caption1>5h ago · About us - Overview</Caption1>}
+      // description={<Body1>5h ago · About us - Overview</Body1>}
       />
 
       <CardPreview>
@@ -144,7 +144,7 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                     <div key={activity.Value}>
                       {activity.Value.split("\r\n").map((item, i) => {
                         return (
-                          <Box py={0.5}>
+                          <Box py={0.5} key={item}>
                             <Body1>{item}</Body1>
                           </Box>
                         );

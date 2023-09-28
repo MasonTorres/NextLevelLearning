@@ -70,7 +70,7 @@ const Home = () => {
           actions that take place either on the device or in the cloud.
         </Body2>
       </div>
-      <Grid container spacing={2} mt={2}>
+      <Grid container spacing={2} mt={2} mb={matches ? 0 : "66px"}>
         {uniqueSections.map((section: string) => {
           return (
             <Grid item xs={12} lg={3} key={section}>
@@ -106,7 +106,13 @@ const Home = () => {
           );
         })}
       </Grid>
-      <Box sx={{ position: "absolute", bottom: 10 }}>
+      <Box
+        sx={{
+          position: matches ? "absolute" : "relative",
+          bottom: matches ? 10 : "52px",
+          minHeight: matches ? "15px" : "unset",
+        }}
+      >
         Proudly brought to you by Mason Torres{" "}
         <Link to="https://github.com/MasonTorres" target="_blank">
           <GitHubIcon fontSize="small" />

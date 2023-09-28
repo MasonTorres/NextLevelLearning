@@ -20,6 +20,7 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ListItemButton from "@mui/material/ListItemButton";
+import { Link as LinkReactDom } from "react-router-dom";
 
 // Iconify Icons
 import { Icon } from "@iconify/react";
@@ -57,6 +58,7 @@ import { makeStyles } from "@fluentui/react-components";
 import NavItem from "./NavItem";
 
 import nllDataFiles from "../content/nllDataFiles.json";
+import { Link } from "react-scroll";
 const drawerWidth = 240;
 
 const openedMixin = (theme: Theme): CSSObject => ({
@@ -183,16 +185,6 @@ const links = [
   },
 ];
 
-interface Link {
-  u: string;
-  s: Link[];
-}
-
-interface Link {
-  u: string;
-  s: Link[];
-}
-
 export default function NavSideBar({ link }: any) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
@@ -307,22 +299,25 @@ export default function NavSideBar({ link }: any) {
             value={value}
             onChange={handleChange}
           >
-            <BottomNavigationAction
-              label="Home"
-              value="home"
-              icon={
-                <ListItemButton href="/home">
-                  <ListItemIcon>
-                    <Home28Filled />
-                  </ListItemIcon>
-                </ListItemButton>
-              }
-            />
-            <BottomNavigationAction
-              label="Feedback"
-              value="feedback"
-              icon={<PersonFeedback28Filled />}
-            />
+            <ListItemButton
+              component={LinkReactDom}
+              to="/home"
+              sx={{ justifyContent: "center" }}
+            >
+              <ListItemIcon>
+                <Home28Filled />
+              </ListItemIcon>
+            </ListItemButton>
+
+            <ListItemButton
+              target="_blank"
+              href="https://forms.microsoft.com/r/fbCnRuRQwq"
+              sx={{ justifyContent: "center" }}
+            >
+              <ListItemIcon>
+                <PersonFeedback28Filled />
+              </ListItemIcon>
+            </ListItemButton>
           </BottomNavigation>
         </Paper>
       )}
