@@ -1141,6 +1141,181 @@
     }
   ]
 }},
+ { "file": "GeneralPerformance", "path": "./json/GeneralPerformance.json", "data": {
+  "title": "Performance Monitoring",
+  "path": "/linux/performance-monitoring",
+  "section": "Performance",
+  "subSection": "Linux",
+  "description": "General performance monitoring for Linux.",
+  "data": [
+    {
+      "section": 1,
+      "title": "System Load Monitoring",
+      "description": "Monitor the system load to understand the demand on system resources.",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check System Load"
+            },
+            {
+              "Type": "Code",
+              "Value": "uptime"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Command output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the current system load averages for the past 1, 5, and 15 minutes."
+            },
+            {
+              "Type": "Code",
+              "Value": "15:48:32 up 1 min,  1 user,  load average: 0.80, 0.45, 0.17"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Memory Usage Monitoring",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check Memory Usage"
+            },
+            {
+              "Type": "Code",
+              "Value": "free -m"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": ""
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the total, used, and free memory in megabytes."
+            },
+            {
+              "Type": "Code",
+              "Value": "              total        used        free      shared  buff/cache   available\r\nMem:           1912         461         973           8         477        1230\r\nSwap:             0           0           0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Disk Usage Monitoring",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check Disk Usage"
+            },
+            {
+              "Type": "Code",
+              "Value": "df -h"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": ""
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the disk usage of all mounted filesystems."
+            },
+            {
+              "Type": "Code",
+              "Value": "Filesystem      Size  Used Avail Use% Mounted on\r\ndevtmpfs        940M     0  940M   0% /dev\r\ntmpfs           957M     0  957M   0% /dev/shm\r\ntmpfs           957M  8.6M  948M   1% /run\r\ntmpfs           957M     0  957M   0% /sys/fs/cgroup\r\n/dev/sda2       8.0G  2.7G  5.4G  33% /\r\n/dev/sda1      1014M  223M  792M  22% /boot\r\n/dev/sdb1       3.9G   16M  3.7G   1% /mnt\r\ntmpfs           192M     0  192M   0% /run/user/1001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 4,
+      "title": "CPU Usage Monitoring",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check CPU Usage"
+            },
+            {
+              "Type": "Code",
+              "Value": "top"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": ""
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the current CPU usage for each process."
+            },
+            {
+              "Type": "Code",
+              "Value": "top - 15:50:18 up 3 min,  1 user,  load average: 0.14, 0.31, 0.15\r\nTasks: 125 total,   2 running, 123 sleeping,   0 stopped,   0 zombie\r\n%Cpu(s):  0.7 us,  0.3 sy,  0.0 ni, 98.7 id,  0.0 wa,  0.3 hi,  0.0 si,  0.0 st\r\nMiB Mem :   1912.8 total,    972.7 free,    461.8 used,    478.2 buff/cache\r\nMiB Swap:      0.0 total,      0.0 free,      0.0 used.   1229.3 avail Mem\r\n\r\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\r\n    797 root      20   0 1151996 141996  57996 S   0.7   7.2   0:03.63 wdavdaemon\r\n    398 root      20   0       0      0      0 R   0.3   0.0   0:00.05 kworker/0:4-events_power_effici+\r\n    997 root      20   0  891196  67168  48116 S   0.3   3.4   0:01.04 wdavdaemon\r\n   1101 root      20   0  307864  17044  13600 S   0.3   0.9   0:00.23 telemetryd_v2\r\n   1296 root      20   0  448072  29588  11688 S   0.3   1.5   0:00.98 python3\r\n      1 root      20   0  175160  13556   8904 S   0.0   0.7   0:02.22 systemd\r\n      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd\r\n      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp\r\n      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par_gp\r\n      5 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0-events\r\n      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0H-e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 5,
+      "title": "Network Usage Monitoring",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check Network Usage"
+            },
+            {
+              "Type": "Code",
+              "Value": "nload"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": ""
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the current network usage for each interface."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}},
  { "file": "MDELinuxCentosSetup", "path": "./json/MDELinuxCentosSetup.json", "data": {
   "title": "Centos Setup",
   "path": "/mde/linux-setup-centos",
@@ -1403,6 +1578,325 @@
             {
               "Type": "Code",
               "Value": "healthy                                     : true\n  health_issues                               : []\n  licensed                                    : true\n  engine_version                              : \"1.1.23080.2007\"\n  app_version                                 : \"101.23082.0006\"\n  org_id                                      : \"e1fb4f0a-1fbe-4181-b3e3-180f6e6ac31f\"\n  log_level                                   : \"info\"\n  machine_guid                                : \"488afa59-53f8-3b4c-a537-c9a97144172d\"\n  release_ring                                : \"InsiderFast\"\n  product_expiration                          : May 29, 2024 at 04:26:26 AM\n  cloud_enabled                               : true\n  cloud_automatic_sample_submission_consent   : \"safe\"\n  cloud_diagnostic_enabled                    : false\n  passive_mode_enabled                        : false\n  behavior_monitoring                         : \"disabled\"\n  real_time_protection_enabled                : true\n  real_time_protection_available              : true\n  real_time_protection_subsystem              : \"fanotify\"\n  supplementary_events_subsystem              : \"ebpf\"\n  tamper_protection                           : \"disabled\"\n  automatic_definition_update_enabled         : true\n  definitions_updated                         : Sep 13, 2023 at 07:57:47 PM\n  definitions_updated_minutes_ago             : 114\n  definitions_version                         : \"1.397.911.0\"\n  definitions_status                          : \"up_to_date\"\n  edr_early_preview_enabled                   : \"disabled\"\n  edr_device_tags                             : []\n  edr_group_ids                               : \"\"\n  edr_configuration_version                   : \"30.199999.main.2023.09.12.17-C66E94972A44477D660E4B10FE61A2673B9201934B5797BEF69B78B21746A58B\"\n  edr_machine_id                              : \"138fb85fae1f265d23f2ba51597d3dad830ff411\"\n  conflicting_applications                    : []\n  network_protection_status                   : \"stopped\"\n  network_protection_enforcement_level        : \"disabled\"\n  troubleshooting_mode                        : false"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}},
+ { "file": "MDELinuxDiagnostics", "path": "./json/MDELinuxDiagnostics.json", "data": {
+  "title": "Diagnostics",
+  "path": "/mde/linux-diagnostics",
+  "section": "Diagnostics",
+  "subSection": "Linux",
+  "description": "Troubleshoot product issues and collect diagnostics",
+  "data": [
+    {
+      "section": 1,
+      "title": "Diagnostic",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Run mdatp diagnostic"
+            },
+            {
+              "Type": "Description",
+              "Value": "This command provides diagnostic tests for Microsoft Defender for Endpoint."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp diagnostic"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Description",
+              "Value": "There are several options to create diagnostic data and upload it to Microsoft."
+            },
+            {
+              "Type": "Code",
+              "Value": "  antivirus-engine-pool-content         Monitor the content for all antivirus engine core pools content\r\n  create                                Generate support log\r\n  real-time-protection-statistics       Display real-time protection resource usage statistics\r\n  event-provider-statistics             Display event provider internal statistics\r\n  behavior-monitoring-statistics        Display behavior monitoring resource usage statistics\r\n  hot-event-sources                     Monitor hot event sources (preview feature)\r\n  ebpf-statistics                       Display ebpf internal statistics\r\n  upload                                Generate and submit support log to Microsoft"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Real Time Protection Statistics",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check real-time protection statistics"
+            },
+            {
+              "Type": "Description",
+              "Value": "This command checks the real-time protection statistics for Microsoft Defender for Endpoint."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp diagnostic real-time-protection-statistics"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Description",
+              "Value": "sssd (Process id: 734): Scanned 1 file in 20669141 ns. Status: Active.\r\nsssd_be (Process id: 766): Scanned 1 file in 17035217 ns. Status: Active.\r\nsssd_nss (Process id: 769): Scanned 1 file in 16136611 ns. Status: Active.\r\npython3 (Process id: 1265): Scanned 2 files in 52417247 ns. Status: Active.\r\nagetty (Process id: 1267): Scanned 1 file in 12299 ns. Status: Active.\r\nagetty (Process id: 1271): Scanned 1 file in 9999 ns. Status: Active.\r\npython3 (Process id: 1296): Scanned 639 files in 2852327839 ns. Status: Active.\r\nsshd (Process id: 1737): Scanned 3 files in 36861644 ns. Status: Active.\r\nanacron (Process id: 2080): Scanned 3 files in 15714307 ns. Status: Active."
+            },
+            {
+              "Type": "Code",
+              "Value": "=====================================\r\nProcess id: 734\r\nName: sssd\r\nPath: \"/usr/sbin/sssd\"\r\nTotal files scanned: 1\r\nScan time (ns): \"20669141\"\r\nStatus: Active\r\n=====================================\r\nProcess id: 766\r\nName: sssd_be\r\nPath: \"/usr/libexec/sssd/sssd_be\"\r\nTotal files scanned: 1\r\nScan time (ns): \"17035217\"\r\nStatus: Active\r\n=====================================\r\nProcess id: 769\r\nName: sssd_nss\r\nPath: \"/usr/libexec/sssd/sssd_nss\"\r\nTotal files scanned: 1\r\nScan time (ns): \"16136611\"\r\nStatus: Active\r\n=====================================\r\nProcess id: 1265\r\nName: python3\r\nPath: \"/usr/libexec/platform-python3.6\"\r\nTotal files scanned: 2\r\nScan time (ns): \"52417247\"\r\nStatus: Active\r\n=====================================\r\nProcess id: 1267\r\nName: agetty\r\nPath: \"/usr/sbin/agetty\"\r\nTotal files scanned: 1\r\nScan time (ns): \"12299\"\r\nStatus: Active\r\n=====================================\r\nProcess id: 1271\r\nName: agetty\r\nPath: \"/usr/sbin/agetty\"\r\nTotal files scanned: 1\r\nScan time (ns): \"9999\"\r\nStatus: Active\r\n=====================================\r\nProcess id: 1296\r\nName: python3\r\nPath: \"/usr/libexec/platform-python3.6\"\r\nTotal files scanned: 639\r\nScan time (ns): \"2852327839\"\r\nStatus: Active\r\n=====================================\r\nProcess id: 1737\r\nName: sshd\r\nPath: \"/usr/sbin/sshd\"\r\nTotal files scanned: 3\r\nScan time (ns): \"36861644\"\r\nStatus: Active\r\n=====================================\r\nProcess id: 2080\r\nName: anacron\r\nPath: \"/usr/sbin/anacron\"\r\nTotal files scanned: 3\r\nScan time (ns): \"15714307\"\r\nStatus: Active\r\n====================================="
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Event Provider Statistics",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check event provider statistics"
+            },
+            {
+              "Type": "Description",
+              "Value": "This command checks the event provider statistics for Microsoft Defender for Endpoint."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp diagnostic event-provider-statistics"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Description",
+              "Value": "Review the counters for various requests and events. High-value counters of process events (fork, exec) may indicate high CPU usage."
+            },
+            {
+              "Type": "Code",
+              "Value": "Timer thread triggered count: 16266\r\nEP Auto recovery count: 0\r\nBlocking open request count: 0\r\nNon-blocking open request count: 0\r\nNon-blocking close modified request count: 927\r\nAllowed request count: 0\r\nHold request count: 0\r\nDenied request count: 0\r\nTimed out request count: 0\r\nFork request count: 1065\r\nExec request count: 979\r\nExit request count: 1077\r\nUID change count: 27\r\nGID change count: 41\r\nSID change count: 15\r\nOpen process request count: 0\r\nFilesystem request count: 862\r\nLogin request count: 2\r\nNetfilter request count: 2\r\nSocket event count: 6220\r\nDropped filesystem request count: 0\r\nDropped process count: 0\r\nDropped open process request count: 0\r\nDropped kernel message count: 0\r\nDropped behavior monitoring message count: 0\r\nDropped ipc kernel message count: 0\r\nOther dropped message count: 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 4,
+      "title": "Behavior Monitoring Statistics",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check behavior monitoring statistics"
+            },
+            {
+              "Type": "Description",
+              "Value": "This command checks the behavior monitoring statistics for Microsoft Defender for Endpoint."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp diagnostic behavior-monitoring-statistics"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "No Sample Output"
+            },
+            {
+              "Type": "Description",
+              "Value": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 5,
+      "title": "Hot Event Sources",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check hot event sources"
+            },
+            {
+              "Type": "Description",
+              "Value": "This command checks the hot event sources for Microsoft Defender for Endpoint."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp diagnostic hot-event-sources"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can run this command for both files and executables. It will generate a json file in the current directory with the number of events that occurred while the command ran."
+            },
+            {
+              "Type": "Note",
+              "Value": "The command will run indefinitely until you stop it with CTRL+C."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp diagnostic hot-event-sources files"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp diagnostic hot-event-sources executables"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Description",
+              "Value": "Sample Output from 'sudo mdatp diagnostic hot-event-sources files'"
+            },
+            {
+              "Type": "Code",
+              "Value": "=========== Hot Event Sources ===========\r\nTop 0 hot event sources. Total Events: 0 Time: 5s. Throughput: 0events/sec\r\ncount  file path"
+            },
+            {
+              "Type": "Note",
+              "Value": "Press CTRL+C to stop the command when you have enough data."
+            },
+            {
+              "Type": "Description",
+              "Value": "We can now view the output from the generated .json file. The file will be named 'hot_event_sources_<GUID>.json'."
+            },
+            {
+              "Type": "Code",
+              "Value": "cat hot_event_source_1a1767f9-a135-40ec-8286-fc289623d0d4.json"
+            },
+            {
+              "Type": "Code",
+              "Value": "{\r\n  \"endTime\": \"1695921278458827\",\r\n  \"eventSource\": [],\r\n  \"startTime\": \"1695921273456715\",\r\n  \"totalEvent\": \"0\"\r\n}"
+            },
+            {
+              "Type": "Description",
+              "Value": "This example ran for 5 seconds and observed no events."
+            },
+            {
+              "Type": "Description",
+              "Value": "A large number of events may indicate a performance issue."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 6,
+      "title": "eBPF Statistics",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check eBPF statistics"
+            },
+            {
+              "Type": "Description",
+              "Value": "This command checks the eBPF statistics for Microsoft Defender for Endpoint."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp diagnostic ebpf-statistics"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Description",
+              "Value": "If you have enabled eBPF, you can use this command to check the statistics."
+            },
+            {
+              "Type": "Code",
+              "Value": "Monitor 20 seconds\r\nTop file paths:\r\n/var/log/azure/Microsoft.OSTCExtensions.VMAccessForLinux : 4\r\n\r\nTop initiator paths:\r\n/usr/libexec/platform-python3.6 : 25\r\n\r\nTop syscall ids:\r\n42 : 21\r\n60 : 5\r\n59 : 5\r\n57 : 5\r\n90 : 4\r\n\r\nSession syscall ids:\r\n42 : 4784\r\n57 : 1555\r\n59 : 1388\r\n60 : 1553\r\n80 : 25\r\n81 : 3\r\n82 : 89\r\n87 : 79\r\n90 : 1070\r\n91 : 12\r\n92 : 10\r\n93 : 4\r\n105 : 40\r\n106 : 38\r\n112 : 15\r\n113 : 12\r\n114 : 10\r\n119 : 136\r\n263 : 20\r\n268 : 1\r\n\r\ninvalid_file_path_count : 0\r\n\r\ninvalid_initiator_path_count : 0\r\n\r\nfull_queue_dropped_event_count : 0"
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the top file paths, top initiator paths, top syscall ids, session syscall ids, invalid file path count, invalid initiator path count, and full queue dropped event count."
+            },
+            {
+              "Type": "Description",
+              "Value": "If eBPF is not enabled, the output will be empty."
+            },
+            {
+              "Type": "Code",
+              "Value": "Monitor 20 seconds\r\nTop file paths:\r\n\r\nTop initiator paths:\r\n\r\nTop syscall ids:\r\n\r\ninvalid_file_path_count : 0\r\n\r\ninvalid_initiator_path_count : 0\r\n\r\nfull_queue_dropped_event_count : 0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 7,
+      "title": "Create and Upload Support Logs",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Create and upload support logs"
+            },
+            {
+              "Type": "Description",
+              "Value": "This command creates and uploads support logs for Microsoft Defender for Endpoint."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp diagnostic create"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Description",
+              "Value": "A zip file is generated in /var/opt/microsoft/mdatp/wdavdiag/ which can be uploaded to a Microsoft support case."
+            },
+            {
+              "Type": "Code",
+              "Value": "Diagnostic file created: \"/var/opt/microsoft/mdatp/wdavdiag/b30d1f0e-8c2b-4107-ae87-5381ff0433a7.zip\""
             }
           ]
         }

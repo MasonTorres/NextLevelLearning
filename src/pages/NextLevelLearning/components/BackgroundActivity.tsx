@@ -142,9 +142,13 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                 } else if (activity.Type === "Description") {
                   return (
                     <div key={activity.Value}>
-                      <Box py={1}>
-                        <Body1>{activity.Value}</Body1>
-                      </Box>
+                      {activity.Value.split("\r\n").map((item, i) => {
+                        return (
+                          <Box py={0.5}>
+                            <Body1>{item}</Body1>
+                          </Box>
+                        );
+                      })}
                     </div>
                   );
                 } else if (activity.Type === "Note") {
