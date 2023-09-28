@@ -11,22 +11,22 @@ const pagesData: routerType[] = [
   {
     path: "",
     element: <Home />,
-    title: "home",
+    title: "Home",
   },
   {
     path: "home",
     element: <Home />,
-    title: "home",
+    title: "Home",
   },
   {
     path: "/home",
     element: <Home />,
-    title: "home",
+    title: "Home",
   },
   {
     path: "about",
     element: <About />,
-    title: "about",
+    title: "About",
   },
   {
     path: "/mde/mac-cheatsheet",

@@ -1,15 +1,22 @@
 import {
   Box,
+  Grid,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import {
   Body2,
+  Card,
+  CardHeader,
+  CardPreview,
   Subtitle2,
   Title1,
+  Title2,
   makeStyles,
   shorthands,
 } from "@fluentui/react-components";
@@ -17,6 +24,10 @@ import nllDataFiles from "../../content/nllDataFiles.json";
 import { useContext } from "react";
 import { PageInfoContext } from "../../appContext";
 import { Link } from "react-router-dom";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
+// Material Icons
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const useStyles = makeStyles({
   container: {
@@ -30,9 +41,21 @@ const useStyles = makeStyles({
 const Home = () => {
   const styles = useStyles();
   const { pageInfo, setPageInfo } = useContext(PageInfoContext);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
+  // Get unique sections from source json
+  let uniqueSections: any = [];
+  nllDataFiles.filter(function (item: { data: any }) {
+    var i = uniqueSections.findIndex((x: any) => x === item.data.section);
+    if (i <= -1) {
+      uniqueSections.push(item.data.section);
+    }
+    return null;
+  });
 
   return (
-    <Box mt={3}>
+    <Box mt={3} p={matches ? 0 : 2}>
       <div className={styles.container}>
         <Title1>Next Level Learning</Title1>
         <Body2>
@@ -46,26 +69,52 @@ const Home = () => {
           Additionally, the website provides insights into the underlying
           actions that take place either on the device or in the cloud.
         </Body2>
-        <Subtitle2>Linux Microsoft Defender for Endpoint</Subtitle2>
       </div>
-      <List>
-        {nllDataFiles.map((file) => (
-          <ListItem disablePadding key={file.data.path}>
-            <ListItemButton
-              component={Link}
-              to={file.data.path}
-              onClick={() =>
-                setPageInfo({
-                  ...pageInfo,
-                  home: file.data.title,
-                })
-              }
-            >
-              <ListItemText primary={file.data.title} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <Grid container spacing={2} mt={2}>
+        {uniqueSections.map((section: string) => {
+          return (
+            <Grid item xs={12} lg={3} key={section}>
+              <Card>
+                <CardHeader
+                  title={section}
+                  header={<Title2>{section}</Title2>}
+                />
+                <CardPreview>
+                  <List>
+                    {nllDataFiles.map((file) =>
+                      file.data.section === section ? (
+                        <ListItem disablePadding key={file.data.path}>
+                          <ListItemButton
+                            component={Link}
+                            to={file.data.path}
+                            onClick={() =>
+                              setPageInfo({
+                                ...pageInfo,
+                                home: file.data.title,
+                              })
+                            }
+                          >
+                            <ListItemText primary={file.data.title} />
+                          </ListItemButton>
+                        </ListItem>
+                      ) : null
+                    )}
+                  </List>
+                </CardPreview>
+              </Card>
+            </Grid>
+          );
+        })}
+      </Grid>
+      <Box sx={{ position: "absolute", bottom: 10 }}>
+        Proudly brought to you by Mason Torres{" "}
+        <Link to="https://github.com/MasonTorres" target="_blank">
+          <GitHubIcon fontSize="small" />
+        </Link>
+        <Link to="https://www.linkedin.com/in/mason-torres" target="_blank">
+          <LinkedInIcon fontSize="small" />
+        </Link>
+      </Box>
     </Box>
   );
 };
