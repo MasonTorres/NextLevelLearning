@@ -8,43 +8,40 @@ import {
   Subtitle1,
   Body1,
   Text,
-} from "@fluentui/react-components";
-import {
-  Typography,
-  Box,
-  Stack,
   Dialog,
-  DialogProps,
-  Paper,
-} from "@mui/material";
+  DialogTrigger,
+  DialogSurface,
+  DialogTitle,
+  DialogBody,
+  DialogActions,
+  DialogContent,
+} from "@fluentui/react-components";
+import { Box, Stack } from "@mui/material";
 import Linkify from "react-linkify";
 import { IBackgroundActivity } from "../../../types/types";
 import BlogCodeBlock from "../../../components/code-block";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
 import { SetStateAction, useState } from "react";
-import React from "react";
 
 type Props = {
   backgroundActivity: IBackgroundActivity[];
 };
 
 export default function BackgroundActivity({ backgroundActivity }: Props) {
-  const [open, setOpen] = useState(false);
+  const [imageOpen, setImageOpen] = useState(false);
   const [image, setImage] = useState("");
 
   const [codeBlockOpen, setCodeBlockOpen] = useState(false);
   const [codeBlock, setCodeBlock] = useState("");
 
-  const [maxWidth, setMaxWidth] = React.useState<DialogProps["maxWidth"]>("lg");
-  const handleOpen = (imageUrl: SetStateAction<string>) => {
-    setOpen(true);
+  const handleImageOpen = (imageUrl: SetStateAction<string>) => {
+    setImageOpen(true);
     setImage(imageUrl);
   };
-  const handleClose = () => setOpen(false);
+  const handleImageClose = () => setImageOpen(false);
 
   const handleCodeBlockOpen = (codeBlock: SetStateAction<any>) => {
-    console.log("codeBlock", codeBlock);
     setCodeBlock(codeBlock);
     setCodeBlockOpen(true);
   };
@@ -53,14 +50,7 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
 
   return (
     <Card>
-      <CardHeader
-      // header={
-      //   <Typography variant="body1">
-      //     Install MDE for Linux on Centos manually
-      //   </Typography>
-      // }
-      // description={<Body1>5h ago · About us - Overview</Body1>}
-      />
+      <CardHeader />
 
       <CardPreview>
         <Stack>
@@ -122,7 +112,9 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                           size="small"
                           icon={<AspectRatioIcon fontSize="small" />}
                           onClick={() =>
-                            handleOpen(process.env.PUBLIC_URL + activity.Value)
+                            handleImageOpen(
+                              process.env.PUBLIC_URL + activity.Value
+                            )
                           }
                           title="Expand Image"
                         />
@@ -133,7 +125,9 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                           src={process.env.PUBLIC_URL + activity.Value}
                           width={"100%"}
                           onClick={() =>
-                            handleOpen(process.env.PUBLIC_URL + activity.Value)
+                            handleImageOpen(
+                              process.env.PUBLIC_URL + activity.Value
+                            )
                           }
                         />
                       </Box>
@@ -161,50 +155,62 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                   );
                 }
               })}
-              {/* <Text>Do some things</Text>
-            <br></br>
-            <Image
-              alt="intuneSetupError1"
-              src={intuneSetupError1}
-              width={500}
-            /> */}
             </Box>
             {/* Image dialog */}
             <Dialog
-              open={open}
-              maxWidth={maxWidth}
-              onClose={handleClose}
+              open={imageOpen}
+              onOpenChange={handleImageClose}
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
-              <Paper elevation={3} sx={{ p: 1, pb: 0.5 }}>
-                <Image
-                  alt=""
-                  src={image}
-                  fit="default"
-                  shape="rounded"
-                  bordered={false}
-                  block={true}
-                />
-              </Paper>
+              <DialogSurface
+                style={{ maxWidth: "fit-content", minWidth: "500px" }}
+              >
+                <DialogBody>
+                  <DialogTitle></DialogTitle>
+                  <DialogContent>
+                    <Box>
+                      <Image
+                        alt=""
+                        src={image}
+                        fit="default"
+                        shape="rounded"
+                        bordered={false}
+                        block={true}
+                        style={{ maxHeight: "calc(100vh - 114px)" }}
+                      />
+                    </Box>
+                  </DialogContent>
+                  <DialogActions>
+                    <DialogTrigger disableButtonEnhancement>
+                      <Button appearance="primary">Close</Button>
+                    </DialogTrigger>
+                  </DialogActions>
+                </DialogBody>
+              </DialogSurface>
             </Dialog>
             {/* Code Block dialog */}
             <Dialog
               open={codeBlockOpen}
-              maxWidth={maxWidth}
-              onClose={handleCodeBlockClose}
+              onOpenChange={handleCodeBlockClose}
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
-              <Paper
-                elevation={3}
-                sx={{
-                  p: 1,
-                  minWidth: { lg: "600px", xs: "100vw" },
-                }}
+              <DialogSurface
+                style={{ maxWidth: "fit-content", minWidth: "500px" }}
               >
-                {codeBlock}
-              </Paper>
+                <DialogBody>
+                  <DialogTitle></DialogTitle>
+                  <DialogContent>
+                    <Box>{codeBlock}</Box>
+                  </DialogContent>
+                  <DialogActions>
+                    <DialogTrigger disableButtonEnhancement>
+                      <Button appearance="primary">Close</Button>
+                    </DialogTrigger>
+                  </DialogActions>
+                </DialogBody>
+              </DialogSurface>
             </Dialog>
           </Linkify>
         </Stack>
@@ -213,10 +219,7 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
         </Stack>
       </CardPreview>
 
-      <CardFooter>
-        {/* <Button icon={<ArrowReplyRegular fontSize={16} />}>Reply</Button>
-                      <Button icon={<ShareRegular fontSize={16} />}>Share</Button> */}
-      </CardFooter>
+      <CardFooter />
     </Card>
   );
 }
