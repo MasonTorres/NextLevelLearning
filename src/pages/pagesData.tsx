@@ -36,7 +36,7 @@ const pagesData: routerType[] = [
   {
     path: "mde/mac",
     element: (
-      <Typography pt={2}>
+      <Typography pt={2} mt={"47px"} sx={{ height: "calc(100vh - 110px)" }}>
         {" "}
         Coming soon... <Icon icon="noto:shushing-face" fontSize={35} />{" "}
       </Typography>

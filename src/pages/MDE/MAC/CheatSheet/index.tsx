@@ -8,7 +8,7 @@ export default function MDEMacCheatSeet() {
       </Typography>
       <Grid container spacing={2}>
         <Grid item xs={8}>
-          <Typography variant="body1">Coming soon...</Typography>
+          <Typography variant="body1">Coming soasdon...</Typography>
         </Grid>
       </Grid>
     </Box>

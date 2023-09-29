@@ -4,6 +4,15 @@ import React, {
   useContext,
   useEffect,
 } from "react";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerHeaderTitle,
+  DrawerInline,
+} from "@fluentui/react-components/unstable";
+import { useMotion } from "@fluentui/react-motion-preview";
+
 import { PageInfoContext } from "../appContext";
 import Router from "../pages/router";
 import {
@@ -46,6 +55,7 @@ import {
   Home28Filled,
   Shield28Filled,
   PersonFeedback28Filled,
+  Dismiss24Regular,
 } from "@fluentui/react-icons";
 
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -54,12 +64,18 @@ import HomeIcon from "@mui/icons-material/Home";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import { makeStyles } from "@fluentui/react-components";
+import {
+  Button,
+  makeStyles,
+  mergeClasses,
+  shorthands,
+  tokens,
+} from "@fluentui/react-components";
 import NavItem from "./NavItem";
 
 import nllDataFiles from "../content/nllDataFiles.json";
 import { Link } from "react-scroll";
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 const openedMixin = (theme: Theme): CSSObject => ({
   width: drawerWidth,
@@ -82,14 +98,14 @@ const closedMixin = (theme: Theme): CSSObject => ({
   },
 });
 
-const DrawerHeader = styled("div")(({ theme }) => ({
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-end",
-  padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
-  ...theme.mixins.toolbar,
-}));
+// const DrawerHeader = styled("div")(({ theme }) => ({
+//   display: "flex",
+//   alignItems: "center",
+//   justifyContent: "flex-end",
+//   padding: theme.spacing(0, 1),
+//   // necessary for content to be below app bar
+//   ...theme.mixins.toolbar,
+// }));
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -113,22 +129,108 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  width: drawerWidth,
-  flexShrink: 0,
-  whiteSpace: "nowrap",
-  boxSizing: "border-box",
-  ...(open && {
-    ...openedMixin(theme),
-    "& .MuiDrawer-paper": openedMixin(theme),
-  }),
-  ...(!open && {
-    ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme),
-  }),
-}));
+const visibleKeyframe = {
+  ...shorthands.borderRadius(0),
+  opacity: 1,
+  transform: "translate3D(0, 0, 0) scale(1)",
+};
+
+const hiddenKeyframe = {
+  ...shorthands.borderRadius("36px"),
+  opacity: 0,
+  transform: "translate3D(-100%, 0, 0) scale(0.5)",
+};
+
+const useStyles = makeStyles({
+  root: {
+    // ...shorthands.border("2px", "solid", "#ccc"),
+    // ...shorthands.overflow("hidden"),
+    display: "flex",
+    height: "100vh",
+    position: "fixed",
+    backgroundColor: "#fff",
+  },
+
+  drawer: {
+    animationDuration: tokens.durationGentle,
+    willChange: "opacity, transform, border-radius",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    width: drawerWidth + "px",
+    // padding: theme.spacing(0, 1),
+    // necessary for content to be below app bar
+    // ...theme.mixins.toolbar,
+    backgroudColor: tokens.colorNeutralBackgroundStatic,
+    // marginTop: "-47px",
+  },
+
+  drawerEntering: {
+    animationTimingFunction: tokens.curveDecelerateMid,
+    animationName: {
+      from: hiddenKeyframe,
+      to: visibleKeyframe,
+    },
+  },
+
+  drawerExiting: {
+    animationTimingFunction: tokens.curveAccelerateMin,
+    animationName: {
+      from: visibleKeyframe,
+      to: hiddenKeyframe,
+    },
+  },
+
+  content: {
+    ...shorthands.flex(1),
+    ...shorthands.padding("16px"),
+
+    boxSizing: "border-box",
+    position: "relative",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    transitionDuration: tokens.durationGentle,
+    transitionProperty: "transform, background-color",
+    willChange: "transform, background-color",
+    overflowY: "unset",
+    overflowX: "unset",
+    backgroundColor: tokens.colorNeutralBackground4,
+    // marginTop: "47px",
+  },
+  contentActive: {
+    transform: `translate3D(${drawerWidth}px, 0, 0)`,
+    backgroundColor: tokens.colorNeutralBackground4,
+    position: "relative",
+  },
+  contentEntering: {
+    transitionTimingFunction: tokens.curveDecelerateMid,
+  },
+  contentExiting: {
+    transitionTimingFunction: tokens.curveAccelerateMin,
+  },
+  contentIdle: {
+    width: `calc(100% - ${drawerWidth}px)`,
+  },
+});
+
+// const Drawer = styled(MuiDrawer, {
+//   shouldForwardProp: (prop) => prop !== "open",
+// })(({ theme, open }) => ({
+//   width: drawerWidth,
+//   flexShrink: 0,
+//   whiteSpace: "nowrap",
+//   boxSizing: "border-box",
+//   ...(open && {
+//     ...openedMixin(theme),
+//     "& .MuiDrawer-paper": openedMixin(theme),
+//   }),
+//   ...(!open && {
+//     ...closedMixin(theme),
+//     "& .MuiDrawer-paper": closedMixin(theme),
+//   }),
+// }));
 
 let linuxmde: {
   icon: ReactComponentElement<typeof Icon>;
@@ -146,7 +248,13 @@ nllDataFiles.forEach(
     };
   }) => {
     linuxmde.push({
-      icon: <Icon icon={lineEndIcon} fontSize={20} />,
+      icon: (
+        <Icon
+          icon={lineEndIcon}
+          fontSize={20}
+          color={tokens.colorNeutralBackgroundInverted}
+        />
+      ),
       to: `${file.data.path}`,
       title: `${file.data.title}`,
     });
@@ -156,26 +264,40 @@ nllDataFiles.forEach(
 // Nav links
 const links = [
   {
-    icon: <Home28Filled />,
+    icon: <Home28Filled color={tokens.colorNeutralBackgroundInverted} />,
     title: "Home",
     items: [],
     to: "/home",
   },
   {
-    icon: <Shield28Filled />,
+    icon: <Shield28Filled color={tokens.colorNeutralBackgroundInverted} />,
     title: "MDE",
     items: [
       {
         title: "Linux",
-        icon: <Icon icon={linuxIcon} fontSize={20} />,
+        icon: (
+          <Icon
+            icon={linuxIcon}
+            fontSize={20}
+            color={tokens.colorNeutralBackgroundInverted}
+          />
+        ),
         items: [...linuxmde],
       },
       {
         title: "Apple",
-        icon: <AppleIcon />,
+        icon: (
+          <AppleIcon sx={{ color: tokens.colorNeutralBackgroundInverted }} />
+        ),
         items: [
           {
-            icon: <Icon icon={lineEndIcon} fontSize={20} />,
+            icon: (
+              <Icon
+                icon={lineEndIcon}
+                fontSize={20}
+                color={tokens.colorNeutralBackgroundInverted}
+              />
+            ),
             to: "/mde/mac",
             title: "MDE Mac",
           },
@@ -190,6 +312,10 @@ export default function NavSideBar({ link }: any) {
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
   const [open, setOpen] = React.useState(true);
+  const motion = useMotion<HTMLDivElement>(open);
+
+  const styles = useStyles();
+
   const { pageInfo, setPageInfo } = useContext(PageInfoContext);
 
   const handleDrawerOpen = () => {
@@ -215,10 +341,16 @@ export default function NavSideBar({ link }: any) {
   };
 
   return (
-    <div style={{ display: "flex", height: "100%" }}>
+    <div>
       {matches ? (
         <>
-          <AppBar position="fixed" open={open}>
+          <AppBar
+            position="fixed"
+            sx={{
+              backgroundColor: tokens.colorNeutralBackgroundStatic,
+            }}
+            open={open}
+          >
             <Toolbar>
               <IconButton
                 color="inherit"
@@ -228,6 +360,7 @@ export default function NavSideBar({ link }: any) {
                 sx={{
                   marginRight: 5,
                   ...(open && { display: "none" }),
+                  backgroundColor: "#486e9f",
                 }}
               >
                 <MenuIcon />
@@ -237,57 +370,82 @@ export default function NavSideBar({ link }: any) {
               </Typography>
             </Toolbar>
           </AppBar>
-
-          <Drawer variant="permanent" anchor="left" open={open}>
-            <DrawerHeader>
-              <IconButton onClick={handleDrawerClose}>
-                {theme.direction === "rtl" ? (
-                  <ChevronRightIcon />
-                ) : (
-                  <ChevronLeftIcon />
-                )}
-              </IconButton>
-            </DrawerHeader>
-            <Divider />
-            <List>
-              {links.map((link) =>
-                link.items.length === 0 ? (
-                  <div key={link.title}>
-                    <ListItemButton href={link.to ? link.to : ""}>
-                      <ListItemIcon>{link.icon}</ListItemIcon>
-                      <ListItemText primary={link.title} />
-                    </ListItemButton>
-                  </div>
-                ) : (
-                  <div key={link.title}>
-                    <ListItemButton onClick={handleClick}>
-                      <ListItemIcon>{link.icon}</ListItemIcon>
-                      <ListItemText primary={link.title} />
-                      {openMenu ? <ExpandLess /> : <ExpandMore />}
-                    </ListItemButton>
-                    <Collapse in={openMenu} timeout="auto">
-                      <List component="div" disablePadding>
-                        {link.items.map((nestedLink) => (
-                          <NavItem key={nestedLink.title} link={nestedLink} />
-                        ))}
-                      </List>
-                    </Collapse>
-                  </div>
-                )
+          <div className={styles.root}>
+            {/* <Drawer variant="permanent" anchor="left" open={open}> */}
+            <DrawerInline
+              open={open}
+              separator
+              className={mergeClasses(
+                styles.drawer,
+                motion.type === "entering" && styles.drawerEntering,
+                motion.type === "exiting" && styles.drawerExiting
               )}
-            </List>
-            <List style={{ position: "absolute", bottom: "0", width: "100%" }}>
-              <ListItemButton
-                target="_blank"
-                href="https://forms.microsoft.com/r/fbCnRuRQwq"
-              >
-                <ListItemIcon>
-                  <PersonFeedback28Filled />
-                </ListItemIcon>
-                <ListItemText primary={"Feedback"} />
-              </ListItemButton>
-            </List>
-          </Drawer>
+            >
+              <DrawerHeader>
+                <DrawerHeaderTitle
+                  action={
+                    <Button
+                      appearance="subtle"
+                      aria-label="Close"
+                      icon={<Dismiss24Regular />}
+                      onClick={() => handleDrawerClose()}
+                    />
+                  }
+                >
+                  Menu
+                </DrawerHeaderTitle>
+              </DrawerHeader>
+              <Divider />
+              <DrawerBody style={{ minWidth: "100%", padding: 0 }}>
+                <List>
+                  {links.map((link) =>
+                    link.items.length === 0 ? (
+                      <div key={link.title}>
+                        <ListItemButton
+                          component={LinkReactDom}
+                          to={link.to ? link.to : ""}
+                        >
+                          <ListItemIcon>{link.icon}</ListItemIcon>
+                          <ListItemText primary={link.title} />
+                        </ListItemButton>
+                      </div>
+                    ) : (
+                      <div key={link.title}>
+                        <ListItemButton onClick={handleClick}>
+                          <ListItemIcon>{link.icon}</ListItemIcon>
+                          <ListItemText primary={link.title} />
+                          {openMenu ? <ExpandLess /> : <ExpandMore />}
+                        </ListItemButton>
+                        <Collapse in={openMenu} timeout="auto">
+                          <List component="div" disablePadding>
+                            {link.items.map((nestedLink) => (
+                              <NavItem
+                                key={nestedLink.title}
+                                link={nestedLink}
+                              />
+                            ))}
+                          </List>
+                        </Collapse>
+                      </div>
+                    )
+                  )}
+                </List>
+                <List
+                  style={{ position: "absolute", bottom: "0", width: "100%" }}
+                >
+                  <ListItemButton
+                    target="_blank"
+                    href="https://forms.microsoft.com/r/fbCnRuRQwq"
+                  >
+                    <ListItemIcon>
+                      <PersonFeedback28Filled />
+                    </ListItemIcon>
+                    <ListItemText primary={"Feedback"} />
+                  </ListItemButton>
+                </List>
+              </DrawerBody>
+            </DrawerInline>
+          </div>
         </>
       ) : (
         <Paper
@@ -322,18 +480,35 @@ export default function NavSideBar({ link }: any) {
         </Paper>
       )}
 
-      <main
+      <div
+        className={
+          matches
+            ? mergeClasses(
+                styles.content,
+                motion.active && styles.contentActive,
+                motion.type === "entering" && styles.contentEntering,
+                motion.type === "exiting" && styles.contentExiting,
+                motion.type === "idle" && styles.contentIdle
+              )
+            : mergeClasses(styles.content)
+        }
         style={{
-          padding: matches ? "15px" : "0",
-          width: "100%",
-          paddingTop: "64px",
-          // overflowX: "auto",
+          width: matches ? "" : "100%",
         }}
       >
-        {/* <StyledEngineProvider injectFirst> */}
-        <Router />
-        {/* </StyledEngineProvider> */}
-      </main>
+        <main
+          style={{
+            // padding: matches ? "15px" : "0",
+            // position: "absolute",
+            width: "100%",
+            paddingTop: "15px",
+          }}
+        >
+          {/* <StyledEngineProvider injectFirst> */}
+          <Router />
+          {/* </StyledEngineProvider> */}
+        </main>
+      </div>
     </div>
   );
 }

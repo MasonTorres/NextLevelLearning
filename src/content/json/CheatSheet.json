@@ -414,7 +414,7 @@
           "userActivity": [
             {
               "Type": "Title",
-              "Value": "Check disk space"
+              "Value": "Check disk space (human readable format)"
             },
             {
               "Type": "Code",
@@ -427,6 +427,14 @@
             {
               "Type": "Code",
               "Value": "du -sh /home/labmin"
+            },
+            {
+              "Type": "Title",
+              "Value": "Check disk space (inode format)"
+            },
+            {
+              "Type": "Code",
+              "Value": "df -i"
             }
           ],
           "backgroundActivity": [
@@ -435,12 +443,24 @@
               "Value": "Output sample"
             },
             {
+              "Type": "Description",
+              "Value": "`df -h` will print sizes in powers of 1024 (e.g., 1023M)"
+            },
+            {
               "Type": "Code",
               "Value": "Filesystem      Size  Used Avail Use% Mounted on\r\ndevtmpfs        930M     0  930M   0% /dev\r\ntmpfs           947M  4.0K  947M   1% /dev/shm\r\ntmpfs           947M  8.6M  939M   1% /run\r\ntmpfs           947M     0  947M   0% /sys/fs/cgroup\r\n/dev/sda2       8.0G  3.1G  5.0G  39% /\r\n/dev/sda1      1014M  262M  753M  26% /boot\r\n/dev/sdb1       3.9G   24K  3.7G   1% /mnt\r\ntmpfs           190M     0  190M   0% /run/user/1000"
             },
             {
               "Type": "Code",
               "Value": "252K    /home/labmin"
+            },
+            {
+              "Type": "Description",
+              "Value": "`df -i` list inode information instead of block usage"
+            },
+            {
+              "Type": "Code",
+              "Value": "Filesystem      Inodes IUsed   IFree IUse% Mounted on\r\ndevtmpfs        240507   353  240154    1% /dev\r\ntmpfs           244837     1  244836    1% /dev/shm\r\ntmpfs           244837   552  244285    1% /run\r\ntmpfs           244837    17  244820    1% /sys/fs/cgroup\r\n/dev/sda2      4193792 62085 4131707    2% /\r\n/dev/sda1       524288   317  523971    1% /boot\r\n/dev/sdb1       262144    11  262133    1% /mnt\r\ntmpfs           244837     5  244832    1% /run/user/1001"
             }
           ]
         },

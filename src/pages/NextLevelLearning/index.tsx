@@ -9,15 +9,9 @@ import {
   Subtitle2,
   Body2,
   Title3,
-} from "@fluentui/react-components";
-import {
-  Grid,
-  Box,
-  useTheme,
-  useMediaQuery,
-  Container,
   Card,
-} from "@mui/material";
+} from "@fluentui/react-components";
+import { Grid, Box, useTheme, useMediaQuery, Container } from "@mui/material";
 import {
   Fragment,
   SetStateAction,
@@ -71,13 +65,13 @@ export default function NextLevelLearning({
 
   // update the content width based on the drawer state
   const [contentWidth, setContentWidth] = useState("270px");
-  useEffect(() => {
-    if (pageInfo.drawer) {
-      setContentWidth("270px");
-    } else {
-      setContentWidth("96px");
-    }
-  }, [pageInfo.drawer]);
+  // useEffect(() => {
+  //   if (pageInfo.drawer) {
+  //     setContentWidth("270px");
+  //   } else {
+  //     // setContentWidth("96px");
+  //   }
+  // }, [pageInfo.drawer]);
 
   const handleSelectedTab = (e: any, value: SetStateAction<any>) => {
     const stepToChangeTo = Number(e.toString().replace("step", ""));
@@ -127,7 +121,7 @@ export default function NextLevelLearning({
         <Grid
           container
           spacing={2}
-          maxWidth={matches ? `calc(100vw - ${contentWidth})` : "inherit"}
+          // maxWidth={matches ? `calc(100vw - ${contentWidth})` : "inherit"}
         >
           {matches ? (
             <Grid item xs={2} sm={4} md={3} lg={2}>
@@ -135,13 +129,14 @@ export default function NextLevelLearning({
                 sx={{
                   position: "sticky",
                   top: "65px",
-                  marginTop: "10px",
+                  marginTop: "15px",
                   alignSelf: "flex-start",
-                  marginRight: "15px",
+                  marginRight: "10px",
                   ...shorthands.padding("10px", "10px"),
+                  padding: 1,
                 }}
               >
-                <Card sx={{ padding: 1 }}>
+                <Card>
                   <TabList
                     vertical
                     selectedValue={selectedTab}
@@ -193,10 +188,17 @@ export default function NextLevelLearning({
               marginTop: "10px",
               // alignSelf: "flex-start",
               // marginRight: "15px",
-              ...shorthands.padding("10px", "10px"),
+              // ...shorthands.padding("10px", "10px"),
             }}
           >
-            <Grid item xs={12} md={12} p={matches ? 0 : 1} pt={2}>
+            <Grid
+              item
+              xs={12}
+              md={12}
+              p={matches ? 0 : 1}
+              pt={2}
+              mt={matches ? 1 : -7}
+            >
               <Body1>{description}</Body1>
             </Grid>
             {content.map((step) => (

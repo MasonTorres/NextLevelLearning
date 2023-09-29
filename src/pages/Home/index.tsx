@@ -55,8 +55,16 @@ const Home = () => {
   });
 
   return (
-    <Box mt={3} p={matches ? 0 : 2}>
-      <div className={styles.container}>
+    <Box
+      p={matches ? 0 : 2}
+      style={{ minHeight: matches ? "calc(100vh - 47px)" : "unset" }}
+      // height={"calc(100vh - 47px)"}
+      // sx={{ overflowY: "hidden" }}
+    >
+      <div
+        className={styles.container}
+        style={{ paddingTop: matches ? "42px" : "0px" }}
+      >
         <Title1>Next Level Learning</Title1>
         <Body2>
           Welcome to the Next Level Learning experience! Check out some of the
@@ -111,6 +119,7 @@ const Home = () => {
           position: matches ? "absolute" : "relative",
           bottom: matches ? 10 : "52px",
           minHeight: matches ? "15px" : "unset",
+          pb: matches ? 0 : 2,
         }}
       >
         Proudly brought to you by Mason Torres{" "}
