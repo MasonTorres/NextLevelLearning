@@ -1,11 +1,5 @@
-import React, {
-  Component,
-  ReactComponentElement,
-  useContext,
-  useEffect,
-} from "react";
+import React, { ReactComponentElement, useContext } from "react";
 import {
-  Drawer,
   DrawerBody,
   DrawerHeader,
   DrawerHeaderTitle,
@@ -15,15 +9,8 @@ import { useMotion } from "@fluentui/react-motion-preview";
 
 import { PageInfoContext } from "../appContext";
 import Router from "../pages/router";
-import {
-  CSSObject,
-  StyledEngineProvider,
-  Theme,
-  styled,
-  useTheme,
-} from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import MuiDrawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
@@ -39,15 +26,13 @@ import lineEndIcon from "@iconify/icons-material-symbols/line-end";
 import {
   BottomNavigation,
   BottomNavigationAction,
+  Box,
   Collapse,
-  Container,
   IconButton,
   Paper,
   useMediaQuery,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AppleIcon from "@mui/icons-material/Apple";
 
 // Fluent UI Icons
@@ -56,12 +41,11 @@ import {
   Shield28Filled,
   PersonFeedback28Filled,
   Dismiss24Regular,
+  DarkTheme24Regular,
 } from "@fluentui/react-icons";
 
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import HomeIcon from "@mui/icons-material/Home";
-import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import {
@@ -70,42 +54,12 @@ import {
   mergeClasses,
   shorthands,
   tokens,
+  Subtitle1,
 } from "@fluentui/react-components";
 import NavItem from "./NavItem";
 
 import nllDataFiles from "../content/nllDataFiles.json";
-import { Link } from "react-scroll";
 const drawerWidth = 280;
-
-const openedMixin = (theme: Theme): CSSObject => ({
-  width: drawerWidth,
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.enteringScreen,
-  }),
-  overflowX: "hidden",
-});
-
-const closedMixin = (theme: Theme): CSSObject => ({
-  transition: theme.transitions.create("width", {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  overflowX: "hidden",
-  width: `calc(${theme.spacing(7)} + 1px)`,
-  [theme.breakpoints.up("sm")]: {
-    width: `calc(${theme.spacing(8)} + 1px)`,
-  },
-});
-
-// const DrawerHeader = styled("div")(({ theme }) => ({
-//   display: "flex",
-//   alignItems: "center",
-//   justifyContent: "flex-end",
-//   padding: theme.spacing(0, 1),
-//   // necessary for content to be below app bar
-//   ...theme.mixins.toolbar,
-// }));
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -215,23 +169,6 @@ const useStyles = makeStyles({
   },
 });
 
-// const Drawer = styled(MuiDrawer, {
-//   shouldForwardProp: (prop) => prop !== "open",
-// })(({ theme, open }) => ({
-//   width: drawerWidth,
-//   flexShrink: 0,
-//   whiteSpace: "nowrap",
-//   boxSizing: "border-box",
-//   ...(open && {
-//     ...openedMixin(theme),
-//     "& .MuiDrawer-paper": openedMixin(theme),
-//   }),
-//   ...(!open && {
-//     ...closedMixin(theme),
-//     "& .MuiDrawer-paper": closedMixin(theme),
-//   }),
-// }));
-
 let linuxmde: {
   icon: ReactComponentElement<typeof Icon>;
   to: string;
@@ -340,6 +277,13 @@ export default function NavSideBar({ link }: any) {
     setValue(newValue);
   };
 
+  const handleThemeToggle = () => {
+    setPageInfo({
+      ...pageInfo,
+      theme: pageInfo.theme === "light" ? "dark" : "light",
+    });
+  };
+
   return (
     <div>
       {matches ? (
@@ -365,9 +309,24 @@ export default function NavSideBar({ link }: any) {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="h6" noWrap component="div">
-                {pageInfo.home}
-              </Typography>
+              <div>
+                <Subtitle1 wrap={false}>{pageInfo.home}</Subtitle1>
+              </div>
+              <Box
+                sx={{ width: "100%", display: "flex", justifyContent: "end" }}
+              >
+                <IconButton
+                  color="inherit"
+                  onClick={handleThemeToggle}
+                  edge="start"
+                  sx={{
+                    marginRight: 5,
+                    // backgroundColor: "#486e9f",
+                  }}
+                >
+                  <DarkTheme24Regular />
+                </IconButton>
+              </Box>
             </Toolbar>
           </AppBar>
           <div className={styles.root}>
@@ -438,7 +397,9 @@ export default function NavSideBar({ link }: any) {
                     href="https://forms.microsoft.com/r/fbCnRuRQwq"
                   >
                     <ListItemIcon>
-                      <PersonFeedback28Filled />
+                      <PersonFeedback28Filled
+                        color={tokens.colorNeutralBackgroundInverted}
+                      />
                     </ListItemIcon>
                     <ListItemText primary={"Feedback"} />
                   </ListItemButton>
@@ -462,7 +423,7 @@ export default function NavSideBar({ link }: any) {
               to="/home"
               sx={{ justifyContent: "center" }}
             >
-              <ListItemIcon>
+              <ListItemIcon sx={{ justifyContent: "center" }}>
                 <Home28Filled />
               </ListItemIcon>
             </ListItemButton>
@@ -472,8 +433,16 @@ export default function NavSideBar({ link }: any) {
               href="https://forms.microsoft.com/r/fbCnRuRQwq"
               sx={{ justifyContent: "center" }}
             >
-              <ListItemIcon>
+              <ListItemIcon sx={{ justifyContent: "center" }}>
                 <PersonFeedback28Filled />
+              </ListItemIcon>
+            </ListItemButton>
+            <ListItemButton
+              onClick={handleThemeToggle}
+              sx={{ justifyContent: "center", maxWidth: "70px" }}
+            >
+              <ListItemIcon sx={{ justifyContent: "center" }}>
+                <DarkTheme24Regular />
               </ListItemIcon>
             </ListItemButton>
           </BottomNavigation>

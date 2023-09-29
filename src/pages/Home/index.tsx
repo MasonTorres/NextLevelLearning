@@ -19,6 +19,7 @@ import {
   Title2,
   makeStyles,
   shorthands,
+  tokens,
 } from "@fluentui/react-components";
 import nllDataFiles from "../../content/nllDataFiles.json";
 import { useContext } from "react";
@@ -124,10 +125,16 @@ const Home = () => {
       >
         Proudly brought to you by Mason Torres{" "}
         <Link to="https://github.com/MasonTorres" target="_blank">
-          <GitHubIcon fontSize="small" />
+          <GitHubIcon
+            fontSize="small"
+            sx={{ color: tokens.colorNeutralBackgroundInverted }}
+          />
         </Link>
         <Link to="https://www.linkedin.com/in/mason-torres" target="_blank">
-          <LinkedInIcon fontSize="small" />
+          <LinkedInIcon
+            fontSize="small"
+            sx={{ color: tokens.colorNeutralBackgroundInverted }}
+          />
         </Link>
       </Box>
     </Box>
