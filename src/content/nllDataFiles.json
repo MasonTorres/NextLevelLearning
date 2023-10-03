@@ -852,9 +852,18 @@
           ]
         }
       ]
-    },
+    }
+  ]
+}},
+ { "file": "CheatSheetMDELinux", "path": "./json/CheatSheetMDELinux.json", "data": {
+  "title": "Cheat Sheet MDE Linux",
+  "path": "/linux/cheat-sheet-mde",
+  "section": "MDE",
+  "subSection": "Linux",
+  "description": "Use this cheat sheet to brush up on your Linux commands and for all those Linux commands you can't quite remember!",
+  "data": [
     {
-      "section": 5,
+      "section": 1,
       "title": "MDATP",
       "description": "",
       "tasks": [
@@ -1071,7 +1080,7 @@
       ]
     },
     {
-      "section": 6,
+      "section": 2,
       "title": "Logs",
       "description": "",
       "tasks": [
@@ -1154,6 +1163,113 @@
             {
               "Type": "Code",
               "Value": "File: /var/log/microsoft\r\n  Size: 4096            Blocks: 8          IO Block: 4096   directory\r\nDevice: 801h/2049d      Inode: 258442      Links: 3\r\nAccess: (0755/drwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)\r\nAccess: 2023-08-25 18:35:30.680535168 +0000\r\nModify: 2023-08-18 23:40:09.156314644 +0000\r\nChange: 2023-09-20 05:21:23.200663892 +0000\r\n Birth: -"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Find Software",
+      "description": "",
+      "tasks": [
+        {
+          "title": "Find other antivirus software",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Find other antivirus software"
+            },
+            {
+              "Type": "Description",
+              "Value": "One method for identifying other antivirus software is to look for the process.  The below command will show all processes with 'av' in the name.  If you see other antivirus software, you will need to remove it before installing MDE."
+            },
+            {
+              "Type": "Code",
+              "Value": "ps aux | grep av"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "root         715  0.1  1.7 1128896 143840 ?      Ssl  18:08   0:03 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nroot         967  0.1  0.8 811776 65576 ?        Sl   18:08   0:02 /opt/microsoft/mdatp/sbin/wdavdaemon edr 11 10 --log_level info\r\nmdatp       1466  0.2  2.2 912728 182912 ?       Sl   18:09   0:04 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 300 308 310 312 52 --log_level info\r\nlabmin      2152  0.0  0.0   8168   720 pts/0    S+   18:39   0:00 grep --color=auto av"
+            }
+          ]
+        },
+        {
+          "title": "List installed software - Ubutnu/Debian",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "List installed software - Ubutnu/Debian"
+            },
+            {
+              "Type": "Code",
+              "Value": "dpkg --get-selections"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Code",
+              "Value": "accountsservice                                 install\r\nadduser                                         install\r\nalsa-topology-conf                              install\r\nalsa-ucm-conf                                   install\r\napparmor                                        install\r\napport                                          install\r\napport-symptoms                                 install\r\napt                                             install\r\napt-transport-https                             install\r\napt-utils                                       install\r\nat                                              install\r\nauditd                                          install"
+            }
+          ]
+        },
+        {
+          "title": "List installed software - Red Hat/CentOS",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "List installed software - Red Hat/CentOS"
+            },
+            {
+              "Type": "Code",
+              "Value": "dnf list installed"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Installed Packages\r\nNetworkManager.x86_64                                                           1:1.32.10-4.el8                                                                 @anaconda\r\nNetworkManager-libnm.x86_64                                                     1:1.32.10-4.el8                                                                 @anaconda\r\nNetworkManager-team.x86_64                                                      1:1.32.10-4.el8                                                                 @anaconda\r\nNetworkManager-tui.x86_64                                                       1:1.32.10-4.el8                                                                 @anaconda\r\nPackageKit.x86_64                                                               1.1.12-6.el8                                                                    @AppStream\r\nPackageKit-glib.x86_64                                                          1.1.12-6.el8                                                                    @AppStream\r\nWALinuxAgent.noarch                                                             2.7.3.0-1_ol002.el8                                                             @openlogic\r\nWALinuxAgent-udev.noarch                                                        2.7.3.0-1_ol002.el8                                                             @openlogic\r\nabattis-cantarell-fonts.noarch                                                  0.0.25-6.el8                                                                    @AppStream\r\nacl.x86_64                                                                      2.2.53-1.el8                                                                    @anaconda\r\nadcli.x86_64                                                                    0.8.2-12.el8                                                                    @anaconda\r\nat.x86_64                                                                       3.1.20-11.el8                                                                   @anaconda\r\nattr.x86_64                                                                     2.4.48-3.el8                                                                    @anaconda\r\naudit.x86_64                                                                    3.0-0.17.20191104git1c2f876.el8                                                 @anaconda\r\naudit-libs.x86_64                                                               3.0-0.17.20191104git1c2f876.el8                                                 @anaconda"
+            }
+          ]
+        },
+        {
+          "title": "Use the Security portal",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check device installed software"
+            },
+            {
+              "Type": "Description",
+              "Value": "Use the Security portal to check the installed software on your devices. https://security.microsoft.com/ "
+            },
+            {
+              "Type": "Description",
+              "Value": "Navigate to Devices > Device Inventory > Select the device > Software Inventory"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/DeviceInventoryLinux.png"
             }
           ]
         }
@@ -1389,7 +1505,7 @@
   ]
 }},
  { "file": "MDELinuxCentosSetup", "path": "./json/MDELinuxCentosSetup.json", "data": {
-  "title": "Centos Setup",
+  "title": "Setup - Centos",
   "path": "/mde/linux-setup-centos",
   "section": "MDE",
   "subSection": "Linux",
@@ -1529,6 +1645,14 @@
             {
               "Type": "Code",
               "Value": "rpm -Uvh https://packages.microsoft.com/config/rhel/8/prod.repo"
+            },
+            {
+              "Type": "Description",
+              "Value": "You can view the different repos available at https://packages.microsoft.com/config/rhel/"
+            },
+            {
+              "Type": "Description",
+              "Value": "Select your distro and version to see the repo information."
             }
           ],
           "backgroundActivity": [
@@ -1551,6 +1675,14 @@
             {
               "Type": "Code",
               "Value": "yum repolist | grep microsoft"
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample repo packages"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/RhelRepos.png"
             }
           ]
         },
@@ -1559,7 +1691,7 @@
           "userActivity": [
             {
               "Type": "Title",
-              "Value": "We can check the respoiory list to see if the Microsoft repo has been added"
+              "Value": "Check the respoiory list to see if the Microsoft repo has been added"
             },
             {
               "Type": "Code",
@@ -1577,7 +1709,7 @@
           "backgroundActivity": [
             {
               "Type": "Title",
-              "Value": "Sample yum update output"
+              "Value": "Sample dnf output"
             },
             {
               "Type": "Code",
@@ -1643,11 +1775,11 @@
       "description": "Let's check the configuration of the MDE for Linux agent",
       "tasks": [
         {
-          "title": "Health cehck",
+          "title": "Health check",
           "userActivity": [
             {
               "Type": "Title",
-              "Value": "Health cehck"
+              "Value": "Health check"
             },
             {
               "Type": "Code",
@@ -1985,6 +2117,566 @@
             {
               "Type": "Code",
               "Value": "Diagnostic file created: \"/var/opt/microsoft/mdatp/wdavdiag/b30d1f0e-8c2b-4107-ae87-5381ff0433a7.zip\""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}},
+ { "file": "MDELinuxFedoraSetup", "path": "./json/MDELinuxFedoraSetup.json", "data": {
+  "title": "Setup - Fedora",
+  "path": "/mde/linux-setup-fedora",
+  "section": "MDE",
+  "subSection": "Linux",
+  "description": "",
+  "data": [
+    {
+      "section": 1,
+      "title": "Checking Existing Install",
+      "description": "What do we have already?",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Get Distro Version"
+            },
+            {
+              "Type": "Description",
+              "Value": "This exercie assumes you have a Linux VM setup and running Fedora."
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /etc/os-release"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Code",
+              "Value": "NAME=\"Fedora Linux\"\r\nVERSION=\"38 (Thirty Eight)\"\r\nID=fedora\r\nVERSION_ID=38\r\nVERSION_CODENAME=\"\"\r\nPLATFORM_ID=\"platform:f38\"\r\nPRETTY_NAME=\"Fedora Linux 38 (Thirty Eight)\"\r\nANSI_COLOR=\"0;38;2;60;110;180\"\r\nLOGO=fedora-logo-icon\r\nCPE_NAME=\"cpe:/o:fedoraproject:fedora:38\"\r\nDEFAULT_HOSTNAME=\"fedora\"\r\nHOME_URL=\"https://fedoraproject.org/\"\r\nDOCUMENTATION_URL=\"https://docs.fedoraproject.org/en-US/fedora/f38/system-administrators-guide/\"\r\nSUPPORT_URL=\"https://ask.fedoraproject.org/\"\r\nBUG_REPORT_URL=\"https://bugzilla.redhat.com/\"\r\nREDHAT_BUGZILLA_PRODUCT=\"Fedora\"\r\nREDHAT_BUGZILLA_PRODUCT_VERSION=38\r\nREDHAT_SUPPORT_PRODUCT=\"Fedora\"\r\nREDHAT_SUPPORT_PRODUCT_VERSION=38\r\nSUPPORT_END=2024-05-14"
+            }
+          ]
+        },
+        {
+          "title": "Has MDATP already been installed?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check if MDATP is installed"
+            },
+            {
+              "Type": "Code",
+              "Value": "which mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The command will return the location of the binary/executable if it is found."
+            },
+            {
+              "Type": "Code",
+              "Value": "/usr/bin/mdatp"
+            }
+          ]
+        },
+        {
+          "title": "What's the status of the daemon?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check daemon status"
+            },
+            {
+              "Type": "Code",
+              "Value": "service mdatp status"
+            },
+            {
+              "Type": "Description",
+              "Value": "The above command will only work if the daemon is installed and running."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "\u25CF mdatp.service - Microsoft Defender\r\n     Loaded: loaded (/usr/lib/systemd/system/mdatp.service; enabled; preset: disabled)\r\n    Drop-In: /usr/lib/systemd/system/service.d\r\n             \u2514\u250010-timeout-abort.conf\r\n     Active: active (running) since Tue 2023-10-03 14:07:36 EDT; 2h 24min ago\r\n   Main PID: 688 (wdavdaemon)\r\n      Tasks: 159 (limit: 4650)\r\n     Memory: 566.0M\r\n        CPU: 20.746s\r\n     CGroup: /system.slice/mdatp.service\r\n             \u251C\u2500 688 /opt/microsoft/mdatp/sbin/wdavdaemon\r\n             \u251C\u2500 738 /opt/microsoft/mdatp/sbin/wdavdaemon edr 11 10 --log_level info\r\n             \u251C\u2500 801 /opt/microsoft/mdatp/sbin/telemetryd_v2 \"32\\\"\"\r\n             \u2514\u25001149 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 79 81 83 85 78 --log_level info"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Envrionment Setup",
+      "description": "Getting the environment ready for MDE for Linux on Fedora",
+      "tasks": [
+        {
+          "title": "Update packages and repos",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Update system packages"
+            },
+            {
+              "Type": "Description",
+              "Value": "Update packages using the yum package manager"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum update"
+            },
+            {
+              "Type": "Note",
+              "Value": "Each Linux distrobution has a different package manager. For example, Ubuntu uses apt-get, while Fedora uses yum."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Last metadata expiration check: 1:27:18 ago on Tue 03 Oct 2023 03:06:19 PM EDT.\r\nDependencies resolved.\r\n=======================================================================================================================================================================================================================\r\n Package                                                           Architecture                        Version                                          Repository                                                Size\r\n=======================================================================================================================================================================================================================\r\nInstalling:\r\n kernel                                                            x86_64                              6.5.5-200.fc38                                   updates                                                  147 k\r\nUpgrading:\r\n amd-gpu-firmware                                                  noarch                              20230919-1.fc38                                  updates                                                   19 M\r\n atheros-firmware                                                  noarch                              20230919-1.fc38                                  updates                                                   20 M\r\n authselect                                                        x86_64                              1.4.3-1.fc38                                     updates                                                  149 k\r\n authselect-libs                                                   x86_64                              1.4.3-1.fc38                                     updates                                                  249 k\r\n azure-cli                                                         noarch                              2.52.0-1.fc38                                    updates                                                   12 M\r\n bluez                                                             x86_64                              5.70-1.fc38                                      updates                                                  1.1 M\r\n brcmfmac-firmware                                                 noarch                              20230919-1.fc38                                  updates                                                  9.6 M\r\n cloud-utils-growpart                                              noarch                              0.33-3.fc38                                      updates                                                   34 k\r\n curl                                                              x86_64                              8.0.1-4.fc38                                     updates                                                  349 k\r\n dbus                                                              x86_64                              1:1.14.10-1.fc38                                 updates                                                  8.0 k\r\n dbus-common                                                       noarch                              1:1.14.10-1.fc38                                 updates                                                   15 k\r\n dbus-libs                                                         x86_64                              1:1.14.10-1.fc38                                 updates                                                  156 k\r\n fwupd                                                             x86_64                              1.9.5-1.fc38                                     updates                                                  2.0 M\r\n glib2                                                             x86_64                              2.76.5-2.fc38                                    updates                                                  2.8 M\r\n glibc                                                             x86_64                              2.37-5.fc38                                      updates                                                  2.1 M\r\n glibc-common                                                      x86_64                              2.37-5.fc38                                      updates                                                  315 k\r\n glibc-gconv-extra                                                 x86_64                              2.37-5.fc38                                      updates                                                  1.6 M\r\n glibc-langpack-en                                                 x86_64                              2.37-5.fc38                                      updates                                                  633 k\r\n gnutls                                                            x86_64                              3.8.1-1.fc38                                     updates                                                  1.1 M\r\n grub2-common                                                      noarch                              1:2.06-100.fc38                                  updates                                                  918 k\r\n grub2-pc                                                          x86_64                              1:2.06-100.fc38                                  updates                                                   17 k\r\n grub2-pc-modules                                                  noarch                              1:2.06-100.fc38                                  updates                                                  1.1 M\r\n grub2-tools                                                       x86_64                              1:2.06-100.fc38                                  updates                                                  1.8 M\r\n grub2-tools-minimal                                               x86_64                              1:2.06-100.fc38                                  updates                                                  622 k\r\n intel-gpu-firmware                                                noarch                              20230919-1.fc38                                  updates                                                  8.7 M\r\n iproute                                                           x86_64                              6.4.0-1.fc38                                     updates                                                  815 k\r\n libcap-ng                                                         x86_64                              0.8.3-8.fc38                                     updates                                                   32 k\r\n libcurl                                                           x86_64                              8.0.1-4.fc38                                     updates                                                  313 k\r\n libeconf                                                          x86_64                              0.5.2-1.fc38                                     updates                                                   30 k\r\n libxmlb                                                           x86_64                              0.3.14-1.fc38                                    updates                                                  117 k\r\n linux-firmware                                                    noarch                              20230919-1.fc38                                  updates                                                   54 M\r\n linux-firmware-whence                                             noarch                              20230919-1.fc38                                  updates                                                   48 k\r\n mdatp                                                             x86_64                              101.23072.0021-1                                 packages-microsoft-com-prod                              127 M\r\n mt7xxx-firmware                                                   noarch                              20230919-1.fc38                                  updates                                                  7.2 M\r\n nspr                                                              x86_64                              4.35.0-10.fc38                                   updates                                                  136 k\r\n nss                                                               x86_64                              3.93.0-1.fc38                                    updates                                                  695 k\r\n nss-softokn                                                       x86_64                              3.93.0-1.fc38                                    updates                                                  1.0 M\r\n nss-softokn-freebl                                                x86_64                              3.93.0-1.fc38                                    updates                                                  326 k\r\n nss-sysinit                                                       x86_64                              3.93.0-1.fc38                                    updates                                                   18 k\r\n nss-util                                                          x86_64                              3.93.0-1.fc38                                    updates                                                   86 k\r\n nvidia-gpu-firmware                                               noarch                              20230919-1.fc38                                  updates                                                  1.2 M\r\n openldap                                                          x86_64                              2.6.6-1.fc38                                     updates                                                  254 k\r\n python3                                                           x86_64                              3.11.5-1.fc38                                    updates                                                   28 k\r\n python3-azure-batch                                               noarch                              14.0.0-2.fc38                                    updates                                                  224 k\r\n python3-azure-cli-core                                            noarch                              2.52.0-1.fc38                                    updates                                                  598 k\r\n python3-azure-cli-telemetry                                       noarch                              2.52.0-1.fc38                                    updates                                                   49 k\r\n python3-azure-mgmt-authorization                                  noarch                              1:4.0.0-1.fc38                                   updates                                                  920 k\r\n python3-azure-mgmt-cognitiveservices                              noarch                              13.5.0-2.fc38                                    updates                                                  206 k\r\n python3-azure-mgmt-compute                                        noarch                              1:30.0.0-2.fc38                                  updates                                                  2.7 M\r\n python3-azure-mgmt-containerservice                               noarch                              26.0.0-1.fc38                                    updates                                                  2.9 M\r\n python3-azure-mgmt-keyvault                                       noarch                              10.2.3-1.fc38                                    updates                                                  552 k\r\n python3-azure-mgmt-policyinsights                                 noarch                              1:1.1.0~b4-2.fc38                                updates                                                  205 k\r\n python3-azure-mgmt-redhatopenshift                                noarch                              1:1.3.0-1.fc38                                   updates                                                  276 k\r\n python3-azure-mgmt-security                                       noarch                              1:5.0.0-2.fc38                                   updates                                                  1.1 M\r\n python3-azure-mgmt-sql                                            noarch                              1:4.0.0~b12-1.fc38                               updates                                                  991 k\r\n python3-azure-synapse-artifacts                                   noarch                              1:0.17.0-2.fc38                                  updates                                                  548 k\r\n python3-knack                                                     noarch                              1:0.11.0-1.fc38                                  updates                                                  160 k\r\n python3-libs                                                      x86_64                              3.11.5-1.fc38                                    updates                                                  9.6 M\r\n python3-msal                                                      noarch                              1.24.0~b1-9.fc38                                 updates                                                  172 k\r\n python3-msal+broker                                               noarch                              1.24.0~b1-9.fc38                                 updates                                                  9.8 k\r\n python3-oauthlib                                                  noarch                              3.2.2-1.fc38                                     updates                                                  247 k\r\n python3-setools                                                   x86_64                              4.4.3-1.fc38                                     updates                                                  624 k\r\n realtek-firmware                                                  noarch                              20230919-1.fc38                                  updates                                                  2.4 M\r\n rpm-sequoia                                                       x86_64                              1.5.0-1.fc38                                     updates                                                  884 k\r\n selinux-policy                                                    noarch                              38.28-1.fc38                                     updates                                                   54 k\r\n selinux-policy-targeted                                           noarch                              38.28-1.fc38                                     updates                                                  6.7 M\r\n systemd                                                           x86_64                              253.10-1.fc38                                    updates                                                  4.4 M\r\n systemd-libs                                                      x86_64                              253.10-1.fc38                                    updates                                                  652 k\r\n systemd-pam                                                       x86_64                              253.10-1.fc38                                    updates                                                  340 k\r\n systemd-resolved                                                  x86_64                              253.10-1.fc38                                    updates                                                  289 k\r\n systemd-udev                                                      x86_64                              253.10-1.fc38                                    updates                                                  2.1 M\r\n traceroute                                                        x86_64                              3:2.1.3-1.fc38                                   updates                                                   57 k\r\n vim-common                                                        x86_64                              2:9.0.1927-1.fc38                                updates                                                  7.7 M\r\n vim-data                                                          noarch                              2:9.0.1927-1.fc38                                updates                                                   23 k\r\n vim-default-editor                                                noarch                              2:9.0.1927-1.fc38                                updates                                                   16 k\r\n vim-enhanced                                                      x86_64                              2:9.0.1927-1.fc38                                updates                                                  1.9 M\r\n vim-filesystem                                                    noarch                              2:9.0.1927-1.fc38                                updates                                                   18 k\r\n vim-minimal                                                       x86_64                              2:9.0.1927-1.fc38                                updates                                                  799 k\r\n xxd                                                               x86_64                              2:9.0.1927-1.fc38                                updates                                                   36 k\r\nInstalling dependencies:\r\n kernel-core                                                       x86_64                              6.5.5-200.fc38                                   updates                                                   16 M\r\n kernel-modules                                                    x86_64                              6.5.5-200.fc38                                   updates                                                   57 M\r\n kernel-modules-core                                               x86_64                              6.5.5-200.fc38                                   updates                                                   31 M\r\n\r\nTransaction Summary\r\n=======================================================================================================================================================================================================================\r\nInstall   4 Packages\r\nUpgrade  79 Packages\r\n\r\nTotal download size: 434 M\r\nIs this ok [y/N]:"
+            }
+          ]
+        },
+        {
+          "title": "Install yum-utils",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Install yum-utils"
+            },
+            {
+              "Type": "Description",
+              "Value": "yum-utils is a package that provides a collection of utilities and commands to enhance the functionality of the yum package manager"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum install yum-utils"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Last metadata expiration check: 1:48:29 ago on Tue 03 Oct 2023 03:06:19 PM EDT.\r\nDependencies resolved.\r\n=======================================================================================================================================================================================================================\r\n Package                                             Architecture                                     Version                                                  Repository                                         Size\r\n=======================================================================================================================================================================================================================\r\nInstalling:\r\n dnf-utils                                           noarch                                           4.4.2-1.fc38                                             updates                                            36 k\r\n\r\nTransaction Summary\r\n=======================================================================================================================================================================================================================\r\nInstall  1 Package\r\n\r\nTotal download size: 36 k\r\nInstalled size: 23 k\r\nIs this ok [y/N]: y\r\nDownloading Packages:\r\ndnf-utils-4.4.2-1.fc38.noarch.rpm                                                                                                                                                      146 kB/s |  36 kB     00:00\r\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nTotal                                                                                                                                                                                   48 kB/s |  36 kB     00:00\r\nRunning transaction check\r\nTransaction check succeeded.\r\nRunning transaction test\r\nTransaction test succeeded.\r\nRunning transaction\r\n  Preparing        :                                                                                                                                                                                               1/1\r\n  Installing       : dnf-utils-4.4.2-1.fc38.noarch                                                                                                                                                                 1/1\r\n  Running scriptlet: dnf-utils-4.4.2-1.fc38.noarch                                                                                                                                                                 1/1\r\n  Verifying        : dnf-utils-4.4.2-1.fc38.noarch                                                                                                                                                                 1/1\r\n\r\nInstalled:\r\n  dnf-utils-4.4.2-1.fc38.noarch\r\n\r\nComplete!"
+            }
+          ]
+        },
+        {
+          "title": "Update packages and repos",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Add the Microsoft repo to isntall MDE"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum-config-manager --add-repo=https://packages.microsoft.com/config/fedora/38/prod.repo"
+            },
+            {
+              "Type": "Description",
+              "Value": "You can view the different repos available at https://packages.microsoft.com/config/fedora/"
+            },
+            {
+              "Type": "Description",
+              "Value": "Select your distro and version to see the repo information."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample yum update output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The Fedora package repository will be added to the system. This will allow you to install MDE using yum."
+            },
+            {
+              "Type": "Description",
+              "Value": "The output below shows the RPM package being added to the system."
+            },
+            {
+              "Type": "Code",
+              "Value": "Adding repo from: https://packages.microsoft.com/config/fedora/38/prod.repo"
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample repo packages"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/FedoraRepos.png"
+            }
+          ]
+        },
+        {
+          "title": "Update packages and repos",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the respoiory list to see if the Microsoft repo has been added"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo dnf repolist | grep microsoft"
+            },
+            {
+              "Type": "Description",
+              "Value": "OR"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum repolist | grep microsoft"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample dnf output"
+            },
+            {
+              "Type": "Code",
+              "Value": "packages-microsoft-com-prod       packages-microsoft-com-prod"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Install MDE for Linux",
+      "description": "Steps to install the MDE for Linux agent on Fedora",
+      "tasks": [
+        {
+          "title": "Install the MDE package.",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Install MDE"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo yum install mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum install mdatp\r\nLast metadata expiration check: 0:03:55 ago on Tue 03 Oct 2023 06:10:54 PM EDT.\r\nDependencies resolved.\r\n=======================================================================================================================================================================================================================\r\n Package                                              Architecture                             Version                                             Repository                                                     Size\r\n=======================================================================================================================================================================================================================\r\nInstalling:\r\n mdatp                                                x86_64                                   101.23072.0021-1                                    packages-microsoft-com-prod                                   127 M\r\nInstalling dependencies:\r\n libnetfilter_queue                                   x86_64                                   1.0.5-4.fc38                                        fedora                                                         28 k\r\n mde-netfilter                                        x86_64                                   100.69.62-1                                         packages-microsoft-com-prod                                    35 k\r\n\r\nTransaction Summary\r\n=======================================================================================================================================================================================================================\r\nInstall  3 Packages\r\n\r\nTotal download size: 127 M\r\nInstalled size: 378 M\r\nIs this ok [y/N]: y\r\nDownloading Packages:\r\n(1/3): libnetfilter_queue-1.0.5-4.fc38.x86_64.rpm                                                                                                                                       71 kB/s |  28 kB     00:00\r\n(2/3): mde-netfilter_100.69.62.x86_64.rpm                                                                                                                                               60 kB/s |  35 kB     00:00\r\n(3/3): mdatp_101.23072.0021.x86_64.rpm                                                                                                                                                  21 MB/s | 127 MB     00:06\r\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\r\nTotal                                                                                                                                                                                   19 MB/s | 127 MB     00:06\r\nRunning transaction check\r\nTransaction check succeeded.\r\nRunning transaction test\r\nTransaction test succeeded.\r\nRunning transaction\r\n  Running scriptlet: mde-netfilter-100.69.62-1.x86_64                                                                                                                                                              1/1\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                                                 1/1\r\n  Preparing        :                                                                                                                                                                                               1/1\r\n  Installing       : libnetfilter_queue-1.0.5-4.fc38.x86_64                                                                                                                                                        1/3\r\n  Running scriptlet: mde-netfilter-100.69.62-1.x86_64                                                                                                                                                              2/3\r\nNew installation\r\n\r\n  Installing       : mde-netfilter-100.69.62-1.x86_64                                                                                                                                                              2/3\r\n  Running scriptlet: mde-netfilter-100.69.62-1.x86_64                                                                                                                                                              2/3\r\nConfigure: Starting MDE Netfilter socket based activation\r\nCreated symlink /etc/systemd/system/sockets.target.wants/mde_netfilter.socket \u2192 /usr/lib/systemd/system/mde_netfilter.socket.\r\nCreated symlink /etc/systemd/system/multi-user.target.wants/mde_netfilter.service \u2192 /usr/lib/systemd/system/mde_netfilter.service.\r\n\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                                                 3/3\r\n  Installing       : mdatp-101.23072.0021-1.x86_64                                                                                                                                                                 3/3\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                                                 3/3\r\n  Running scriptlet: mde-netfilter-100.69.62-1.x86_64                                                                                                                                                              3/3\r\n  Running scriptlet: mdatp-101.23072.0021-1.x86_64                                                                                                                                                                 3/3\r\n  Verifying        : libnetfilter_queue-1.0.5-4.fc38.x86_64                                                                                                                                                        1/3\r\n  Verifying        : mdatp-101.23072.0021-1.x86_64                                                                                                                                                                 2/3\r\n  Verifying        : mde-netfilter-100.69.62-1.x86_64                                                                                                                                                              3/3\r\n\r\nInstalled:\r\n  libnetfilter_queue-1.0.5-4.fc38.x86_64                                      mdatp-101.23072.0021-1.x86_64                                      mde-netfilter-100.69.62-1.x86_64\r\n\r\nComplete!"
+            },
+            {
+              "Type": "Title",
+              "Value": "We can view the logs for this installation in /var/log/microsoft/mdatp/install.log"
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /var/log/microsoft/mdatp/install.log"
+            },
+            {
+              "Type": "Note",
+              "Value": "The 'cat' command will print the file to the screen. You can also use 'less' to view the file."
+            },
+            {
+              "Type": "Code",
+              "Value": "preinstall\r\nArguments passed to the preinstall script: 1\r\npreinstall begin [2023-10-03 18:15:04OURCE -0400] 13234\r\ncorrelation id=a5617ab3-b20a-4a18-804d-bf9342270745\r\nGeneration installation id\r\nis_new_install=1, bundle_version=101.23072.0021, branch=release/linux/2307-2\r\nFile /opt/microsoft/mdatp/conf/BuildInfo not found\r\nNAME=\"Fedora Linux\"\r\nVERSION=\"38 (Thirty Eight)\"\r\nID=fedora\r\nVERSION_ID=38\r\nVERSION_CODENAME=\"\"\r\nPLATFORM_ID=\"platform:f38\"\r\nPRETTY_NAME=\"Fedora Linux 38 (Thirty Eight)\"\r\nANSI_COLOR=\"0;38;2;60;110;180\"\r\nLOGO=fedora-logo-icon\r\nCPE_NAME=\"cpe:/o:fedoraproject:fedora:38\"\r\nDEFAULT_HOSTNAME=\"fedora\"\r\nHOME_URL=\"https://fedoraproject.org/\"\r\nDOCUMENTATION_URL=\"https://docs.fedoraproject.org/en-US/fedora/f38/system-administrators-guide/\"\r\nSUPPORT_URL=\"https://ask.fedoraproject.org/\"\r\nBUG_REPORT_URL=\"https://bugzilla.redhat.com/\"\r\nREDHAT_BUGZILLA_PRODUCT=\"Fedora\"\r\nREDHAT_BUGZILLA_PRODUCT_VERSION=38\r\nREDHAT_SUPPORT_PRODUCT=\"Fedora\"\r\nREDHAT_SUPPORT_PRODUCT_VERSION=38\r\nSUPPORT_END=2024-05-14\r\nDISTRO: fedora\r\nDISTRO_VERSION: 38\r\nDISTRO_FAMILY: fedora\r\nScenario= Install\r\n/var/tmp/rpm-tmp.YCKZ5g: line 526: dmidecode: command not found\r\nMachine Guid: e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\r\nCreating daemon user\r\nDaemon user (mdatp) created successfully\r\nLogging pending telemetry\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"Fedora-01\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"a5617ab3-b20a-4a18-804d-bf9342270745\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"W\",\r\n                \"code\":\"FileNotExist\",\r\n                \"text\":\"File /opt/microsoft/mdatp/conf/BuildInfo not found\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"Fedora-01\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"a5617ab3-b20a-4a18-804d-bf9342270745\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"I\",\r\n                \"code\":\"InstallStarted\",\r\n                \"text\":\"is_new_install='1', bundle_version='101.23072.0021', branch='release/linux/2307-2', package=''\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"Fedora-01\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"a5617ab3-b20a-4a18-804d-bf9342270745\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"W\",\r\n                \"code\":\"ComponentNotFound\",\r\n                \"text\":\"crontab command not found\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\npreinstall end [2023-10-03 18:15:05OURCE -0400] 13234\r\npostinstall\r\nArguments passed to the postinstall script: 1\r\npostinstall begin [2023-10-03 18:15:09OURCE -0400] 13234\r\nTrying to auto configure bash-completion at /usr/share/bash-completion/completions\r\nTrying to auto configure zsh-completion at /usr/share/zsh/vendor-completions\r\nzsh-completion is not installed at /usr/share/zsh/vendor-completions, auto-complete cannot be configured\r\nTrying to auto configure zsh-completion at /usr/share/zsh/site-functions\r\nNAME=\"Fedora Linux\"\r\nVERSION=\"38 (Thirty Eight)\"\r\nID=fedora\r\nVERSION_ID=38\r\nVERSION_CODENAME=\"\"\r\nPLATFORM_ID=\"platform:f38\"\r\nPRETTY_NAME=\"Fedora Linux 38 (Thirty Eight)\"\r\nANSI_COLOR=\"0;38;2;60;110;180\"\r\nLOGO=fedora-logo-icon\r\nCPE_NAME=\"cpe:/o:fedoraproject:fedora:38\"\r\nDEFAULT_HOSTNAME=\"fedora\"\r\nHOME_URL=\"https://fedoraproject.org/\"\r\nDOCUMENTATION_URL=\"https://docs.fedoraproject.org/en-US/fedora/f38/system-administrators-guide/\"\r\nSUPPORT_URL=\"https://ask.fedoraproject.org/\"\r\nBUG_REPORT_URL=\"https://bugzilla.redhat.com/\"\r\nREDHAT_BUGZILLA_PRODUCT=\"Fedora\"\r\nREDHAT_BUGZILLA_PRODUCT_VERSION=38\r\nREDHAT_SUPPORT_PRODUCT=\"Fedora\"\r\nREDHAT_SUPPORT_PRODUCT_VERSION=38\r\nSUPPORT_END=2024-05-14\r\nDISTRO: fedora\r\nDISTRO_VERSION: 38\r\nDISTRO_FAMILY: fedora\r\nScenario= Install\r\n/var/tmp/rpm-tmp.r1k54o: line 527: dmidecode: command not found\r\nMachine Guid: e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\r\ncorrelation id=a5617ab3-b20a-4a18-804d-bf9342270745\r\nPackage version being installed= 101.23072.0021\r\nInstalling MDATP SELinux policy\r\nInstalling MDATP SELinux policy for non-RHEL7.6 systems\r\nSetting SElinux bool audisp_mdatp_from_audisp_t off\r\nSetting SElinux bool audisp_mdatp_from_auditd_t on\r\nSetting SELinux labels\r\nRelease ring: Production\r\nCreating Crash Reports Path: /var/opt/microsoft/mdatp/crash\r\nChecking if patched libauparse\r\nAUDITD Version = 3.1.2\r\nCreating soft link for libfuse if it doesn't exists\r\nCleanup empty auditd configuration files\r\n/etc/audit/rules.d/mdatp.rules path does not exist or not a regular file\r\n/etc/audisp/plugins.d/mdatp.conf path does not exist or not a regular file\r\n/etc/audit/plugins.d/mdatp.conf path does not exist or not a regular file\r\nSetting q_depth and buffer_limit of auditd\r\nAuditd q_depth configuration file is /etc/audit/auditd.conf\r\n[>] q_depth updated to 400\r\ngrep: warning: stray \\ before -\r\n[>] buffer_limit updated to 10240\r\n/sbin/augenrules: No change\r\nNo rules\r\nenabled 1\r\nfailure 1\r\npid 607\r\nrate_limit 0\r\nbacklog_limit 10240\r\nlost 0\r\nbacklog 0\r\nbacklog_wait_time 60000\r\nbacklog_wait_time_actual 0\r\naugenrules rules loaded successfully\r\nReconfiguring: /sbin/augenrules: No change\r\nNo rules\r\nenabled 1\r\nfailure 1\r\npid 607\r\nrate_limit 0\r\nbacklog_limit 10240\r\nlost 0\r\nbacklog 0\r\nbacklog_wait_time 60000\r\nbacklog_wait_time_actual 0\r\n\r\nauditd reloaded successfully\r\nCreating soft link of libpcre if it doesn't exists\r\nStarting wdavdaemon\r\nCreated symlink /etc/systemd/system/multi-user.target.wants/mdatp.service \u2192 /usr/lib/systemd/system/mdatp.service.\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"Fedora-01\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"a5617ab3-b20a-4a18-804d-bf9342270745\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"I\",\r\n                \"code\":\"DaemonInitialized\",\r\n                \"text\":\"\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\nDaemon initialization completed\r\nDaemon status:\r\nactive\r\nwdavdaemon is running, pid=13658\r\nChecking mdatp health\r\nMDATP onboarded = ATTENTION: No license found. Contact your administrator for help.\r\nfalse\r\nMDATP not Healthy! Health issues: ATTENTION: No license found. Contact your administrator for help.\r\nhealthy                                     : false\r\nhealth_issues                               : [\"missing license\"]\r\nlicensed                                    : false\r\nengine_version                              : \"1.1.20100.7\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : unavailable\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 03, 2023 at 06:15:09 PM\r\ndefinitions_updated_minutes_ago             : 0\r\ndefinitions_version                         : \"1.385.1648.0\"\r\ndefinitions_status                          : \"checking_for_updates\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : unavailable\r\nedr_machine_id                              : \"a709d89d7e8d299de9f0b9d173e3f1cdf4672284\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"Fedora-01\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"a5617ab3-b20a-4a18-804d-bf9342270745\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"E\",\r\n                \"code\":\"Install\",\r\n                \"text\":\"health_issue='ATTENTION: No license found. Contact your administrator for help.\r\nhealthy                                     : false\r\nhealth_issues                               : [\"missing license\"]\r\nlicensed                                    : false\r\nengine_version                              : \"1.1.20100.7\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : unavailable\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 03, 2023 at 06:15:09 PM\r\ndefinitions_updated_minutes_ago             : 0\r\ndefinitions_version                         : \"1.385.1648.0\"\r\ndefinitions_status                          : \"checking_for_updates\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : unavailable\r\nedr_machine_id                              : \"a709d89d7e8d299de9f0b9d173e3f1cdf4672284\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false'\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\npostinstall end [2023-10-03 18:15:32OURCE -0400] 13234"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can also use `grep` to search for specific text in the file."
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /var/log/microsoft/mdatp/install.log | grep VERSION_ID"
+            },
+            {
+              "Type": "Note",
+              "Value": "You could try replacing VERSION_ID with 'error', 'exception' or 'failed' when troubleshooting."
+            },
+            {
+              "Type": "Code",
+              "Value": "VERSION_ID=\"8\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 4,
+      "title": "Explore the MDATP application",
+      "description": "Let's check the configuration of the MDE for Linux agent",
+      "tasks": [
+        {
+          "title": "Health check",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Health check"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health"
+            },
+            {
+              "Type": "Note",
+              "Value": "The 'mdatp health' command will show the health of the MDE for Linux agent. This will show if the agent is healthy, if there are any health issues, if the agent is licensed, and configurations values."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "ATTENTION: No license found. Contact your administrator for help.\r\nhealthy                                     : false\r\nhealth_issues                               : [\"missing license\"]\r\nlicensed                                    : false\r\nengine_version                              : \"1.1.23080.2007\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : unavailable\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 03, 2023 at 06:15:39 PM\r\ndefinitions_updated_minutes_ago             : 5\r\ndefinitions_version                         : \"1.397.2014.0\"\r\ndefinitions_status                          : \"up_to_date\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : unavailable\r\nedr_machine_id                              : \"a709d89d7e8d299de9f0b9d173e3f1cdf4672284\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false"
+            },
+            {
+              "Type": "Description",
+              "Value": "In this case we can see a licensing error. We need to run the onboarding script to register the agent with the MDATP service."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 5,
+      "title": "Configure MDATP",
+      "description": "Configure MDATP",
+      "tasks": [
+        {
+          "title": "Download the onbarding script",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Download the onbarding script"
+            },
+            {
+              "Type": "Description",
+              "Value": "Go to https://security.microsoft.com/securitysettings/endpoints"
+            },
+            {
+              "Type": "Note",
+              "Value": "Make sure you have the correct permissions and licenses. You will need to be a Global Administrator or Security Administrator to access this page."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/SecurityPortalEndpoints.png"
+            }
+          ]
+        },
+        {
+          "title": "Download the onbarding script - continued",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Download the onbarding script - continued"
+            },
+            {
+              "Type": "Description",
+              "Value": "Select Onboarding under Device management."
+            },
+            {
+              "Type": "Description",
+              "Value": "Then Select Linux Server from the drop list of operating systems."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/SecurityPortalOnboarding.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "Downlaod the onboarding package"
+            }
+          ]
+        },
+        {
+          "title": "Optional - Copy the onboarding script to the Linux server",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Optional - Copy the onboarding script to the Linux server"
+            },
+            {
+              "Type": "Description",
+              "Value": "If you are running Windows with Windows Subsystem for Linux (WSL) you can copy the onboarding script to the Linux server using the following command."
+            },
+            {
+              "Type": "Code",
+              "Value": "scp -i C:\\Users\\masontorres\\.ssh\\id_rsa\\linkp.key 'C:\\Users\\masontorres\\Downloads\\WindowsDefenderATPOnboardingPackage.zip' labmin@10.5.1.4:~"
+            },
+            {
+              "Type": "Description",
+              "Value": "The above command is using a certificate to authenitcate to the Linux server. You can also use a username and password."
+            },
+            {
+              "Type": "Description",
+              "Value": "The file copied is stored in the home directory of the user you are authenticating as."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "WindowsDefenderATPOnboardingPackage.zip                                               100% 5472   533.9KB/s   00:00"
+            }
+          ]
+        },
+        {
+          "title": "Optional - Unzip the onbard script",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Optional - Unzip the onbard script"
+            },
+            {
+              "Type": "Description",
+              "Value": "From the folder where you have copied the onboarding script."
+            },
+            {
+              "Type": "Code",
+              "Value": "cd /home/labmin/\r\nunzip WindowsDefenderATPOnboardingPackage.zip"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Archive:  WindowsDefenderATPOnboardingPackage.zip\r\ninflating: MicrosoftDefenderATPOnboardingLinuxServer.py"
+            }
+          ]
+        },
+        {
+          "title": "Client Confguration - Check org_id",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Client Confguration - Check org_id"
+            },
+            {
+              "Type": "Description",
+              "Value": "Let's check the current org_id configuration of the MDE for Linux agent."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health --field org_id"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "ATTENTION: No license found. Contact your administrator for help."
+            }
+          ]
+        },
+        {
+          "title": "Client Confguration - Onboard",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Client Confguration - Onboard"
+            },
+            {
+              "Type": "Description",
+              "Value": "From the folder where you have copied the onboarding script. Run the python onboading script."
+            },
+            {
+              "Type": "Code",
+              "Value": "python3 MicrosoftDefenderATPOnboardingLinuxServer.py"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Generating /etc/opt/microsoft/mdatp/mdatp_onboard.json ..."
+            }
+          ]
+        },
+        {
+          "title": "Client Confguration - Confirmation",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Client Confguration - Confirmation"
+            },
+            {
+              "Type": "Description",
+              "Value": "Check MDATP health"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "healthy                                     : true\r\nhealth_issues                               : []\r\nlicensed                                    : true\r\nengine_version                              : \"1.1.23080.2007\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"e1fb4f0a-1fbe-4181-b3e3-180f6e6ac31f\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : May 16, 2024 at 10:55:42 AM\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 03, 2023 at 06:15:39 PM\r\ndefinitions_updated_minutes_ago             : 33\r\ndefinitions_version                         : \"1.397.2014.0\"\r\ndefinitions_status                          : \"up_to_date\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : \"30.199999.icm427805946.2023.10.02.03-0C3FED03EA3B36755D1B6AB19F1D98A07FA2499548B0B96833AD90019C2997B3\"\r\nedr_machine_id                              : \"b3da4e2d293fcb8498c80a680307efe87e2e15d1\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false"
+            },
+            {
+              "Type": "Note",
+              "Value": "Note the org_id is now populated and healthy is true."
+            },
+            {
+              "Type": "Description",
+              "Value": "You can also check the Security Portal to see if the device is reporting in. https://security.microsoft.com/machines"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/SecurityPortalFedora.png"
             }
           ]
         }

@@ -1,5 +1,5 @@
 {
-  "title": "Centos Setup",
+  "title": "Setup - Centos",
   "path": "/mde/linux-setup-centos",
   "section": "MDE",
   "subSection": "Linux",
@@ -139,6 +139,14 @@
             {
               "Type": "Code",
               "Value": "rpm -Uvh https://packages.microsoft.com/config/rhel/8/prod.repo"
+            },
+            {
+              "Type": "Description",
+              "Value": "You can view the different repos available at https://packages.microsoft.com/config/rhel/"
+            },
+            {
+              "Type": "Description",
+              "Value": "Select your distro and version to see the repo information."
             }
           ],
           "backgroundActivity": [
@@ -161,6 +169,14 @@
             {
               "Type": "Code",
               "Value": "yum repolist | grep microsoft"
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample repo packages"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/RhelRepos.png"
             }
           ]
         },
@@ -169,7 +185,7 @@
           "userActivity": [
             {
               "Type": "Title",
-              "Value": "We can check the respoiory list to see if the Microsoft repo has been added"
+              "Value": "Check the respoiory list to see if the Microsoft repo has been added"
             },
             {
               "Type": "Code",
@@ -187,7 +203,7 @@
           "backgroundActivity": [
             {
               "Type": "Title",
-              "Value": "Sample yum update output"
+              "Value": "Sample dnf output"
             },
             {
               "Type": "Code",
@@ -253,11 +269,11 @@
       "description": "Let's check the configuration of the MDE for Linux agent",
       "tasks": [
         {
-          "title": "Health cehck",
+          "title": "Health check",
           "userActivity": [
             {
               "Type": "Title",
-              "Value": "Health cehck"
+              "Value": "Health check"
             },
             {
               "Type": "Code",

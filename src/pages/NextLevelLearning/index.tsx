@@ -195,7 +195,7 @@ export default function NextLevelLearning({
               item
               xs={12}
               md={12}
-              p={matches ? 0 : 1}
+              p={matches ? 0 : 0}
               pt={2}
               mt={matches ? 1 : -7}
             >
@@ -208,7 +208,7 @@ export default function NextLevelLearning({
                 spacing={2}
                 key={step.section}
                 xs={12}
-                p={matches ? 0 : 1}
+                // p={matches ? 0 : 1}
               >
                 <Grid item xs={12} md={12}>
                   <Element
@@ -243,12 +243,12 @@ export default function NextLevelLearning({
                           : { borderRadius: "15px 15px 0px 0px" }
                       }
                     >
-                      <Box px={matches ? 2 : 0.5}>
-                        <Box p={matches ? 0 : 2} pb={matches ? 2 : 0}>
+                      <Box px={matches ? 2 : 0} pl={matches ? 0 : 0}>
+                        <Box p={matches ? 0 : 2} pb={matches ? 2 : 2}>
                           <Subtitle2>User Activity {index + 1}</Subtitle2>
                         </Box>
                         {/* Load the User Activity component */}
-                        <Box px={2}>
+                        <Box px={matches ? 0 : 1}>
                           <UserActivity userActivity={task.userActivity} />
                         </Box>
                       </Box>
@@ -270,14 +270,14 @@ export default function NextLevelLearning({
                           : { borderRadius: "0px 0px 15px 15px" }
                       }
                     >
-                      <Box px={matches ? 2 : 0.5}>
-                        <Box p={matches ? 0 : 2} pb={matches ? 2 : 0}>
+                      <Box px={matches ? 2 : 0} pl={matches ? 0 : 0}>
+                        <Box p={matches ? 0 : 2} pb={matches ? 2 : 2}>
                           <Subtitle2>Background Activity {index + 1}</Subtitle2>
                         </Box>
 
                         {/* Load the Background Activity component */}
                         {/* <Box pr={2}>{task.backgroundActivity}</Box> */}
-                        <Box px={2} mb={2}>
+                        <Box px={matches ? 0 : 1} mb={2}>
                           <BackgroundActivity
                             backgroundActivity={task.backgroundActivity}
                           />

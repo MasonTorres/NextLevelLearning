@@ -45,6 +45,19 @@ const pagesData: routerType[] = [
   },
 ];
 
+nllDataFiles.sort((a, b) => {
+  let titlea = a.data.title.toLowerCase(),
+    titleb = b.data.title.toLowerCase();
+
+  if (titlea < titleb) {
+    return -1;
+  }
+  if (titlea > titleb) {
+    return 1;
+  }
+  return 0;
+});
+
 // Add Next Level Learning pages
 nllDataFiles.forEach((file) => {
   pagesData.push({

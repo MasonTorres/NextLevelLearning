@@ -16,7 +16,7 @@ import {
   DialogActions,
   DialogContent,
 } from "@fluentui/react-components";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
 import Linkify from "react-linkify";
 
 import { IUserActivity } from "../../../types/types";
@@ -24,7 +24,6 @@ import BlogCodeBlock from "../../../components/code-block";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
 import { SetStateAction, useState } from "react";
-import React from "react";
 
 type Props = {
   userActivity: IUserActivity[];
@@ -43,6 +42,9 @@ const style = {
 };
 
 export default function UserActivity({ userActivity }: Props) {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
+
   const [imageOpen, setImageOpen] = useState(false);
   const [image, setImage] = useState("");
 
@@ -174,7 +176,10 @@ export default function UserActivity({ userActivity }: Props) {
               aria-describedby="modal-modal-description"
             >
               <DialogSurface
-                style={{ maxWidth: "fit-content", minWidth: "500px" }}
+                style={{
+                  maxWidth: "fit-content",
+                  minWidth: matches ? "500px" : "unset",
+                }}
               >
                 <DialogBody>
                   <DialogTitle></DialogTitle>
@@ -207,7 +212,10 @@ export default function UserActivity({ userActivity }: Props) {
               aria-describedby="modal-modal-description"
             >
               <DialogSurface
-                style={{ maxWidth: "fit-content", minWidth: "500px" }}
+                style={{
+                  maxWidth: "fit-content",
+                  minWidth: matches ? "500px" : "unset",
+                }}
               >
                 <DialogBody>
                   <DialogTitle></DialogTitle>

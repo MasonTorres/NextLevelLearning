@@ -55,6 +55,19 @@ const Home = () => {
     return null;
   });
 
+  nllDataFiles.sort((a, b) => {
+    let titlea = a.data.title.toLowerCase(),
+      titleb = b.data.title.toLowerCase();
+
+    if (titlea < titleb) {
+      return -1;
+    }
+    if (titlea > titleb) {
+      return 1;
+    }
+    return 0;
+  });
+
   return (
     <Box
       p={matches ? 0 : 2}
