@@ -1,7 +1,7 @@
 {
   "title": "Setup - Fedora",
   "path": "/mde/linux-setup-fedora",
-  "section": "MDE",
+  "section": "MDE/Linux/Setup",
   "subSection": "Linux",
   "description": "",
   "data": [
@@ -204,6 +204,33 @@
           ]
         },
         {
+          "title": "Install the Microsoft GPG public key",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Install the Microsoft GPG public key"
+            },
+            {
+              "Type": "Code",
+              "Value": "rpm --import https://packages.microsoft.com/keys/microsoft.asc"
+            },
+            {
+              "Type": "Note",
+              "Value": " GPG is a public key encryption system. The above command will download the Microsoft public key and add it to the system. GnuPG allows you to encrypt and sign your data and communications https://gnupg.org/"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "warning: Rebuilding outdated index databases\r\nwarning: Generating 18 missing index(es), please wait..."
+            }
+          ]
+        },
+        {
           "title": "Update packages and repos",
           "userActivity": [
             {
@@ -395,7 +422,7 @@
             },
             {
               "Type": "Description",
-              "Value": "Downlaod the onboarding package"
+              "Value": "Download the onboarding package"
             }
           ]
         },

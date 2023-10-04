@@ -1,7 +1,7 @@
 {
   "title": "Cheat Sheet MDE Linux",
   "path": "/linux/cheat-sheet-mde",
-  "section": "MDE",
+  "section": "MDE/Linux",
   "subSection": "Linux",
   "description": "Use this cheat sheet to brush up on your Linux commands and for all those Linux commands you can't quite remember!",
   "data": [
@@ -322,6 +322,10 @@
             {
               "Type": "Title",
               "Value": "Find other antivirus software"
+            },
+            {
+              "Type": "Description",
+              "Value": "Running multple antivirus software can cause issues.  You will need to remove other antivirus software before installing MDE."
             },
             {
               "Type": "Description",

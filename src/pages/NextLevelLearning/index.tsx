@@ -245,7 +245,9 @@ export default function NextLevelLearning({
                     >
                       <Box px={matches ? 2 : 0} pl={matches ? 0 : 0}>
                         <Box p={matches ? 0 : 2} pb={matches ? 2 : 2}>
-                          <Subtitle2>User Activity {index + 1}</Subtitle2>
+                          <Subtitle2>
+                            {step.section}.{index + 1} User Activity{" "}
+                          </Subtitle2>
                         </Box>
                         {/* Load the User Activity component */}
                         <Box px={matches ? 0 : 1}>
@@ -272,7 +274,9 @@ export default function NextLevelLearning({
                     >
                       <Box px={matches ? 2 : 0} pl={matches ? 0 : 0}>
                         <Box p={matches ? 0 : 2} pb={matches ? 2 : 2}>
-                          <Subtitle2>Background Activity {index + 1}</Subtitle2>
+                          <Subtitle2>
+                            {step.section}.{index + 1} Background Activity
+                          </Subtitle2>
                         </Box>
 
                         {/* Load the Background Activity component */}

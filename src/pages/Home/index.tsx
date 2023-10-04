@@ -39,6 +39,10 @@ const useStyles = makeStyles({
   },
 });
 
+const replaceAll = (str: any, find: any, replace: any) => {
+  return str.replace(new RegExp(find, "g"), replace);
+};
+
 const Home = () => {
   const styles = useStyles();
   const { pageInfo, setPageInfo } = useContext(PageInfoContext);
@@ -54,6 +58,7 @@ const Home = () => {
     }
     return null;
   });
+  console.log("uniqueSections", uniqueSections);
 
   nllDataFiles.sort((a, b) => {
     let titlea = a.data.title.toLowerCase(),
@@ -98,8 +103,8 @@ const Home = () => {
             <Grid item xs={12} lg={3} key={section}>
               <Card>
                 <CardHeader
-                  title={section}
-                  header={<Title2>{section}</Title2>}
+                  title={replaceAll(section, "/", " > ")}
+                  header={<Title2>{replaceAll(section, "/", " > ")}</Title2>}
                 />
                 <CardPreview>
                   <List>

@@ -1,7 +1,7 @@
 {
   "title": "RHEL iptables",
   "path": "/mde/linux-rhel-iptables",
-  "section": "MDE",
+  "section": "MDE/Linux",
   "subSection": "Linux",
   "description": "Use the guide to troubleshoot issues with MDE connectivity to the Microsoft cloud service endpoints. We will use iptables to block and then allow outbound traffic to the MDE endpoints so we can see what errors and logs occur.",
   "data": [
