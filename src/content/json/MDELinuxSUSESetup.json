@@ -64,7 +64,7 @@
             },
             {
               "Type": "Title",
-              "Value": "Sample output - Not installed"
+              "Value": "Sample output - Installed"
             },
             {
               "Type": "Code",
@@ -309,6 +309,33 @@
             {
               "Type": "Code",
               "Value": "VERSION_ID=\"15.4\""
+            }
+          ]
+        },
+        {
+          "title": "Install the MDE package.",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Verify Install succeeded"
+            },
+            {
+              "Type": "Code",
+              "Value": "journalctl --no-pager| grep 'microsoft-mdatp' | grep 'postinstall end'"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Oct 04 16:59:29 suse-02 microsoft-mdatp-installer[2600]: postinstall end [2023-10-04 16:59:29OURCE +0000] 2481"
+            },
+            {
+              "Type": "Description",
+              "Value": "An output from the previous command with correct date and time of installation indicates success."
             }
           ]
         }
