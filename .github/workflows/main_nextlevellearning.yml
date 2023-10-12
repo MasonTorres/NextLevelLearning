@@ -32,12 +32,15 @@ jobs:
           npm run test --if-present
 
       - name: "Cleanup build folder"
+        # https://nextjs.org/docs/app/api-reference/next-config-js/output
         run: |
           pwd
           ls -la ./
           rm -rf .next/cache
           rm -rf node_modules
           rm -rf .next/server
+          mv .next/static .next/standalone
+          mv public .next/standalone
 
       - name: Zip artifact for deployment
         # IMPORTANT: .next is a hidden folder and will NOT be included in the zip unless we specify it
