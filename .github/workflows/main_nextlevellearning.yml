@@ -32,7 +32,8 @@ jobs:
           npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./build/* -r
+        # IMPORTANT: .next is a hidden folder and will NOT be included in the zip unless we specify it
+        run: zip release.zip ./* .next .env -qr
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
