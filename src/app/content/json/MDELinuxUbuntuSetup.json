@@ -1,0 +1,714 @@
+{
+  "title": "Setup - Ubuntu/Debian",
+  "path": "mde/linux/setup/linux-setup-ubuntu",
+  "description": "",
+  "data": [
+    {
+      "section": 1,
+      "title": "Checking Existing Install",
+      "description": "What do we have already?",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Get Distro Version"
+            },
+            {
+              "Type": "Description",
+              "Value": "This exercie assumes you have a Linux VM setup and running Fedora."
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /etc/os-release"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Code",
+              "Value": "NAME=\"Ubuntu\"\r\nVERSION=\"20.04.6 LTS (Focal Fossa)\"\r\nID=ubuntu\r\nID_LIKE=debian\r\nPRETTY_NAME=\"Ubuntu 20.04.6 LTS\"\r\nVERSION_ID=\"20.04\"\r\nHOME_URL=\"https://www.ubuntu.com/\"\r\nSUPPORT_URL=\"https://help.ubuntu.com/\"\r\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\r\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\r\nVERSION_CODENAME=focal\r\nUBUNTU_CODENAME=focal"
+            }
+          ]
+        },
+        {
+          "title": "Has MDATP already been installed?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check if MDATP is installed"
+            },
+            {
+              "Type": "Code",
+              "Value": "which mdatp"
+            },
+            {
+              "Type": "Note",
+              "Value": "'which' returns the pathnames of the files (or links) which would be executed in the current en‐ vironment, had its arguments been given as commands in a strictly POSIX-conformant shell. It does  this  by searching the PATH for executable files matching the names of the arguments."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The command will return the location of the binary/executable if it is found."
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample output - Installed"
+            },
+            {
+              "Type": "Code",
+              "Value": "/usr/bin/mdatp"
+            }
+          ]
+        },
+        {
+          "title": "What's the status of the daemon?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check daemon status"
+            },
+            {
+              "Type": "Code",
+              "Value": "service mdatp status"
+            },
+            {
+              "Type": "Description",
+              "Value": "The above command will only work if the daemon is installed and running."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output - Installed and running"
+            },
+            {
+              "Type": "Code",
+              "Value": "\u25CF mdatp.service - Microsoft Defender\r\n     Loaded: loaded (/lib/systemd/system/mdatp.service; enabled; vendor preset: enabled)\r\n     Active: active (running) since Thu 2023-10-05 20:00:34 UTC; 2min 30s ago\r\n   Main PID: 711 (wdavdaemon)\r\n      Tasks: 158 (limit: 9456)\r\n     Memory: 467.8M\r\n     CGroup: /system.slice/mdatp.service\r\n             \u251C\u2500 711 /opt/microsoft/mdatp/sbin/wdavdaemon\r\n             \u251C\u2500 890 /opt/microsoft/mdatp/sbin/wdavdaemon edr 11 10 --log_level info\r\n             \u251C\u2500 998 /opt/microsoft/mdatp/sbin/telemetryd_v2 32\"\r\n             \u2514\u25001432 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 51 291 310 312 49 --log_level info"
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample output - Not installed"
+            },
+            {
+              "Type": "Code",
+              "Value": "Unit mdatp.service could not be found."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Envrionment Setup",
+      "description": "Get the environment ready for MDE for Linux on Ubuntu",
+      "tasks": [
+        {
+          "title": "Install dependencies",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Install dependencies"
+            },
+            {
+              "Type": "Description",
+              "Value": "Install curl if it isn't installed yet"
+            },
+            {
+              "Type": "Code",
+              "Value": "apt-get install curl"
+            },
+            {
+              "Type": "Note",
+              "Value": "Curl  is  a  tool  to  transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS, IMAP, IMAPS,  LDAP,  LDAPS,  POP3,  POP3S,  RTMP, RTSP,  SCP,  SFTP,  SMB,  SMBS, SMTP, SMTPS, TELNET and TFTP). The command is designed to work without user interaction."
+            },
+            {
+              "Type": "Description",
+              "Value": "Install libplist-utils if it isn't installed yet"
+            },
+            {
+              "Type": "Code",
+              "Value": "apt-get install libplist-utils"
+            },
+            {
+              "Type": "Note",
+              "Value": "This package contains tools to convert Apple property list files from binary to XML and vice-versa."
+            },
+            {
+              "Type": "Note",
+              "Value": "Each Linux distrobution has a different package manager. For example, Ubuntu uses apt-get, while SUSE uses zypper."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The below output shows curl was already installed and up-to-date."
+            },
+            {
+              "Type": "Code",
+              "Value": "Reading package lists... Done\r\nBuilding dependency tree\r\nReading state information... Done\r\ncurl is already the newest version (7.68.0-1ubuntu2.19).\r\ncurl set to manually installed.\r\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded."
+            },
+            {
+              "Type": "Description",
+              "Value": "The below output shows libplist-utils installing successfully."
+            },
+            {
+              "Type": "Code",
+              "Value": "Reading package lists... Done\r\nBuilding dependency tree\r\nReading state information... Done\r\nThe following additional packages will be installed:\r\n  libplist3\r\nThe following NEW packages will be installed:\r\n  libplist-utils libplist3\r\n0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.\r\nNeed to get 38.3 kB of archives.\r\nAfter this operation, 133 kB of additional disk space will be used.\r\nDo you want to continue? [Y/n] y\r\nGet:1 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 libplist3 amd64 2.1.0-4build2 [31.6 kB]\r\nGet:2 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libplist-utils amd64 2.1.0-4build2 [6644 B]\r\nFetched 38.3 kB in 0s (386 kB/s)\r\nSelecting previously unselected package libplist3:amd64.\r\n(Reading database ... 89892 files and directories currently installed.)\r\nPreparing to unpack .../libplist3_2.1.0-4build2_amd64.deb ...\r\nUnpacking libplist3:amd64 (2.1.0-4build2) ...\r\nSelecting previously unselected package libplist-utils.\r\nPreparing to unpack .../libplist-utils_2.1.0-4build2_amd64.deb ...\r\nUnpacking libplist-utils (2.1.0-4build2) ...\r\nSetting up libplist3:amd64 (2.1.0-4build2) ...\r\nSetting up libplist-utils (2.1.0-4build2) ...\r\nProcessing triggers for man-db (2.9.1-1) ...\r\nProcessing triggers for libc-bin (2.31-0ubuntu9.9) ..."
+            }
+          ]
+        },
+        {
+          "title": "Update packages and repos",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Add the Microsoft repository"
+            },
+            {
+              "Type": "Code",
+              "Value": "curl -o microsoft.list https://packages.microsoft.com/config/ubuntu/20.04/prod.list"
+            },
+            {
+              "Type": "Description",
+              "Value": "You can view the different repos available at https://packages.microsoft.com/config/ubuntu/"
+            },
+            {
+              "Type": "Description",
+              "Value": "Select your distro and version to see the repo information."
+            },
+            {
+              "Type": "Title",
+              "Value": "Install the repository configuration"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo mv ./microsoft.list /etc/apt/sources.list.d/microsoft-prod.list"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample repository list download"
+            },
+            {
+              "Type": "Description",
+              "Value": "Downloadig the repository list"
+            },
+            {
+              "Type": "Code",
+              "Value": "root@ubuntu-02:/home/labmin# curl -o microsoft.list https://packages.microsoft.com/config/ubuntu/20.04/prod.list\r\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n100    89  100    89    0     0    780      0 --:--:-- --:--:-- --:--:--   773"
+            },
+            {
+              "Type": "Description",
+              "Value": "Movinh the repo list to the sources.list.d directory has no output."
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample repository packages and distributions"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/UbuntuRepos.png"
+            }
+          ]
+        },
+
+        {
+          "title": "Install and configure GPG",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Install GPG"
+            },
+
+            {
+              "Type": "Code",
+              "Value": "apt-get install gpg"
+            },
+            {
+              "Type": "Description",
+              "Value": "Install the Microsoft GPG public key"
+            },
+            {
+              "Type": "Code",
+              "Value": "curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null"
+            },
+            {
+              "Type": "Note",
+              "Value": " GPG is a public key encryption system. The above command will download the Microsoft public key and add it to the system. GnuPG allows you to encrypt and sign your data and communications https://gnupg.org/"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output - Install GPG "
+            },
+            {
+              "Type": "Code",
+              "Value": "Reading package lists... Done\r\nBuilding dependency tree\r\nReading state information... Done\r\ngpg is already the newest version (2.2.19-3ubuntu2.2).\r\ngpg set to manually installed.\r\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded."
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample output - Microsoft GPG public key"
+            },
+            {
+              "Type": "Description",
+              "Value": "On success, the above command will return no output."
+            },
+            {
+              "Type": "Description",
+              "Value": "What's happening?"
+            },
+            {
+              "Type": "Description",
+              "Value": "curl is downloading the Microsoft GPG public key from https://packages.microsoft.com/keys/microsoft.asc"
+            },
+            {
+              "Type": "Description",
+              "Value": "We pipe the output to gpg. gpg then decrypts the file"
+            },
+            {
+              "Type": "Description",
+              "Value": "We pipe the output to tee. tee then writes the output to the file /etc/apt/trusted.gpg.d/microsoft.gpg"
+            }
+          ]
+        },
+        {
+          "title": "Install HTTPS driver",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Install the HTTPS driver if not already installed"
+            },
+            {
+              "Type": "Code",
+              "Value": "apt-get install apt-transport-https"
+            },
+            {
+              "Type": "Note",
+              "Value": "This APT transport allows the use of repositories accessed via the HTTP Secure protocol (HTTPS), also referred to as HTTP over TLS. It is available by default since apt 1.5 and was available before that in the package apt-transport-https. "
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Reading package lists... Done\r\nBuilding dependency tree\r\nReading state information... Done\r\nThe following NEW packages will be installed:\r\n  apt-transport-https\r\n0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.\r\nNeed to get 1704 B of archives.\r\nAfter this operation, 162 kB of additional disk space will be used.\r\nGet:1 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 apt-transport-https all 2.0.9\r\n[1704 B]\r\nFetched 1704 B in 0s (72.8 kB/s)\r\nSelecting previously unselected package apt-transport-https.\r\n(Reading database ... 89905 files and directories currently installed.)\r\nPreparing to unpack .../apt-transport-https_2.0.9_all.deb ...\r\nUnpacking apt-transport-https (2.0.9) ...\r\nSetting up apt-transport-https (2.0.9) ..."
+            }
+          ]
+        },
+        {
+          "title": "Update the repository metadata",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Update the repository metadata"
+            },
+            {
+              "Type": "Code",
+              "Value": "apt-get update"
+            },
+            {
+              "Type": "Note",
+              "Value": "apt-get update is used to resynchronize the package index files from their sources. The indexes of available packages are fetched from the location(s) specified in /etc/apt/sources.list. For example, when using a Debian archive, this command retrieves and scans the Packages.gz files, so that information about new and updated packages is available. An update should always be performed before an upgrade or dist-upgrade."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Hit:1 http://azure.archive.ubuntu.com/ubuntu focal InRelease\r\nGet:2 http://azure.archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]\r\nGet:3 http://azure.archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]\r\nGet:4 http://azure.archive.ubuntu.com/ubuntu focal-security InRelease [114 kB]\r\nGet:5 http://azure.archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [2889 kB]\r\nGet:6 http://azure.archive.ubuntu.com/ubuntu focal-updates/main Translation-en [473 kB]\r\nGet:7 http://azure.archive.ubuntu.com/ubuntu focal-updates/main amd64 c-n-f Metadata [17.1 kB]\r\nGet:8 http://azure.archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [2383 kB]\r\nGet:9 http://azure.archive.ubuntu.com/ubuntu focal-updates/restricted Translation-en [334 kB]\r\nGet:10 http://azure.archive.ubuntu.com/ubuntu focal-updates/restricted amd64 c-n-f Metadata [572 B]\r\nGet:11 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1121 kB]\r\nGet:12 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe Translation-en [268 kB]\r\nGet:13 http://azure.archive.ubuntu.com/ubuntu focal-updates/universe amd64 c-n-f Metadata [25.6 kB]\r\nGet:14 http://azure.archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 Packages [25.8 kB]\r\nGet:15 http://azure.archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 c-n-f Metadata [620 B]\r\nGet:16 http://azure.archive.ubuntu.com/ubuntu focal-security/main amd64 Packages [2495 kB]\r\nGet:17 http://azure.archive.ubuntu.com/ubuntu focal-security/main Translation-en [389 kB]\r\nGet:18 http://azure.archive.ubuntu.com/ubuntu focal-security/main amd64 c-n-f Metadata [13.2 kB]\r\nGet:19 http://azure.archive.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [2257 kB]\r\nGet:20 http://azure.archive.ubuntu.com/ubuntu focal-security/restricted Translation-en [316 kB]\r\nGet:21 http://azure.archive.ubuntu.com/ubuntu focal-security/restricted amd64 c-n-f Metadata [572 B]\r\nGet:22 http://azure.archive.ubuntu.com/ubuntu focal-security/universe amd64 Packages [890 kB]\r\nGet:23 http://azure.archive.ubuntu.com/ubuntu focal-security/universe Translation-en [186 kB]\r\nGet:24 http://azure.archive.ubuntu.com/ubuntu focal-security/universe amd64 c-n-f Metadata [19.1 kB]\r\nGet:25 http://azure.archive.ubuntu.com/ubuntu focal-security/multiverse amd64 Packages [23.6 kB]\r\nGet:26 http://azure.archive.ubuntu.com/ubuntu focal-security/multiverse amd64 c-n-f Metadata [548 B]\r\nGet:27 https://packages.microsoft.com/ubuntu/20.04/prod focal InRelease [3611 B]\r\nGet:28 https://packages.microsoft.com/ubuntu/20.04/prod focal/main amd64 Packages [238 kB]\r\nGet:29 https://packages.microsoft.com/ubuntu/20.04/prod focal/main armhf Packages [16.6 kB]\r\nGet:30 https://packages.microsoft.com/ubuntu/20.04/prod focal/main arm64 Packages [51.5 kB]\r\nGet:31 https://packages.microsoft.com/ubuntu/20.04/prod focal/main all Packages [2586 B]\r\nFetched 14.8 MB in 3s (4775 kB/s)\r\nReading package lists... Done"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Install MDE for Linux",
+      "description": "Steps to install the MDE for Linux agent on Ubuntu",
+      "tasks": [
+        {
+          "title": "Install the MDE package.",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Install MDE"
+            },
+            {
+              "Type": "Code",
+              "Value": "apt-get install mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Reading package lists... Done\r\nBuilding dependency tree\r\nReading state information... Done\r\nThe following additional packages will be installed:\r\n  auditd libauparse0 libnetfilter-queue1 mde-netfilter\r\nSuggested packages:\r\n  audispd-plugins\r\nThe following NEW packages will be installed:\r\n  auditd libauparse0 libnetfilter-queue1 mdatp mde-netfilter\r\n0 upgraded, 5 newly installed, 0 to remove and 22 not upgraded.\r\nNeed to get 134 MB of archives.\r\nAfter this operation, 397 MB of additional disk space will be used.\r\nDo you want to continue? [Y/n] y"
+            },
+            {
+              "Type": "Code",
+              "Value": "Get:1 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 libauparse0 amd64 1:2.8.5-2ubuntu6 [49.8 kB]\r\nGet:2 http://azure.archive.ubuntu.com/ubuntu focal/universe amd64 libnetfilter-queue1 amd64 1.0.3-1 [12.4 kB]\r\nGet:3 http://azure.archive.ubuntu.com/ubuntu focal/main amd64 auditd amd64 1:2.8.5-2ubuntu6 [196 kB]\r\nGet:4 https://packages.microsoft.com/ubuntu/20.04/prod focal/main amd64 mde-netfilter amd64 100.69.62 [24.4 kB]\r\nGet:5 https://packages.microsoft.com/ubuntu/20.04/prod focal/main amd64 mdatp amd64 101.23072.0021 [133\r\nMB]\r\nFetched 134 MB in 4s (34.8 MB/s)\r\nSelecting previously unselected package libauparse0:amd64.\r\n(Reading database ... 89909 files and directories currently installed.)\r\nPreparing to unpack .../libauparse0_1%3a2.8.5-2ubuntu6_amd64.deb ...\r\nUnpacking libauparse0:amd64 (1:2.8.5-2ubuntu6) ...\r\nSelecting previously unselected package libnetfilter-queue1.\r\nPreparing to unpack .../libnetfilter-queue1_1.0.3-1_amd64.deb ...\r\nUnpacking libnetfilter-queue1 (1.0.3-1) ...\r\nSelecting previously unselected package auditd.\r\nPreparing to unpack .../auditd_1%3a2.8.5-2ubuntu6_amd64.deb ...\r\nUnpacking auditd (1:2.8.5-2ubuntu6) ...\r\nSelecting previously unselected package mde-netfilter.\r\nPreparing to unpack .../mde-netfilter_100.69.62_amd64.deb ...\r\nNew installation\r\nUnpacking mde-netfilter (100.69.62) ...\r\nSelecting previously unselected package mdatp.\r\nPreparing to unpack .../mdatp_101.23072.0021_amd64.deb ...\r\nUnpacking mdatp (101.23072.0021) ...\r\nSetting up libauparse0:amd64 (1:2.8.5-2ubuntu6) ...\r\nSetting up libnetfilter-queue1 (1.0.3-1) ...\r\nSetting up auditd (1:2.8.5-2ubuntu6) ...\r\nCreated symlink /etc/systemd/system/multi-user.target.wants/auditd.service \u2192 /lib/systemd/system/auditd.service.\r\nSetting up mde-netfilter (100.69.62) ...\r\nConfigure: Starting MDE Netfilter socket based activation\r\nCreated symlink /etc/systemd/system/sockets.target.wants/mde_netfilter.socket \u2192 /lib/systemd/system/mde_netfilter.socket.\r\nCreated symlink /etc/systemd/system/multi-user.target.wants/mde_netfilter.service \u2192 /lib/systemd/system/mde_netfilter.service.\r\nSetting up mdatp (101.23072.0021) ...\r\nProcessing triggers for man-db (2.9.1-1) ...\r\nProcessing triggers for libc-bin (2.31-0ubuntu9.9) ...\r\nProcessing triggers for systemd (245.4-4ubuntu3.22) ..."
+            },
+            {
+              "Type": "Title",
+              "Value": "We can view the logs for this installation in /var/log/microsoft/mdatp/install.log"
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /var/log/microsoft/mdatp/install.log"
+            },
+            {
+              "Type": "Note",
+              "Value": "The 'cat' command will print the file to the screen. You can also use 'less' to view the file."
+            },
+            {
+              "Type": "Code",
+              "Value": "preinstall\r\nArguments passed to the preinstall script: install\r\npreinstall begin [2023-10-05 20:31:34 +0000] 2057\r\ncorrelation id=cf702019-d916-4301-9699-704475f29471\r\nGeneration installation id\r\nis_new_install=1, bundle_version=101.23072.0021, branch=release/linux/2307-2\r\nFile /opt/microsoft/mdatp/conf/BuildInfo not found\r\nNAME=\"Ubuntu\"\r\nVERSION=\"20.04.6 LTS (Focal Fossa)\"\r\nID=ubuntu\r\nID_LIKE=debian\r\nPRETTY_NAME=\"Ubuntu 20.04.6 LTS\"\r\nVERSION_ID=\"20.04\"\r\nHOME_URL=\"https://www.ubuntu.com/\"\r\nSUPPORT_URL=\"https://help.ubuntu.com/\"\r\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\r\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\r\nVERSION_CODENAME=focal\r\nUBUNTU_CODENAME=focal\r\nDISTRO: ubuntu\r\nDISTRO_VERSION: 20.04\r\nDISTRO_FAMILY: debian\r\nScenario= Install\r\nMachine Guid: 3d709c1d-8eb9-460e-b7c4-562fc1dc8c9d\r\nCreating daemon user\r\nDaemon user (mdatp) created successfully\r\nLogging pending telemetry\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"ubuntu-02\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"3d709c1d-8eb9-460e-b7c4-562fc1dc8c9d\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"cf702019-d916-4301-9699-704475f29471\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"W\",\r\n                \"code\":\"FileNotExist\",\r\n                \"text\":\"File /opt/microsoft/mdatp/conf/BuildInfo not found\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"ubuntu-02\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"3d709c1d-8eb9-460e-b7c4-562fc1dc8c9d\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"cf702019-d916-4301-9699-704475f29471\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"I\",\r\n                \"code\":\"InstallStarted\",\r\n                \"text\":\"is_new_install='1', bundle_version='101.23072.0021', branch='release/linux/2307-2', package=''\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\npreinstall end [2023-10-05 20:31:35 +0000] 2057\r\npostinstall\r\nArguments passed to the postinstall script: configure\r\npostinstall begin [2023-10-05 20:31:45 +0000] 2191\r\nTrying to auto configure bash-completion at /usr/share/bash-completion/completions\r\nTrying to auto configure zsh-completion at /usr/share/zsh/vendor-completions\r\nTrying to auto configure zsh-completion at /usr/share/zsh/site-functions\r\nNAME=\"Ubuntu\"\r\nVERSION=\"20.04.6 LTS (Focal Fossa)\"\r\nID=ubuntu\r\nID_LIKE=debian\r\nPRETTY_NAME=\"Ubuntu 20.04.6 LTS\"\r\nVERSION_ID=\"20.04\"\r\nHOME_URL=\"https://www.ubuntu.com/\"\r\nSUPPORT_URL=\"https://help.ubuntu.com/\"\r\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\r\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\r\nVERSION_CODENAME=focal\r\nUBUNTU_CODENAME=focal\r\nDISTRO: ubuntu\r\nDISTRO_VERSION: 20.04\r\nDISTRO_FAMILY: debian\r\nScenario= Install\r\nMachine Guid: 3d709c1d-8eb9-460e-b7c4-562fc1dc8c9d\r\ncorrelation id=cf702019-d916-4301-9699-704475f29471\r\nPackage version being installed= 101.23072.0021\r\nRelease ring: Production\r\nCreating Crash Reports Path: /var/opt/microsoft/mdatp/crash\r\nChecking if patched libauparse\r\nAUDITD Version = 2.8.5\r\nCreating soft link for libfuse if it doesn't exists\r\nCleanup empty auditd configuration files\r\n/etc/audit/rules.d/mdatp.rules path does not exist or not a regular file\r\n/etc/audisp/plugins.d/mdatp.conf path does not exist or not a regular file\r\n/etc/audit/plugins.d/mdatp.conf path does not exist or not a regular file\r\nSetting q_depth and buffer_limit of auditd\r\nAuditd q_depth configuration file is /etc/audisp/audispd.conf\r\n[>] q_depth updated to 400\r\n[>] buffer_limit updated to 10240\r\nNo rules\r\nenabled 1\r\nfailure 1\r\npid 2306\r\nrate_limit 0\r\nbacklog_limit 10240\r\nlost 0\r\nbacklog 2\r\nbacklog_wait_time 0\r\nenabled 1\r\nfailure 1\r\npid 2306\r\nrate_limit 0\r\nbacklog_limit 10240\r\nlost 0\r\nbacklog 4\r\nbacklog_wait_time 0\r\nenabled 1\r\nfailure 1\r\npid 2306\r\nrate_limit 0\r\nbacklog_limit 10240\r\nlost 0\r\nbacklog 1\r\nbacklog_wait_time 0\r\naugenrules rules loaded successfully\r\n * Reloading audit daemon auditd\r\n   ...done.\r\nauditd reloaded successfully\r\nERROR: restorecon command not found\r\nCreating soft link of libpcre if it doesn't exists\r\nStarting wdavdaemon\r\nCreated symlink /etc/systemd/system/multi-user.target.wants/mdatp.service \u2192 /lib/systemd/system/mdatp.service.\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"ubuntu-02\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"3d709c1d-8eb9-460e-b7c4-562fc1dc8c9d\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"cf702019-d916-4301-9699-704475f29471\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"I\",\r\n                \"code\":\"DaemonInitialized\",\r\n                \"text\":\"\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\nDaemon initialization completed\r\nDaemon status:\r\nactive\r\nwdavdaemon is running, pid=2618\r\nChecking mdatp health\r\nMDATP onboarded = ATTENTION: No license found. Contact your administrator for help.\r\nfalse\r\nMDATP not Healthy! Health issues: ATTENTION: No license found. Contact your administrator for help.\r\nhealthy                                     : false\r\nhealth_issues                               : [\"missing license\"]\r\nlicensed                                    : false\r\nengine_version                              : \"1.1.20100.7\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"3d709c1d-8eb9-460e-b7c4-562fc1dc8c9d\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : unavailable\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 05, 2023 at 08:31:45 PM\r\ndefinitions_updated_minutes_ago             : 0\r\ndefinitions_version                         : \"1.385.1648.0\"\r\ndefinitions_status                          : \"checking_for_updates\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : unavailable\r\nedr_machine_id                              : \"25e636a0985cec4e08d3cba0d094ff507dbfd338\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"ubuntu-02\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"3d709c1d-8eb9-460e-b7c4-562fc1dc8c9d\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"cf702019-d916-4301-9699-704475f29471\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"E\",\r\n                \"code\":\"Install\",\r\n                \"text\":\"health_issue='ATTENTION: No license found. Contact your administrator for help.\r\nhealthy                                     : false\r\nhealth_issues                               : [\"missing license\"]\r\nlicensed                                    : false\r\nengine_version                              : \"1.1.20100.7\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"3d709c1d-8eb9-460e-b7c4-562fc1dc8c9d\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : unavailable\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 05, 2023 at 08:31:45 PM\r\ndefinitions_updated_minutes_ago             : 0\r\ndefinitions_version                         : \"1.385.1648.0\"\r\ndefinitions_status                          : \"checking_for_updates\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : unavailable\r\nedr_machine_id                              : \"25e636a0985cec4e08d3cba0d094ff507dbfd338\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false'\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\npostinstall end [2023-10-05 20:31:52 +0000] 2191"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can also use `grep` to search for specific text in the file."
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /var/log/microsoft/mdatp/install.log | grep VERSION_ID"
+            },
+            {
+              "Type": "Note",
+              "Value": "You could try replacing VERSION_ID with 'error', 'exception' or 'failed' when troubleshooting."
+            },
+            {
+              "Type": "Code",
+              "Value": "VERSION_ID=\"20.04\""
+            }
+          ]
+        },
+        {
+          "title": "Install the MDE package.",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Verify Install succeeded"
+            },
+            {
+              "Type": "Code",
+              "Value": "journalctl --no-pager| grep 'microsoft-mdatp' | grep 'postinstall end'"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Oct 05 20:31:52 ubuntu-02 microsoft-mdatp-installer[2479]: postinstall end [2023-10-05 20:31:52 +0000] 2191"
+            },
+            {
+              "Type": "Description",
+              "Value": "An output from the previous command with correct date and time of installation indicates success."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 4,
+      "title": "Explore the MDATP application",
+      "description": "Let's check the configuration of the MDE for Linux agent",
+      "tasks": [
+        {
+          "title": "Health check",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Health check"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health"
+            },
+            {
+              "Type": "Note",
+              "Value": "The 'mdatp health' command will show the health of the MDE for Linux agent. This will show if the agent is healthy, if there are any health issues, if the agent is licensed, and configurations values."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "healthy                                     : false\r\nhealth_issues                               : [\"missing license\"]\r\nlicensed                                    : false\r\nengine_version                              : \"1.1.23080.2007\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"3d709c1d-8eb9-460e-b7c4-562fc1dc8c9d\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : unavailable\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 05, 2023 at 08:31:57 PM\r\ndefinitions_updated_minutes_ago             : 3\r\ndefinitions_version                         : \"1.399.95.0\"\r\ndefinitions_status                          : \"up_to_date\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : unavailable\r\nedr_machine_id                              : \"25e636a0985cec4e08d3cba0d094ff507dbfd338\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false"
+            },
+            {
+              "Type": "Description",
+              "Value": "In this case we can see a licensing error. We need to run the onboarding script to register the agent with the MDATP service."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 5,
+      "title": "Configure MDATP",
+      "description": "Configure MDATP",
+      "tasks": [
+        {
+          "title": "Download the onbarding script",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Download the onbarding script"
+            },
+            {
+              "Type": "Description",
+              "Value": "Go to https://security.microsoft.com/securitysettings/endpoints"
+            },
+            {
+              "Type": "Note",
+              "Value": "Make sure you have the correct permissions and licenses. You will need to be a Global Administrator or Security Administrator to access this page."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/SecurityPortalEndpoints.png"
+            }
+          ]
+        },
+        {
+          "title": "Download the onbarding script - continued",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Download the onbarding script - continued"
+            },
+            {
+              "Type": "Description",
+              "Value": "Select Onboarding under Device management."
+            },
+            {
+              "Type": "Description",
+              "Value": "Then Select Linux Server from the drop list of operating systems."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/SecurityPortalOnboarding.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "Download the onboarding package"
+            }
+          ]
+        },
+        {
+          "title": "Optional - Copy the onboarding script to the Linux server",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Optional - Copy the onboarding script to the Linux server"
+            },
+            {
+              "Type": "Description",
+              "Value": "If you are running Windows with Windows Subsystem for Linux (WSL) you can copy the onboarding script to the Linux server using the following command."
+            },
+            {
+              "Type": "Code",
+              "Value": "scp -i C:\\Users\\masontorres\\.ssh\\id_rsa\\linkp.key 'C:\\Users\\masontorres\\Downloads\\WindowsDefenderATPOnboardingPackage.zip' labmin@10.5.1.17:~"
+            },
+            {
+              "Type": "Description",
+              "Value": "The above command is using a certificate to authenitcate to the Linux server. You can also use a username and password."
+            },
+            {
+              "Type": "Description",
+              "Value": "The file copied is stored in the home directory of the user you are authenticating as."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "WindowsDefenderATPOnboardingPackage.zip                                                  100% 5472   534.5KB/s   00:00"
+            }
+          ]
+        },
+        {
+          "title": "Optional - Unzip the onbard script",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Optional - Unzip the onbard script"
+            },
+            {
+              "Type": "Description",
+              "Value": "Install unzip if not already installed."
+            },
+            {
+              "Type": "Code",
+              "Value": "apt-get install unzip"
+            },
+            {
+              "Type": "Description",
+              "Value": "From the folder where you have copied the onboarding script."
+            },
+            {
+              "Type": "Code",
+              "Value": "cd /home/labmin/\r\nunzip WindowsDefenderATPOnboardingPackage.zip"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output - install unzip"
+            },
+            {
+              "Type": "Code",
+              "Value": "Reading package lists... Done\r\nBuilding dependency tree\r\nReading state information... Done\r\nSuggested packages:\r\n  zip\r\nThe following NEW packages will be installed:\r\n  unzip\r\n0 upgraded, 1 newly installed, 0 to remove and 22 not upgraded.\r\nNeed to get 168 kB of archives.\r\nAfter this operation, 593 kB of additional disk space will be used.\r\nGet:1 http://azure.archive.ubuntu.com/ubuntu focal-updates/main amd64 unzip amd64 6.0-25ubuntu1.1 [168 kB]\r\nFetched 168 kB in 0s (5822 kB/s)\r\nSelecting previously unselected package unzip.\r\n(Reading database ... 90178 files and directories currently installed.)\r\nPreparing to unpack .../unzip_6.0-25ubuntu1.1_amd64.deb ...\r\nUnpacking unzip (6.0-25ubuntu1.1) ...\r\nSetting up unzip (6.0-25ubuntu1.1) ...\r\nProcessing triggers for mime-support (3.64ubuntu1) ...\r\nProcessing triggers for man-db (2.9.1-1) ..."
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Archive:  WindowsDefenderATPOnboardingPackage.zip\r\ninflating: MicrosoftDefenderATPOnboardingLinuxServer.py"
+            }
+          ]
+        },
+        {
+          "title": "Client Confguration - Check org_id",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Client Confguration - Check org_id"
+            },
+            {
+              "Type": "Description",
+              "Value": "Let's check the current org_id configuration of the MDE for Linux agent."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health --field org_id"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "ATTENTION: No license found. Contact your administrator for help."
+            }
+          ]
+        },
+        {
+          "title": "Client Confguration - Onboard",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Client Confguration - Onboard"
+            },
+            {
+              "Type": "Description",
+              "Value": "From the folder where you have copied the onboarding script. Run the python onboading script."
+            },
+            {
+              "Type": "Code",
+              "Value": "python3 MicrosoftDefenderATPOnboardingLinuxServer.py"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Generating /etc/opt/microsoft/mdatp/mdatp_onboard.json ..."
+            }
+          ]
+        },
+        {
+          "title": "Client Confguration - Confirmation",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Client Confguration - Confirmation"
+            },
+            {
+              "Type": "Description",
+              "Value": "Check MDATP health"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "healthy                                     : true\r\nhealth_issues                               : []\r\nlicensed                                    : true\r\nengine_version                              : \"1.1.23080.2007\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"e1fb4f0a-1fbe-4181-b3e3-180f6e6ac31f\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"3d709c1d-8eb9-460e-b7c4-562fc1dc8c9d\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : May 16, 2024 at 02:55:42 PM\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 05, 2023 at 08:31:57 PM\r\ndefinitions_updated_minutes_ago             : 12\r\ndefinitions_version                         : \"1.399.95.0\"\r\ndefinitions_status                          : \"up_to_date\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : \"30.199999.icm427805946.2023.10.02.03-5A8759BFF8EFBAA5DA292042F09F5A2376613847513B99F9BDB322D2E6F331A5\"\r\nedr_machine_id                              : \"57c71298f7acd81002e1af39726a19c88ccea0e8\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false"
+            },
+            {
+              "Type": "Note",
+              "Value": "Note the org_id is now populated and healthy is true."
+            },
+            {
+              "Type": "Description",
+              "Value": "You can also check the Security Portal to see if the device is reporting in. https://security.microsoft.com/machines"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/SecurityPortalUbuntu.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

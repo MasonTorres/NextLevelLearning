@@ -1,0 +1,90 @@
+{
+  "title": "Configure MDE with JSON Configuration Profile",
+  "path": "mde/linux/configurations/mde-configuration-profile",
+  "description": "Configure MDE with JSON Configuration Profile.",
+  "data": [
+    {
+      "section": 1,
+      "title": "Configuration Profile",
+      "description": "",
+      "tasks": [
+        {
+          "title": "Sample Configuration Profile",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Configuration Profile"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can use the mdatp_managed.json file to help configure our Linux MDE deployments at scale rather than settings each Linux server individually."
+            },
+            {
+              "Type": "Description",
+              "Value": "Refer to https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-preferences?view=o365-worldwide for more details."
+            },
+            {
+              "Type": "Code",
+              "Value": "{\r\n   \"antivirusEngine\":{\r\n      \"enforcementLevel\":\"passive\",\r\n      \"scanAfterDefinitionUpdate\":true,\r\n      \"scanArchives\":true,\r\n      \"maximumOnDemandScanThreads\":2,\r\n      \"exclusionsMergePolicy\":\"merge\",\r\n      \"exclusions\":[\r\n         {\r\n            \"$type\":\"excludedPath\",\r\n            \"isDirectory\":false,\r\n            \"path\":\"/var/log/system.log<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedPath\",\r\n            \"isDirectory\":true,\r\n            \"path\":\"/run<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedPath\",\r\n            \"isDirectory\":true,\r\n            \"path\":\"/home/*/git<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedFileExtension\",\r\n            \"extension\":\".pdf<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedFileName\",\r\n            \"name\":\"cat<EXAMPLE DO NOT USE>\"\r\n         }\r\n      ],\r\n      \"allowedThreats\":[\r\n         \"<EXAMPLE DO NOT USE>EICAR-Test-File (not a virus)\"\r\n      ],\r\n      \"disallowedThreatActions\":[\r\n         \"allow\",\r\n         \"restore\"\r\n      ],\r\n      \"nonExecMountPolicy\":\"unmute\",\r\n      \"unmonitoredFilesystems\": [\"nfs,fuse\"],\r\n      \"threatTypeSettingsMergePolicy\":\"merge\",\r\n      \"threatTypeSettings\":[\r\n         {\r\n            \"key\":\"potentially_unwanted_application\",\r\n            \"value\":\"block\"\r\n         },\r\n         {\r\n            \"key\":\"archive_bomb\",\r\n            \"value\":\"audit\"\r\n         }\r\n      ]\r\n   },\r\n   \"cloudService\":{\r\n      \"enabled\":true,\r\n      \"diagnosticLevel\":\"optional\",\r\n      \"automaticSampleSubmissionConsent\":\"safe\",\r\n      \"automaticDefinitionUpdateEnabled\":true,\r\n      \"proxy\": \"<EXAMPLE DO NOT USE> http://proxy.server:port/\"\r\n   }\r\n}"
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "Location",
+          "userActivity": [],
+          "backgroundActivity": []
+        },
+        {
+          "title": "More Information",
+          "userActivity": [],
+          "backgroundActivity": []
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Logs",
+      "description": "",
+      "tasks": [
+        {
+          "title": "Log location",
+          "userActivity": [],
+          "backgroundActivity": []
+        },
+        {
+          "title": "Check Permissions",
+          "userActivity": [],
+          "backgroundActivity": []
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Find Software",
+      "description": "",
+      "tasks": [
+        {
+          "title": "Find other antivirus software",
+          "userActivity": [],
+          "backgroundActivity": []
+        },
+        {
+          "title": "List installed software - Ubutnu/Debian",
+          "userActivity": [],
+          "backgroundActivity": []
+        },
+        {
+          "title": "List installed software - Red Hat/CentOS",
+          "userActivity": [],
+          "backgroundActivity": []
+        },
+        {
+          "title": "Use the Security portal",
+          "userActivity": [],
+          "backgroundActivity": []
+        }
+      ]
+    }
+  ]
+}

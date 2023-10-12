@@ -40,8 +40,6 @@ Example content json
     "data": {
       "title": "Centos Setup",
       "path": "mde/linux-setup-centos",
-      "section": "MDE",
-      "subSection": "Linux",
       "data": [
         {
           "section": 1,

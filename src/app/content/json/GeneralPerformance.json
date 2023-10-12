@@ -1,0 +1,225 @@
+{
+  "title": "Performance Monitoring",
+  "path": "linux/performance-monitoring",
+  "description": "General performance monitoring for Linux.",
+  "data": [
+    {
+      "section": 1,
+      "title": "System Load Monitoring",
+      "description": "Monitor the system load to understand the demand on system resources.",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check System Load"
+            },
+            {
+              "Type": "Description",
+              "Value": "uptime  gives a one line display of the following information.  The current time, how long the system has been running, how many users are currently logged on, and the system load  averages for the past 1, 5, and 15 minutes."
+            },
+            {
+              "Type": "Code",
+              "Value": "uptime"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Command output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the current system load averages for the past 1, 5, and 15 minutes."
+            },
+            {
+              "Type": "Code",
+              "Value": "15:48:32 up 1 min,  1 user,  load average: 0.80, 0.45, 0.17"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Memory Usage Monitoring",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check Memory Usage"
+            },
+            {
+              "Type": "Description",
+              "Value": " free  displays  the  total  amount of free and used physical and swap memory in the system, as well as the buffers and caches used by the kernel."
+            },
+            {
+              "Type": "Code",
+              "Value": "free -m"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Command output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the total, used, and free memory in megabytes."
+            },
+            {
+              "Type": "Code",
+              "Value": "              total        used        free      shared  buff/cache   available\r\nMem:           1912         461         973           8         477        1230\r\nSwap:             0           0           0"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check Memory Usage Additional Commands"
+            },
+            {
+              "Type": "Description",
+              "Value": "`free` gets its information from the /proc/meminfo file. You can view /proc/meminfor more detailed information."
+            },
+            { "Type": "Code", "Value": "cat /proc/meminfo" }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Command output"
+            },
+            {
+              "Type": "Code",
+              "Value": "MemTotal:        1958696 kB\r\nMemFree:          382652 kB\r\nMemAvailable:    1217840 kB\r\nBuffers:            3152 kB\r\nCached:          1007968 kB\r\nSwapCached:            0 kB\r\nActive:           582472 kB\r\nInactive:         785500 kB\r\nActive(anon):       1284 kB\r\nInactive(anon):   364300 kB\r\nActive(file):     581188 kB\r\nInactive(file):   421200 kB\r\nUnevictable:           0 kB\r\nMlocked:               0 kB\r\nSwapTotal:             0 kB\r\nSwapFree:              0 kB\r\nDirty:                 4 kB\r\nWriteback:             0 kB\r\nAnonPages:        356756 kB\r\nMapped:           171464 kB\r\nShmem:              8736 kB\r\nKReclaimable:      59732 kB\r\nSlab:             104568 kB\r\nSReclaimable:      59732 kB\r\nSUnreclaim:        44836 kB\r\nKernelStack:        5088 kB\r\nPageTables:        12632 kB\r\nNFS_Unstable:          0 kB\r\nBounce:                0 kB\r\nWritebackTmp:          0 kB\r\nCommitLimit:      979348 kB\r\nCommitted_AS:    2867208 kB\r\nVmallocTotal:   34359738367 kB\r\nVmallocUsed:           0 kB\r\nVmallocChunk:          0 kB\r\nPercpu:              584 kB\r\nHardwareCorrupted:     0 kB\r\nAnonHugePages:     14336 kB\r\nShmemHugePages:        0 kB\r\nShmemPmdMapped:        0 kB\r\nFileHugePages:         0 kB\r\nFilePmdMapped:         0 kB\r\nHugePages_Total:       0\r\nHugePages_Free:        0\r\nHugePages_Rsvd:        0\r\nHugePages_Surp:        0\r\nHugepagesize:       2048 kB\r\nHugetlb:               0 kB\r\nDirectMap4k:      110528 kB\r\nDirectMap2M:     1986560 kB\r\nDirectMap1G:     2097152 kB"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Disk Usage Monitoring",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check Disk Usage"
+            },
+            {
+              "Type": "Description",
+              "Value": " df displays the amount of disk space available on the file system containing each file name argument.  If no file  name  is  given,  the space  available  on  all  currently mounted file systems is shown."
+            },
+            {
+              "Type": "Note",
+              "Value": "`-h` option is used to display the output in human readable format."
+            },
+            {
+              "Type": "Code",
+              "Value": "df -h"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Command output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the disk usage of all mounted filesystems."
+            },
+            {
+              "Type": "Code",
+              "Value": "Filesystem      Size  Used Avail Use% Mounted on\r\ndevtmpfs        940M     0  940M   0% /dev\r\ntmpfs           957M     0  957M   0% /dev/shm\r\ntmpfs           957M  8.6M  948M   1% /run\r\ntmpfs           957M     0  957M   0% /sys/fs/cgroup\r\n/dev/sda2       8.0G  2.7G  5.4G  33% /\r\n/dev/sda1      1014M  223M  792M  22% /boot\r\n/dev/sdb1       3.9G   16M  3.7G   1% /mnt\r\ntmpfs           192M     0  192M   0% /run/user/1001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 4,
+      "title": "CPU Usage Monitoring",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check CPU Usage"
+            },
+            {
+              "Type": "Description",
+              "Value": "The  top program provides a dynamic real-time view of a running system. It can display system summary information as well as a list of processes or threads currently being managed by the Linux  kernel."
+            },
+            {
+              "Type": "Code",
+              "Value": "top"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Command output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the current CPU usage for each process."
+            },
+            {
+              "Type": "Code",
+              "Value": "top - 15:50:18 up 3 min,  1 user,  load average: 0.14, 0.31, 0.15\r\nTasks: 125 total,   2 running, 123 sleeping,   0 stopped,   0 zombie\r\n%Cpu(s):  0.7 us,  0.3 sy,  0.0 ni, 98.7 id,  0.0 wa,  0.3 hi,  0.0 si,  0.0 st\r\nMiB Mem :   1912.8 total,    972.7 free,    461.8 used,    478.2 buff/cache\r\nMiB Swap:      0.0 total,      0.0 free,      0.0 used.   1229.3 avail Mem\r\n\r\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\r\n    797 root      20   0 1151996 141996  57996 S   0.7   7.2   0:03.63 wdavdaemon\r\n    398 root      20   0       0      0      0 R   0.3   0.0   0:00.05 kworker/0:4-events_power_effici+\r\n    997 root      20   0  891196  67168  48116 S   0.3   3.4   0:01.04 wdavdaemon\r\n   1101 root      20   0  307864  17044  13600 S   0.3   0.9   0:00.23 telemetryd_v2\r\n   1296 root      20   0  448072  29588  11688 S   0.3   1.5   0:00.98 python3\r\n      1 root      20   0  175160  13556   8904 S   0.0   0.7   0:02.22 systemd\r\n      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd\r\n      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp\r\n      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par_gp\r\n      5 root      20   0       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0-events\r\n      6 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0H-e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 5,
+      "title": "Network Usage Monitoring",
+      "description": "",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check Network Usage"
+            },
+            {
+              "Type": "Description",
+              "Value": "nload is a console application which monitors network traffic and bandwidth usage in real time. It visualizes the in and outgoing traffic using two graphs and provides additional info like the total amount of transfered data and min/max network usage."
+            },
+            {
+              "Type": "Code",
+              "Value": "nload"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Command output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the current network usage for each interface."
+            },
+            {
+              "Type": "Code",
+              "Value": "Device eth0 [10.5.1.6] (1/2):\r\n==\r\nIncoming:\r\n\r\n\r\n                                           Curr: 856.00 Bit/s\r\n                                           Avg: 9.01 kBit/s\r\n                                           Min: 856.00 Bit/s\r\n                                           Max: 77.59 kBit/s\r\n                                           Ttl: 31.74 MByte\r\nOutgoing:\r\n\r\n\r\n                                           Curr: 6.38 kBit/s\r\n                                           Avg: 16.96 kBit/s\r\n                                           Min: 3.79 kBit/s\r\n                                           Max: 91.63 kBit/s\r\n                                           Ttl: 11.34 MByte"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,601 @@
+{
+  "title": "Setup - SUSE/SLES",
+  "path": "mde/linux/setup/linux-setup-suse",
+  "description": "",
+  "data": [
+    {
+      "section": 1,
+      "title": "Checking Existing Install",
+      "description": "What do we have already?",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Get Distro Version"
+            },
+            {
+              "Type": "Description",
+              "Value": "This exercie assumes you have a Linux VM setup and running Fedora."
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /etc/os-release"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Code",
+              "Value": "NAME=\"SLES\"\r\nVERSION=\"15-SP4\"\r\nVERSION_ID=\"15.4\"\r\nPRETTY_NAME=\"SUSE Linux Enterprise Server 15 SP4\"\r\nID=\"sles\"\r\nID_LIKE=\"suse\"\r\nANSI_COLOR=\"0;32\"\r\nCPE_NAME=\"cpe:/o:suse:sles:15:sp4\"\r\nDOCUMENTATION_URL=\"https://documentation.suse.com/\"\r\nVARIANT_ID=\"sles-basic\""
+            }
+          ]
+        },
+        {
+          "title": "Has MDATP already been installed?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check if MDATP is installed"
+            },
+            {
+              "Type": "Code",
+              "Value": "which mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output - Not installed"
+            },
+            {
+              "Type": "Description",
+              "Value": "The command will return the location of the binary/executable if it is found."
+            },
+            {
+              "Type": "Code",
+              "Value": "which: no mdatp in (/sbin:/usr/sbin:/usr/local/sbin:/root/bin:/usr/local/bin:/usr/bin:/bin:/usr/lib/mit/bin)"
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample output - Installed"
+            },
+            {
+              "Type": "Code",
+              "Value": "/usr/bin/mdatp"
+            }
+          ]
+        },
+        {
+          "title": "What's the status of the daemon?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check daemon status"
+            },
+            {
+              "Type": "Code",
+              "Value": "service mdatp status"
+            },
+            {
+              "Type": "Description",
+              "Value": "The above command will only work if the daemon is installed and running."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output - Installed and running"
+            },
+            {
+              "Type": "Code",
+              "Value": "\u25CF mdatp.service - Microsoft Defender\r\n     Loaded: loaded (/usr/lib/systemd/system/mdatp.service; enabled; preset: disabled)\r\n    Drop-In: /usr/lib/systemd/system/service.d\r\n             \u2514\u250010-timeout-abort.conf\r\n     Active: active (running) since Tue 2023-10-03 14:07:36 EDT; 2h 24min ago\r\n   Main PID: 688 (wdavdaemon)\r\n      Tasks: 159 (limit: 4650)\r\n     Memory: 566.0M\r\n        CPU: 20.746s\r\n     CGroup: /system.slice/mdatp.service\r\n             \u251C\u2500 688 /opt/microsoft/mdatp/sbin/wdavdaemon\r\n             \u251C\u2500 738 /opt/microsoft/mdatp/sbin/wdavdaemon edr 11 10 --log_level info\r\n             \u251C\u2500 801 /opt/microsoft/mdatp/sbin/telemetryd_v2 \"32\\\"\"\r\n             \u2514\u25001149 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 79 81 83 85 78 --log_level info"
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample output - Not installed"
+            },
+            {
+              "Type": "Code",
+              "Value": "service: no such service mdatp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Envrionment Setup",
+      "description": "Get the environment ready for MDE for Linux on SUSE/SLES",
+      "tasks": [
+        {
+          "title": "Update packages and repos",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Update system packages"
+            },
+            {
+              "Type": "Description",
+              "Value": "Update packages using the zypper package manager"
+            },
+            {
+              "Type": "Code",
+              "Value": "zypper update"
+            },
+            {
+              "Type": "Note",
+              "Value": "Each Linux distrobution has a different package manager. For example, Ubuntu uses apt-get, while SUSE uses zypper."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Description",
+              "Value": "A brand new install will typically have lots of updates, like below."
+            },
+            {
+              "Type": "Code",
+              "Value": "Refreshing service 'Basesystem_Module_x86_64'.\r\nRefreshing service 'Containers_Module_x86_64'.\r\nRefreshing service 'Desktop_Applications_Module_x86_64'.\r\nRefreshing service 'Development_Tools_Module_x86_64'.\r\nRefreshing service 'Public_Cloud_Module_x86_64'.\r\nRefreshing service 'Python_3_Module_x86_64'.\r\nRefreshing service 'SUSE_Linux_Enterprise_Server_x86_64'.\r\nRefreshing service 'Server_Applications_Module_x86_64'.\r\nRefreshing service 'Web_and_Scripting_Module_x86_64'.\r\nLoading repository data...\r\nReading installed packages...\r\n\r\nThe following 9 items are locked and will not be changed by any action:\r\n Available:\r\n  plymouth plymouth-branding-SLE plymouth-devel plymouth-dracut plymouth-lang plymouth-plugin-label\r\n  plymouth-plugin-label-ft plymouth-plugin-script plymouth-scripts\r\n\r\nThe following package update will NOT be installed:\r\n  xxd\r\n\r\nThe following 174 packages are going to be upgraded:\r\n  apparmor-parser audit autofs autoyast2-installation azure-cli-core bind-utils binutils blog\r\n  ca-certificates-mozilla cloud-init cloud-init-config-suse cloud-netconfig-azure cloud-regionsrv-client\r\n  cloud-regionsrv-client-addon-azure cloud-regionsrv-client-plugin-azure containerd crypto-policies\r\n  cryptsetup cups-config curl dbus-1 device-mapper docker dracut fonts-config gawk glibc glibc-i18ndata\r\n  glibc-locale glibc-locale-base grub2 grub2-i386-pc grub2-x86_64-efi hwinfo issue-generator kbd\r\n  kbd-legacy krb5 krb5-client libX11-6 libX11-data libapparmor1 libassuan0 libaudit1 libauparse0\r\n  libblkid1 libblogger2 libcap2 libcares2 libcryptsetup12 libctf-nobfd0 libctf0 libcups2 libcurl4\r\n  libdbus-1-3 libdevmapper-event1_03 libdevmapper1_03 libeconf0 libfastjson4 libfdisk1 libfido2-1\r\n  libfido2-udev libfreetype6 libgcc_s1 libicu-suse65_1 libicu65_1-ledata libjansson4 libldap-2_4-2\r\n  libldap-data liblognorm5 liblvm2cmd2_03 libmount1 libopenssl1_1 libparted0 libpcre2-8-0 libprocps7\r\n  libprotobuf-lite20 libpython3_6m1_0 libsigc-2_0-0 libsmartcols1 libsolv-tools libstdc++6\r\n  libsuseconnect libsystemd0 libudev1 libuuid1 libxml2-2 libyajl2 libyui-ncurses-pkg16 libyui-ncurses16\r\n  libyui16 libz1 libzck1 libzypp login_defs lvm2 man mozilla-nspr mozilla-nss-certs nfs-client\r\n  nfs-kernel-server nscd openldap2-client openssh openssh-clients openssh-common openssh-server\r\n  openssl-1_1 parted perl perl-Bootloader perl-base procps python3 python3-M2Crypto python3-apipkg\r\n  python3-azure-core python3-base python3-bind python3-configobj python3-curses python3-gobject\r\n  python3-humanfriendly python3-iniconfig python3-jmespath python3-jsondiff python3-knack\r\n  python3-more-itertools python3-ordered-set python3-packaging python3-pexpect python3-pip python3-ply\r\n  python3-pyOpenSSL python3-pyasn1 python3-pyudev python3-requests python3-setuptools python3-simplejson\r\n  python3-solv python3-websocket-client python3-xmltodict release-notes-sles rsyslog ruby-solv runc\r\n  samba-client-libs samba-libs shadow supportutils supportutils-plugin-suse-public-cloud suse-build-key\r\n  suseconnect-ng suseconnect-ruby-bindings system-group-audit systemd systemd-rpm-macros\r\n  systemd-sysvinit sysuser-shadow udev util-linux util-linux-systemd vim vim-data-common wicked\r\n  wicked-service xen-libs yast2-installation yast2-network yast2-pkg-bindings yast2-storage-ng\r\n  yast2-transfer yast2-users zypper\r\n\r\nThe following 86 NEW packages are going to be installed:\r\n  adjtimex apparmor-parser-lang crda crypto-policies-scripts cryptsetup-lang cups cups-client\r\n  cups-filters dbus-1-x11 ghostscript ghostscript-x11 git-core glibc-extra glibc-lang groff-full\r\n  grub2-branding-SLE grub2-systemd-sleep-plugin gxditview hwdata kernel-azure-5.14.21-150400.14.66.1\r\n  libICE6 libSM6 libXaw7 libXmu6 libXpm4 libXrender1 libXt6 libavahi-glib1 libcairo-gobject2 libcairo2\r\n  libcupscgi1 libcupsimage2 libcupsmime1 libcupsppdc1 libdb-4_8 libfontenc1 libfreebl3 libfstrm0\r\n  libglvnd libhidapi-hidraw0 libjasper4 libjbig2 libjpeg8 liblcms2-2 libnetpbm11 libopenjp2-7\r\n  libpixman-1-0 libpoppler-cpp0 libpoppler117 libprotobuf-c1 libqpdf26 libsha1detectcoll1 libsoftokn3\r\n  libtiff5 libtss2-esys0 libtss2-mu0 libtss2-rc0 libtss2-sys1 libxcb-render0 libxcb-shm0 man-pages-posix\r\n  mkfontdir mkfontscale mozilla-nss netpbm parted-lang perl-core-DB_File poppler-tools psutils\r\n  python3-PySocks python3-dbm python3-gobject-cairo python3-ldb python3-pycairo python3-talloc\r\n  python3-typing_extensions samba-libs-python3 shared-python-startup systemd-lang time util-linux-lang\r\n  vim-data wireless-regdb xbitmaps zypper-log zypper-needs-restarting\r\n\r\nThe following 2 packages are going to be REMOVED:\r\n  pciutils-ids xxd\r\n\r\nThe following package requires a system reboot:\r\n  kernel-azure-5.14.21-150400.14.66.1\r\n\r\n174 packages to upgrade, 86 new, 2 to remove.\r\nOverall download size: 277.0 MiB. Already cached: 0 B. After the operation, additional 300.2 MiB will be\r\nused.\r\n\r\n    Note: System reboot required.\r\nContinue? [y/n/v/...? shows all options] (y):"
+            }
+          ]
+        },
+        {
+          "title": "Update packages and repos",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Add the Microsoft repo to isntall MDE"
+            },
+            {
+              "Type": "Code",
+              "Value": "zypper addrepo -c -f -n microsoft-prod https://packages.microsoft.com/config/sles/15/prod.repo"
+            },
+            {
+              "Type": "Description",
+              "Value": "You can view the different repos available at https://packages.microsoft.com/config/sles/"
+            },
+            {
+              "Type": "Description",
+              "Value": "Select your distro and version to see the repo information."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample yum update output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The SLES package repository will be added to the system. This will allow you to install MDE using zypper."
+            },
+            {
+              "Type": "Description",
+              "Value": "The output below shows the package being added to the system."
+            },
+            {
+              "Type": "Code",
+              "Value": "Adding repository 'microsoft-prod' ...............................................................[done]\r\nRepository 'microsoft-prod' successfully added\r\n\r\nURI         : https://packages.microsoft.com/sles/15/prod/\r\nEnabled     : Yes\r\nGPG Check   : Yes\r\nAutorefresh : Yes\r\nPriority    : 99 (default priority)\r\n\r\nRepository priorities are without effect. All enabled repositories share the same priority."
+            },
+            {
+              "Type": "Title",
+              "Value": "Sample repo packages"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/SLESRepos.png"
+            }
+          ]
+        },
+        {
+          "title": "Install the Microsoft GPG public key",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Install the Microsoft GPG public key"
+            },
+            {
+              "Type": "Code",
+              "Value": "rpm --import https://packages.microsoft.com/keys/microsoft.asc"
+            },
+            {
+              "Type": "Note",
+              "Value": " GPG is a public key encryption system. The above command will download the Microsoft public key and add it to the system. GnuPG allows you to encrypt and sign your data and communications https://gnupg.org/"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "warning: Rebuilding outdated index databases\r\nwarning: Generating 18 missing index(es), please wait..."
+            }
+          ]
+        },
+        {
+          "title": "Update packages and repos",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the respoiory list to see if the Microsoft repo has been added"
+            },
+            {
+              "Type": "Code",
+              "Value": "zypper lr | grep microsoft"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "46 | packages-microsoft-com-prod | microsoft-prod | Yes | ( p) Yes  | Yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Install MDE for Linux",
+      "description": "Steps to install the MDE for Linux agent on SUSE/SLES",
+      "tasks": [
+        {
+          "title": "Install the MDE package.",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Install MDE"
+            },
+            {
+              "Type": "Code",
+              "Value": "zypper install mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Refreshing service 'Basesystem_Module_x86_64'.\r\nRefreshing service 'Containers_Module_x86_64'.\r\nRefreshing service 'Desktop_Applications_Module_x86_64'.\r\nRefreshing service 'Development_Tools_Module_x86_64'.\r\nRefreshing service 'Public_Cloud_Module_x86_64'.\r\nRefreshing service 'Python_3_Module_x86_64'.\r\nRefreshing service 'SUSE_Linux_Enterprise_Server_x86_64'.\r\nRefreshing service 'Server_Applications_Module_x86_64'.\r\nRefreshing service 'Web_and_Scripting_Module_x86_64'.\r\nRetrieving repository 'microsoft-prod' metadata ..................................................[done]\r\nBuilding repository 'microsoft-prod' cache .......................................................[done]\r\nLoading repository data...\r\nReading installed packages...\r\nResolving package dependencies...\r\n\r\nThe following 6 NEW packages are going to be installed:\r\n  libnetfilter_queue1 mdatp mde-netfilter policycoreutils policycoreutils-lang selinux-tools\r\n\r\nThe following 2 packages have no support information from their vendor:\r\n  mdatp mde-netfilter\r\n\r\n6 new packages to install.\r\nOverall download size: 127.2 MiB. Already cached: 0 B. After the operation, additional 381.4 MiB will be\r\nused.\r\nContinue? [y/n/v/...? shows all options] (y):"
+            },
+            {
+              "Type": "Code",
+              "Value": "Retrieving: libnetfilter_queue1-1.0.3-1.16.x86_64 (SLE-Module-Basesystem15-SP4-Pool)\r\n                                                                                    (1/6),  18.8 KiB\r\nRetrieving: libnetfilter_queue1-1.0.3-1.16.x86_64.rpm ............................................[done]\r\nRetrieving: selinux-tools-3.1-150400.1.69.x86_64 (SLE-Module-Basesystem15-SP4-Pool) (2/6), 151.5 KiB\r\nRetrieving: selinux-tools-3.1-150400.1.69.x86_64.rpm .............................................[done]\r\nRetrieving: policycoreutils-3.1-150400.1.5.x86_64 (SLE-Module-Basesystem15-SP4-Pool)\r\n                                                                                    (3/6), 122.4 KiB\r\nRetrieving: policycoreutils-3.1-150400.1.5.x86_64.rpm ............................................[done]\r\nRetrieving: policycoreutils-lang-3.1-150400.1.5.noarch (SLE-Module-Basesystem15-SP4-Pool)\r\n                                                                                    (4/6), 412.0 KiB\r\nRetrieving: policycoreutils-lang-3.1-150400.1.5.noarch.rpm .......................................[done]\r\nRetrieving: mde-netfilter-100.69.62-1.x86_64 (microsoft-prod)                       (5/6),  35.0 KiB\r\nRetrieving: mde-netfilter_100.69.62.x86_64.rpm ...................................................[done]\r\nRetrieving: mdatp-101.23072.0021-1.x86_64 (microsoft-prod)                          (6/6), 126.5 MiB\r\nRetrieving: mdatp_101.23072.0021.x86_64.rpm .........................................[done (21.0 MiB/s)]\r\n\r\nChecking for file conflicts: .....................................................................[done]\r\n(1/6) Installing: libnetfilter_queue1-1.0.3-1.16.x86_64 ..........................................[done]\r\n(2/6) Installing: selinux-tools-3.1-150400.1.69.x86_64 ...........................................[done]\r\n(3/6) Installing: policycoreutils-3.1-150400.1.5.x86_64 ..........................................[done]\r\n(4/6) Installing: policycoreutils-lang-3.1-150400.1.5.noarch .....................................[done]\r\nNew installation\r\nConfigure: Starting MDE Netfilter socket based activation\r\nCreated symlink /etc/systemd/system/sockets.target.wants/mde_netfilter.socket -> /usr/lib/systemd/system/mde_netfilter.socket.\r\nCreated symlink /etc/systemd/system/multi-user.target.wants/mde_netfilter.service -> /usr/lib/systemd/system/mde_netfilter.service.\r\n(5/6) Installing: mde-netfilter-100.69.62-1.x86_64 ...............................................[done]\r\n(6/6) Installing: mdatp-101.23072.0021-1.x86_64 ..................................................[done]"
+            },
+            {
+              "Type": "Title",
+              "Value": "We can view the logs for this installation in /var/log/microsoft/mdatp/install.log"
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /var/log/microsoft/mdatp/install.log"
+            },
+            {
+              "Type": "Note",
+              "Value": "The 'cat' command will print the file to the screen. You can also use 'less' to view the file."
+            },
+            {
+              "Type": "Code",
+              "Value": "preinstall\r\nArguments passed to the preinstall script: 1\r\npreinstall begin [2023-10-04 16:59:20OURCE +0000] 2481\r\ncorrelation id=710a60ff-68fa-48a6-8985-4f03ac7eaddd\r\nGeneration installation id\r\nis_new_install=1, bundle_version=101.23072.0021, branch=release/linux/2307-2\r\nFile /opt/microsoft/mdatp/conf/BuildInfo not found\r\nNAME=\"SLES\"\r\nVERSION=\"15-SP4\"\r\nVERSION_ID=\"15.4\"\r\nPRETTY_NAME=\"SUSE Linux Enterprise Server 15 SP4\"\r\nID=\"sles\"\r\nID_LIKE=\"suse\"\r\nANSI_COLOR=\"0;32\"\r\nCPE_NAME=\"cpe:/o:suse:sles:15:sp4\"\r\nDOCUMENTATION_URL=\"https://documentation.suse.com/\"\r\nVARIANT_ID=\"sles-basic\"\r\nDISTRO: sles\r\nDISTRO_VERSION: 15.4\r\nDISTRO_FAMILY: sles\r\nScenario= Install\r\nMachine Guid: 5253794b-7325-4f69-bf46-28dd9cfe46bc\r\nCreating daemon user\r\nDaemon user (mdatp) created successfully\r\nLogging pending telemetry\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"suse-02\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"5253794b-7325-4f69-bf46-28dd9cfe46bc\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"710a60ff-68fa-48a6-8985-4f03ac7eaddd\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"W\",\r\n                \"code\":\"FileNotExist\",\r\n                \"text\":\"File /opt/microsoft/mdatp/conf/BuildInfo not found\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"suse-02\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"5253794b-7325-4f69-bf46-28dd9cfe46bc\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"710a60ff-68fa-48a6-8985-4f03ac7eaddd\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"I\",\r\n                \"code\":\"InstallStarted\",\r\n                \"text\":\"is_new_install='1', bundle_version='101.23072.0021', branch='release/linux/2307-2', package=''\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\npreinstall end [2023-10-04 16:59:21OURCE +0000] 2481\r\npostinstall\r\nArguments passed to the postinstall script: 1\r\npostinstall begin [2023-10-04 16:59:23OURCE +0000] 2481\r\nTrying to auto configure bash-completion at /usr/share/bash-completion/completions\r\nTrying to auto configure zsh-completion at /usr/share/zsh/vendor-completions\r\nzsh-completion is not installed at /usr/share/zsh/vendor-completions, auto-complete cannot be configured\r\nTrying to auto configure zsh-completion at /usr/share/zsh/site-functions\r\nNAME=\"SLES\"\r\nVERSION=\"15-SP4\"\r\nVERSION_ID=\"15.4\"\r\nPRETTY_NAME=\"SUSE Linux Enterprise Server 15 SP4\"\r\nID=\"sles\"\r\nID_LIKE=\"suse\"\r\nANSI_COLOR=\"0;32\"\r\nCPE_NAME=\"cpe:/o:suse:sles:15:sp4\"\r\nDOCUMENTATION_URL=\"https://documentation.suse.com/\"\r\nVARIANT_ID=\"sles-basic\"\r\nDISTRO: sles\r\nDISTRO_VERSION: 15.4\r\nDISTRO_FAMILY: sles\r\nScenario= Install\r\nMachine Guid: 5253794b-7325-4f69-bf46-28dd9cfe46bc\r\ncorrelation id=710a60ff-68fa-48a6-8985-4f03ac7eaddd\r\nPackage version being installed= 101.23072.0021\r\nInstalling MDATP SELinux policy\r\nFailed to resolve roletype statement at /var/lib/selinux/targeted/tmp/modules/400/audisp_mdatp/cil:2\r\nsemodule:  Failed!\r\nWarning: Failed installing SELinux policy\r\nInstalling MDATP SELinux policy for non-RHEL7.6 systems\r\nFailed to resolve roleattributeset statement at /var/lib/selinux/targeted/tmp/modules/400/audisp_mdatp_rhel77/cil:1\r\nsemodule:  Failed!\r\nWarning: Failed installing SELinux policy for non-RHEL76 systems\r\nSetting SELinux labels\r\nRelease ring: Production\r\nCreating Crash Reports Path: /var/opt/microsoft/mdatp/crash\r\nChecking if patched libauparse\r\nAUDITD Version = 3.0.6\r\nCreating soft link for libfuse if it doesn't exists\r\nCleanup empty auditd configuration files\r\n/etc/audit/rules.d/mdatp.rules path does not exist or not a regular file\r\n/etc/audisp/plugins.d/mdatp.conf path does not exist or not a regular file\r\n/etc/audit/plugins.d/mdatp.conf path does not exist or not a regular file\r\nSetting q_depth and buffer_limit of auditd\r\nAuditd q_depth configuration file is /etc/audit/auditd.conf\r\n[>] q_depth updated to 400\r\n[>] buffer_limit not defined in audit rules, added -b 10240\r\nNo rules\r\nenabled 1\r\nfailure 1\r\npid 685\r\nrate_limit 0\r\nbacklog_limit 10240\r\nlost 0\r\nbacklog 0\r\nbacklog_wait_time 15000\r\nbacklog_wait_time_actual 0\r\naugenrules rules loaded successfully\r\nauditd reload failed 3\r\nauditd restarted successfully\r\nCreating soft link of lib if it doesn't exists\r\nStarting wdavdaemon\r\nCreated symlink /etc/systemd/system/multi-user.target.wants/mdatp.service -> /usr/lib/systemd/system/mdatp.service.\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"suse-02\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"5253794b-7325-4f69-bf46-28dd9cfe46bc\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"710a60ff-68fa-48a6-8985-4f03ac7eaddd\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"I\",\r\n                \"code\":\"DaemonInitialized\",\r\n                \"text\":\"\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\nDaemon initialization completed\r\nDaemon status:\r\nactive\r\nwdavdaemon is running, pid=2768\r\nChecking mdatp health\r\nMDATP onboarded = ATTENTION: No license found. Contact your administrator for help.\r\nfalse\r\nMDATP not Healthy! Health issues: ATTENTION: No license found. Contact your administrator for help.\r\nhealthy                                     : false\r\nhealth_issues                               : [\"missing license\"]\r\nlicensed                                    : false\r\nengine_version                              : \"1.1.20100.7\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"5253794b-7325-4f69-bf46-28dd9cfe46bc\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : unavailable\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 04, 2023 at 04:59:23 PM\r\ndefinitions_updated_minutes_ago             : 0\r\ndefinitions_version                         : \"1.385.1648.0\"\r\ndefinitions_status                          : \"checking_for_updates\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : unavailable\r\nedr_machine_id                              : \"043cc0be9cbe77ce89101bf1a83bb1265ee946d5\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false\r\n[LogTelemetry] Submitting {\r\n        \"client\": {\r\n            \"appVersion\": \"101.23072.0021\",\r\n            \"hostname\": \"suse-02\",\r\n            \"platform\": \"Linux\",\r\n            \"machineGuid\": \"5253794b-7325-4f69-bf46-28dd9cfe46bc\",\r\n            \"orgId\": \"\",\r\n            \"productGuid\":\"c65eac3e-401e-4a0c-82e3-f106f693222f\"\r\n        },\r\n        \"reports\":[\r\n            {\r\n                \"$type\":\"installationReport\",\r\n                \"correlation_id\": \"710a60ff-68fa-48a6-8985-4f03ac7eaddd\",\r\n                \"version\": \"101.23072.0021\",\r\n                \"severity\": \"E\",\r\n                \"code\":\"Install\",\r\n                \"text\":\"health_issue='ATTENTION: No license found. Contact your administrator for help.\r\nhealthy                                     : false\r\nhealth_issues                               : [\"missing license\"]\r\nlicensed                                    : false\r\nengine_version                              : \"1.1.20100.7\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"5253794b-7325-4f69-bf46-28dd9cfe46bc\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : unavailable\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 04, 2023 at 04:59:23 PM\r\ndefinitions_updated_minutes_ago             : 0\r\ndefinitions_version                         : \"1.385.1648.0\"\r\ndefinitions_status                          : \"checking_for_updates\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : unavailable\r\nedr_machine_id                              : \"043cc0be9cbe77ce89101bf1a83bb1265ee946d5\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false'\"\r\n            }\r\n        ]\r\n    }\r\nTelemetry Submitted\r\n[LogTelemetry] result=0\r\npostinstall end [2023-10-04 16:59:29OURCE +0000] 2481"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can also use `grep` to search for specific text in the file."
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /var/log/microsoft/mdatp/install.log | grep VERSION_ID"
+            },
+            {
+              "Type": "Note",
+              "Value": "You could try replacing VERSION_ID with 'error', 'exception' or 'failed' when troubleshooting."
+            },
+            {
+              "Type": "Code",
+              "Value": "VERSION_ID=\"15.4\""
+            }
+          ]
+        },
+        {
+          "title": "Install the MDE package.",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Verify Install succeeded"
+            },
+            {
+              "Type": "Code",
+              "Value": "journalctl --no-pager| grep 'microsoft-mdatp' | grep 'postinstall end'"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Oct 04 16:59:29 suse-02 microsoft-mdatp-installer[2600]: postinstall end [2023-10-04 16:59:29OURCE +0000] 2481"
+            },
+            {
+              "Type": "Description",
+              "Value": "An output from the previous command with correct date and time of installation indicates success."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 4,
+      "title": "Explore the MDATP application",
+      "description": "Let's check the configuration of the MDE for Linux agent",
+      "tasks": [
+        {
+          "title": "Health check",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Health check"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health"
+            },
+            {
+              "Type": "Note",
+              "Value": "The 'mdatp health' command will show the health of the MDE for Linux agent. This will show if the agent is healthy, if there are any health issues, if the agent is licensed, and configurations values."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "ATTENTION: No license found. Contact your administrator for help.\r\nhealthy                                     : false\r\nhealth_issues                               : [\"missing license\"]\r\nlicensed                                    : false\r\nengine_version                              : \"1.1.23080.2007\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"e59f7ac2-0ca7-1347-9bc1-48c3d73a67c9\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : unavailable\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 03, 2023 at 06:15:39 PM\r\ndefinitions_updated_minutes_ago             : 5\r\ndefinitions_version                         : \"1.397.2014.0\"\r\ndefinitions_status                          : \"up_to_date\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : unavailable\r\nedr_machine_id                              : \"a709d89d7e8d299de9f0b9d173e3f1cdf4672284\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false"
+            },
+            {
+              "Type": "Description",
+              "Value": "In this case we can see a licensing error. We need to run the onboarding script to register the agent with the MDATP service."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 5,
+      "title": "Configure MDATP",
+      "description": "Configure MDATP",
+      "tasks": [
+        {
+          "title": "Download the onbarding script",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Download the onbarding script"
+            },
+            {
+              "Type": "Description",
+              "Value": "Go to https://security.microsoft.com/securitysettings/endpoints"
+            },
+            {
+              "Type": "Note",
+              "Value": "Make sure you have the correct permissions and licenses. You will need to be a Global Administrator or Security Administrator to access this page."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/SecurityPortalEndpoints.png"
+            }
+          ]
+        },
+        {
+          "title": "Download the onbarding script - continued",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Download the onbarding script - continued"
+            },
+            {
+              "Type": "Description",
+              "Value": "Select Onboarding under Device management."
+            },
+            {
+              "Type": "Description",
+              "Value": "Then Select Linux Server from the drop list of operating systems."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/SecurityPortalOnboarding.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "Download the onboarding package"
+            }
+          ]
+        },
+        {
+          "title": "Optional - Copy the onboarding script to the Linux server",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Optional - Copy the onboarding script to the Linux server"
+            },
+            {
+              "Type": "Description",
+              "Value": "If you are running Windows with Windows Subsystem for Linux (WSL) you can copy the onboarding script to the Linux server using the following command."
+            },
+            {
+              "Type": "Code",
+              "Value": "scp -i C:\\Users\\masontorres\\.ssh\\id_rsa\\linkp.key 'C:\\Users\\masontorres\\Downloads\\WindowsDefenderATPOnboardingPackage.zip' labmin@10.5.1.17:~"
+            },
+            {
+              "Type": "Description",
+              "Value": "The above command is using a certificate to authenitcate to the Linux server. You can also use a username and password."
+            },
+            {
+              "Type": "Description",
+              "Value": "The file copied is stored in the home directory of the user you are authenticating as."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "WindowsDefenderATPOnboardingPackage.zip                                               100% 5472   533.9KB/s   00:00"
+            }
+          ]
+        },
+        {
+          "title": "Optional - Unzip the onbard script",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Optional - Unzip the onbard script"
+            },
+            {
+              "Type": "Description",
+              "Value": "From the folder where you have copied the onboarding script."
+            },
+            {
+              "Type": "Code",
+              "Value": "cd /home/labmin/\r\nunzip WindowsDefenderATPOnboardingPackage.zip"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Archive:  WindowsDefenderATPOnboardingPackage.zip\r\ninflating: MicrosoftDefenderATPOnboardingLinuxServer.py"
+            }
+          ]
+        },
+        {
+          "title": "Client Confguration - Check org_id",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Client Confguration - Check org_id"
+            },
+            {
+              "Type": "Description",
+              "Value": "Let's check the current org_id configuration of the MDE for Linux agent."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health --field org_id"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "ATTENTION: No license found. Contact your administrator for help."
+            }
+          ]
+        },
+        {
+          "title": "Client Confguration - Onboard",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Client Confguration - Onboard"
+            },
+            {
+              "Type": "Description",
+              "Value": "From the folder where you have copied the onboarding script. Run the python onboading script."
+            },
+            {
+              "Type": "Code",
+              "Value": "python3 MicrosoftDefenderATPOnboardingLinuxServer.py"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "Generating /etc/opt/microsoft/mdatp/mdatp_onboard.json ..."
+            }
+          ]
+        },
+        {
+          "title": "Client Confguration - Confirmation",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Client Confguration - Confirmation"
+            },
+            {
+              "Type": "Description",
+              "Value": "Check MDATP health"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "healthy                                     : true\r\nhealth_issues                               : []\r\nlicensed                                    : true\r\nengine_version                              : \"1.1.23080.2007\"\r\napp_version                                 : \"101.23072.0021\"\r\norg_id                                      : \"e1fb4f0a-1fbe-4181-b3e3-180f6e6ac31f\"\r\nlog_level                                   : \"info\"\r\nmachine_guid                                : \"5253794b-7325-4f69-bf46-28dd9cfe46bc\"\r\nrelease_ring                                : \"Production\"\r\nproduct_expiration                          : May 16, 2024 at 02:55:42 PM\r\ncloud_enabled                               : true\r\ncloud_automatic_sample_submission_consent   : \"safe\"\r\ncloud_diagnostic_enabled                    : false\r\npassive_mode_enabled                        : true\r\nbehavior_monitoring                         : \"disabled\"\r\nreal_time_protection_enabled                : false\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\"\r\nsupplementary_events_subsystem              : \"auditd\"\r\ntamper_protection                           : \"disabled\"\r\nautomatic_definition_update_enabled         : true\r\ndefinitions_updated                         : Oct 04, 2023 at 04:59:34 PM\r\ndefinitions_updated_minutes_ago             : 3\r\ndefinitions_version                         : \"1.399.35.0\"\r\ndefinitions_status                          : \"up_to_date\"\r\nedr_early_preview_enabled                   : \"disabled\"\r\nedr_device_tags                             : []\r\nedr_group_ids                               : \"\"\r\nedr_configuration_version                   : \"30.199999.icm427805946.2023.10.02.03-7E3553EC4B6E6BB1ABA8E49AE4E7E2DE4A55C528934E5EF318F24016FD63FFF1\"\r\nedr_machine_id                              : \"3f6a1b4b9d81cd1fcb5be5eea28268d0562d878c\"\r\nconflicting_applications                    : []\r\nnetwork_protection_status                   : \"stopped\"\r\nnetwork_protection_enforcement_level        : \"disabled\"\r\ntroubleshooting_mode                        : false"
+            },
+            {
+              "Type": "Note",
+              "Value": "Note the org_id is now populated and healthy is true."
+            },
+            {
+              "Type": "Description",
+              "Value": "You can also check the Security Portal to see if the device is reporting in. https://security.microsoft.com/machines"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/SecurityPortalSLES.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

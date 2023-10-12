@@ -1,0 +1,854 @@
+{
+  "title": "Cheat Sheet",
+  "path": "linux/cheat-sheet",
+  "description": "Use this cheat sheet to brush up on your Linux commands and for all those Linux commands you can't quite remember!",
+  "data": [
+    {
+      "section": 1,
+      "title": "General",
+      "description": "General commands",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Directories"
+            },
+            {
+              "Type": "Description",
+              "Value": "/root - root user home directory"
+            },
+            {
+              "Type": "Description",
+              "Value": "/home - every user home directory"
+            },
+            {
+              "Type": "Description",
+              "Value": "/lib - \"c\" libraries used by programs and kernel"
+            },
+            {
+              "Type": "Description",
+              "Value": "/dev - device drivers/files"
+            },
+            {
+              "Type": "Description",
+              "Value": "/usr - user programs and utilities (binaries, docs, libraries, include files, etc.)"
+            },
+            {
+              "Type": "Description",
+              "Value": "/bin - OS essential binaries (ls, cp, mv, etc.)"
+            },
+            {
+              "Type": "Description",
+              "Value": "/etc - system configuration files, includes startup scripts"
+            },
+            {
+              "Type": "Description",
+              "Value": "/mnt - mount point for external file systems"
+            },
+            {
+              "Type": "Description",
+              "Value": "/var - variable data (mail and printer spools, log files, lock files, etc.)"
+            },
+            {
+              "Type": "Description",
+              "Value": "/tmp - temporary files"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "No output"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Kernel version"
+            },
+            {
+              "Type": "Description",
+              "Value": "Check kernal version / system information"
+            },
+            {
+              "Type": "Code",
+              "Value": "uname -a"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "Linux ROCKY-01 5.14.0-162.12.1.el9_1.0.2.x86_64 #1 SMP PREEMPT_DYNAMIC Mon Jan 30 22:14:42 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Process ID"
+            },
+            {
+              "Type": "Description",
+              "Value": "Check process id"
+            },
+            {
+              "Type": "Code",
+              "Value": "ps aux | grep mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Description",
+              "Value": "No MDATP process is found"
+            },
+            {
+              "Type": "Code",
+              "Value": "labmin      4500  0.0  0.0   3876  2084 pts/0    S+   04:06   0:00 grep --color=auto mdatp"
+            },
+            {
+              "Type": "Description",
+              "Value": "MDATP process is found"
+            },
+            {
+              "Type": "Code",
+              "Value": "root         714  0.2  7.4 1177124 143848 ?      Ssl  03:18   0:07 /opt/microsoft/mdatp/sbin/wdavdaemon\r\n              root         927  0.1  3.5 862736 67892 ?        Sl   03:18   0:05 /opt/microsoft/mdatp/sbin/wdavdaemon edr 12 11 --log_level info\r\n              root        1097  0.0  0.8 296188 16804 ?        Sl   03:18   0:00 /opt/microsoft/mdatp/sbin/telemetryd_v2 32\"\r\n              root        1298  0.3  6.6 3035812 128692 ?      Sl   03:18   0:11 /opt/microsoft/mdatp/sbin/wdavdaemon_network_protection network_protection 46 45\r\n              root        1729  0.0  0.5 795992  9920 ?        S<l  03:18   0:00 /opt/microsoft/mdatp/sbin/mdatp_audisp_plugin\r\n              mdatp       1838  0.9 10.2 917836 199152 ?       Sl   03:18   0:27 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 61 264 266 268 57 --log_level info\r\n              labmin      2816  0.0  0.0  12144  1108 pts/0    R+   04:07   0:00 grep --color=auto mdatp"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Kill Process"
+            },
+            {
+              "Type": "Description",
+              "Value": "Kill Process"
+            },
+            {
+              "Type": "Code",
+              "Value": "kill -9 9112"
+            },
+            {
+              "Type": "Note",
+              "Value": "Signal numbers are not portable, while signal names are. Check signal command for more information by running \"kill -l\""
+            },
+            {
+              "Type": "Code",
+              "Value": "kill -l"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "[1]+  Stopped                 less ~/.bash_history"
+            },
+            {
+              "Type": "Title",
+              "Value": "Output sample - kill -l"
+            },
+            {
+              "Type": "Code",
+              "Value": " 1) SIGHUP       2) SIGINT       3) SIGQUIT      4) SIGILL       5) SIGTRAP\r\n 6) SIGABRT      7) SIGBUS       8) SIGFPE       9) SIGKILL     10) SIGUSR1\r\n11) SIGSEGV     12) SIGUSR2     13) SIGPIPE     14) SIGALRM     15) SIGTERM\r\n16) SIGSTKFLT   17) SIGCHLD     18) SIGCONT     19) SIGSTOP     20) SIGTSTP\r\n21) SIGTTIN     22) SIGTTOU     23) SIGURG      24) SIGXCPU     25) SIGXFSZ\r\n26) SIGVTALRM   27) SIGPROF     28) SIGWINCH    29) SIGIO       30) SIGPWR\r\n31) SIGSYS      34) SIGRTMIN    35) SIGRTMIN+1  36) SIGRTMIN+2  37) SIGRTMIN+3\r\n38) SIGRTMIN+4  39) SIGRTMIN+5  40) SIGRTMIN+6  41) SIGRTMIN+7  42) SIGRTMIN+8\r\n43) SIGRTMIN+9  44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13\r\n48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12\r\n53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9  56) SIGRTMAX-8  57) SIGRTMAX-7\r\n58) SIGRTMAX-6  59) SIGRTMAX-5  60) SIGRTMAX-4  61) SIGRTMAX-3  62) SIGRTMAX-2\r\n63) SIGRTMAX-1  64) SIGRTMAX"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Display Linux processes"
+            },
+            {
+              "Type": "Description",
+              "Value": "Display Linux processes"
+            },
+            {
+              "Type": "Code",
+              "Value": "top"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "top - 04:21:58 up  1:03,  1 user,  load average: 0.00, 0.04, 0.07\r\nTasks: 117 total,   2 running, 115 sleeping,   0 stopped,   0 zombie\r\n%Cpu(s):  0.3 us,  0.0 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st\r\nMiB Mem :   1893.9 total,    593.8 free,    619.5 used,    680.6 buff/cache\r\nMiB Swap:      0.0 total,      0.0 free,      0.0 used.   1056.9 avail Mem\r\n\r\n    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND\r\n   1397 root      20   0  438824  29240  11544 S   0.3   1.5   0:08.41 python3\r\n   1838 mdatp     20   0  926032 200348  58188 S   0.3  10.3   0:33.88 wdavdaemon\r\n      1 root      20   0  175328  13700   8976 S   0.0   0.7   0:02.33 systemd\r\n      2 root      20   0       0      0      0 S   0.0   0.0   0:00.00 kthreadd\r\n      3 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_gp\r\n      4 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 rcu_par_gp\r\n      5 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 slub_flushwq\r\n      7 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 kworker/0:0H-events_highpri\r\n      9 root      20   0       0      0      0 I   0.0   0.0   0:00.08 kworker/u2:0-events_unbound\r\n     10 root       0 -20       0      0      0 I   0.0   0.0   0:00.00 mm_percpu_wq\r\n     11 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_rude_\r\n     12 root      20   0       0      0      0 S   0.0   0.0   0:00.00 rcu_tasks_trace\r\n     13 root      20   0       0      0      0 S   0.0   0.0   0:00.09 ksoftirqd/0\r\n     14 root      20   0       0      0      0 I   0.0   0.0   0:00.15 rcu_sched"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "List of open files"
+            },
+            {
+              "Type": "Description",
+              "Value": "List of open files"
+            },
+            {
+              "Type": "Code",
+              "Value": "lsof | grep mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "[labmin@CENTSOS-02 ~]$ sudo lsof | grep mdatp | grep /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714                          root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714                          root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  842 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  842 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  843 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  843 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  844 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  844 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon\r\nwdavdaemo  714  845 wdavdaemo           root  cwd       DIR                8,2     4096    4347690 /opt/microsoft/mdatp/sbin\r\nwdavdaemo  714  845 wdavdaemo           root  txt       REG                8,2    16384    4347703 /opt/microsoft/mdatp/sbin/wdavdaemon"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Display CPU information"
+            },
+            {
+              "Type": "Description",
+              "Value": "Display CPU information"
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /proc/cpuinfo"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "processor       : 0\r\nvendor_id       : GenuineIntel\r\ncpu family      : 6\r\nmodel           : 79\r\nmodel name      : Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz\r\nstepping        : 1\r\nmicrocode       : 0xffffffff\r\ncpu MHz         : 2294.686\r\ncache size      : 51200 KB\r\nphysical id     : 0\r\nsiblings        : 1\r\ncore id         : 0\r\ncpu cores       : 1\r\napicid          : 0\r\ninitial apicid  : 0\r\nfpu             : yes\r\nfpu_exception   : yes\r\ncpuid level     : 20\r\nwp              : yes\r\nflags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology cpuid pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 movbe popcnt aes xsave\r\navx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx smap xsaveopt md_clear\r\nbugs            : cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa itlb_multihit mmio_stale_data\r\nbogomips        : 4589.37\r\nclflush size    : 64\r\ncache_alignment : 64\r\naddress sizes   : 46 bits physical, 48 bits virtual\r\npower management:"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "CPU free memory"
+            },
+            {
+              "Type": "Description",
+              "Value": "Display amount of free and used memory in the system"
+            },
+            {
+              "Type": "Code",
+              "Value": "free -h"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "total        used        free      shared  buff/cache   available\r\nMem:          1.8Gi       651Mi       488Mi       8.0Mi       753Mi       989Mi\r\nSwap:            0B          0B          0B"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Find file by name"
+            },
+            {
+              "Type": "Code",
+              "Value": "find /home/labmin -name M*"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "/home/labmin/Master.txt"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Find files by size"
+            },
+            {
+              "Type": "Code",
+              "Value": "find /home/labmin -size +8k"
+            },
+            {
+              "Type": "Code",
+              "Value": "find /home/labmin -size +100M"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "/home/labmin/libxcrypt-4.4.18-3.el9.i686.rpm\r\n/home/labmin/.puppetlabs/opt/puppet/cache/state/last_run_report.yaml\r\n/home/labmin/installation.log"
+            },
+            {
+              "Type": "Code",
+              "Value": ""
+            },
+            {
+              "Type": "Note",
+              "Value": "Empty output becuase no files of +100M are found"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Compare two files"
+            },
+            {
+              "Type": "Code",
+              "Value": "diff MicrosoftDefenderATPOnboardingLinuxServer.py  MicrosoftDefenderATPOnboardingLinuxServerOld.py"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "[labmin@CENTSOS-02 ~]$ diff Master.txt Boss.txt\r\n1d0\r\n< Apple"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Compress a file"
+            },
+            {
+              "Type": "Code",
+              "Value": "gzip Master.txt"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "ls -l Ma*\r\n-rw-rw-r--. 1 labmin labmin 48 Sep 20 05:12 Master.txt.gz"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Uncompress files"
+            },
+            {
+              "Type": "Code",
+              "Value": "gunzip Master.txt.gz"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "ls -l Ma*\r\n-rw-rw-r--. 1 labmin labmin 17 Sep 20 05:12 Master.txt"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check disk space (human readable format)"
+            },
+            {
+              "Type": "Code",
+              "Value": "df -h"
+            },
+            {
+              "Type": "Title",
+              "Value": "Check disk space for a specific folder"
+            },
+            {
+              "Type": "Code",
+              "Value": "du -sh /home/labmin"
+            },
+            {
+              "Type": "Title",
+              "Value": "Check disk space (inode format)"
+            },
+            {
+              "Type": "Code",
+              "Value": "df -i"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Description",
+              "Value": "`df -h` will print sizes in powers of 1024 (e.g., 1023M)"
+            },
+            {
+              "Type": "Code",
+              "Value": "Filesystem      Size  Used Avail Use% Mounted on\r\ndevtmpfs        930M     0  930M   0% /dev\r\ntmpfs           947M  4.0K  947M   1% /dev/shm\r\ntmpfs           947M  8.6M  939M   1% /run\r\ntmpfs           947M     0  947M   0% /sys/fs/cgroup\r\n/dev/sda2       8.0G  3.1G  5.0G  39% /\r\n/dev/sda1      1014M  262M  753M  26% /boot\r\n/dev/sdb1       3.9G   24K  3.7G   1% /mnt\r\ntmpfs           190M     0  190M   0% /run/user/1000"
+            },
+            {
+              "Type": "Code",
+              "Value": "252K    /home/labmin"
+            },
+            {
+              "Type": "Description",
+              "Value": "`df -i` list inode information instead of block usage"
+            },
+            {
+              "Type": "Code",
+              "Value": "Filesystem      Inodes IUsed   IFree IUse% Mounted on\r\ndevtmpfs        240507   353  240154    1% /dev\r\ntmpfs           244837     1  244836    1% /dev/shm\r\ntmpfs           244837   552  244285    1% /run\r\ntmpfs           244837    17  244820    1% /sys/fs/cgroup\r\n/dev/sda2      4193792 62085 4131707    2% /\r\n/dev/sda1       524288   317  523971    1% /boot\r\n/dev/sdb1       262144    11  262133    1% /mnt\r\ntmpfs           244837     5  244832    1% /run/user/1001"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Shell"
+            },
+            {
+              "Type": "Description",
+              "Value": "What shell are you using?"
+            },
+            {
+              "Type": "Code",
+              "Value": "echo $SHELL"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "/bin/bash"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Install the MDE agent",
+      "description": "",
+      "tasks": [
+        {
+          "title": "Get Distro version",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Get Distro version"
+            },
+            {
+              "Type": "Description",
+              "Value": "Get Distro version"
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /etc/os-release"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "NAME=\"CentOS Stream\"\r\nVERSION=\"8\"\r\nID=\"centos\"\r\nID_LIKE=\"rhel fedora\"\r\nVERSION_ID=\"8\"\r\nPLATFORM_ID=\"platform:el8\"\r\nPRETTY_NAME=\"CentOS Stream 8\"\r\nANSI_COLOR=\"0;31\"\r\nCPE_NAME=\"cpe:/o:centos:centos:8\"\r\nHOME_URL=\"https://centos.org/\"\r\nBUG_REPORT_URL=\"https://bugzilla.redhat.com/\"\r\nREDHAT_SUPPORT_PRODUCT=\"Red Hat Enterprise Linux 8\"\r\nREDHAT_SUPPORT_PRODUCT_VERSION=\"CentOS Stream\"\r\n[labmin@CENTSOS-02 ~]$"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check if MDATP is installed"
+            },
+            {
+              "Type": "Code",
+              "Value": "which mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "/usr/bin/mdatp"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check daemon status"
+            },
+            {
+              "Type": "Code",
+              "Value": "systemctl status mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "\u25CF mdatp.service - Microsoft Defender\r\n   Loaded: loaded (/usr/lib/systemd/system/mdatp.service; enabled; vendor preset: disabled)\r\n   Active: active (running) since Wed 2023-09-20 03:18:14 UTC; 3h 19min ago\r\n Main PID: 714 (wdavdaemon)\r\n    Tasks: 260 (limit: 11894)\r\n   Memory: 1.0G\r\n   CGroup: /system.slice/mdatp.service\r\n           \u251C\u2500 714 /opt/microsoft/mdatp/sbin/wdavdaemon\r\n           \u251C\u2500 927 /opt/microsoft/mdatp/sbin/wdavdaemon edr 12 11 --log_level info\r\n           \u251C\u25001097 /opt/microsoft/mdatp/sbin/telemetryd_v2 32\"\r\n           \u251C\u25001298 /opt/microsoft/mdatp/sbin/wdavdaemon_network_protection network_protection 46 45\r\n           \u2514\u25001838 /opt/microsoft/mdatp/sbin/wdavdaemon unprivileged 61 264 266 268 57 --log_level info"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Fedora Install"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum update\r\nyum install yum-utils\r\nyum-config-manager --add-repo=https://packages.microsoft.com/config/fedora/38/prod.repo\r\nrpm --import http://packages.microsoft.com/keys/microsoft.asc\r\nyum install mdatp\r\nyum install pcre"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Oracle Install"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum update\r\nyum install yum-utils\r\nyum-config-manager --add-repo=https://packages.microsoft.com/config/rhel/8/prod.repo\r\nrpm --import http://packages.microsoft.com/keys/microsoft.asc\r\nyum install mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "RHEL via Puppet Install"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum update\r\nyum install puppet-agent\r\nyum install yum-utils\r\nrpm -U http://yum.puppet.com/puppet6-release-el-9.noarch.rpm\r\nyum install puppet-agent\r\npuppet agent -t\r\n\r\n#On Puppet server\r\n/opt/puppetlabs/bin/puppetserver ca sign --all"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "SUSE Install"
+            },
+            {
+              "Type": "Code",
+              "Value": "zypper update\r\nrpm --import http://packages.microsoft.com/keys/microsoft.asc\r\nzypper install mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            }
+          ]
+        },
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Ubuntu Install"
+            },
+            {
+              "Type": "Code",
+              "Value": "apt-get install update\r\napt-get install libplist-utils\r\napt-get install curl\r\ncurl -o microsoft.list https://packages.microsoft.com/config/ubuntu/20.04/prod.list\r\nmv ./microsoft.list /etc/apt/sources.list.d/microsoft-prod.list\r\napt-get install gpg\r\ncurl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null\r\napt-get install apt-transport-https\r\napt-get update\r\napt-get install mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "SSH",
+      "description": "",
+      "tasks": [
+        {
+          "title": "Get RSA from PEM",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Get RSA from PEM"
+            },
+            {
+              "Type": "Description",
+              "Value": "Get RSA from PEM"
+            },
+            {
+              "Type": "Code",
+              "Value": "openssl rsa -in linkp.pem -out key.key"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "writing RSA key\r\nkey.key"
+            }
+          ]
+        },
+        {
+          "title": "Copy file from Windows to Linux with SCP",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Copy file from Windows to Linux with SCP"
+            },
+            {
+              "Type": "Description",
+              "Value": "Copy file from Windows to Linux with SCP"
+            },
+            {
+              "Type": "Code",
+              "Value": "scp -i C:\\Users\\masontorres\\.ssh\\id_rsa\\linkp.key 'C:\\Users\\masontorres\\Downloads\\WindowsDefenderATPOnboardingPackage.zip' labmin@10.5.1.4:~"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Note",
+              "Value": "No output sample"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 4,
+      "title": "Repositories",
+      "description": "",
+      "tasks": [
+        {
+          "title": "Debian - Ubunutu",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Debian - Ubunutu"
+            },
+            {
+              "Type": "Code",
+              "Value": "apt-cache policy | grep microsoft"
+            },
+            {
+              "Type": "Description",
+              "Value": "OR"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo grep -Erh ^deb /etc/apt/sources.list* | grep microsoft"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main all Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=all\r\n     origin packages.microsoft.com\r\n 500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main arm64 Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=arm64\r\n     origin packages.microsoft.com\r\n 500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main armhf Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=armhf\r\n     origin packages.microsoft.com\r\n 500 https://packages.microsoft.com/ubuntu/20.04/prod focal/main amd64 Packages\r\n     release o=microsoft-ubuntu-focal-prod focal,a=focal,n=focal,l=microsoft-ubuntu-focal-prod focal,c=main,b=amd64\r\n     origin packages.microsoft.com"
+            },
+            {
+              "Type": "Code",
+              "Value": "deb [arch=amd64,armhf,arm64] https://packages.microsoft.com/ubuntu/20.04/prod focal main"
+            }
+          ]
+        },
+        {
+          "title": "RPM - RedHat, Fedora, Oracle",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "RPM - RedHat, Fedora, Oracle"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo dnf repolist | grep microsoft"
+            },
+            {
+              "Type": "Description",
+              "Value": "OR"
+            },
+            {
+              "Type": "Code",
+              "Value": "yum repolist | grep microsoft"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "microsoftpackages                                 packages-microsoft-com-prod-insiders-fast\r\nrhui-microsoft-azure-rhel9-eus                    Microsoft Azure RPMs for Red Hat Enterprise Linux 9 (rhel9-eus)"
+            },
+            {
+              "Type": "Code",
+              "Value": "microsoftpackages                                 packages-microsoft-com-prod-insiders-fast\r\nrhui-microsoft-azure-rhel9-eus                    Microsoft Azure RPMs for Red Hat Enterprise Linux 9 (rhel9-eus)"
+            }
+          ]
+        },
+        {
+          "title": "SUSE, openSUSE",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "SUSE, openSUSE"
+            },
+            {
+              "Type": "Code",
+              "Value": "zypper lr | grep microsoft"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Code",
+              "Value": "46 | packages-microsoft-com-prod                                                                | microsoft-prod                                          | Yes     | (r ) Yes  | Yes"
+            }
+          ]
+        },
+        {
+          "title": "Arch Linux, EndeavourOS and Manjaro Linux",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Arch Linux, EndeavourOS and Manjaro Linux"
+            },
+            {
+              "Type": "Code",
+              "Value": "zypper lr | grep microsoft"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Output sample"
+            },
+            {
+              "Type": "Note",
+              "Value": "Coming soon"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
