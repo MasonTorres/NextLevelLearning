@@ -39,8 +39,8 @@ jobs:
 
       - name: Zip artifact for deployment
         # IMPORTANT: .next is a hidden folder and will NOT be included in the zip unless we specify it
-        run: zip release.zip ./* .next .env -qr
-        # run: zip release.zip .next/standalone -qr
+        # run: zip release.zip ./* .next .env -qr
+        run: zip release.zip .next/standalone .next/static public -qr
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
