@@ -8,4 +8,5 @@ module.exports = {
       serverActions: true,
     },
     output: 'standalone',
+    // distDir: 'build',
   }
