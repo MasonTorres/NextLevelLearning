@@ -39,8 +39,9 @@ jobs:
           rm -rf .next/cache
           rm -rf node_modules
           rm -rf .next/server
-          mv .next/static .next/standalone
+          mv .next/static .next/standalone/.next
           mv public .next/standalone
+          ls -la .next/standalone
 
       - name: Zip artifact for deployment
         # IMPORTANT: .next is a hidden folder and will NOT be included in the zip unless we specify it
