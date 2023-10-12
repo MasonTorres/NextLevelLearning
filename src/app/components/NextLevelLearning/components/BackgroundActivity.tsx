@@ -16,7 +16,8 @@ import {
   DialogActions,
   DialogContent,
 } from "@fluentui/react-components";
-import { Box, Stack, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Stack, useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import Linkify from "react-linkify";
 import { IBackgroundActivity } from "../../../types/types";
 import BlogCodeBlock from "../../../components/code-block";
