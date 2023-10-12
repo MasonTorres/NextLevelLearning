@@ -31,13 +31,14 @@ jobs:
           CI=false npm run build --if-present
           npm run test --if-present
 
-      - name: "Cleanup build folder"
-        run: |
-          rm -rf .next/cache
+      # - name: "Cleanup build folder"
+      #   run: |
+      #     rm -rf .next/cache
 
       - name: Zip artifact for deployment
         # IMPORTANT: .next is a hidden folder and will NOT be included in the zip unless we specify it
-        run: zip release.zip ./* .next .env -qr
+        # run: zip release.zip ./* .next .env -qr
+        run: zip release.zip .next/standalone -qr
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
