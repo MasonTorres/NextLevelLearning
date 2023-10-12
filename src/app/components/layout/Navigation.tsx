@@ -449,33 +449,20 @@ export default function Navigation({
             value={value}
             onChange={handleChange}
           >
-            <ListItemButton
+            <BottomNavigationAction
               component={Link}
               href="/home"
-              sx={{ justifyContent: "center" }}
-            >
-              <ListItemIcon sx={{ justifyContent: "center" }}>
-                <Home28Filled />
-              </ListItemIcon>
-            </ListItemButton>
-
-            <ListItemButton
+              icon={<Home28Filled />}
+            />
+            <BottomNavigationAction
               target="_blank"
               href="https://forms.microsoft.com/r/fbCnRuRQwq"
-              sx={{ justifyContent: "center" }}
-            >
-              <ListItemIcon sx={{ justifyContent: "center" }}>
-                <PersonFeedback28Filled />
-              </ListItemIcon>
-            </ListItemButton>
-            <ListItemButton
+              icon={<PersonFeedback28Filled />}
+            />
+            <BottomNavigationAction
               onClick={handleThemeToggle}
-              sx={{ justifyContent: "center", maxWidth: "70px" }}
-            >
-              <ListItemIcon sx={{ justifyContent: "center" }}>
-                <DarkTheme24Regular />
-              </ListItemIcon>
-            </ListItemButton>
+              icon={<DarkTheme24Regular />}
+            />
           </BottomNavigation>
         </Paper>
       )}

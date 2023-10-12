@@ -8,8 +8,8 @@ import {
   ListItemText,
   Typography,
   useMediaQuery,
-  useTheme,
 } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import {
   Body2,
   Card,
