@@ -13,6 +13,9 @@ import {
 } from "@fluentui/react-components";
 import { createContext, useReducer } from "react";
 
+import { AppInsightsContext } from "@microsoft/applicationinsights-react-js";
+import { reactPlugin } from "./ApplicationInsightsService";
+
 // Create a DOM renderer for Fluent UI.
 const renderer = createDOMRenderer();
 
@@ -53,16 +56,18 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   // If the component has mounted, return a set of providers.
   return (
-    <PageInfoContext.Provider value={{ pageInfo, setPageInfo }}>
-      <RendererProvider renderer={renderer || createDOMRenderer()}>
-        <SSRProvider>
-          <FluentProvider
-            theme={pageInfo.theme === "light" ? webLightTheme : webDarkTheme}
-          >
-            {children}
-          </FluentProvider>
-        </SSRProvider>
-      </RendererProvider>
-    </PageInfoContext.Provider>
+    <AppInsightsContext.Provider value={reactPlugin}>
+      <PageInfoContext.Provider value={{ pageInfo, setPageInfo }}>
+        <RendererProvider renderer={renderer || createDOMRenderer()}>
+          <SSRProvider>
+            <FluentProvider
+              theme={pageInfo.theme === "light" ? webLightTheme : webDarkTheme}
+            >
+              {children}
+            </FluentProvider>
+          </SSRProvider>
+        </RendererProvider>
+      </PageInfoContext.Provider>
+    </AppInsightsContext.Provider>
   );
 }

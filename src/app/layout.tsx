@@ -5,9 +5,6 @@ import Navigation from "./components/layout/Navigation";
 // Import custom providers
 import { Providers } from "./providers";
 
-import { AppInsightsContext } from "@microsoft/applicationinsights-react-js";
-import { reactPlugin } from "./ApplicationInsightsService";
-
 //Defaults
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,9 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <>
           <Providers>
-            <AppInsightsContext.Provider value={reactPlugin}>
-              <Navigation>{children}</Navigation>
-            </AppInsightsContext.Provider>
+            <Navigation>{children}</Navigation>
           </Providers>
         </>
       </body>
