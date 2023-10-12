@@ -23,7 +23,7 @@ jobs:
 
       - name: Generate json pages
         run: |
-          bash src/content/getJsonFiles.sh
+          bash src/app/content/getJsonFiles.sh
 
       - name: npm install, build, and test
         run: |
