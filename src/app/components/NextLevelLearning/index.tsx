@@ -59,6 +59,43 @@ const useStyles = makeStyles({
   },
 });
 
+const GenerateRadiusUserTask = (
+  hasBackgroundTask: boolean,
+  isNotMobile: boolean
+) => {
+  if (hasBackgroundTask) {
+    if (isNotMobile) {
+      return "15px 0px 0px 15px";
+    } else {
+      return "15px 15px 0px 0px";
+    }
+  } else {
+    if (isNotMobile) {
+      return "15px 15px 15px 15px";
+    } else {
+      return "15px 15px 15px 15px";
+    }
+  }
+};
+const GenerateRadiusBackgroundTask = (
+  hasBackgroundTask: boolean,
+  isNotMobile: boolean
+) => {
+  if (hasBackgroundTask) {
+    if (isNotMobile) {
+      return "0px 15px 15px 0px";
+    } else {
+      return "0px 0px 15px 15px";
+    }
+  } else {
+    if (isNotMobile) {
+      return "15px 15px 15px 15px";
+    } else {
+      return "15px 15px 0px 0px";
+    }
+  }
+};
+
 export default function NextLevelLearning({
   content,
   description,
@@ -67,8 +104,7 @@ export default function NextLevelLearning({
   description: string;
 }) {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up("md"));
-
+  const isNotMobile = useMediaQuery(theme.breakpoints.up("md"));
   const styles = useStyles();
   const [selectedTab, setSelectedTab] = useState(1);
 
@@ -134,9 +170,9 @@ export default function NextLevelLearning({
         <Grid
           container
           spacing={2}
-          // maxWidth={matches ? `calc(100vw - ${contentWidth})` : "inherit"}
+          // maxWidth={isNotMobile ? `calc(100vw - ${contentWidth})` : "inherit"}
         >
-          {matches ? (
+          {isNotMobile ? (
             <Grid item xs={2} sm={4} md={3} lg={2}>
               <Box
                 sx={{
@@ -192,10 +228,10 @@ export default function NextLevelLearning({
 
           <Grid
             item
-            xs={matches ? 10 : 12}
-            sm={matches ? 9 : 12}
-            md={matches ? 9 : 12}
-            lg={matches ? 10 : 12}
+            xs={isNotMobile ? 10 : 12}
+            sm={isNotMobile ? 9 : 12}
+            md={isNotMobile ? 9 : 12}
+            lg={isNotMobile ? 10 : 12}
             sx={{
               top: "65px",
               marginTop: "10px",
@@ -208,20 +244,20 @@ export default function NextLevelLearning({
               item
               xs={12}
               md={12}
-              p={matches ? 0 : 0}
+              p={isNotMobile ? 0 : 0}
               pt={2}
-              mt={matches ? 1 : -7}
+              mt={isNotMobile ? 1 : -7}
             >
               <Body1>{description}</Body1>
             </Grid>
             {content.map((step) => (
               <Grid
-                container={matches ? true : false}
+                container={isNotMobile ? true : false}
                 item
-                spacing={matches ? 2 : undefined}
+                spacing={isNotMobile ? 2 : undefined}
                 key={step.section}
                 xs={12}
-                // p={matches ? 0 : 1}
+                // p={isNotMobile ? 0 : 1}
               >
                 <Grid item xs={12} md={12}>
                   <Element
@@ -245,61 +281,81 @@ export default function NextLevelLearning({
                     <Grid
                       item
                       xs={12}
-                      md={6}
+                      md={task.backgroundActivity.length === 0 ? 12 : 6}
                       className={styles.userActivity}
                       color={"white"}
-                      mb={matches ? 2 : 0}
+                      mb={
+                        isNotMobile
+                          ? 2
+                          : task.backgroundActivity.length === 0
+                          ? 2
+                          : 0
+                      }
                       pb={3}
                       sx={
-                        matches
-                          ? { borderRadius: "15px 0px 0px 15px" }
-                          : { borderRadius: "15px 15px 0px 0px" }
+                        {
+                          borderRadius: GenerateRadiusUserTask(
+                            task.backgroundActivity.length > 0,
+                            isNotMobile
+                          ),
+                        }
+                        // isNotMobile
+                        //   ? { borderRadius: "15px 0px 0px 15px" }
+                        //   : { borderRadius: "15px 15px 0px 0px" }
                       }
                     >
-                      <Box px={matches ? 2 : 0} pl={matches ? 0 : 0}>
-                        <Box p={matches ? 0 : 2} pb={matches ? 2 : 2}>
+                      <Box px={isNotMobile ? 2 : 0} pl={isNotMobile ? 0 : 0}>
+                        <Box p={isNotMobile ? 0 : 2} pb={isNotMobile ? 2 : 2}>
                           <Subtitle2>
                             {step.section}.{index + 1} User Activity{" "}
                           </Subtitle2>
                         </Box>
                         {/* Load the User Activity component */}
-                        <Box px={matches ? 0 : 1}>
+                        <Box px={isNotMobile ? 0 : 1}>
                           <UserActivity userActivity={task.userActivity} />
                         </Box>
                       </Box>
                     </Grid>
 
                     {/* Background Activity */}
-                    <Grid
-                      item
-                      xs={12}
-                      md={6}
-                      className={styles.backgroundActivity}
-                      color={"white"}
-                      mb={2}
-                      pb={3}
-                      sx={
-                        matches
-                          ? { borderRadius: "0px 15px 15px 0px" }
-                          : { borderRadius: "0px 0px 15px 15px" }
-                      }
-                    >
-                      <Box px={matches ? 2 : 0} pl={matches ? 0 : 0}>
-                        <Box p={matches ? 0 : 2} pb={matches ? 2 : 2}>
-                          <Subtitle2>
-                            {step.section}.{index + 1} Background Activity
-                          </Subtitle2>
-                        </Box>
+                    {task.backgroundActivity.length === 0 ? null : (
+                      <Grid
+                        item
+                        xs={12}
+                        md={6}
+                        className={styles.backgroundActivity}
+                        color={"white"}
+                        mb={2}
+                        pb={3}
+                        sx={
+                          {
+                            borderRadius: GenerateRadiusBackgroundTask(
+                              task.backgroundActivity.length > 0,
+                              isNotMobile
+                            ),
+                          }
+                          // isNotMobile
+                          //   ? { borderRadius: "0px 15px 15px 0px" }
+                          //   : { borderRadius: "0px 0px 15px 15px" }
+                        }
+                      >
+                        <Box px={isNotMobile ? 2 : 0} pl={isNotMobile ? 0 : 0}>
+                          <Box p={isNotMobile ? 0 : 2} pb={isNotMobile ? 2 : 2}>
+                            <Subtitle2>
+                              {step.section}.{index + 1} Background Activity
+                            </Subtitle2>
+                          </Box>
 
-                        {/* Load the Background Activity component */}
-                        {/* <Box pr={2}>{task.backgroundActivity}</Box> */}
-                        <Box px={matches ? 0 : 1} mb={2}>
-                          <BackgroundActivity
-                            backgroundActivity={task.backgroundActivity}
-                          />
+                          {/* Load the Background Activity component */}
+                          {/* <Box pr={2}>{task.backgroundActivity}</Box> */}
+                          <Box px={isNotMobile ? 0 : 1} mb={2}>
+                            <BackgroundActivity
+                              backgroundActivity={task.backgroundActivity}
+                            />
+                          </Box>
                         </Box>
-                      </Box>
-                    </Grid>
+                      </Grid>
+                    )}
                   </Fragment>
                 ))}
                 <Grid item xs={12} md={12} ml={-1} mb={2}>
