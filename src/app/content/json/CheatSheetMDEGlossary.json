@@ -1,0 +1,544 @@
+{
+  "title": "Cheat Sheet MDE Linux - Gloassry",
+  "path": "mde/linux/cheat-sheet-mde-glossary",
+  "description": "A glossary of terms used by MDE on Linux.",
+  "data": [
+    {
+      "section": 1,
+      "title": "Microsoft Defender for Endpoint",
+      "description": "",
+      "tasks": [
+        {
+          "title": "ASR",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "ASR"
+            },
+            {
+              "Type": "Description",
+              "Value": "Attack Surface Reduction"
+            },
+            {
+              "Type": "Note",
+              "Value": "Attack surfaces are all the places where your organization is vulnerable to cyberthreats and attacks. Defender for Endpoint includes several capabilities to help reduce your attack surfaces."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "Action Center",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Action Center"
+            },
+            {
+              "Type": "Note",
+              "Value": "During and after an automated investigation, remediation actions for threat detections are identified.  If you're part of your organization's security operations team, you can view pending and completed remediation actions in the Action center."
+            },
+            {
+              "Type": "Note",
+              "Value": "https://security.microsoft.com/action-center"
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "AIR",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "AIR"
+            },
+            {
+              "Type": "Description",
+              "Value": "Automated Investigation and Response"
+            },
+            {
+              "Type": "Note",
+              "Value": "The technology in automated investigation uses various inspection algorithms and is based on processes that are used by security analysts. AIR capabilities are designed to examine alerts and take immediate action to resolve breaches. AIR capabilities significantly reduce alert volume, allowing security operations to focus on more sophisticated threats and other high-value initiatives."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "CSPs",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "CSPs"
+            },
+            {
+              "Type": "Description",
+              "Value": "Configuration Service Providers"
+            },
+            {
+              "Type": "Note",
+              "Value": "CSPs expose device configuration settings in Windows client. The CSPs are used by mobile device management (MDM) service providers."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "EDR",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "EDR"
+            },
+            {
+              "Type": "Description",
+              "Value": "Endpoint Detection and Response"
+            },
+            {
+              "Type": "Note",
+              "Value": "Endpoint detection and response capabilities in Defender for Endpoint provide advanced attack detections that are near real-time and actionable. Security analysts can prioritize alerts effectively, gain visibility into the full scope of a breach, and take response actions to remediate threats."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "MAM",
+          "userActivity": [
+            {
+              "Type": "Type",
+              "Value": "MAM"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Advanced Protection Service"
+            },
+            {
+              "Type": "Note",
+              "Value": "For personal devices in bring-your-own-device (BYOD) scenarios, you can use Intune for mobile application management (MAM). MAM is user centric, so the app data is protected regardless of the device used to access this data. There's a focus on apps, including securely accessing apps and protecting data within the apps."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "MAPS",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "MAPS"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Advanced Protection Service"
+            },
+            {
+              "Type": "Note",
+              "Value": "Microsoft Defender Antivirus works seamlessly with Microsoft cloud services. These cloud protection services, also referred to as Microsoft Advanced Protection Service (MAPS), enhances standard real-time protection, arguably providing the best antivirus defense. Cloud protection is critical to preventing breaches from malware and a critical component of attack surface reduction rules."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "MDE",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "MDE"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Defender for Endpoint"
+            },
+            {
+              "Type": "Note",
+              "Value": "Microsoft Defender for Endpoint is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "MDO",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "MDO"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Defender for Office 365"
+            },
+            {
+              "Type": "Note",
+              "Value": "Microsoft Defender for Office 365 is a seamless integration into your Office 365 subscription that protects against threats in email, links (URLS), attachments, or collaboration tools."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "MDATP",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "MDATP"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Defender Advanced Threat Protection"
+            },
+            {
+              "Type": "Note",
+              "Value": "Microsoft Defender for Endpoint (formerly known as Microsoft Defender Advanced Threat Protection) is a complete security solution powered by the intelligent cloud that protects endpoints from cyber threats, detects advanced attacks and data breaches, automates security incidents, and improves security posture."
+            },
+            {
+              "Type": "Note",
+              "Value": "mdatp is also the executable name of the mdatp agent on Linux and MacOS."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "MDM",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "MDM"
+            },
+            {
+              "Type": "Description",
+              "Value": "Mobile Device Management"
+            },
+            {
+              "Type": "Note",
+              "Value": "Mobile Device Management (MDM) is a type of security software used by an IT department to monitor, manage, and secure employees’ mobile devices that are deployed across multiple mobile service providers and across multiple mobile operating systems being used in the organization. MDM is used to both optimize the functionality and security of a mobile communications network while minimizing cost and downtime. It includes storing essential information about mobile devices, deciding which apps can be present on the devices, locating devices, and securing devices if lost or stolen."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "MDVM",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "MDVM"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Defender Vulnerability Management"
+            },
+            {
+              "Type": "Note",
+              "Value": "Vulnerability assessment of onboarded mobile devices. Includes OS and Apps vulnerabilities assessment for both Android and iOS."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "Microsoft 365 Defender",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Microsoft 365 Defender"
+            },
+            {
+              "Type": "Note",
+              "Value": "Microsoft 365 Defender is a unified pre- and post-breach enterprise defense suite that natively coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications to provide integrated protection against sophisticated attacks."
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Defender for Endpoint - https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint?view=o365-worldwide"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Defender for Office 365 - https://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/microsoft-defender-for-office-365-product-overview?view=o365-worldwide"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Defender for Identity - https://learn.microsoft.com/en-us/defender-for-identity/what-is"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Defender for Cloud Apps - https://learn.microsoft.com/en-us/defender-cloud-apps/what-is-defender-for-cloud-apps"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Defender Vulnerability Management - https://learn.microsoft.com/en-us/microsoft-365/security/defender-vulnerability-management/defender-vulnerability-management?view=o365-worldwide"
+            },
+            {
+              "Type": "Description",
+              "Value": "Azure Active Directory Identity Protection - https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection"
+            },
+            {
+              "Type": "Description",
+              "Value": "Microsoft Data Loss Prevention - https://learn.microsoft.com/en-us/microsoft-365/compliance/dlp-learn-about-dlp"
+            },
+            {
+              "Type": "Description",
+              "Value": "App Governance - https://learn.microsoft.com/en-us/defender-cloud-apps/app-governance-manage-app-governance"
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "Conditional Access, Conditional launch",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Conditional Access, Conditional launch"
+            },
+            {
+              "Type": "Note",
+              "Value": "Blocking risky devices from accessing corporate resources. Defender for Endpoint risk signals can also be added to app protection policies (MAM)."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "PUA",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "MDATP"
+            },
+            {
+              "Type": "Description",
+              "Value": "Potentially unwanted applications"
+            },
+            {
+              "Type": "Note",
+              "Value": "The potentially unwanted application (PUA) protection feature in Defender for Endpoint on Linux can detect and block PUA files on endpoints in your network"
+            }
+          ],
+          "backgroundActivity": []
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Security Concepts",
+      "description": "",
+      "tasks": [
+        {
+          "title": "APT",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "APT"
+            },
+            {
+              "Type": "Description",
+              "Value": "Advanced Persistent Threat"
+            },
+            {
+              "Type": "Note",
+              "Value": "An adversary with sophisticated levels of expertise and significant resources, allowing it through the use of multiple different attack vectors (e.g., cyber, physical, and deception), to generate opportunities to achieve its objectives which are typically to establish and extend its presence within the information technology infrastructure of organizations for purposes of continually exfiltrating information and/or to undermine or impede critical aspects of a mission, program, or organization, or place itself in a position to do so in the future; moreover, the advanced persistent threat pursues its objectives repeatedly over an extended period of time, adapting to a defender’s efforts to resist it, and with determination to maintain the level of interaction needed to execute its objectives."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "API",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "API"
+            },
+            {
+              "Type": "Description",
+              "Value": "Application Programming Interfaces"
+            },
+            {
+              "Type": "Note",
+              "Value": "A software intermediary that allows two applications to interact with each other by defining the kinds of calls or requests that can be made, how to make them, the data formats that should be used, and the conventions to follow."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Description",
+              "Value": "Sample HTTP API Request"
+            },
+            {
+              "Type": "Code",
+              "Value": "GET\r\nhttps://api.securitycenter.microsoft.com/api/Machines/BrowserExtensionsInventoryByMachine?pageSize=5&sinceTime=2021-05-19T18%3A35%3A49.924Z"
+            },
+            {
+              "Type": "Description",
+              "Value": "Sample HTTP API Response"
+            },
+            {
+              "Type": "Code",
+              "Value": "{\r\n  \"@odata.context\": \"https://api.securitycenter.microsoft.com/api/$metadata#Collection(contoso.windowsDefenderATP.api.AssetSoftware)\",\r\n  \"value\": [\r\n    {\r\n      \"DeviceId\": \"1c32162b42e9efa1f5de42f951775f22f435c997\",\r\n      \"DeviceName\": \"computerpii_1363c2e016e2225cb03974df58f14e6968067aa8.domainpii_f260e982985f7e8eee198b4332e0ae5b2a069cd6.corp.microsoft.com\",\r\n      \"RbacGroupId\": 86,\r\n      \"RbacGroupName\": \"UnassignedGroup\",\r\n      \"InstallationTime\": \"2022-05-26T18:46:27.000Z\",\r\n      \"BrowserName\": \"chrome\",\r\n      \"ExtensionId\": \"dkpejdfnpdkhifgbancbammdijojoffk\",\r\n      \"ExtensionName\": \"Logitech Smooth Scrolling\",\r\n      \"ExtensionDescription\": \"Buttery-smooth scrolling for Logitechmice and touchpads.\",\r\n      \"ExtensionVersion\": \"6.65.62\",\r\n      \"ExtensionRisk\": \"High\",\r\n      \"IsActivated\": true,\r\n      \"Permissions\": [\r\n        {\r\n          \"Id\": \"tabs\",\r\n          \"IsRequired\": true,\r\n          \"Risk\": \"High\"\r\n        },\r\n        {\r\n          \"Id\": \"http://*/*\",\r\n          \"IsRequired\": true,\r\n          \"Risk\": \"High\"\r\n        },\r\n        {\r\n          \"Id\": \"https://*/*\",\r\n          \"IsRequired\": true,\r\n          \"Risk\": \"High\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"@odata.nextLink\": \"https://api.securitycenter.microsoft.com/api/Machines/BrowserExtensionsInventoryByMachine?pagesize=5&$skiptoken=eyJFeHBvcnREZWZpbml0aW9uIjp7IlRpbWVQYXRoIjoiMjAyMS0wMS0yNS8wMjAwLyJ9LCJFeHBvcnRGaWxlSW5kZXgiOjAsIkxpbmVTdG9wcGVkQXQiOjV9\"\r\n}\r\n"
+            }
+          ]
+        },
+        {
+          "title": "IOC",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "IOC"
+            },
+            {
+              "Type": "Description",
+              "Value": "Indicators of compromise"
+            },
+            {
+              "Type": "Note",
+              "Value": "IOCs are individually known malicious events that indicate that a network or device has already been breached. Unlike alert definitions, these indicators are considered as evidence of a breach. They're often seen after an attack has already been carried out and the objective has been reached, such as exfiltration. Keeping track of IOCs is also  important during forensic investigations. Although it might not be able to intervene with an attack chain, gathering these indicators can be useful in creating better defenses for possible future attacks."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "CPE",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "CPE"
+            },
+            {
+              "Type": "Description",
+              "Value": "Common Platform Enumeration"
+            },
+            {
+              "Type": "Note",
+              "Value": "CPE is a structured naming scheme for information technology systems, software, and packages. Based upon the generic syntax for Uniform Resource Identifiers (URI), CPE includes a formal name format, a method for checking names against a system, and a description format for binding text and tests to a name."
+            },
+            {
+              "Type": "Note",
+              "Value": "https://nvd.nist.gov/products/cpe"
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "CVE",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "CVE"
+            },
+            {
+              "Type": "Description",
+              "Value": "Common Vulnerabilities and Exposures"
+            },
+            {
+              "Type": "Note",
+              "Value": "The mission of the CVE® Program is to identify, define, and catalog publicly disclosed cybersecurity vulnerabilities."
+            },
+            {
+              "Type": "Note",
+              "Value": "https://www.cve.org/ResourcesSupport/FAQs"
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "CVSS",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "CVSS"
+            },
+            {
+              "Type": "Description",
+              "Value": "Common Vulnerability Scoring System"
+            },
+            {
+              "Type": "Note",
+              "Value": "The Common Vulnerability Scoring System (CVSS) is a method used to supply a qualitative measure of severity. CVSS is not a measure of risk. CVSS consists of three metric groups: Base, Temporal, and Environmental. The Base metrics produce a score ranging from 0 to 10, which can then be modified by scoring the Temporal and Environmental metrics."
+            },
+            {
+              "Type": "Note",
+              "Value": "https://nvd.nist.gov/vuln-metrics/cvss"
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "MITRE ATT&CK",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "MITRE ATT&CK"
+            },
+            {
+              "Type": "Note",
+              "Value": "MITRE ATT&CK® is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&CK knowledge base is used as a foundation for the development of specific threat models and methodologies in the private sector, in government, and in the cybersecurity product and service community."
+            },
+            {
+              "Type": "Note",
+              "Value": "https://attack.mitre.org/"
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "RBAC",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "RBAC"
+            },
+            {
+              "Type": "Description",
+              "Value": "Role-based access control"
+            },
+            {
+              "Type": "Note",
+              "Value": "A security mechanism that uses individual roles to determine access rights and privileges in a system."
+            }
+          ],
+          "backgroundActivity": []
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "General",
+      "description": "",
+      "tasks": [
+        {
+          "title": "CLI",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "CLI"
+            },
+            {
+              "Type": "Description",
+              "Value": "Command Line Interface"
+            },
+            {
+              "Type": "Note",
+              "Value": "Interfaces between operating systems and users in which users type commands, using a special command language."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Description",
+              "Value": "Sample CLIs"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/generic/cli.png"
+            }
+          ]
+        },
+        {
+          "title": "FQDN",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "FQDN"
+            },
+            {
+              "Type": "Description",
+              "Value": "Fully Qualified Domain Name"
+            },
+            {
+              "Type": "Note",
+              "Value": "Domain Name System (DNS) domain names (not URLs) that have been stated unambiguously to indicate with certainty their location in the domain namespace tree."
+            }
+          ],
+          "backgroundActivity": []
+        }
+      ]
+    }
+  ]
+}

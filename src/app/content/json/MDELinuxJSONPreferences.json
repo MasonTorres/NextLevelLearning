@@ -24,15 +24,69 @@
               "Value": "Refer to https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-preferences?view=o365-worldwide for more details."
             },
             {
+              "Type": "Description",
+              "Value": "mdatp_managed.json lives in /etc/opt/microsoft/mdatp/managed/"
+            }
+          ],
+          "backgroundActivity": [
+            {
               "Type": "Code",
               "Value": "{\r\n   \"antivirusEngine\":{\r\n      \"enforcementLevel\":\"passive\",\r\n      \"scanAfterDefinitionUpdate\":true,\r\n      \"scanArchives\":true,\r\n      \"maximumOnDemandScanThreads\":2,\r\n      \"exclusionsMergePolicy\":\"merge\",\r\n      \"exclusions\":[\r\n         {\r\n            \"$type\":\"excludedPath\",\r\n            \"isDirectory\":false,\r\n            \"path\":\"/var/log/system.log<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedPath\",\r\n            \"isDirectory\":true,\r\n            \"path\":\"/run<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedPath\",\r\n            \"isDirectory\":true,\r\n            \"path\":\"/home/*/git<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedFileExtension\",\r\n            \"extension\":\".pdf<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedFileName\",\r\n            \"name\":\"cat<EXAMPLE DO NOT USE>\"\r\n         }\r\n      ],\r\n      \"allowedThreats\":[\r\n         \"<EXAMPLE DO NOT USE>EICAR-Test-File (not a virus)\"\r\n      ],\r\n      \"disallowedThreatActions\":[\r\n         \"allow\",\r\n         \"restore\"\r\n      ],\r\n      \"nonExecMountPolicy\":\"unmute\",\r\n      \"unmonitoredFilesystems\": [\"nfs,fuse\"],\r\n      \"threatTypeSettingsMergePolicy\":\"merge\",\r\n      \"threatTypeSettings\":[\r\n         {\r\n            \"key\":\"potentially_unwanted_application\",\r\n            \"value\":\"block\"\r\n         },\r\n         {\r\n            \"key\":\"archive_bomb\",\r\n            \"value\":\"audit\"\r\n         }\r\n      ]\r\n   },\r\n   \"cloudService\":{\r\n      \"enabled\":true,\r\n      \"diagnosticLevel\":\"optional\",\r\n      \"automaticSampleSubmissionConsent\":\"safe\",\r\n      \"automaticDefinitionUpdateEnabled\":true,\r\n      \"proxy\": \"<EXAMPLE DO NOT USE> http://proxy.server:port/\"\r\n   }\r\n}"
             }
-          ],
-          "backgroundActivity": []
+          ]
         },
         {
-          "title": "Location",
-          "userActivity": [],
+          "title": "Core Components",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Core Components"
+            },
+            {
+              "Type": "Note",
+              "Value": "This is a nonexhaustive list of the core components of the MDE agent. Refer to https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-preferences?view=o365-worldwide#enforcement-level-for-antivirus-engine for a more up-to-date list."
+            },
+            {
+              "Type": "Description",
+              "Value": "enforcementLevel"
+            },
+            {
+              "Type": "Description",
+              "Value": "behaviorMonitoring"
+            },
+            {
+              "Type": "Description",
+              "Value": "maximumOnDemandScanThreads"
+            },
+            {
+              "Type": "Description",
+              "Value": "exclusionsMergePolicy"
+            },
+            {
+              "Type": "Description",
+              "Value": "exclusions"
+            },
+            {
+              "Type": "Description",
+              "Value": "nonExecMountPolicy"
+            },
+            {
+              "Type": "Description",
+              "Value": "unmonitoredFilesystems"
+            },
+            {
+              "Type": "Description",
+              "Value": "threatTypeSettings"
+            },
+            {
+              "Type": "Description",
+              "Value": "cloudService"
+            },
+            {
+              "Type": "Description",
+              "Value": "diagnosticLevel"
+            }
+          ],
           "backgroundActivity": []
         },
         {

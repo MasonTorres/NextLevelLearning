@@ -56,12 +56,7 @@
               "Value": "/tmp - temporary files"
             }
           ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "No output"
-            }
-          ]
+          "backgroundActivity": []
         },
         {
           "title": "",
@@ -714,16 +709,7 @@
               "Value": "scp -i C:\\Users\\masontorres\\.ssh\\id_rsa\\linkp.key 'C:\\Users\\masontorres\\Downloads\\WindowsDefenderATPOnboardingPackage.zip' labmin@10.5.1.4:~"
             }
           ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Output sample"
-            },
-            {
-              "Type": "Note",
-              "Value": "No output sample"
-            }
-          ]
+          "backgroundActivity": []
         }
       ]
     },

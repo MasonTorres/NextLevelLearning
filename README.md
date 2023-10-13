@@ -2,7 +2,7 @@
 
 This GitHub repo is used to build the Next Level Learning site https://aka.ms/NextLevelLearning.
 
-Add content to the site by merging you json files to /src/content/json
+Add content to the site by merging you json files to /src/app/content/json
 
 Create your conent using the following components.
 
