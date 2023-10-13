@@ -14,6 +14,7 @@
     "@fluentui/react": "^8.112.2",
     "@fluentui/react-components": "^9.34.2",
     "@fluentui/react-icons": "^2.0.219",
+    "@fluentui/react-search-preview": "^0.1.27",
     "@iconify/icons-cib": "^1.2.4",
     "@iconify/icons-material-symbols": "^1.2.56",
     "@iconify/react": "^4.1.1",

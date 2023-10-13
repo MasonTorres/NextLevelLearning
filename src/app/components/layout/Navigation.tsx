@@ -60,6 +60,7 @@ import NavItem from "./NavItem";
 import { PageInfoContext } from "../../providers";
 
 import nllDataFiles from "../../content/nllDataFiles.json";
+import { Search } from "./Search";
 const drawerWidth = 280;
 
 interface AppBarProps extends MuiAppBarProps {
@@ -346,6 +347,14 @@ export default function Navigation({
               <Box
                 sx={{ width: "100%", display: "flex", justifyContent: "end" }}
               >
+                <Box
+                  sx={{
+                    marginRight: "15px",
+                    marginTop: "5px",
+                  }}
+                >
+                  <Search />
+                </Box>
                 <IconButton
                   color="inherit"
                   onClick={handleThemeToggle}
