@@ -24,7 +24,10 @@ import { IUserActivity } from "../../../types/types";
 import BlogCodeBlock from "../../../components/code-block";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
-import { ReactNode, SetStateAction, useState } from "react";
+import { ReactNode, SetStateAction, useEffect, useState } from "react";
+
+import Scroll from "react-scroll";
+var Element = Scroll.Element;
 
 type Props = {
   userActivity: IUserActivity[];
@@ -40,6 +43,10 @@ const style = {
   // border: "2px solid #000",
   boxShadow: 24,
   p: 2,
+};
+
+const replaceAll = (str: any, find: any, replace: any) => {
+  return str.replace(new RegExp(find, "g"), replace);
 };
 
 export default function UserActivity({ userActivity }: Props) {
@@ -85,7 +92,12 @@ export default function UserActivity({ userActivity }: Props) {
                   return (
                     <div key={activity.Value}>
                       <Box py={1}>
-                        <Subtitle1>{activity.Value}</Subtitle1>
+                        <Element
+                          id={replaceAll(activity.Value, " ", "-")}
+                          name={activity.Value}
+                        >
+                          <Subtitle1>{activity.Value}</Subtitle1>
+                        </Element>
                       </Box>
                     </div>
                   );

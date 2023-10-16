@@ -25,8 +25,15 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
 import { SetStateAction, useState } from "react";
 
+import Scroll from "react-scroll";
+var Element = Scroll.Element;
+
 type Props = {
   backgroundActivity: IBackgroundActivity[];
+};
+
+const replaceAll = (str: any, find: any, replace: any) => {
+  return str.replace(new RegExp(find, "g"), replace);
 };
 
 export default function BackgroundActivity({ backgroundActivity }: Props) {
@@ -72,7 +79,12 @@ export default function BackgroundActivity({ backgroundActivity }: Props) {
                   return (
                     <div key={activity.Value}>
                       <Box py={1}>
-                        <Subtitle1>{activity.Value}</Subtitle1>
+                        <Element
+                          id={replaceAll(activity.Value, " ", "-")}
+                          name={activity.Value}
+                        >
+                          <Subtitle1>{activity.Value}</Subtitle1>
+                        </Element>
                       </Box>
                     </div>
                   );

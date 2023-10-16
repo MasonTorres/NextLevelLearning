@@ -349,7 +349,7 @@ export default function Navigation({
               >
                 <Box
                   sx={{
-                    marginRight: "15px",
+                    marginRight: "30px",
                     marginTop: "5px",
                   }}
                 >

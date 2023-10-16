@@ -10,6 +10,8 @@ import {
   webLightTheme,
   webDarkTheme,
   SSRProvider,
+  teamsDarkTheme,
+  teamsLightTheme,
 } from "@fluentui/react-components";
 import { createContext, useReducer } from "react";
 
@@ -61,7 +63,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <RendererProvider renderer={renderer || createDOMRenderer()}>
           <SSRProvider>
             <FluentProvider
-              theme={pageInfo.theme === "light" ? webLightTheme : webDarkTheme}
+              theme={
+                pageInfo.theme === "light" ? webLightTheme : webDarkTheme
+                // pageInfo.theme === "light" ? teamsLightTheme : teamsDarkTheme
+              }
             >
               {children}
             </FluentProvider>

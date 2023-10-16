@@ -27,7 +27,6 @@ import Scroll from "react-scroll";
 import UserActivity from "./components/UserActivity";
 import BackgroundActivity from "./components/BackgroundActivity";
 import { IContent } from "../../types/types";
-// import { PageInfoContext } from "../../appContext";
 
 var Link = Scroll.Link;
 var Element = Scroll.Element;
@@ -136,6 +135,16 @@ export default function NextLevelLearning({
       isChangingTab.current = true;
       setSelectedTab(1);
       scroller.scrollTo(`step1`, {
+        duration: 1000,
+        // delay: 50,
+        smooth: numTasks < 15 ? true : false,
+        // containerId: "ContainerElementID",
+        offset: -135, // Scrolls to element + 50 pixels down the page
+      });
+    } else if (value === "pageLoad2") {
+      isChangingTab.current = true;
+      setSelectedTab(1);
+      scroller.scrollTo(`Update-system-packages`, {
         duration: 1000,
         // delay: 50,
         smooth: numTasks < 15 ? true : false,

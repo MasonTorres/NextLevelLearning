@@ -37,3 +37,10 @@ export type ITask = {
     userActivity: IUserActivity[],
     backgroundActivity: IBackgroundActivity[],
 }
+
+export type INLLDataFile = {
+    title: string,
+    path: string,
+    description: string,
+    data: IContent[],
+}
