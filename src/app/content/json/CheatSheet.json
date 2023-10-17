@@ -519,7 +519,7 @@
           ]
         },
         {
-          "title": "",
+          "title": "Check if MDATP is installed",
           "userActivity": [
             {
               "Type": "Title",

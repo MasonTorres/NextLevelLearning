@@ -9,7 +9,7 @@
       "description": "What do we have already?",
       "tasks": [
         {
-          "title": "",
+          "title": "What do we have already?",
           "userActivity": [
             {
               "Type": "Title",
@@ -17,7 +17,7 @@
             },
             {
               "Type": "Description",
-              "Value": "This exercie assumes you have a Linux VM setup and running Fedora."
+              "Value": "This exercie assumes you have a Linux VM setup and running Ubuntu."
             },
             {
               "Type": "Code",

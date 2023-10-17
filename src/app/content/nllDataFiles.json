@@ -847,7 +847,7 @@
     {
       "section": 1,
       "title": "Microsoft Defender for Endpoint",
-      "description": "",
+      "description": "Microsoft Defender for Endpoint common terms.",
       "tasks": [
         {
           "title": "ASR",
@@ -3989,7 +3989,7 @@
       "description": "What do we have already?",
       "tasks": [
         {
-          "title": "",
+          "title": "Checking Existing Install",
           "userActivity": [
             {
               "Type": "Title",
@@ -4590,7 +4590,7 @@
       "description": "What do we have already?",
       "tasks": [
         {
-          "title": "",
+          "title": "What do we have already?",
           "userActivity": [
             {
               "Type": "Title",
@@ -4598,7 +4598,7 @@
             },
             {
               "Type": "Description",
-              "Value": "This exercie assumes you have a Linux VM setup and running Fedora."
+              "Value": "This exercie assumes you have a Linux VM setup and running Ubuntu."
             },
             {
               "Type": "Code",

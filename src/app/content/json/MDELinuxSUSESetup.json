@@ -9,7 +9,7 @@
       "description": "What do we have already?",
       "tasks": [
         {
-          "title": "",
+          "title": "Checking Existing Install",
           "userActivity": [
             {
               "Type": "Title",
