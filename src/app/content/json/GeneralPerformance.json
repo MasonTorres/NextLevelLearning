@@ -86,7 +86,7 @@
             },
             {
               "Type": "Description",
-              "Value": "`free` gets its information from the /proc/meminfo file. You can view /proc/meminfor more detailed information."
+              "Value": "`free` gets its information from the /proc/meminfo file. You can view /proc/meminfo for more detailed information."
             },
             { "Type": "Code", "Value": "cat /proc/meminfo" }
           ],
