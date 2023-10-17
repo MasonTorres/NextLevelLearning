@@ -838,9 +838,9 @@
       ]
     }
   ]
-}},
+}},
  { "file": "CheatSheetMDEGlossary", "path": "./json/CheatSheetMDEGlossary.json", "data": {
-  "title": "Cheat Sheet MDE Linux - Gloassry",
+  "title": "Cheat Sheet MDE Linux - Glossary",
   "path": "mde/linux/cheat-sheet-mde-glossary",
   "description": "A glossary of terms used by MDE on Linux.",
   "data": [
@@ -1382,7 +1382,7 @@
       ]
     }
   ]
-}},
+}},
  { "file": "CheatSheetMDELinux", "path": "./json/CheatSheetMDELinux.json", "data": {
   "title": "Cheat Sheet MDE Linux",
   "path": "mde/linux/cheat-sheet-mde",
@@ -1806,7 +1806,7 @@
       ]
     }
   ]
-}},
+}},
  { "file": "GeneralPerformance", "path": "./json/GeneralPerformance.json", "data": {
   "title": "Performance Monitoring",
   "path": "linux/performance-monitoring",
@@ -1895,7 +1895,7 @@
             },
             {
               "Type": "Description",
-              "Value": "`free` gets its information from the /proc/meminfo file. You can view /proc/meminfor more detailed information."
+              "Value": "`free` gets its information from the /proc/meminfo file. You can view /proc/meminfo for more detailed information."
             },
             { "Type": "Code", "Value": "cat /proc/meminfo" }
           ],
@@ -2031,7 +2031,7 @@
       ]
     }
   ]
-}},
+}},
  { "file": "MDELinuxCentosSetup", "path": "./json/MDELinuxCentosSetup.json", "data": {
   "title": "Setup - Centos",
   "path": "mde/linux/setup/linux-setup-centos",
@@ -2330,7 +2330,7 @@
       ]
     }
   ]
-}},
+}},
  { "file": "MDELinuxDiagnostics", "path": "./json/MDELinuxDiagnostics.json", "data": {
   "title": "Diagnostics",
   "path": "mde/linux/linux-diagnostics",
@@ -2647,7 +2647,7 @@
       ]
     }
   ]
-}},
+}},
  { "file": "MDELinuxFedoraSetup", "path": "./json/MDELinuxFedoraSetup.json", "data": {
   "title": "Setup - Fedora",
   "path": "mde/linux/setup/linux-setup-fedora",
@@ -3232,7 +3232,7 @@
       ]
     }
   ]
-}},
+}},
  { "file": "MDELinuxIPTables", "path": "./json/MDELinuxIPTables.json", "data": {
   "title": "RHEL iptables",
   "path": "mde/linux/linux-rhel-iptables",
@@ -3595,7 +3595,7 @@
       ]
     }
   ]
-}},
+}},
  { "file": "MDELinuxJSONPreferences", "path": "./json/MDELinuxJSONPreferences.json", "data": {
   "title": "Configure MDE with JSON Configuration Profile",
   "path": "mde/linux/configurations/mde-configuration-profile",
@@ -3739,7 +3739,7 @@
       ]
     }
   ]
-}},
+}},
  { "file": "MDELinuxOracleKernelUpdate", "path": "./json/MDELinuxOracleKernelUpdate.json", "data": {
   "title": "Oracle Kernel Update",
   "path": "mde/linux/linux-oracle-kernel-update",
@@ -3977,7 +3977,7 @@
       ]
     }
   ]
-}},
+}},
  { "file": "MDELinuxSUSESetup", "path": "./json/MDELinuxSUSESetup.json", "data": {
   "title": "Setup - SUSE/SLES",
   "path": "mde/linux/setup/linux-setup-suse",
@@ -4578,7 +4578,7 @@
       ]
     }
   ]
-}},
+}},
  { "file": "MDELinuxUbuntuSetup", "path": "./json/MDELinuxUbuntuSetup.json", "data": {
   "title": "Setup - Ubuntu/Debian",
   "path": "mde/linux/setup/linux-setup-ubuntu",
@@ -5292,5 +5292,5 @@
       ]
     }
   ]
-}}
+}},
 ]
