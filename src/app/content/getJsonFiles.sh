@@ -4,7 +4,7 @@
 # Directory to scan
 dir="src/app/content/json"
 # Output file
-output="nllDataFiles.json"
+output="src/app/content/nllDataFiles.json"
 
 # Start of json
 echo "[" > $output
