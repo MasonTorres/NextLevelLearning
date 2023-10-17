@@ -2,13 +2,7 @@
 import { MetadataRoute } from 'next'
 import nllDataFiles from "./content/nllDataFiles.json";
 
-
-let siteMapUrls: {
-    url: string;
-    lastModified: string;
-    changeFrequency: any;
-    priority: any;
-  }[] = [];
+let siteMapUrls:MetadataRoute.Sitemap = [];
 
 nllDataFiles.forEach((file) => {
     siteMapUrls.push({
@@ -18,7 +12,6 @@ nllDataFiles.forEach((file) => {
         priority: 1,
     });
 });
-
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
