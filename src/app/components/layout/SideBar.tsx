@@ -79,6 +79,7 @@ const MenuT = (hierarchy: any, handleClick: any, active: string) => {
     //
     // Check top level Menu
     //
+
     if (key1 !== "title" && key1 !== "to") {
       let l2 = Object.keys(hierarchy[key1]).map((key2, index2) => {
         //
@@ -86,7 +87,6 @@ const MenuT = (hierarchy: any, handleClick: any, active: string) => {
         //
 
         if (!hierarchy[key1][key2].hasOwnProperty("title")) {
-          // dropdown
           let l3 = Object.keys(hierarchy[key1][key2]).map((key3, index3) => {
             //
             // Check 3rd level Menu
@@ -121,7 +121,7 @@ const MenuT = (hierarchy: any, handleClick: any, active: string) => {
               return (
                 <SubMenu
                   key={key1 + "/" + key2 + "/" + key3}
-                  open={
+                  defaultOpen={
                     active.startsWith("/" + key1 + "/" + key2 + "/" + key3)
                       ? true
                       : false
@@ -147,7 +147,9 @@ const MenuT = (hierarchy: any, handleClick: any, active: string) => {
           return (
             <SubMenu
               key={key1 + "/" + key2}
-              open={active.startsWith("/" + key1 + "/" + key2) ? true : false}
+              defaultOpen={
+                active.startsWith("/" + key1 + "/" + key2) ? true : false
+              }
               label={key2.charAt(0).toUpperCase() + key2.slice(1)}
             >
               {l3}
@@ -166,10 +168,12 @@ const MenuT = (hierarchy: any, handleClick: any, active: string) => {
           );
         }
       });
+      console.log("active", active);
+      console.log("/key1", "/" + key1);
       return (
         <SubMenu
           key={key1}
-          open={active.startsWith("/" + key1) ? true : false}
+          defaultOpen={active.startsWith("/" + key1) ? true : false}
           label={key1.charAt(0).toUpperCase() + key1.slice(1)}
         >
           {l2}
@@ -198,6 +202,7 @@ export default function SideBar({ title, to }: any) {
 
   const [active, setActive] = useState(pathname);
   const handleClick = (to: string) => {
+    console.log("to", to);
     setActive(to);
   };
 
@@ -209,6 +214,10 @@ export default function SideBar({ title, to }: any) {
             return {
               backgroundColor: active ? tokens.colorNeutralStroke3 : undefined,
             };
+          },
+          label: {
+            // apply / override styles of all menu item labels
+            whiteSpace: "unset",
           },
         }}
       >
