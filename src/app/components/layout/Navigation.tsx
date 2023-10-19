@@ -681,9 +681,7 @@ export default function Navigation({
                     )
                   )}
                 </List>
-                <List>
-                  <Menu hierarchy={hierarchy}></Menu>
-                </List>
+                <List>{/* <Menu hierarchy={hierarchy}></Menu> */}</List>
                 <List
                   style={{ position: "absolute", bottom: "0", width: "100%" }}
                 >
