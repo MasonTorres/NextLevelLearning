@@ -61,6 +61,8 @@ import { PageInfoContext } from "../../providers";
 
 import nllDataFiles from "../../content/nllDataFiles.json";
 import { Search } from "./Search";
+import MenuItem from "./MenuItem";
+import MenuDropdown from "./MenuDropdown";
 const drawerWidth = 280;
 
 interface AppBarProps extends MuiAppBarProps {
@@ -212,6 +214,256 @@ nllDataFiles.forEach(
     });
   }
 );
+console.log("linuxmde", JSON.stringify(linuxmde));
+
+let levelOne: string[] = [];
+let levelTwo: string[] = [];
+let levelThree: string[] = [];
+let levelFour: string[] = [];
+linuxmde.filter((file) => {
+  const split = file.to.split("/");
+  console.log("split", split);
+  if (split.length === 3) {
+    if (levelOne.indexOf(split[1]) === -1) levelOne.push(split[1]);
+  }
+});
+console.log("levelOne", levelOne);
+
+function createHierarchy(data: any[]) {
+  let hierarchy: any = {};
+
+  data.forEach((item) => {
+    let parts = item.to.split("/");
+    let currentLevel = hierarchy;
+
+    for (let i = 1; i < parts.length; i++) {
+      if (!currentLevel[parts[i]]) {
+        currentLevel[parts[i]] = {};
+      }
+      currentLevel = currentLevel[parts[i]];
+    }
+
+    currentLevel["title"] = item.title;
+    currentLevel["to"] = item.to;
+  });
+
+  return hierarchy;
+}
+// console.log(JSON.stringify(createHierarchy(linuxmde), null, 2));
+const hierarchy = createHierarchy(linuxmde);
+console.log("hierarchy", hierarchy);
+console.log("hierarchy", JSON.stringify(hierarchy));
+// Object.keys(hierarchy).map((key1, index1) => {
+//   if (key1 !== "title" && key1 !== "to") {
+//     console.log("<MenuDropdown>");
+//     console.log("key1", key1);
+//     Object.keys(hierarchy[key1]).map((key2, index2) => {
+//       if (key2 !== "title" && key2 !== "to") {
+//         const key2NumItems = Object.keys(hierarchy[key1][key2]).filter(
+//           (key3, index3) => {
+//             return hierarchy[key1][key2][key3]["title"];
+//           }
+//         ).length;
+//         const key2NumDropdowns = Object.keys(hierarchy[key1][key2]).length;
+//         console.log(
+//           "Check if children have more then title or to",
+//           Object.keys(hierarchy[key1][key2]).filter((key3, index3) => {
+//             return hierarchy[key1][key2][key3]["title"];
+//           })
+//         );
+//         console.log(
+//           "hierarchy[key1][key2][key3]",
+//           Object.keys(hierarchy[key1][key2]).length
+//         );
+
+//         if (key2NumItems < key2NumDropdowns) {
+//           console.log("--<MenuDropdown>");
+//           console.log("  key2", key2);
+//         }
+//         Object.keys(hierarchy[key1][key2]).map((key3, index3) => {
+//           if (key3 !== "title" && key3 !== "to") {
+//             console.log("---<MenuDropdown>");
+//             console.log("    key3", key3);
+//             Object.keys(hierarchy[key1][key2][key3]).map((key4, index4) => {
+//               if (key4 === "title") {
+//                 console.log("   <MenuItem>");
+//                 console.log("      key4", hierarchy[key1][key2][key3][key4]);
+//                 console.log("   </MenuItem>");
+//               }
+//             });
+//             console.log("---</MenuDropdown>");
+//           } else {
+//             if (key3 === "title") {
+//               console.log("   <MenuItem>");
+//               console.log("      key3", hierarchy[key1][key2][key3]);
+//               console.log("   </MenuItem>");
+//             }
+//           }
+//         });
+//         if (key2NumItems < key2NumDropdowns) {
+//           console.log("--</MenuDropdown>");
+//         }
+//       } else {
+//         if (key2 === "title") {
+//           console.log(" <MenuItem>");
+//           console.log("  key2", key2);
+//           console.log(" </MenuItem>");
+//         }
+//       }
+//       console.log("-</MenuDropdown>");
+//     });
+//     console.log("</MenuDropdown>");
+//   } else {
+//     console.log("<MenuItem>");
+//     console.log("key1", key1);
+//     console.log("</MenuItem>");
+//   }
+// });
+
+const Menu = (hierarchy: any) => {
+  return (
+    <>
+      {Object.keys(hierarchy).map((key1, index1) => {
+        //
+        // Check top level Menu
+        //
+        if (key1 !== "title" && key1 !== "to") {
+          console.log("-<MenuDropdown>");
+          console.log("-Downdown-key-1", key1);
+          Object.keys(hierarchy[key1]).map((key2, index2) => {
+            //
+            // Check 2nd level Menu
+            //
+            const key2NumItems = Object.keys(hierarchy[key1][key2]).filter(
+              (key3, index3) => {
+                return hierarchy[key1][key2][key3]["title"];
+              }
+            ).length;
+            const key2NumDropdowns = Object.keys(hierarchy[key1][key2]).filter(
+              (key3, index3) => {
+                return hierarchy[key1][key2][key3]["title"] === undefined;
+              }
+            ).length;
+            if (key2NumDropdowns > 0) {
+              // dropdown
+              console.log("--<MenuDropdown>");
+              console.log("--Downdown-key-2", key2);
+              Object.keys(hierarchy[key1][key2]).map((key3, index3) => {
+                //
+                // Check 2nd level Menu
+                //
+                const key3NumItems = Object.keys(
+                  hierarchy[key1][key2][key3]
+                ).filter((key4, index4) => {
+                  return hierarchy[key1][key2][key3][key4]["title"];
+                }).length;
+                const key3NumDropdowns = Object.keys(
+                  hierarchy[key1][key2][key3]
+                ).filter((key4, index4) => {
+                  return (
+                    hierarchy[key1][key2][key3][key4]["title"] === undefined
+                  );
+                }).length;
+
+                if (hierarchy[key1][key2]["title"] === undefined) {
+                  // dropdown
+                  console.log("---<MenuDropdown>");
+                  console.log("---Dropdown-key-3", key3);
+                  Object.keys(hierarchy[key1][key2][key3]).map(
+                    (key4, index4) => {
+                      //
+                      // Check 2nd level Menu
+                      //
+                      const key4NumItems = Object.keys(
+                        hierarchy[key1][key2][key3][key4]
+                      ).filter((key5, index5) => {
+                        return hierarchy[key1][key2][key3][key4][key5]["title"];
+                      }).length;
+                      const key4NumDropdowns = Object.keys(
+                        hierarchy[key1][key2][key3][key4]
+                      ).filter((key5, index5) => {
+                        return (
+                          hierarchy[key1][key2][key3][key4][key5]["title"] ===
+                          undefined
+                        );
+                      }).length;
+
+                      if (
+                        hierarchy[key1][key2][key3][key4].title !== undefined
+                      ) {
+                        console.log("----<MenuItem>");
+                        console.log("----Item-key-4", key4);
+                      }
+                    }
+                  );
+                  console.log("---</MenuDropdown>");
+                } else {
+                  // item
+                  console.log("---<MenuItem>");
+                  console.log("---Item-key-3", hierarchy[key1][key2][key3]);
+                }
+              });
+              console.log("--</MenuDropdown>");
+            } else {
+              // only items
+              console.log("--Item-key2-", hierarchy[key1][key2]);
+            }
+          });
+          console.log("-</MenuDropdown>");
+        } else {
+          console.log("-<MenuItem>");
+          console.log("-Item-key1-", hierarchy[key1]);
+          console.log("-</MenuItem>");
+          return (
+            <MenuItem title={hierarchy[key1].title} to={hierarchy[key1].to} />
+          );
+        }
+      })}
+    </>
+  );
+};
+
+// interface MenuNode {
+//   title?: string;
+//   to?: string;
+//   [key: string]: MenuNode | string | undefined;
+// }
+
+// const MenuComponent: React.FC<{ data: MenuNode }> = ({ data }) => {
+//   const stack: { node: MenuNode; path: string[] }[] = [
+//     { node: data, path: [] },
+//   ];
+//   const elements: JSX.Element[] = [];
+
+//   while (stack.length > 0) {
+//     const { node, path } = stack.pop()!;
+
+//     Object.keys(node).forEach((key) => {
+//       const newPath = [...path, key];
+
+//       if (
+//         typeof node[key] === "object" &&
+//         node[key] !== null &&
+//         (node[key] as MenuNode).hasOwnProperty("title") &&
+//         (node[key] as MenuNode).hasOwnProperty("to")
+//       ) {
+//         elements.push(
+//           <MenuItem
+//             key={newPath.join(".")}
+//             title={(node[key] as MenuNode).title!}
+//             to={(node[key] as MenuNode).to!}
+//           />
+//         );
+//       } else if (typeof node[key] === "object" && node[key] !== null) {
+//         stack.push({ node: node[key] as MenuNode, path: newPath });
+//         elements.push(<MenuDropdown key={newPath.join(".")} title={key} />);
+//       }
+//     });
+//   }
+//   console.log("elements", elements);
+
+//   return <>{elements.reverse()}</>;
+// };
 
 // Nav links
 const links = [
@@ -428,6 +680,9 @@ export default function Navigation({
                       </div>
                     )
                   )}
+                </List>
+                <List>
+                  <Menu hierarchy={hierarchy}></Menu>
                 </List>
                 <List
                   style={{ position: "absolute", bottom: "0", width: "100%" }}
