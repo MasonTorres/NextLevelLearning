@@ -1,14 +1,16 @@
-import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
+"use client";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import nllDataFiles from "../../content/nllDataFiles.json";
 import { ReactComponentElement, useState } from "react";
 // Iconify Icons
 import { Icon } from "@iconify/react";
-import linuxIcon from "@iconify/icons-cib/linux";
 import lineEndIcon from "@iconify/icons-material-symbols/line-end";
 // Fluent UI
 import { tokens } from "@fluentui/react-components";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+
+import NavSubMenu from "./NavSubMenu";
 
 nllDataFiles.sort((a, b) => {
   let titlea = a.data.title.toLowerCase(),
@@ -72,7 +74,7 @@ function createHierarchy(data: any[]) {
 
   return hierarchy;
 }
-const hierarchy = createHierarchy(linuxmde);
+let hierarchy = createHierarchy(linuxmde);
 console.log("hierarchy", hierarchy);
 const MenuT = (hierarchy: any, handleClick: any, active: string) => {
   let menuItems = Object.keys(hierarchy).map((key1, index1) => {
@@ -119,17 +121,17 @@ const MenuT = (hierarchy: any, handleClick: any, active: string) => {
               );
 
               return (
-                <SubMenu
-                  key={key1 + "/" + key2 + "/" + key3}
-                  defaultOpen={
-                    active.startsWith("/" + key1 + "/" + key2 + "/" + key3)
-                      ? true
-                      : false
-                  }
-                  label={key3.charAt(0).toUpperCase() + key3.slice(1)}
-                >
-                  {l4}
-                </SubMenu>
+                <>
+                  <NavSubMenu
+                    key={key3}
+                    level="3"
+                    path={"/" + key1 + "/" + key2 + "/" + key3}
+                    label={key3.charAt(0).toUpperCase() + key3.slice(1)}
+                    active={active}
+                  >
+                    {l4}
+                  </NavSubMenu>
+                </>
               );
             } else {
               return (
@@ -145,15 +147,17 @@ const MenuT = (hierarchy: any, handleClick: any, active: string) => {
             }
           });
           return (
-            <SubMenu
-              key={key1 + "/" + key2}
-              defaultOpen={
-                active.startsWith("/" + key1 + "/" + key2) ? true : false
-              }
-              label={key2.charAt(0).toUpperCase() + key2.slice(1)}
-            >
-              {l3}
-            </SubMenu>
+            <>
+              <NavSubMenu
+                key={key2}
+                level="2"
+                path={"/" + key1 + "/" + key2}
+                label={key2.charAt(0).toUpperCase() + key2.slice(1)}
+                active={active}
+              >
+                {l3}
+              </NavSubMenu>
+            </>
           );
         } else {
           return (
@@ -168,16 +172,18 @@ const MenuT = (hierarchy: any, handleClick: any, active: string) => {
           );
         }
       });
-      console.log("active", active);
-      console.log("/key1", "/" + key1);
       return (
-        <SubMenu
-          key={key1}
-          defaultOpen={active.startsWith("/" + key1) ? true : false}
-          label={key1.charAt(0).toUpperCase() + key1.slice(1)}
-        >
-          {l2}
-        </SubMenu>
+        <>
+          <NavSubMenu
+            key={key1}
+            level="1"
+            path={"/" + key1}
+            label={key1.charAt(0).toUpperCase() + key1.slice(1)}
+            active={active}
+          >
+            {l2}
+          </NavSubMenu>
+        </>
       );
     } else {
       return (
@@ -199,7 +205,7 @@ const MenuT = (hierarchy: any, handleClick: any, active: string) => {
 
 export default function SideBar({ title, to }: any) {
   const pathname = usePathname();
-
+  const router = useRouter();
   const [active, setActive] = useState(pathname);
   const handleClick = (to: string) => {
     console.log("to", to);
@@ -221,7 +227,14 @@ export default function SideBar({ title, to }: any) {
           },
         }}
       >
-        {MenuT(hierarchy, handleClick, active)}
+        <MenuItem
+          onClick={() => handleClick("/home")}
+          active={active === "/home"}
+          component={<Link href="/home" />}
+        >
+          Home
+        </MenuItem>
+        {MenuT(hierarchy, handleClick, pathname)}
       </Menu>
     </Sidebar>
   );
