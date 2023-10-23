@@ -20,8 +20,8 @@ export default function NavSubMenu({
 }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [rand, setRand] = useState(0); // [rand, setRand
   const handleOpen = () => {
-    console.log("OnOpenChange");
     setOpen(!open);
   };
 
@@ -29,12 +29,14 @@ export default function NavSubMenu({
     if (pathname.startsWith(path) && open === false) {
       console.log("Settings open to true");
       setOpen(true);
+      // New random number to force re-render
+      setRand(Math.random());
     }
   }, [pathname]);
 
   return (
     <SubMenu
-      key={path}
+      key={path + rand}
       defaultOpen={pathname.startsWith(path) ? true : undefined}
       open={open}
       onClick={() => handleOpen()}
