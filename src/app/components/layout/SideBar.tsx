@@ -213,12 +213,22 @@ export default function SideBar({ title, to }: any) {
   };
 
   return (
-    <Sidebar width="100%">
+    <Sidebar
+      width="100%"
+      rootStyles={{
+        border: "none",
+      }}
+    >
       <Menu
         menuItemStyles={{
           button: ({ level, active, disabled }) => {
             return {
-              backgroundColor: active ? tokens.colorNeutralStroke3 : undefined,
+              backgroundColor: active
+                ? tokens.colorNeutralStroke3
+                : tokens.colorNeutralBackground1,
+              "&:hover": {
+                backgroundColor: tokens.colorSubtleBackgroundHover,
+              },
             };
           },
           label: {
