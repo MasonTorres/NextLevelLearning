@@ -80,7 +80,7 @@ export default function UserActivity({ userActivity }: Props) {
         <Stack>
           <Linkify
             componentDecorator={(decoratedHref, decoratedText, key) => (
-              <a target="blank" href={decoratedHref} key={key}>
+              <a target="blank" href={decoratedHref} key={key} color="red">
                 {decoratedText}
                 <OpenInNewIcon sx={{ fontSize: "10px", ml: "1px" }} />
               </a>

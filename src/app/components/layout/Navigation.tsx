@@ -110,6 +110,7 @@ const useStyles = makeStyles({
     // necessary for content to be below app bar
     // ...theme.mixins.toolbar,
     backgroudColor: tokens.colorNeutralBackgroundStatic,
+    borderRightStyle: "unset",
     // marginTop: "-47px",
   },
 
@@ -144,12 +145,13 @@ const useStyles = makeStyles({
     willChange: "transform, background-color",
     overflowY: "unset",
     overflowX: "unset",
-    backgroundColor: tokens.colorNeutralBackground4,
+    // backgroundColor: tokens.colorNeutralBackground2,
+    // backgroundColor: tokens.colorNeutralBackground2
     // marginTop: "47px",
   },
   contentActive: {
     transform: `translate3D(${drawerWidth}px, 0, 0)`,
-    backgroundColor: tokens.colorNeutralBackground4,
+    backgroundColor: tokens.colorNeutralBackground2,
     position: "relative",
   },
   contentEntering: {
@@ -226,7 +228,13 @@ export default function Navigation({
           <AppBar
             position="fixed"
             sx={{
-              backgroundColor: tokens.colorNeutralBackgroundStatic,
+              // backgroundColor: tokens.colorNeutralBackground1,
+              backgroundColor:
+                pageInfo.theme === "light"
+                  ? tokens.colorNeutralBackgroundInverted
+                  : tokens.colorNeutralBackground1,
+              border: "none",
+              boxShadow: "none",
             }}
             open={open}
           >
@@ -366,16 +374,11 @@ export default function Navigation({
       >
         <main
           style={{
-            // padding: matches ? "15px" : "0",
-            // position: "absolute",
             width: "100%",
             paddingTop: "15px",
           }}
         >
-          {/* <StyledEngineProvider injectFirst> */}
-          {/* <Router /> */}
           {children}
-          {/* </StyledEngineProvider> */}
         </main>
       </div>
     </div>
