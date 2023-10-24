@@ -520,7 +520,7 @@
           ]
         },
         {
-          "title": "",
+          "title": "Check if MDATP is installed",
           "userActivity": [
             {
               "Type": "Title",
@@ -1375,6 +1375,48 @@
             {
               "Type": "Note",
               "Value": "Domain Name System (DNS) domain names (not URLs) that have been stated unambiguously to indicate with certainty their location in the domain namespace tree."
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "eBPF",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "eBPF"
+            },
+            {
+              "Type": "Description",
+              "Value": "Extended Berkeley Packet Filter"
+            },
+            {
+              "Type": "Title",
+              "Value": "What is eBPF?"
+            },
+            {
+              "Type": "Description",
+              "Value": "eBPF is a technology that allows sandboxed programs to run in the Linux kernel and extend its capabilities without changing kernel source code or loading kernel modules. It is used for various use cases such as networking, observability, and security."
+            },
+            {
+              "Type": "Title",
+              "Value": "How does eBPF work?"
+            },
+            {
+              "Type": "Description",
+              "Value": "eBPF programs are event-driven and are attached to predefined or custom hooks in the kernel or user applications. They are loaded as bytecode and verified by the kernel for safety and efficiency. They can access and store data in eBPF maps and call helper functions provided by the kernel."
+            },
+            {
+              "Type": "Title",
+              "Value": "Why is eBPF important?"
+            },
+            {
+              "Type": "Description",
+              "Value": "eBPF enables programmability and innovation at the operating system level, similar to how JavaScript revolutionized web development. It decouples the pace of innovation from the kernel release cycle and allows developers to run eBPF programs to add additional capabilities to the operating system at runtime."
+            },
+            {
+              "Type": "Note",
+              "Value": "https://ebpf.io/what-is-ebpf/"
             }
           ],
           "backgroundActivity": []
