@@ -21,10 +21,13 @@ import {
   makeStyles,
   shorthands,
   tokens,
+  Image,
+  Body1,
+  Title3,
 } from "@fluentui/react-components";
 import nllDataFiles from "../content/nllDataFiles.json";
-// import { useContext } from "react";
-// import { PageInfoContext } from "../../appContext";
+import { useContext } from "react";
+import { PageInfoContext } from "../providers";
 import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -46,7 +49,7 @@ const replaceAll = (str: any, find: any, replace: any) => {
 
 const Home = () => {
   const styles = useStyles();
-  //   const { pageInfo, setPageInfo } = useContext(PageInfoContext);
+  const { pageInfo, setPageInfo } = useContext(PageInfoContext);
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -84,7 +87,10 @@ const Home = () => {
     >
       <div
         className={styles.container}
-        style={{ paddingTop: matches ? "42px" : "0px" }}
+        style={{
+          paddingTop: matches ? "48px" : "0px",
+          paddingLeft: matches ? "12px" : "0px",
+        }}
       >
         <Title1>Next Level Learning</Title1>
         <Body2>
@@ -98,15 +104,45 @@ const Home = () => {
           Additionally, the website provides insights into the underlying
           actions that take place either on the device or in the cloud.
         </Body2>
+        <Body2>
+          The site layout is designed to clearly display two types of
+          activities. 'User Activity' represents the actions performed by a user
+          when deploying or making changes. 'Background Activity' illustrates
+          the modifications made to a service or configuration.”
+        </Body2>
+        <Body2>Activities can include:</Body2>
+        <Box pl={3}>
+          <ul>
+            <li>Logs</li>
+            <li>API Calls</li>
+            <li>Cloud service changes</li>
+            <li>Configurations</li>
+          </ul>
+        </Box>
+        <div>
+          {pageInfo.theme === "light" ? (
+            <Image
+              src="/images/philosophy-01.png"
+              alt="Philosophy"
+              width={800}
+            />
+          ) : (
+            <Image
+              src="/images/philosophy-01-dark.png"
+              alt="Philosophy"
+              width={800}
+            />
+          )}
+        </div>
       </div>
-      <Grid container spacing={2} mt={2} mb={matches ? 0 : "66px"}>
+      <Grid container spacing={2} mt={2} p={2} mb={matches ? 0 : "66px"}>
         {uniqueSections.map((section: string) => {
           return (
             <Grid item xs={12} lg={3} key={section}>
               <Card>
                 <CardHeader
                   title={replaceAll("section", "/", " > ")}
-                  header={<Title2>{replaceAll(section, "/", " > ")}</Title2>}
+                  header={<Title3>{replaceAll(section, "/", " > ")}</Title3>}
                 />
                 <CardPreview>
                   <List>

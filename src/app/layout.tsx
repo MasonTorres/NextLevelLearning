@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Next Level Learning",
   description:
-    "A collection of deployment and troubleshooting scenarios for Microsoft Defender for Endpoint on Linux.",
+    "A collection of deployment and troubleshooting scenarios for Microsoft Defender (MDE) for Endpoint on Linux.",
 };
 
 export default function RootLayout({
