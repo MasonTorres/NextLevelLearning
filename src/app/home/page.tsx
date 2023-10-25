@@ -100,18 +100,17 @@ const Home = () => {
         <Body2>
           The objective of this website is to offer users a collection of
           deployment and troubleshooting scenarios. These scenarios are
-          accompanied by task examples that users would typically perform.
-          Additionally, the website provides insights into the underlying
-          actions that take place either on the device or in the cloud.
+          accompanied by example tasks a user would typically perform with the
+          additional insight into the underlying actions that take place either
+          on the device or in the cloud.
         </Body2>
         <Body2>
-          The site layout is designed to clearly display two types of
-          activities. &apos;User Activity&apos; represents the actions performed
-          by a user when deploying or making changes. &apos;Background
-          Activity&apos; illustrates the modifications made to a service or
-          configuration.”
+          The layout is designed to clearly display two types of activities.
+          &apos;User Activity&apos; represents the actions performed by a user
+          when deploying or making changes. &apos;Background Activity&apos;
+          illustrates the modifications made to a service or configuration.”
         </Body2>
-        <Body2>Activities may include:</Body2>
+        <Body2>Background activities may include:</Body2>
         <Box pl={3}>
           <ul>
             <li>Logs</li>
