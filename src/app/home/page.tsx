@@ -110,7 +110,7 @@ const Home = () => {
           when deploying or making changes. 'Background Activity' illustrates
           the modifications made to a service or configuration.”
         </Body2>
-        <Body2>Activities can include:</Body2>
+        <Body2>Activities may include:</Body2>
         <Box pl={3}>
           <ul>
             <li>Logs</li>
@@ -119,23 +119,19 @@ const Home = () => {
             <li>Configurations</li>
           </ul>
         </Box>
-        <div>
+        <Box sx={{ maxWidth: "1000px" }}>
           {pageInfo.theme === "light" ? (
-            <Image
-              src="/images/philosophy-01.png"
-              alt="Philosophy"
-              width={800}
-            />
+            <Image src="/images/philosophy-01.png" alt="Philosophy" block />
           ) : (
             <Image
               src="/images/philosophy-01-dark.png"
               alt="Philosophy"
-              width={800}
+              block
             />
           )}
-        </div>
+        </Box>
       </div>
-      <Grid container spacing={2} mt={2} p={2} mb={matches ? 0 : "66px"}>
+      <Grid container spacing={2} mt={2} mb={matches ? 0 : "66px"}>
         {uniqueSections.map((section: string) => {
           return (
             <Grid item xs={12} lg={3} key={section}>
