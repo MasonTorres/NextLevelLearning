@@ -106,9 +106,10 @@ const Home = () => {
         </Body2>
         <Body2>
           The site layout is designed to clearly display two types of
-          activities. 'User Activity' represents the actions performed by a user
-          when deploying or making changes. 'Background Activity' illustrates
-          the modifications made to a service or configuration.”
+          activities. &apos;User Activity&apos; represents the actions performed
+          by a user when deploying or making changes. &apos;Background
+          Activity&apos; illustrates the modifications made to a service or
+          configuration.”
         </Body2>
         <Body2>Activities may include:</Body2>
         <Box pl={3}>

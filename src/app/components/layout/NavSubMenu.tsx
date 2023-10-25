@@ -32,7 +32,7 @@ export default function NavSubMenu({
       // New random number to force re-render
       setRand(Math.random());
     }
-  }, [pathname]);
+  }, [pathname, open, path]);
 
   return (
     <SubMenu

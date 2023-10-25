@@ -171,7 +171,7 @@ export default function NextLevelLearning({
     // Scroll to the top of the page when the component loads
     setSelectedTab(1);
     handleSelectedTab("", "pageLoad");
-  }, [content]);
+  }, []);
 
   return (
     <Box component="ul" display="flex" flexDirection="column" py={3}>
