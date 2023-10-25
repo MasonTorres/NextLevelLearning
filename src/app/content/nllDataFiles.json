@@ -5411,5 +5411,220 @@
       ]
     }
   ]
+}},
+ { "file": "MDELinuxUninstall", "path": "src/app/content/json/MDELinuxUninstall.json", "data": {
+  "title": "Uninstall - Fedora",
+  "path": "mde/linux/uninstall/fedora",
+  "description": "",
+  "data": [
+    {
+      "section": 1,
+      "title": "Manual Uninstall",
+      "description": "Uninstalling MDATP is a simple process.  The following steps will walk you through the process on a Fedora linux server.",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Uninstall"
+            },
+            {
+              "Type": "Description",
+              "Value": "Uninstall using yum."
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo yum remove mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Description",
+              "Value": "yum will prompt to uninstall the package and dependencies.  Type \"y\" to continue."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/uninstall/fedora-01.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "Successgfully uninstalled."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/uninstall/fedora-02.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Logs",
+      "description": "Review uninstall logs.",
+      "tasks": [
+        {
+          "title": "Yum History",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Yum History"
+            },
+            {
+              "Type": "Description",
+              "Value": "Review yum history."
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo yum history"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Description",
+              "Value": "You can review yum history to see when mdatp was uninstalled."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/uninstall/fedora-03.png"
+            }
+          ]
+        },
+        {
+          "title": "Yum/Dnf logs",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Yum/Dnf logs"
+            },
+            {
+              "Type": "Description",
+              "Value": "For more detailed information on the uninstall action, review the yum/dnf logs."
+            },
+            {
+              "Type": "Code",
+              "Value": "cat /var/log/dnf.log | grep mdatp"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Description",
+              "Value": "Using grep will help identify the timestamp. You can then review the log for more details."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/uninstall/fedora-04.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "Example: using vim to open the log file, then search '/' for the timestamp."
+            },
+            {
+              "Type": "Code",
+              "Value": "vi /var/log/dnf.log"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/uninstall/fedora-05.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Microsoft 365 Defender Portal",
+      "description": "Microsoft 365 Defender Portal post device removal.",
+      "tasks": [
+        {
+          "title": "Microsoft 365 Defender Portal",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Device Inventory"
+            },
+            {
+              "Type": "Description",
+              "Value": "On successful device uninstall, the device will moved to an excluded state in the Microsoft 365 Defender Portal."
+            },
+            {
+              "Type": "Description",
+              "Value": "To view all devices in an excluded state, navigate to the device inventory and filter on the Exclusion state."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/uninstall/fedora-06.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The device will be moved to an excluded state in the Microsoft 365 Defender Portal."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/uninstall/fedora-07.png"
+            }
+          ]
+        },
+        {
+          "title": "Find devices",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Find devices"
+            },
+            {
+              "Type": "Description",
+              "Value": "To find the devices that have previously run 'yum remove mdatp', you can run a query in the Microsoft 365 Defender Portal Advanced Hunting."
+            },
+            {
+              "Type": "Description",
+              "Value": "The following query will return all devices that have run 'remove mdatp'."
+            },
+            {
+              "Type": "Code",
+              "Value": "DeviceProcessEvents  \r\n| where * contains \"remove mdatp\""
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/uninstall/fedora-08.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can then drill down and see the process that was run to remove mdatp."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/uninstall/fedora-09.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }}
 ]
