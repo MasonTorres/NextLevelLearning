@@ -22,18 +22,28 @@
             {
               "Type": "Description",
               "Value": "Refer to https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/linux-preferences?view=o365-worldwide for more details."
-            },
-            {
-              "Type": "Description",
-              "Value": "mdatp_managed.json lives in /etc/opt/microsoft/mdatp/managed/"
             }
           ],
           "backgroundActivity": [
             {
               "Type": "Code",
-              "Value": "{\r\n   \"antivirusEngine\":{\r\n      \"enforcementLevel\":\"passive\",\r\n      \"scanAfterDefinitionUpdate\":true,\r\n      \"scanArchives\":true,\r\n      \"maximumOnDemandScanThreads\":2,\r\n      \"exclusionsMergePolicy\":\"merge\",\r\n      \"exclusions\":[\r\n         {\r\n            \"$type\":\"excludedPath\",\r\n            \"isDirectory\":false,\r\n            \"path\":\"/var/log/system.log<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedPath\",\r\n            \"isDirectory\":true,\r\n            \"path\":\"/run<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedPath\",\r\n            \"isDirectory\":true,\r\n            \"path\":\"/home/*/git<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedFileExtension\",\r\n            \"extension\":\".pdf<EXAMPLE DO NOT USE>\"\r\n         },\r\n         {\r\n            \"$type\":\"excludedFileName\",\r\n            \"name\":\"cat<EXAMPLE DO NOT USE>\"\r\n         }\r\n      ],\r\n      \"allowedThreats\":[\r\n         \"<EXAMPLE DO NOT USE>EICAR-Test-File (not a virus)\"\r\n      ],\r\n      \"disallowedThreatActions\":[\r\n         \"allow\",\r\n         \"restore\"\r\n      ],\r\n      \"nonExecMountPolicy\":\"unmute\",\r\n      \"unmonitoredFilesystems\": [\"nfs,fuse\"],\r\n      \"threatTypeSettingsMergePolicy\":\"merge\",\r\n      \"threatTypeSettings\":[\r\n         {\r\n            \"key\":\"potentially_unwanted_application\",\r\n            \"value\":\"block\"\r\n         },\r\n         {\r\n            \"key\":\"archive_bomb\",\r\n            \"value\":\"audit\"\r\n         }\r\n      ]\r\n   },\r\n   \"cloudService\":{\r\n      \"enabled\":true,\r\n      \"diagnosticLevel\":\"optional\",\r\n      \"automaticSampleSubmissionConsent\":\"safe\",\r\n      \"automaticDefinitionUpdateEnabled\":true,\r\n      \"proxy\": \"<EXAMPLE DO NOT USE> http://proxy.server:port/\"\r\n   }\r\n}"
+              "Value": "{\r\n  \"antivirusEngine\": {\r\n    \"enforcementLevel\": \"real_time\",\r\n    \"scanAfterDefinitionUpdate\": true,\r\n    \"scanArchives\": true,\r\n    \"maximumOnDemandScanThreads\": 2,\r\n    \"exclusionsMergePolicy\": \"merge\",\r\n    \"exclusions\": [],\r\n    \"allowedThreats\": [],\r\n    \"disallowedThreatActions\": [\"allow\", \"restore\"],\r\n    \"nonExecMountPolicy\": \"unmute\",\r\n    \"unmonitoredFilesystems\": [\"nfs,fuse\"],\r\n    \"threatTypeSettingsMergePolicy\": \"merge\",\r\n    \"threatTypeSettings\": [\r\n      {\r\n        \"key\": \"potentially_unwanted_application\",\r\n        \"value\": \"audit\"\r\n      },\r\n      {\r\n        \"key\": \"archive_bomb\",\r\n        \"value\": \"audit\"\r\n      }\r\n    ]\r\n  },\r\n  \"cloudService\": {\r\n    \"enabled\": true,\r\n    \"diagnosticLevel\": \"required\",\r\n    \"automaticSampleSubmissionConsent\": \"safe\",\r\n    \"automaticDefinitionUpdateEnabled\": true\r\n  }\r\n}\r\n"
             }
           ]
+        },
+        {
+          "title": "Configuration location",
+          "userActivity": [
+            {
+              "Type": "Description",
+              "Value": "mdatp_managed.json lives in "
+            },
+            {
+              "Type": "Code",
+              "Value": "/etc/opt/microsoft/mdatp/managed"
+            }
+          ],
+          "backgroundActivity": []
         },
         {
           "title": "Core Components",
@@ -88,55 +98,122 @@
             }
           ],
           "backgroundActivity": []
-        },
-        {
-          "title": "More Information",
-          "userActivity": [],
-          "backgroundActivity": []
         }
       ]
     },
     {
       "section": 2,
-      "title": "Logs",
+      "title": "Applying the Configuration Profile",
       "description": "",
       "tasks": [
         {
-          "title": "Log location",
-          "userActivity": [],
-          "backgroundActivity": []
+          "title": "Before applying the configuration profile",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Configuration: Before"
+            },
+            {
+              "Type": "Description",
+              "Value": "View your current configuration before applying the configuration profile"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/configs/configuration-profile-01.png"
+            }
+          ]
         },
         {
-          "title": "Check Permissions",
-          "userActivity": [],
-          "backgroundActivity": []
-        }
-      ]
-    },
-    {
-      "section": 3,
-      "title": "Find Software",
-      "description": "",
-      "tasks": [
-        {
-          "title": "Find other antivirus software",
-          "userActivity": [],
-          "backgroundActivity": []
+          "title": "Applying the Configuration Profile",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Configuration: Apply"
+            },
+            {
+              "Type": "Description",
+              "Value": "Copy the configuration profile to the linux server's managed folder"
+            },
+            {
+              "Type": "Description",
+              "Value": "Change directory to /etc/opt/microsoft/mdatp/managed"
+            },
+            {
+              "Type": "Code",
+              "Value": "cd /etc/opt/microsoft/mdatp/managed"
+            },
+            {
+              "Type": "Description",
+              "Value": "Use the `cat` command to view the contents of the mdatp_managed.json file"
+            },
+            {
+              "Type": "Code",
+              "Value": "cat mdatp_managed.json"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Description",
+              "Value": "Sample mdatp_managed.json configuration profile saved in /etc/opt/microsoft/mdatp/managed"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/configs/configuration-profile-04.png"
+            },
+            {
+              "Type": "Note",
+              "Value": "Sample output from the mdatp_managed.json configuration file."
+            }
+          ]
         },
         {
-          "title": "List installed software - Ubutnu/Debian",
-          "userActivity": [],
-          "backgroundActivity": []
-        },
-        {
-          "title": "List installed software - Red Hat/CentOS",
-          "userActivity": [],
-          "backgroundActivity": []
-        },
-        {
-          "title": "Use the Security portal",
-          "userActivity": [],
-          "backgroundActivity": []
+          "title": "After applying the configuration profile",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Configuration: After"
+            },
+            {
+              "Type": "Description",
+              "Value": "View your new configurations after applying the configuration profile"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample Output"
+            },
+            {
+              "Type": "Description",
+              "Value": "Immediately after applying the configuration profile, the MDE agent will begin to apply the new settings. This may take a few minutes to complete."
+            },
+            {
+              "Type": "Description",
+              "Value": "Settings that have been configured using the mdatp_managed.json file will be marked with a [managed]"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/configs/configuration-profile-03.png"
+            }
+          ]
         }
       ]
     }
