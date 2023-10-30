@@ -451,6 +451,28 @@
           "backgroundActivity": []
         },
         {
+          "title": "EICAR Standard Anti-Virus Test File",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "EICAR Standard Anti-Virus Test File"
+            },
+            {
+              "Type": "Description",
+              "Value": "European Institute for Computer Antivirus Research"
+            },
+            {
+              "Type": "Note",
+              "Value": "The EICAR Anti-Virus Test File or EICAR test file is a computer file that was developed by the European Institute for Computer Antivirus Research (EICAR) and Computer Antivirus Research Organization (CARO) to test the response of computer antivirus (AV) programs. It is not a real computer virus, but it mimics malware, and thus allows for safe and effective testing."
+            },
+            {
+              "Type": "Note",
+              "Value": "https://www.eicar.org/download-anti-malware-testfile/"
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
           "title": "MITRE ATT&CK",
           "userActivity": [
             {
@@ -493,6 +515,119 @@
       "title": "General",
       "description": "",
       "tasks": [
+        {
+          "title": "AUSEARCH",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "AUSEARCH"
+            },
+            {
+              "Type": "Description",
+              "Value": "ausearch - a tool to query audit daemon logs"
+            },
+            {
+              "Type": "Note",
+              "Value": "ausearch  is  a  tool  that  can query the audit daemon logs based for events based on different search criteria. The ausearch utility can also take input from stdin as long as the input is the raw log data."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Description",
+              "Value": "Sample ausearch"
+            },
+            {
+              "Type": "Code",
+              "Value": "sample"
+            }
+          ]
+        },
+        {
+          "title": "AUREPORT",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "AUREPORT"
+            },
+            {
+              "Type": "Description",
+              "Value": "aureport - a tool that produces summary reports of audit daemon logs"
+            },
+            {
+              "Type": "Note",
+              "Value": "aureport is a tool that produces summary reports of the audit system logs. The aureport utility can also take input from stdin as long as the input is the raw log data. The reports have a column label at the top to help with interpretation of the  vari‐ous  fields. Except for the main summary report, all reports have the audit event number. You can subsequently lookup the full event with ausearch -a event number."
+            },
+            {
+              "Type": "Code",
+              "Value": "ausearch --start today -m syscall -sv no --raw | aureport -f -i --summary"
+            },
+            {
+              "Type": "Description",
+              "Value": "--start today"
+            },
+            {
+              "Type": "Note",
+              "Value": "Audit logs from today"
+            },
+            {
+              "Type": "Description",
+              "Value": "-m syscall"
+            },
+            {
+              "Type": "Note",
+              "Value": "Search for an event matching the given message type. E.g. syscall, config_change, user_avc, etc."
+            },
+            {
+              "Type": "Description",
+              "Value": "-sv no"
+            },
+            {
+              "Type": "Note",
+              "Value": "Search for an event matching the given success value. Legal values are yes and no."
+            },
+            {
+              "Type": "Description",
+              "Value": "--raw"
+            },
+            {
+              "Type": "Note",
+              "Value": " Output is completely unformatted. This is useful for extracting records to a file that  can  still  be  interpreted  by audit tools or when piping to other audit tools."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Description",
+              "Value": "Sample aureport"
+            },
+            {
+              "Type": "Code",
+              "Value": "sample"
+            }
+          ]
+        },
+        {
+          "title": "BPFTOOL",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "BPFTOOL"
+            },
+            {
+              "Type": "Description",
+              "Value": "BPFTOOL - tool for inspection and simple manipulation of eBPF programs and maps"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Description",
+              "Value": "Sample aureport"
+            },
+            {
+              "Type": "Code",
+              "Value": "sample"
+            }
+          ]
+        },
         {
           "title": "CLI",
           "userActivity": [
