@@ -1292,6 +1292,28 @@
           "backgroundActivity": []
         },
         {
+          "title": "EICAR Standard Anti-Virus Test File",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "EICAR Standard Anti-Virus Test File"
+            },
+            {
+              "Type": "Description",
+              "Value": "European Institute for Computer Antivirus Research"
+            },
+            {
+              "Type": "Note",
+              "Value": "The EICAR Anti-Virus Test File or EICAR test file is a computer file that was developed by the European Institute for Computer Antivirus Research (EICAR) and Computer Antivirus Research Organization (CARO) to test the response of computer antivirus (AV) programs. It is not a real computer virus, but it mimics malware, and thus allows for safe and effective testing."
+            },
+            {
+              "Type": "Note",
+              "Value": "https://www.eicar.org/download-anti-malware-testfile/"
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
           "title": "MITRE ATT&CK",
           "userActivity": [
             {
@@ -1334,6 +1356,119 @@
       "title": "General",
       "description": "",
       "tasks": [
+        {
+          "title": "AUSEARCH",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "AUSEARCH"
+            },
+            {
+              "Type": "Description",
+              "Value": "ausearch - a tool to query audit daemon logs"
+            },
+            {
+              "Type": "Note",
+              "Value": "ausearch  is  a  tool  that  can query the audit daemon logs based for events based on different search criteria. The ausearch utility can also take input from stdin as long as the input is the raw log data."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Description",
+              "Value": "Sample ausearch"
+            },
+            {
+              "Type": "Code",
+              "Value": "sample"
+            }
+          ]
+        },
+        {
+          "title": "AUREPORT",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "AUREPORT"
+            },
+            {
+              "Type": "Description",
+              "Value": "aureport - a tool that produces summary reports of audit daemon logs"
+            },
+            {
+              "Type": "Note",
+              "Value": "aureport is a tool that produces summary reports of the audit system logs. The aureport utility can also take input from stdin as long as the input is the raw log data. The reports have a column label at the top to help with interpretation of the  vari‐ous  fields. Except for the main summary report, all reports have the audit event number. You can subsequently lookup the full event with ausearch -a event number."
+            },
+            {
+              "Type": "Code",
+              "Value": "ausearch --start today -m syscall -sv no --raw | aureport -f -i --summary"
+            },
+            {
+              "Type": "Description",
+              "Value": "--start today"
+            },
+            {
+              "Type": "Note",
+              "Value": "Audit logs from today"
+            },
+            {
+              "Type": "Description",
+              "Value": "-m syscall"
+            },
+            {
+              "Type": "Note",
+              "Value": "Search for an event matching the given message type. E.g. syscall, config_change, user_avc, etc."
+            },
+            {
+              "Type": "Description",
+              "Value": "-sv no"
+            },
+            {
+              "Type": "Note",
+              "Value": "Search for an event matching the given success value. Legal values are yes and no."
+            },
+            {
+              "Type": "Description",
+              "Value": "--raw"
+            },
+            {
+              "Type": "Note",
+              "Value": " Output is completely unformatted. This is useful for extracting records to a file that  can  still  be  interpreted  by audit tools or when piping to other audit tools."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Description",
+              "Value": "Sample aureport"
+            },
+            {
+              "Type": "Code",
+              "Value": "sample"
+            }
+          ]
+        },
+        {
+          "title": "BPFTOOL",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "BPFTOOL"
+            },
+            {
+              "Type": "Description",
+              "Value": "BPFTOOL - tool for inspection and simple manipulation of eBPF programs and maps"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Description",
+              "Value": "Sample aureport"
+            },
+            {
+              "Type": "Code",
+              "Value": "sample"
+            }
+          ]
+        },
         {
           "title": "CLI",
           "userActivity": [
@@ -4698,6 +4833,215 @@
     }
   ]
 }},
+ { "file": "MDELinuxThreatTest", "path": "src/app/content/json/MDELinuxThreatTest.json", "data": {
+  "title": "Anti-Malware Testfile",
+  "path": "mde/linux/simulations/anti-malware-test",
+  "description": "",
+  "data": [
+    {
+      "section": 1,
+      "title": "Check Protection Status",
+      "description": "Check we have real time protection enabled before attempting to simulate a threat.",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check real time protection is enabled"
+            },
+            {
+              "Type": "Description",
+              "Value": "Check real time protection is enabled"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp health | grep real_time"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Description",
+              "Value": "real_time_protection_enabled is true and managed from the preference file."
+            },
+            {
+              "Type": "Code",
+              "Value": "[labmin@centos-01 ~]$ mdatp health | grep real_time\r\nreal_time_protection_enabled                : true [managed]\r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\""
+            }
+          ]
+        },
+        {
+          "title": "Optional: Enable Real Time Protection",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Optional: Enable Real Time Protection"
+            },
+            {
+              "Type": "Description",
+              "Value": "Enable Real Time Protection"
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp config real-time-protection --value enabled"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
+            },
+            {
+              "Type": "Description",
+              "Value": "real_time_protection_enabled is true."
+            },
+            {
+              "Type": "Code",
+              "Value": "[labmin@centos-01 ~]$ mdatp health | grep real_time\r\nreal_time_protection_enabled                : true \r\nreal_time_protection_available              : true\r\nreal_time_protection_subsystem              : \"fanotify\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Simulate a Threat",
+      "description": "Simulate a threat.",
+      "tasks": [
+        {
+          "title": "Simulate a threat",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Simulate a threat"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can use a test file to simulate a threat. The EICAR test file is a harmless file that is detected as malware by antivirus software."
+            },
+            {
+              "Type": "Code",
+              "Value": "curl -o /tmp/eicar.com.txt https://www.eicar.org/download/eicar.com.txt"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Description",
+              "Value": "The eicar.com.txt file we have been prevented by mdatp"
+            },
+            {
+              "Type": "Description",
+              "Value": "No eicar.com.txt file is present in the current directory."
+            },
+            {
+              "Type": "Code",
+              "Value": "[labmin@centos-01 ~]$ curl -o /tmp/eicar.com.txt https://www.eicar.org/download/eicar.com.txt\r\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\r\n                                 Dload  Upload   Total   Spent    Left  Speed\r\n100    68  100    68    0     0     68      0  0:00:01 --:--:--  0:00:01    68\r\n[labmin@centos-01 ~]$ ls -la\r\ntotal 128\r\ndrwx------. 7 labmin labmin  4096 Oct 24 20:55 .\r\ndrwxr-xr-x. 5 root   root      57 Oct 10 17:42 ..\r\n-rw-------. 1 labmin labmin  4772 Oct 25 23:18 .bash_history\r\n-rw-r--r--. 1 labmin labmin    18 Jul 27  2021 .bash_logout\r\n-rw-r--r--. 1 labmin labmin   141 Jul 27  2021 .bash_profile\r\n-rw-r--r--. 1 labmin labmin   376 Jul 27  2021 .bashrc\r\ndrwx------. 3 labmin labmin    20 Aug 31 21:51 .config\r\ndrwxrwxr-x. 3 labmin labmin    30 Sep 28 17:41 etc\r\n-rw-r--r--. 1 root   mdatp     95 Sep 28 17:14 hot_event_source_1a1767f9-a135-40ec-8286-fc289623d0d4.json\r\n-rw-rw-r--. 1 labmin labmin     0 Sep 13 17:48 installon.log\r\n-rw-------. 1 labmin labmin    61 Sep 28 21:25 .lesshst\r\n-rw-r--r--. 1 root   root   91109 Aug 12  2021 libxcrypt-compat-4.4.18-3.el9.x86_64.rpm\r\ndrwx------. 2 labmin labmin    29 Aug 23 22:10 .ssh\r\ndrwxrwxr-x. 4 labmin labmin    28 Sep 28 17:42 unzip\r\ndrwxrwxr-x. 4 labmin labmin    28 Sep 28 17:41 var\r\n-rw-------. 1 labmin labmin  1879 Oct 24 20:55 .viminfo"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Review the Threat",
+      "description": "",
+      "tasks": [
+        {
+          "title": "View Threat Details: CLI",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "View Threat Details: CLI"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can check MDATP for threats using the following command."
+            },
+            {
+              "Type": "Code",
+              "Value": "mdatp threat list"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "[labmin@centos-01 ~]$ mdatp threat list\r\nId: \"ca6161a5-e76b-46e6-8959-17b08e1a8b76\"\r\nName: Virus:DOS/EICAR_Test_File\r\nType: \"virus\"\r\nDetection time: Mon Oct 30 18:16:08 2023\r\nStatus: \"quarantined\""
+            }
+          ]
+        },
+        {
+          "title": "View Threat Details: Microsoft Defender Portal",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "View Threat Details: Microsoft Defender Portal"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can check Microsoft 365 Defender portal for alerts in the Incidents & Alerts pane."
+            },
+            {
+              "Type": "Note",
+              "Value": "https://securitycenter.microsoft.com/incidents"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/tests/test-eicar-02.png"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/tests/test-eicar-01.png"
+            }
+          ],
+          "backgroundActivity": []
+        },
+        {
+          "title": "View Threat Details: Microsoft Defender Portal Advanced Hunting",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "View Threat Details: Microsoft Defender Portal Advanced Hunting"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can check Microsoft 365 Defender portal for alerts using an Advanced Hunting KQL query."
+            },
+            {
+              "Type": "Note",
+              "Value": "https://securitycenter.microsoft.com/hunting"
+            },
+            {
+              "Type": "Code",
+              "Value": "AlertInfo \r\n| where * contains \"EICAR\""
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/linux/tests/test-eicar-03.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}},
  { "file": "MDELinuxUbuntuSetup", "path": "src/app/content/json/MDELinuxUbuntuSetup.json", "data": {
   "title": "Setup - Ubuntu/Debian",
   "path": "mde/linux/setup/linux-setup-ubuntu",
@@ -5436,12 +5780,6 @@
             {
               "Type": "Code",
               "Value": "sudo yum remove mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Example output"
             },
             {
               "Type": "Description",
@@ -5450,6 +5788,12 @@
             {
               "Type": "Image",
               "Value": "/images/nll/linux/uninstall/fedora-01.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
             },
             {
               "Type": "Description",

@@ -22,12 +22,6 @@
             {
               "Type": "Code",
               "Value": "sudo yum remove mdatp"
-            }
-          ],
-          "backgroundActivity": [
-            {
-              "Type": "Title",
-              "Value": "Example output"
             },
             {
               "Type": "Description",
@@ -36,6 +30,12 @@
             {
               "Type": "Image",
               "Value": "/images/nll/linux/uninstall/fedora-01.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Example output"
             },
             {
               "Type": "Description",
