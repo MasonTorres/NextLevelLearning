@@ -69,7 +69,7 @@ const AppBar = styled(MuiAppBar, {
   }),
   ...(open && {
     marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    width: `calc(100% )`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -111,7 +111,8 @@ const useStyles = makeStyles({
     // ...theme.mixins.toolbar,
     backgroudColor: tokens.colorNeutralBackgroundStatic,
     borderRightStyle: "unset",
-    // marginTop: "-47px",
+    marginTop: "47px",
+    paddingTop: "15px",
   },
 
   drawerEntering: {
@@ -292,7 +293,14 @@ export default function Navigation({
                 motion.type === "exiting" && styles.drawerExiting
               )}
             >
-              <DrawerHeader>
+              <DrawerHeader
+                style={{
+                  paddingLeft: "10px",
+                  paddingTop: "10px",
+                  paddingBottom: "0px",
+                  paddingRight: "15px",
+                }}
+              >
                 <DrawerHeaderTitle
                   action={
                     <Button

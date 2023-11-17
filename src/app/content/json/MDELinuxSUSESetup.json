@@ -1,7 +1,7 @@
 {
   "title": "Setup - SUSE/SLES",
   "path": "mde/linux/setup/linux-setup-suse",
-  "description": "",
+  "description": "Deploy Microsoft Defender for Endpoint on Linux: SUSE/SLES",
   "data": [
     {
       "section": 1,

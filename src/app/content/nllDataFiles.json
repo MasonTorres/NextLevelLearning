@@ -2212,7 +2212,7 @@
  { "file": "MDELinuxCentosSetup", "path": "src/app/content/json/MDELinuxCentosSetup.json", "data": {
   "title": "Setup - Centos",
   "path": "mde/linux/setup/linux-setup-centos",
-  "description": "",
+  "description": "Deploy Microsoft Defender for Endpoint on Linux: CentOS",
   "data": [
     {
       "section": 1,
@@ -2828,7 +2828,7 @@
  { "file": "MDELinuxFedoraSetup", "path": "src/app/content/json/MDELinuxFedoraSetup.json", "data": {
   "title": "Setup - Fedora",
   "path": "mde/linux/setup/linux-setup-fedora",
-  "description": "",
+  "description": "Deploy Microsoft Defender for Endpoint on Linux: Fedora",
   "data": [
     {
       "section": 1,
@@ -3997,7 +3997,7 @@
  { "file": "MDELinuxOracleKernelUpdate", "path": "src/app/content/json/MDELinuxOracleKernelUpdate.json", "data": {
   "title": "Oracle Kernel Update",
   "path": "mde/linux/linux-oracle-kernel-update",
-  "description": "",
+  "description": "Example remediation scenario: Updating the kernal on an Oracle Linux server",
   "data": [
     {
       "section": 1,
@@ -4235,7 +4235,7 @@
  { "file": "MDELinuxSUSESetup", "path": "src/app/content/json/MDELinuxSUSESetup.json", "data": {
   "title": "Setup - SUSE/SLES",
   "path": "mde/linux/setup/linux-setup-suse",
-  "description": "",
+  "description": "Deploy Microsoft Defender for Endpoint on Linux: SUSE/SLES",
   "data": [
     {
       "section": 1,
@@ -4836,7 +4836,7 @@
  { "file": "MDELinuxThreatTest", "path": "src/app/content/json/MDELinuxThreatTest.json", "data": {
   "title": "Anti-Malware Testfile",
   "path": "mde/linux/simulations/anti-malware-test",
-  "description": "",
+  "description": "Simulate a real threat using the EICAR test file.",
   "data": [
     {
       "section": 1,
@@ -5045,7 +5045,7 @@
  { "file": "MDELinuxUbuntuSetup", "path": "src/app/content/json/MDELinuxUbuntuSetup.json", "data": {
   "title": "Setup - Ubuntu/Debian",
   "path": "mde/linux/setup/linux-setup-ubuntu",
-  "description": "",
+  "description": "Deploy Microsoft Defender for Endpoint on Linux: Ubuntu",
   "data": [
     {
       "section": 1,
@@ -5759,7 +5759,7 @@
  { "file": "MDELinuxUninstall", "path": "src/app/content/json/MDELinuxUninstall.json", "data": {
   "title": "Uninstall - Fedora",
   "path": "mde/linux/uninstall/fedora",
-  "description": "",
+  "description": "Uninstall Microsoft Defender for Endpoint on Linux: Ubuntu",
   "data": [
     {
       "section": 1,

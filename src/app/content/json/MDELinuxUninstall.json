@@ -1,7 +1,7 @@
 {
   "title": "Uninstall - Fedora",
   "path": "mde/linux/uninstall/fedora",
-  "description": "",
+  "description": "Uninstall Microsoft Defender for Endpoint on Linux: Ubuntu",
   "data": [
     {
       "section": 1,

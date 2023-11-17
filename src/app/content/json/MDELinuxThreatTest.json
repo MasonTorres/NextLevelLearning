@@ -1,7 +1,7 @@
 {
   "title": "Anti-Malware Testfile",
   "path": "mde/linux/simulations/anti-malware-test",
-  "description": "",
+  "description": "Simulate a real threat using the EICAR test file.",
   "data": [
     {
       "section": 1,

@@ -1,7 +1,7 @@
 {
   "title": "Setup - Ubuntu/Debian",
   "path": "mde/linux/setup/linux-setup-ubuntu",
-  "description": "",
+  "description": "Deploy Microsoft Defender for Endpoint on Linux: Ubuntu",
   "data": [
     {
       "section": 1,

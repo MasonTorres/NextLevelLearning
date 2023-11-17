@@ -1,7 +1,7 @@
 {
   "title": "Setup - Centos",
   "path": "mde/linux/setup/linux-setup-centos",
-  "description": "",
+  "description": "Deploy Microsoft Defender for Endpoint on Linux: CentOS",
   "data": [
     {
       "section": 1,

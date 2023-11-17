@@ -1,7 +1,7 @@
 {
   "title": "Setup - Fedora",
   "path": "mde/linux/setup/linux-setup-fedora",
-  "description": "",
+  "description": "Deploy Microsoft Defender for Endpoint on Linux: Fedora",
   "data": [
     {
       "section": 1,
