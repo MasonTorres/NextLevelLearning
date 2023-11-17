@@ -227,6 +227,7 @@ const Home = () => {
               file.data.path.split("/").slice(0, -1).join("/") ===
               selectedValue ? (
                 <Card
+                  key={file.data.path}
                   className={styles.cardBack}
                   onClick={() => handleCardClick(file.data.path)}
                 >
