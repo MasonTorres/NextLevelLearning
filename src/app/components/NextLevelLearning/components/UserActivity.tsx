@@ -15,6 +15,7 @@ import {
   DialogBody,
   DialogActions,
   DialogContent,
+  Link,
 } from "@fluentui/react-components";
 import { Box, Stack, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
@@ -80,10 +81,10 @@ export default function UserActivity({ userActivity }: Props) {
         <Stack>
           <Linkify
             componentDecorator={(decoratedHref, decoratedText, key) => (
-              <a target="blank" href={decoratedHref} key={key} color="red">
+              <Link href={decoratedHref} target="_blank">
                 {decoratedText}
-                <OpenInNewIcon sx={{ fontSize: "10px", ml: "1px" }} />
-              </a>
+                <OpenInNewIcon sx={{ fontSize: "10px", ml: "2px" }} />
+              </Link>
             )}
           >
             <Box px={2} pb={1}>
