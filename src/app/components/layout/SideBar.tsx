@@ -23,10 +23,7 @@ import {
   Text,
   Subtitle2,
 } from "@fluentui/react-components";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-
-import NavSubMenu from "./NavSubMenu";
 
 nllDataFiles.sort((a, b) => {
   let titlea = a.data.title.toLowerCase(),
@@ -135,6 +132,7 @@ export default function SideBar({ title, to }: any) {
 
   const [selectedValue, setSelectedValue] = useState<TabValue>(pathname);
   const onTabSelect = (event: SelectTabEvent, data: SelectTabData) => {
+    console.log("data.value", data.value);
     router.push(data.value as string);
     setSelectedValue(data.value);
   };

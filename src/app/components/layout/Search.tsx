@@ -1,5 +1,6 @@
+"use client";
+
 import * as React from "react";
-// import { ArgTypes } from "@storybook/api";
 import { SearchBox } from "@fluentui/react-search-preview";
 import {
   Body1,
@@ -12,110 +13,59 @@ import {
   Field,
   Subtitle2Stronger,
   tokens,
+  CompoundButton,
 } from "@fluentui/react-components";
 import type { SearchBoxProps } from "@fluentui/react-search-preview";
-import {
-  Dropdown,
-  makeStyles,
-  Option,
-  shorthands,
-  useId,
-} from "@fluentui/react-components";
+import { usePathname, useRouter } from "next/navigation";
 
-// Material
 import { ClickAwayListener } from "@mui/base/ClickAwayListener";
 import nllDataFiles from "../../content/nllDataFiles.json";
-import { Box, ListItemButton, ListItemText } from "@mui/material";
-import Link from "next/link";
-
-import type { INLLDataFile } from "../../types/types";
 
 export const Search = (props: SearchBoxProps) => {
-  const dropdownId = useId("dropdown-default");
   const [options, setOptions] = React.useState<any>([]);
   const [showSearchResults, setShowSearchResults] =
     React.useState<boolean>(false);
-  //   let options = [
-  //     "Cat",
-  //     "Caterpillar",
-  //     "Corgi",
-  //     "Chupacabra",
-  //     "Dog",
-  //     "Ferret",
-  //     "Fish",
-  //     "Fox",
-  //     "Hamster",
-  //     "Snake",
-  //   ];
+  const routerNav = useRouter();
+
+  const pathname = usePathname();
 
   const handleSearchQuery = (event: { target: { value: any } }) => {
     const query = event.target.value;
-    // Get the title from the filtered data so we can link to it
+
+    if (query.length < 3) {
+      setShowSearchResults(false);
+      let dropDownItems = [
+        {
+          foundIn: "",
+          title: "3 characters or more required.",
+          activityTitle: "",
+          activityDescription: "",
+          path: "",
+          currentPage: false,
+          description: "",
+          userActivity: "",
+          backgroundActivity: "",
+          query: "3 characters or more required.",
+        },
+      ];
+
+      setOptions(dropDownItems);
+      setShowSearchResults(true);
+      return;
+    }
+
     let dropDownItems: {
       foundIn: string;
       activityTitle: string;
       activityDescription: string;
       path: string;
+      currentPage: boolean;
       description: string;
       userActivity: string;
       backgroundActivity: string;
       title: string;
       query: string;
     }[] = [];
-    // const results = nllDataFiles.filter((file) => {
-    //   let dropDown = {
-    //     foundIn: "search",
-    //     activityTitle: "",
-    //     path: "",
-    //     description: "",
-    //     userActivity: "",
-    //     backgroundActivity: "",
-    //     title: "",
-    //     query: "",
-    //   };
-
-    //   // Search Data
-    //   let searchFoundInData = file.data.data.find((item) => {
-    //     let section =
-    //       item.title.toLowerCase().includes(query.toLowerCase()) ||
-    //       item.description.toLowerCase().includes(query.toLowerCase()) ||
-    //       item.tasks.find((task) => {
-    //         let userActivity = null;
-    //         let searchFoundInActivity =
-    //           task.title.toLowerCase().includes(query.toLowerCase()) ||
-    //           task.userActivity.find((value) => {
-    //             let searchFoundInUserActivity =
-    //               value.Value.toLowerCase().includes(query.toLowerCase());
-    //             if (searchFoundInUserActivity) {
-    //               dropDown.userActivity = value.Value;
-    //             }
-    //             return searchFoundInUserActivity;
-    //           }) ||
-    //           task.backgroundActivity.find((value) => {
-    //             let searchFoundInBackgroundActivity =
-    //               value.Value.toLowerCase().includes(query.toLowerCase());
-    //             if (searchFoundInBackgroundActivity) {
-    //               dropDown.backgroundActivity = value.Value;
-    //             }
-    //             return searchFoundInBackgroundActivity;
-    //           });
-    //         if (searchFoundInActivity) {
-    //           dropDown.activityTitle = task.title;
-    //         }
-    //         return searchFoundInActivity;
-    //       });
-    //     return section;
-    //   });
-
-    //   if (searchFoundInData) {
-    //     dropDown.path = file.data.path;
-    //     dropDown.title = file.data.title;
-    //     dropDown.query = query;
-    //     dropDownItems.push(dropDown);
-    //   }
-
-    //   return searchFoundInData;
-    // });
 
     // Search Page Titles
     const pageResults = nllDataFiles.filter((file) => {
@@ -124,6 +74,7 @@ export const Search = (props: SearchBoxProps) => {
         activityTitle: "",
         activityDescription: "",
         path: "",
+        currentPage: false,
         description: "",
         userActivity: "",
         backgroundActivity: "",
@@ -136,6 +87,9 @@ export const Search = (props: SearchBoxProps) => {
         .includes(query.toLowerCase());
       if (searchFoundInTitle) {
         dropDown.path = file.data.path;
+        if (pathname === "/" + file.data.path) {
+          dropDown.currentPage = true;
+        }
         dropDown.title = file.data.title;
         dropDown.description = file.data.description;
         dropDown.query = query;
@@ -151,6 +105,7 @@ export const Search = (props: SearchBoxProps) => {
         activityTitle: "",
         activityDescription: "",
         path: "",
+        currentPage: false,
         description: "",
         userActivity: "",
         backgroundActivity: "",
@@ -164,6 +119,9 @@ export const Search = (props: SearchBoxProps) => {
 
       if (searchFoundInDescription) {
         dropDown.path = file.data.path;
+        if (pathname === "/" + file.data.path) {
+          dropDown.currentPage = true;
+        }
         dropDown.title = file.data.title;
         dropDown.description = file.data.description;
         dropDown.query = query;
@@ -184,6 +142,7 @@ export const Search = (props: SearchBoxProps) => {
           activityTitle: "",
           activityDescription: "",
           path: "",
+          currentPage: false,
           description: "",
           userActivity: "",
           backgroundActivity: "",
@@ -192,6 +151,9 @@ export const Search = (props: SearchBoxProps) => {
         };
 
         dropDown.path = file.data.path;
+        if (pathname === "/" + file.data.path) {
+          dropDown.currentPage = true;
+        }
         dropDown.title = file.data.title;
         dropDown.description = file.data.description;
         dropDown.activityTitle = section.title;
@@ -205,62 +167,114 @@ export const Search = (props: SearchBoxProps) => {
 
     // Search Page Tasks
     const tasksResults = nllDataFiles.filter((file) => {
-      let dropDown = {
-        foundIn: "tasks",
-        activityTitle: "",
-        activityDescription: "",
-        path: "",
-        description: "",
-        userActivity: "",
-        backgroundActivity: "",
-        title: "",
-        query: "",
-      };
-
       let searchFoundInTasks = file.data.data.filter((item) => {
-        // return item.tasks.filter((tasks) => {
-        //   return tasks.userActivity.filter((userActivity) => {
-        //     return userActivity.Value.toLowerCase().includes(
-        //       query.toLowerCase()
-        //     );
-        //   });
-        // });
-        return item.tasks.find((task) => {
+        // Search in title
+        if (item.title.toLowerCase().includes(query.toLowerCase())) {
+          let dropDown = {
+            foundIn: "tasks",
+            activityTitle: "",
+            activityDescription: "",
+            path: "",
+            currentPage: false,
+            description: "",
+            userActivity: "",
+            backgroundActivity: "",
+            title: "",
+            query: "",
+          };
+
+          if (pathname === "/" + file.data.path) {
+            dropDown.currentPage = true;
+          }
+          dropDown.description = item.description;
+          dropDown.path = file.data.path;
+          dropDown.title = file.data.title;
+          dropDown.query = query;
+          dropDownItems.push(dropDown);
+        }
+
+        // Search in user activity
+        let userAct = item.tasks.filter((task) => {
+          let searchFoundInUserActivity = task.userActivity.filter((value) => {
+            let dropDown = {
+              foundIn: "tasks",
+              activityTitle: "",
+              activityDescription: "",
+              path: "",
+              currentPage: false,
+              description: "",
+              userActivity: "",
+              backgroundActivity: "",
+              title: "",
+              query: "",
+            };
+
+            let searchFoundInUserActivity = value.Value.toLowerCase().includes(
+              query.toLowerCase()
+            );
+            if (searchFoundInUserActivity) {
+              if (pathname === "/" + file.data.path) {
+                dropDown.currentPage = true;
+              }
+              dropDown.activityTitle = task.title
+                ? task.title
+                : task.userActivity.filter((value) => value.Type === "Title")[0]
+                    ?.Value;
+              dropDown.userActivity = value.Value;
+              dropDown.description = item.description;
+              dropDown.path = file.data.path;
+              dropDown.title = file.data.title;
+              dropDown.query = query;
+              dropDownItems.push(dropDown);
+            }
+            return searchFoundInUserActivity;
+          });
+          return searchFoundInUserActivity;
+        });
+
+        // Search in background activity
+        let backAct = item.tasks.filter((task) => {
           let userActivity = null;
-          let searchFoundInActivity =
-            task.title.toLowerCase().includes(query.toLowerCase()) ||
-            task.userActivity.find((value) => {
+          let searchFoundInBackgroundActivity = task.backgroundActivity.filter(
+            (value) => {
+              let dropDown = {
+                foundIn: "tasks",
+                activityTitle: "",
+                activityDescription: "",
+                path: "",
+                currentPage: false,
+                description: "",
+                userActivity: "",
+                backgroundActivity: "",
+                title: "",
+                query: "",
+              };
+
               let searchFoundInUserActivity =
                 value.Value.toLowerCase().includes(query.toLowerCase());
               if (searchFoundInUserActivity) {
-                dropDown.userActivity = value.Value;
+                if (pathname === "/" + file.data.path) {
+                  dropDown.currentPage = true;
+                }
+                dropDown.activityTitle = task.title
+                  ? task.title
+                  : task.backgroundActivity.filter(
+                      (value) => value.Type === "Title"
+                    )[0]?.Value;
                 dropDown.description = item.description;
+                dropDown.backgroundActivity = value.Value;
+                dropDown.path = file.data.path;
+                dropDown.title = file.data.title;
+                dropDown.query = query;
+                dropDownItems.push(dropDown);
               }
               return searchFoundInUserActivity;
-            }) ||
-            task.backgroundActivity.find((value) => {
-              let searchFoundInBackgroundActivity =
-                value.Value.toLowerCase().includes(query.toLowerCase());
-              if (searchFoundInBackgroundActivity) {
-                dropDown.backgroundActivity = value.Value;
-                dropDown.description = item.description;
-              }
-              return searchFoundInBackgroundActivity;
-            });
-          if (searchFoundInActivity) {
-            dropDown.activityTitle = task.title;
-            dropDown.activityDescription = item.description;
-          }
-          return searchFoundInActivity;
+            }
+          );
+          return searchFoundInBackgroundActivity;
         });
       });
 
-      if (searchFoundInTasks.length > 0) {
-        dropDown.path = file.data.path;
-        dropDown.title = file.data.title;
-        dropDown.query = query;
-        dropDownItems.push(dropDown);
-      }
       return searchFoundInTasks;
     });
 
@@ -273,6 +287,7 @@ export const Search = (props: SearchBoxProps) => {
           activityTitle: "",
           activityDescription: "",
           path: "",
+          currentPage: false,
           description: "",
           userActivity: "",
           backgroundActivity: "",
@@ -298,12 +313,21 @@ export const Search = (props: SearchBoxProps) => {
         )
     );
 
+    // Sort so any content on the current page is at the top
+    dropDownItems.sort((a) => {
+      return a.currentPage === true ? -1 : 1;
+    });
+
     setOptions(dropDownItems);
     setShowSearchResults(true);
   };
 
-  const handleClickAway = () => {
+  const handleClickAway = (path: string) => {
     setShowSearchResults(false);
+
+    if (path !== "") {
+      routerNav.push(path, { scroll: false });
+    }
   };
 
   const replaceAll = (str: any, find: any, replace: any) => {
@@ -315,26 +339,6 @@ export const Search = (props: SearchBoxProps) => {
     searchTerm: string,
     elipsis = true
   ) => {
-    // let index = str.toLocaleLowerCase().indexOf(searchTerm.toLowerCase());
-    // if (index === -1) {
-    //   return str;
-    // } else {
-    //   let start = Math.max(0, index - 50);
-    //   let end = Math.min(str.length, index + searchTerm.length + 50);
-    //   let result = (
-    //     <Caption1>
-    //       {elipsis ? "..." : null} {str.substring(start, index)}
-    //       <Body1Stronger
-    //         style={{ color: tokens.colorPaletteGrapeBorderActive }}
-    //       >
-    //         {searchTerm}
-    //       </Body1Stronger>
-    //       {str.substring(index + searchTerm.length, end)}
-    //       {elipsis ? "..." : null}
-    //     </Caption1>
-    //   );
-    //   return result;
-    // }
     let index = str.toLocaleLowerCase().indexOf(searchTerm.toLowerCase());
     if (index === -1) {
       return str;
@@ -417,12 +421,14 @@ export const Search = (props: SearchBoxProps) => {
         <SearchBox
           {...props}
           onChange={(event: any) => handleSearchQuery(event)}
+          placeholder="Search"
+          aria-label="Search 3 characters or more required."
         />
         {/*  position: "absolute", marginTop: "32px",  */}
       </Field>
-      <ClickAwayListener onClickAway={handleClickAway}>
-        <Box
-          sx={
+      <ClickAwayListener onClickAway={() => handleClickAway("")}>
+        <div
+          style={
             showSearchResults
               ? {
                   display: "block",
@@ -444,6 +450,7 @@ export const Search = (props: SearchBoxProps) => {
                   activityTitle: string;
                   activityDescription: string;
                   path: string;
+                  currentPage: boolean;
                   description: string;
                   userActivity: string;
                   backgroundActivity: string;
@@ -452,94 +459,93 @@ export const Search = (props: SearchBoxProps) => {
                 },
                 index: string
               ) => (
-                <ListItemButton
+                <CompoundButton
                   key={option.path + index}
-                  component={Link}
-                  href={
-                    "/" +
-                    option.path +
-                    "#" +
-                    replaceAll(option.activityTitle, " ", "-")
+                  style={{ maxWidth: "470px" }}
+                  onClick={() =>
+                    handleClickAway(
+                      "/" +
+                        option.path +
+                        "#" +
+                        replaceAll(option.activityTitle, " ", "-")
+                    )
                   }
-                  onClick={handleClickAway}
-                  divider
-                >
-                  <ListItemText
-                    primary={
-                      <Box>
-                        <Subtitle2Stronger>
-                          {sampleSearchTitle(option.title, option.query, false)}
-                        </Subtitle2Stronger>
-                        {/* <br />
-                        <Subtitle2Stronger>
-                          FOUND ID: {option.foundIn}
-                        </Subtitle2Stronger> */}
-                        {option.description ? (
-                          <>
-                            <br />
-
-                            <Caption1Stronger
-                              style={{
-                                color: tokens.colorPaletteRoyalBlueForeground2,
-                              }}
-                            >
-                              Description{" "}
-                            </Caption1Stronger>
-                            <Caption1>
-                              {sampleSearchText(
-                                option.description,
-                                option.query,
-                                false
-                              )}
-                            </Caption1>
-                          </>
-                        ) : null}
-                        {option.activityTitle ? (
-                          <>
-                            <br />
-
-                            <Caption1Stronger
-                              style={{
-                                color: tokens.colorPaletteRoyalBlueForeground2,
-                              }}
-                            >
-                              Activity Title{" "}
-                            </Caption1Stronger>
-                            <Caption1>
-                              {sampleSearchText(
-                                option.activityTitle,
-                                option.query,
-                                false
-                              )}
-                            </Caption1>
-                          </>
-                        ) : null}
-                        {option.activityDescription ? (
-                          <>
-                            <br />
-
-                            <Caption1Stronger
-                              style={{
-                                color: tokens.colorPaletteRoyalBlueForeground2,
-                              }}
-                            >
-                              Activity Description{" "}
-                            </Caption1Stronger>
-                            <Caption1>
-                              {sampleSearchText(
-                                option.activityDescription,
-                                option.query,
-                                false
-                              )}
-                            </Caption1>
-                          </>
-                        ) : null}
-                        {option.userActivity.length > 0 ||
-                        option.backgroundActivity.length > 0 ? (
-                          <br />
-                        ) : null}
-                        {option.userActivity ? (
-                          <>
+                  // divider
+                  as={"a"}
+                  secondaryContent={
+                    <div style={{ width: "100%" }}>
+                      {/* <br />
+                      <Subtitle2Stronger>
+                        FOUND ID: {option.foundIn}
+                      </Subtitle2Stronger> */}
+                      {option.description ? (
+                        <div
+                          style={{
+                            width: "100%",
+                            display: "flex",
+                          }}
+                        >
+                          <Caption1Stronger
+                            style={{
+                              color: tokens.colorPaletteRoyalBlueForeground2,
+                              paddingRight: "5px",
+                            }}
+                          >
+                            Description{" "}
+                          </Caption1Stronger>
+                          <Caption1>
+                            {sampleSearchText(
+                              option.description,
+                              option.query,
+                              false
+                            )}
+                          </Caption1>
+                        </div>
+                      ) : null}
+                      {option.activityTitle ? (
+                        <div>
+                          <Caption1Stronger
+                            style={{
+                              color: tokens.colorPaletteRoyalBlueForeground2,
+                              paddingRight: "5px",
+                            }}
+                          >
+                            Activity Title{" "}
+                          </Caption1Stronger>
+                          <Caption1>
+                            {sampleSearchText(
+                              option.activityTitle,
+                              option.query,
+                              false
+                            )}
+                          </Caption1>
+                        </div>
+                      ) : null}
+                      {option.activityDescription ? (
+                        <div>
+                          <Caption1Stronger
+                            style={{
+                              color: tokens.colorPaletteRoyalBlueForeground2,
+                            }}
+                          >
+                            Activity Description{" "}
+                          </Caption1Stronger>
+                          <Caption1>
+                            {sampleSearchText(
+                              option.activityDescription,
+                              option.query,
+                              false
+                            )}
+                          </Caption1>
+                        </div>
+                      ) : null}
+                      {option.userActivity.length > 0 ||
+                      option.backgroundActivity.length > 0 ? (
+                        <></>
+                      ) : null}
+                      {option.userActivity ? (
+                        <>
+                          <div>
                             <Caption1Stronger
                               style={{
                                 color: tokens.colorPaletteRoyalBlueForeground2,
@@ -548,7 +554,8 @@ export const Search = (props: SearchBoxProps) => {
                               User Activity{" "}
                             </Caption1Stronger>
                             <Caption1>{option.activityTitle}</Caption1>
-                            <br />
+                          </div>
+                          <div>
                             <Caption1Stronger
                               style={{
                                 color: tokens.colorPaletteRoyalBlueForeground2,
@@ -562,13 +569,15 @@ export const Search = (props: SearchBoxProps) => {
                                 option.query
                               )}
                             </Caption1>
-                          </>
-                        ) : null}
-                        {option.backgroundActivity && option.userActivity ? (
-                          <br />
-                        ) : null}
-                        {option.backgroundActivity ? (
-                          <>
+                          </div>
+                        </>
+                      ) : null}
+                      {option.backgroundActivity && option.userActivity ? (
+                        <></>
+                      ) : null}
+                      {option.backgroundActivity ? (
+                        <>
+                          <div>
                             <Caption1Stronger
                               style={{
                                 color: tokens.colorPaletteRoyalBlueForeground2,
@@ -577,7 +586,8 @@ export const Search = (props: SearchBoxProps) => {
                               Background Activity{" "}
                             </Caption1Stronger>
                             <Caption1>{option.activityTitle}</Caption1>
-                            <br />
+                          </div>
+                          <div>
                             <Caption1Stronger
                               style={{
                                 color: tokens.colorPaletteRoyalBlueForeground2,
@@ -591,17 +601,33 @@ export const Search = (props: SearchBoxProps) => {
                                 option.query
                               )}
                             </Caption1>
-                          </>
-                        ) : null}
-                        <br />
-                      </Box>
-                    }
-                  />
-                </ListItemButton>
+                          </div>
+                        </>
+                      ) : null}
+                    </div>
+                  }
+                >
+                  <div
+                    style={{
+                      maxWidth: "450px",
+                      minWidth: "450px",
+                      display: "flex",
+                    }}
+                  >
+                    <Subtitle2Stronger style={{ width: "100%" }}>
+                      {sampleSearchTitle(option.title, option.query, false)}
+                    </Subtitle2Stronger>
+                    {option.currentPage ? (
+                      <Caption1 align="end" style={{ width: "100%" }}>
+                        On this Page
+                      </Caption1>
+                    ) : null}
+                  </div>
+                </CompoundButton>
               )
             )}
           </Card>
-        </Box>
+        </div>
       </ClickAwayListener>
     </div>
   );

@@ -20,7 +20,6 @@ import {
 import { Box, Stack, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Linkify from "react-linkify";
-
 import { IUserActivity } from "../../../types/types";
 import BlogCodeBlock from "../../../components/code-block";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
@@ -32,18 +31,6 @@ var Element = Scroll.Element;
 
 type Props = {
   userActivity: IUserActivity[];
-};
-
-const style = {
-  position: "absolute" as "absolute",
-  top: "40%",
-  left: "40%",
-  transform: "translate(-30%, -30%)",
-  bgcolor: "background.paper",
-  borderRadius: "16px",
-  // border: "2px solid #000",
-  boxShadow: 24,
-  p: 2,
 };
 
 const replaceAll = (str: any, find: any, replace: any) => {

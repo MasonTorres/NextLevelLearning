@@ -27,6 +27,7 @@ import Scroll from "react-scroll";
 import UserActivity from "./components/UserActivity";
 import BackgroundActivity from "./components/BackgroundActivity";
 import { IContent } from "../../types/types";
+import { usePathname, useSearchParams } from "next/navigation";
 
 var Link = Scroll.Link;
 var Element = Scroll.Element;
@@ -106,6 +107,9 @@ export default function NextLevelLearning({
   const isNotMobile = useMediaQuery(theme.breakpoints.up("md"));
   const styles = useStyles();
   const [selectedTab, setSelectedTab] = useState(1);
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const [anchor, setAnchor] = useState("");
 
   // const { pageInfo, setPageInfo } = useContext(PageInfoContext);
 
@@ -120,6 +124,10 @@ export default function NextLevelLearning({
   //     // setContentWidth("96px");
   //   }
   // }, [pageInfo.drawer]);
+
+  const replaceAll = (str: any, find: any, replace: any) => {
+    return str.replace(new RegExp(find, "g"), replace);
+  };
 
   const handleSelectedTab = (e: any, value: SetStateAction<any>) => {
     const stepToChangeTo = Number(e.toString().replace("step", ""));
@@ -167,11 +175,31 @@ export default function NextLevelLearning({
     }
   };
 
+  const handleScrollToAnchor = () => {
+    // const anchor = window.location.hash;
+    if (window.location.hash) {
+      scroller.scrollTo(window.location.hash.substring(1), {
+        duration: 1500,
+        delay: 50,
+        smooth: true,
+        // containerId: "ContainerElementID",
+        offset: -135, // Scrolls to element + 50 pixels down the page
+      });
+    }
+  };
+
   useEffect(() => {
     // Scroll to the top of the page when the component loads
     setSelectedTab(1);
     handleSelectedTab("", "pageLoad");
+
+    handleScrollToAnchor();
   }, []);
+
+  useEffect(() => {
+    handleScrollToAnchor();
+    setAnchor(window.location.hash);
+  }, [searchParams]);
 
   return (
     <Box component="ul" display="flex" flexDirection="column" py={3}>
@@ -315,6 +343,10 @@ export default function NextLevelLearning({
                     >
                       <Box px={isNotMobile ? 2 : 0} pl={isNotMobile ? 0 : 0}>
                         <Box p={isNotMobile ? 0 : 2} pb={isNotMobile ? 2 : 2}>
+                          <Element
+                            id={replaceAll(task.title, " ", "-")}
+                            name={replaceAll(task.title, " ", "-")}
+                          />
                           <Subtitle2>
                             {step.section}.{index + 1} User Activity{" "}
                           </Subtitle2>

@@ -255,7 +255,7 @@
           "backgroundActivity": [
             {
               "Type": "Title",
-              "Value": "Sample output - Install GPG "
+              "Value": "Sample output - Install GPG"
             },
             {
               "Type": "Code",
