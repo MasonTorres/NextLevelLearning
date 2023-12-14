@@ -198,7 +198,7 @@ const Home = () => {
 
       <Grid container minHeight={"400px"}>
         {isClient ? (
-          <Grid item xs={2} spacing={2} mt={2} mb={matches ? 0 : "66px"}>
+          <Grid item xs={2} mt={2} mb={matches ? 0 : "66px"}>
             <Box display={"flex"}>
               <TabList
                 defaultSelectedValue={selectedValue}
