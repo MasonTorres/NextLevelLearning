@@ -132,7 +132,6 @@ const Home = () => {
   };
 
   const handleCardClick = (path: string) => {
-    console.log("event", path);
     router.push(path);
   };
 
@@ -209,7 +208,6 @@ const Home = () => {
                 appearance="subtle"
               >
                 {uniqueSections.map((section: string) => {
-                  console.log("section", section);
                   const title = replaceAll(section, "/", " > ");
                   return (
                     <Tab key={section} id={section} value={section}>

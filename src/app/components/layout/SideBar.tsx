@@ -132,7 +132,6 @@ export default function SideBar({ title, to }: any) {
 
   const [selectedValue, setSelectedValue] = useState<TabValue>(pathname);
   const onTabSelect = (event: SelectTabEvent, data: SelectTabData) => {
-    console.log("data.value", data.value);
     router.push(data.value as string);
     setSelectedValue(data.value);
   };
