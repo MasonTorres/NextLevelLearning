@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@babel/traverse": "7.23.2",
+    "@babel/traverse": "^7.23.5",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fluentui/react": "^8.112.2",
-    "@fluentui/react-components": "^9.34.2",
+    "@fluentui/react-components": "^9.42.0",
     "@fluentui/react-icons": "^2.0.219",
     "@fluentui/react-search-preview": "^0.1.27",
     "@iconify/icons-cib": "^1.2.4",

@@ -1,7 +1,7 @@
 {
   "title": "Oracle Kernel Update",
-  "path": "mde/linux/linux-oracle-kernel-update",
-  "description": "Example remediation scenario: Updating the kernal on an Oracle Linux server",
+  "path": "mde/linux/oracle/linux-oracle-kernel-update",
+  "description": "Example remediation scenario: Updating the kernel on an Oracle Linux server",
   "data": [
     {
       "section": 1,

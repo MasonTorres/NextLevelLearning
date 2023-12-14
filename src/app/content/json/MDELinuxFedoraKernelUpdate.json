@@ -1,0 +1,214 @@
+{
+  "title": "Fedora Kernel Update",
+  "path": "mde/linux/fedora/linux-fedora-kernel-update",
+  "description": "Example remediation scenario: Updating the kernel on an Fedora Linux server",
+  "data": [
+    {
+      "section": 1,
+      "title": "View recommendations",
+      "description": "View recommendations from the Microsoft 365 Defender portal",
+      "tasks": [
+        {
+          "title": "",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Review recommendations"
+            },
+            {
+              "Type": "Description",
+              "Value": "Navigate to https://security.microsoft.com/security-recommendations and review the recommendations for your environment."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/fedora/VulnerabilityManagement-Recommendations.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "What is the security portal doing?"
+            },
+            {
+              "Type": "Description",
+              "Value": "The Microsoft 365 Defender portal is analyzing your environment and providing recommendations based on the security posture of your environment."
+            }
+          ]
+        },
+        {
+          "title": "Select a recommendation to review",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Select a recommendation to review"
+            },
+            {
+              "Type": "Description",
+              "Value": "In this scenario we are reviewing teh Update Fedora Kernel-uek for Linux"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/fedora/VulnerabilityManagement-Recommendations-FedoraKernel.png"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "What's does the portal show us?"
+            },
+            {
+              "Type": "Description",
+              "Value": "The portal advises us to update the kerel, it shows the list of exposed/installed devices, and any associated CVEs related to this vulnerability."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/fedora/VulnerabilityManagement-Recommendations-FedoraCVE-1.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "We can also see the list of CVEs associated with this vulnerability."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/fedora/VulnerabilityManagement-Recommendations-FedoraCVE-2.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 2,
+      "title": "Update the kernel",
+      "description": "Update the kernel on the Fedora Linux server",
+      "tasks": [
+        {
+          "title": "What's the current kernel version?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the current kernel version"
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo uname -r"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Code",
+              "Value": "6.6.4-100.fc38.x86_64"
+            }
+          ]
+        },
+        {
+          "title": "How do we fix this?",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Update the Fedora package information"
+            },
+            {
+              "Type": "Description",
+              "Value": "dnf is a command used in Fedora to upgrade all the packages installed on the system to their latest versions. The --refresh option tells dnf to download the latest package information from the repositories before checking for updates."
+            },
+            {
+              "Type": "Code",
+              "Value": "dnf upgrade --refresh"
+            },
+            {
+              "Type": "Description",
+              "Value": "Reboot the server to apply the kernel update."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Sample output"
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/fedora/VulnerabilityManagement-Recommendations-dnf-1.png"
+            },
+            {
+              "Type": "Description",
+              "Value": "The output shows the packages that will be updated, and the size of the download."
+            },
+            {
+              "Type": "Image",
+              "Value": "/images/nll/fedora/VulnerabilityManagement-Recommendations-dnf-2.png"
+            }
+          ]
+        },
+        {
+          "title": "Confirm the kernel version",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the new kernel version"
+            },
+            {
+              "Type": "Description",
+              "Value": "When the Linux server reboots, log back in and check the kernel version again."
+            },
+            {
+              "Type": "Code",
+              "Value": "sudo uname -r"
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "Kernel Updated"
+            },
+            {
+              "Type": "Code",
+              "Value": "6.6.6-100.fc38.x86_64"
+            },
+            {
+              "Type": "Description",
+              "Value": "The kernel has been updated to the latest version from 6.6.4-100.fc38.x86_64 to 6.6.6-100.fc38.x86_64"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "title": "Check the Security Portal",
+      "description": "Check the Microsoft 365 Defender portal for updates",
+      "tasks": [
+        {
+          "title": "Check the Security Portal",
+          "userActivity": [
+            {
+              "Type": "Title",
+              "Value": "Check the Security Portal"
+            },
+            {
+              "Type": "Description",
+              "Value": "Navigate back to the Microsoft 365 Defender portal and review the recommendations."
+            },
+            {
+              "Type": "Note",
+              "Value": "The portal will take some time to update depending on how often the agent reports back to the MDE service."
+            }
+          ],
+          "backgroundActivity": [
+            {
+              "Type": "Title",
+              "Value": "What's does the portal show us?"
+            },
+            {
+              "Type": "Description",
+              "Value": "The portal shows that the Fedora Kernel has been updated, and the CVEs have been addressed."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
